@@ -602,10 +602,10 @@
     }
     @keyframes words{
       0%, 20%{
-          content: "Video Editor ";
+          content: "Frontend Developer ";
       }
       21%, 40%{
-          content: "Data Analysis";
+          content: "Video Editor";
       }
       41%, 60%{
           content: "Canva Designer";
@@ -614,7 +614,7 @@
           content: "Python Developer ";
       }
       81%, 100%{
-          content: "Frontend Developer"; 
+          content: "Data Analysis"; 
       }
     }
     
@@ -1045,7 +1045,7 @@
     </nav>
       <!--Resume Button-->
       <div class="resume-btn-container">
-  <a href="Resume-2.5.pdf" download="VickyRaj-Resume.pdf" class="resume-btn">
+  <a href="Vicky Raj-2.6.pdf" download="VickyRaj-Resume.pdf" class="resume-btn">
     <i class="fas fa-file-download"></i> Resume
   </a>
 </div>
@@ -1330,27 +1330,6 @@
 
     // Theme toggle
 
-    const themeToggleBtn = document.getElementById('themeToggle');
-
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-
-    document.documentElement.setAttribute('data-theme', currentTheme);
-
-    themeToggleBtn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
-
-
-
-    themeToggleBtn.addEventListener('click', () => {
-
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-
-      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
-
-      themeToggleBtn.textContent = isDark ? '🌙' : '☀️';
-
-
 
       // Animate toggle
 
@@ -1382,6 +1361,7 @@
     window.addEventListener('scroll', animateOnScroll);
 
   });
+  
 
 </script> 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
