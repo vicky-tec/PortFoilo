@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +109,7 @@
     
     nav a:hover,
     nav a.active {
-      color: #ADFF2F;
+      color:rgb(0, 255, 255);
     }
     
     nav a::after {
@@ -601,10 +602,10 @@
     }
     @keyframes words{
       0%, 20%{
-          content: "Video Editor";
+          content: "Frontend Developer ";
       }
       21%, 40%{
-          content: "Data Analysis";
+          content: "Video Editor";
       }
       41%, 60%{
           content: "Canva Designer";
@@ -613,7 +614,7 @@
           content: "Python Developer ";
       }
       81%, 100%{
-          content: "Frontend Developer"; 
+          content: "Data Analysis"; 
       }
     }
     
@@ -994,6 +995,38 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Add this CSS */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.resume-btn {
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  color: white;
+  font-size: 1.6rem;
+  border: 2px solid #1bc4f8;
+  border-radius: 4rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resume-btn:hover {
+  background: #1bc4f8;
+  color: black;
+  box-shadow: 0 0 15px #1bc4f8;
+}
+
+/* Adjust theme toggle position */
+.theme-toggle-container {
+  margin-left: 0;
+}
+
   </style>
 </head>
 <body>
@@ -1010,10 +1043,14 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-      <!-- Dark/Light Theme Toggle Button -->
-<button id="themeToggle" class="theme-toggle" style="left: 25px; right: auto;" onclick="toggleTheme()" aria-label="Toggle theme">
-    🌙
-</button>
+      <!--Resume Button-->
+      <div class="resume-btn-container">
+  <a href="Resume-2.5.pdf" download="VickyRaj-Resume.pdf" class="resume-btn">
+    <i class="fas fa-file-download"></i> Resume
+  </a>
+</div>
+
+
    
   </header>
 
