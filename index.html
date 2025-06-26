@@ -36,7 +36,7 @@
       overflow-x: hidden;
       background-color: #0a0a0a;
       color: white;
-      background-image: url(elliott-engelmann-DjlKxYFJlTc-unsplash.jpg);
+      /* background-image: url(elliott-engelmann-DjlKxYFJlTc-unsplash.jpg); */
 
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -225,7 +225,7 @@
     }
 
     .skill-box {
-      background: rgba(27, 196, 248, 0.1);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 2rem;
       padding: 3rem;
       text-align: center;
@@ -634,9 +634,9 @@
         content: "Data Analysis ";
       }
 
-      /* 81%, 100%{
+      81%, 100%{
           content: "Python Developer"; 
-      } */
+      }
     }
 
     /* Footer Styles */
@@ -673,6 +673,37 @@
         opacity: 1;
         transform: translateY(-20px);
       }
+    }
+
+    /* Video Background */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 10, 10, 0.7);
+    }
+
+    /* Remove the background-image from body */
+    body {
+      background-image: none;
     }
 
     /* Mobile Menu Toggle */
@@ -1056,12 +1087,30 @@
     .theme-toggle-container {
       margin-left: 0;
     }
+
+    .theme-toggle {
+      font-size: 2.5rem;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      color: #1bc4f8;
+    }
   </style>
 </head>
 
 <body>
   <div class="cursor"></div>
   <button id="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></button>
+  <div class="video-background">
+    <video autoplay muted loop id="myVideo">
+      <source src="matrix-digital-moewalls-com.mp4" type="video/mp4">
+      <!-- Add fallback image if video doesn't load -->
+      <img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Fallback background">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
 
   <header>
     <a href="#home" class="logo">VR</a>
@@ -1096,7 +1145,8 @@
       <h1 class="slide-in">Hi, It's <span>Vicky</span></h1>
       <h3 class="typing-text">I'm <span></span></h3>
       <p class="fade-in">Hi, I'm <strong>Vicky Raj</strong>, a passionate <strong>Gen-Frontend Developer</strong> and
-        <strong>Data Analyst</strong> currently pursuing a B.Sc in Computer Science and Data Analytics at IIT Patna.</p>
+        <strong>Data Analyst</strong> currently pursuing a B.Sc in Computer Science and Data Analytics at IIT Patna.
+      </p>
       <div class="social-icons">
         <a href="https://www.linkedin.com/in/vicky-raj-090760282/" class="icon-scale"><i
             class="fab fa-linkedin"></i></a>
@@ -1404,12 +1454,27 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.7/scrollreveal.min.js"></script>
   <script>
+    // Video background play/pause control
+    const video = document.getElementById('myVideo');
+    try {
+      video.play().catch(error => {
+        console.log('Video autoplay was prevented:', error);
+        // Fallback: Show play button or handle accordingly
+      });
+    } catch (error) {
+      console.log('Video error:', error);
+    }
     ScrollReveal().reveal('.home-content h1', { delay: 300, duration: 1000, origin: 'bottom', distance: '50px' });
     ScrollReveal().reveal('.home-content h3', { delay: 500, duration: 1000, origin: 'bottom', distance: '50px' });
     ScrollReveal().reveal('.skills-container .skill-box', { delay: 300, duration: 1000, origin: 'left', interval: 200 });
     ScrollReveal().reveal('.projects-container .project-box', { delay: 300, duration: 1000, origin: 'right', interval: 200 });
     ScrollReveal().reveal('.timeline-item', { delay: 300, duration: 1000, origin: 'bottom', interval: 200 });
     ScrollReveal().reveal('.certificates-container .certificate-box', { delay: 300, duration: 1000, origin: 'bottom', interval: 200 });
+    // Mobile video fallback
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      const videoBg = document.querySelector('.video-background');
+      videoBg.innerHTML = '<img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Background" style="width:100%;height:100%;object-fit:cover;">';
+    }
     ScrollReveal().reveal('.contact-form', { delay: 300, duration: 1000, origin: 'bottom' });
   </script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
