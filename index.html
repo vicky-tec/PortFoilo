@@ -1545,247 +1545,104 @@
     <div class="copyright">&copy; 2025 VR Portfolio. All Rights Reserved.</div>
   </footer>
 
+
   <script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-
-      // Mobile menu toggle
-
-      const menuToggle = document.getElementById('menu-toggle');
-
-      const nav = document.querySelector('nav');
-
-
-
-      menuToggle.addEventListener('click', function () {
-
-        nav.classList.toggle('active');
-
-        menuToggle.innerHTML = nav.classList.contains('active') ?
-
-          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('active');
+      menuToggle.innerHTML = nav.classList.contains('active') ?
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        nav.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
       });
-
-
-
-      document.querySelectorAll('nav a').forEach(link => {
-
-        link.addEventListener('click', function () {
-
-          nav.classList.remove('active');
-
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-
-        });
-
-      });
-
-
-
-      // // Custom cursor (disabled for mobile devices)
-
-      // const cursor = document.querySelector('.cursor');
-
-      // const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-      // if (!isMobile && cursor) {
-
-      //   document.addEventListener('mousemove', (e) => {
-
-      //     cursor.style.left = e.pageX + 'px';
-
-      //     cursor.style.top = e.pageY + 'px';
-
-      //   });
-
-      // } else {
-
-      //   cursor.style.display = 'none';
-
-      // }
-
-
-
-      // Header scroll effect
-
-      const header = document.querySelector('header');
-
-      window.addEventListener('scroll', () => {
-
-        header.classList.toggle('scrolled', window.scrollY > 50);
-
-      });
-
-
-
-      // Scroll indicator
-
-      const scrollIndicator = document.querySelector('.scroll-indicator');
-
-      window.addEventListener('scroll', () => {
-
-        scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
-
-      });
-
-
-
-      // Theme toggle
-
-
-      // Animate toggle
-
-      themeToggleBtn.classList.add('rotate');
-
-      setTimeout(() => {
-
-        themeToggleBtn.classList.remove('rotate');
-
-      }, 500);
-
     });
 
-    // Scroll reveal animations
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
+    // Scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    window.addEventListener('scroll', () => {
+      scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
+    });
+
+    // Animate section titles on scroll
     const animateOnScroll = () => {
-
-      document.querySelectorAll('.slide-in, .fade-in, .section-title').forEach(el => {
-
+      document.querySelectorAll('.section-title').forEach(el => {
         const rect = el.getBoundingClientRect();
-
-        if (rect.top < window.innerHeight * 0.9) el.classList.add('animate');
-
+        if (rect.top < window.innerHeight * 0.9) {
+          el.classList.add('animate');
+        }
       });
-
     };
     animateOnScroll();
-
     window.addEventListener('scroll', animateOnScroll);
 
-  </script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.7/scrollreveal.min.js"></script>
-  <script>
     // Video background play/pause control
     const video = document.getElementById('myVideo');
     try {
       video.play().catch(error => {
         console.log('Video autoplay was prevented:', error);
-        // Fallback: Show play button or handle accordingly
       });
     } catch (error) {
       console.log('Video error:', error);
     }
-    ScrollReveal().reveal('.home-content h1', { delay: 300, duration: 1000, origin: 'bottom', distance: '50px' });
-    ScrollReveal().reveal('.home-content h3', { delay: 500, duration: 1000, origin: 'bottom', distance: '50px' });
-    ScrollReveal().reveal('.skills-container .skill-box', { delay: 300, duration: 1000, origin: 'left', interval: 200 });
-    ScrollReveal().reveal('.projects-container .project-box', { delay: 300, duration: 1000, origin: 'right', interval: 200 });
-    ScrollReveal().reveal('.timeline-item', { delay: 300, duration: 1000, origin: 'bottom', interval: 200 });
-    ScrollReveal().reveal('.certificates-container .certificate-box', { delay: 300, duration: 1000, origin: 'bottom', interval: 200 });
+    
     // Mobile video fallback
     if (/Mobi|Android/i.test(navigator.userAgent)) {
       const videoBg = document.querySelector('.video-background');
       videoBg.innerHTML = '<img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Background" style="width:100%;height:100%;object-fit:cover;">';
     }
-    ScrollReveal().reveal('.contact-form', { delay: 300, duration: 1000, origin: 'bottom' });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.7/scrollreveal.min.js">
-  </script>
-  <script>
-    document.querySelector('.contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const formStatus = document.getElementById('form-status');
-      const submitBtn = form.querySelector('button[type="submit"]');
 
-      // Show loading state
+    // Consolidated form submission script with SweetAlert2 (swal)
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
+    const contactForm = document.forms["submit-to-google-sheet"];
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      // Disable button and show loading state
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+      const formData = new FormData(contactForm);
+      const ex = document.getElementById("ex").checked;
+      const age = document.getElementById("age").checked;
 
-      fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-        .then(response => response.json())
-        .then(data => {
-          formStatus.style.display = 'block';
-          formStatus.style.padding = '15px';
-          formStatus.style.marginTop = '20px';
-          formStatus.style.borderRadius = '5px';
-
-          if (data.success) {
-            formStatus.style.backgroundColor = 'rgba(40, 167, 69, 0.2)';
-            formStatus.style.border = '1px solid #28a745';
-            formStatus.style.color = '#28a745';
-            formStatus.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
-            form.reset();
-          } else {
-            formStatus.style.backgroundColor = 'rgba(220, 53, 69, 0.2)';
-            formStatus.style.border = '1px solid #dc3545';
-            formStatus.style.color = '#dc3545';
-            formStatus.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + data.message;
-          }
-        })
-        .catch(error => {
-          formStatus.style.display = 'block';
-          formStatus.style.backgroundColor = 'rgba(220, 53, 69, 0.2)';
-          formStatus.style.border = '1px solid #dc3545';
-          formStatus.style.color = '#dc3545';
-          formStatus.innerHTML = '<i class="fas fa-exclamation-circle"></i> Network error. Please try again later.';
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Send Message';
-
-          // Hide status message after 5 seconds
-          setTimeout(() => {
-            formStatus.style.display = 'none';
-          }, 5000);
-        });
-    });
-  </script>
-  <script>
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
-    const form = document.forms["submit-to-google-sheet"];
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      var formData = new FormData(form);
-      var ex = document.getElementById("ex").checked;
-      var age = document.getElementById("age").checked;
-
-      if (age) {
-        formData.append("age", "Yes");
-      } else {
-        formData.append("age", "No");
-      }
-      if (ex) {
-        formData.append("ex", "Yes");
-      } else {
-        formData.append("ex", "No");
-      }
+      formData.append("age", age ? "Yes" : "No");
+      formData.append("ex", ex ? "Yes" : "No");
 
       fetch(scriptURL, { method: "POST", body: formData })
         .then((response) => {
           swal("Done", "Submitted Successfully.", "success");
+          contactForm.reset();
         })
         .catch((error) => {
-          swal("Error", "Something went wrong. please try again!", "error");
+          swal("Error", "Something went wrong. Please try again!", "error");
+        })
+        .finally(() => {
+          // Re-enable button and reset text
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Submit';
         });
     });
-  </script>
+  });
+</script>
 
 </body>
 
 </html>
+
 
 
 
