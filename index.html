@@ -6,10 +6,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VR Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="icon" href="WhatsApp Image 2025-09-15 at 06.35.10_8cfa4e02.jpg">
+  <link rel="icon" href="PortFoilo/picofme.png">
   <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
+    /* Preloader Styles */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      flex-direction: column;
+      color: #0cbdf3;
+      font-family: 'Protest Revolution', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    .loader-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .dots span {
+      font-size: 2.5rem;
+      color: #04bcf4;
+      margin-left: 4px;
+      animation: bounce 1.2s infinite;
+    }
+
+    .dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-12px);
+      }
+    }
+
     /* Base Styles */
     * {
       margin: 0;
@@ -617,7 +669,7 @@
 
       0%,
       20% {
-        content: "Gen-Frontend Developer ";
+        content: "Data Analysis ";
       }
 
       21%,
@@ -632,7 +684,7 @@
 
       61%,
       80% {
-        content: "Data Analysis ";
+        content: "Gen-Frontend Developer ";
       }
 
       81%,
@@ -678,6 +730,7 @@
     }
 
     /* Video Background */
+    /* Video Background */
     .video-background {
       position: fixed;
       top: 0;
@@ -703,10 +756,14 @@
       background-color: rgba(10, 10, 10, 0.7);
     }
 
+
     /* Remove the background-image from body */
-    body {
+    /* body {
       background-image: none;
-    }
+      background-color: black;
+      color: white;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    } */
 
     /* Mobile Menu Toggle */
     .hamburger {
@@ -1124,7 +1181,7 @@
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231bc4f8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231bc4f8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); */
       background-repeat: no-repeat;
       background-position: right 1.5rem center;
       background-size: 12px;
@@ -1151,10 +1208,26 @@
 </head>
 
 <body>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-text">
+      VR Portfolio<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+    </div>
+  </div>
+  <div class="video-background">
+    <!-- ✅ Fixed: added playsinline -->
+    <video autoplay muted loop playsinline id="myVideo">
+      <source src="matrix-digital-moewalls-com.mp4" type="video/mp4">
+      <!-- Fallback -->
+      <img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Fallback background">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
   <div class="cursor"></div>
   <button id="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></button>
   <div class="video-background">
-    <video autoplay muted loop id="myVideo">
+    <video autoplay muted loop playsinline id="myVideo">
       <source src="matrix-digital-moewalls-com.mp4" type="video/mp4">
       <!-- Add fallback image if video doesn't load -->
       <img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Fallback background">
@@ -1168,8 +1241,8 @@
       <a href="#home" class="active">Home</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#education">Education</a>
       <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
       <a href="#contact">Contact</a>
     </nav>
     <!--Resume Button-->
@@ -1182,6 +1255,7 @@
 
 
   </header>
+
 
   <div class="scroll-indicator">
     <i class="fas fa-chevron-down"></i>
@@ -1196,51 +1270,47 @@
       <h3 class="typing-text">I'm <span></span></h3>
       <br>
       <h2>About Me</h2>
-      <p class="fade-in">Hi, I'm <strong>Vicky Raj</strong> — a passionate <strong>Data Analyst</strong>, 
+      <p class="fade-in">Hi, I'm <strong>Vicky Raj</strong> — a passionate <strong>Data Analyst</strong>,
         <strong>Frontend Developer</strong>, and <strong>AI Explorer</strong>, pursuing a B.Sc in Computer Science and
-        Data Analytics at <strong>IIT Patna</strong>.</p>
+        Data Analytics at <strong>IIT Patna</strong>.
+      </p>
 
-      <p class="fade-in">I love transforming raw data into actionable insights. With skills in Python, SQL, and data visualization, I enjoy uncovering patterns, solving analytical problems, and driving smarter decisions.</p>
+      <p class="fade-in">I love transforming raw data into actionable insights. With skills in Python, SQL, and data
+        visualization, I enjoy uncovering patterns, solving analytical problems, and driving smarter decisions.</p>
       <div class="about-content">
 
         <div class="about-content">
           <p>I design responsive interfaces, analyze data with Python (Pandas, NumPy), and explore automation like email
             workflows and AI-driven solutions to create smarter, impactful technology.</p>
         </div>
-        
+
         <p>Beyond coding, I enjoy video editing and Canva design, blending technical and creative skills to craft
           engaging digital experiences.</p>
-        
-        <p>"So yeah, I'm just a normal person who uses AI as power who enjoys making complex things look simple. It's a real blast, I swear."</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/vicky-raj-090760282/" class="icon-scale"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/vr_razzz/" class="icon-scale"><i class="fab fa-instagram"></i></a>
-        <a href="https://github.com/vicky-tec" class="icon-scale"><i class="fab fa-github"></i></a>
+
+        <p>"So yeah, I'm just a normal person who uses AI as power who enjoys making complex things look simple. It's a
+          real blast, I swear."</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" class="icon-scale"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/vr_razzz/" class="icon-scale"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/vicky-tec" class="icon-scale"><i class="fab fa-github"></i></a>
+        </div>
+        <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" class="btn pulse">CLICK ME!</a>
       </div>
-      <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" class="btn pulse">CLICK ME!</a>
-    </div>
   </section>
 
- <section class="skills" id="skills">
+  <section class="skills" id="skills">
     <h2 class="section-title">My Skills</h2>
     <div class="skills-container">
       <div class="skill-box">
-        <i class="fas fa-laptop"></i>
-        <h3>Microsoft Tools</h3>
-        <p>Excel (data cleaning, pivot tables), PowerPoint (presentation), Power BI
-          (dashboards), Word (documentation)</p>
-      </div>
-      <div class="skill-box">
-        <i class="fab fa-google"></i>
-        <h3>Google Tools</h3>
-        <p>Google Sheets (data handling, formulas), Google Docs
-          (documentation), Google Analytics (web insights, reporting)</p>
+        <i class="fab fa-python"></i>
+        <h3>Python</h3>
+        <p>Data analysis, automation, scripting</p>
       </div>
       <div class="skill-box">
         <i class="fas fa-chart-line"></i>
         <h3>Data Analytics</h3>
-        <p>Python (Pandas, NumPy), data visualization (Matplotlib, Power BI), EDA, insights generation</p>
+        <p>Python (Pandas, NumPy), data visualization (Matplotlib), EDA, insights generation</p>
       </div>
       <div class="skill-box">
         <i class="fas fa-database"></i>
@@ -1248,9 +1318,21 @@
         <p>Database queries, data extraction, joins, filtering, aggregation</p>
       </div>
       <div class="skill-box">
-        <i class="fab fa-python"></i>
-        <h3>Python</h3>
-        <p>Data analysis, automation, scripting</p>
+        <i class="fas fa-laptop"></i>
+        <h3>Microsoft Tools</h3>
+        <p>Excel (data cleaning, pivot tables), PowerPoint (presentation), Word (documentation)</p>
+      </div>
+      <div class="skill-box">
+        <i class="fab fa-google"></i>
+        <h3>Google Tools</h3>
+        <p>Google Sheets (data handling, formulas), Google Docs
+          (documentation)</p>
+      </div>
+
+      <div class="skill-box">
+        <i class="fas fa-chart-pie"></i>
+        <h3>Power BI</h3>
+        <p>Interactive dashboards, data modeling, DAX formulas, KPI tracking, business insights</p>
       </div>
 
       <div class="skill-box">
@@ -1316,8 +1398,10 @@
     <h2 class="section-title">My Projects</h2>
     <div class="projects-container">
 
-       <div class="project-box">
-        <img src="https://static.vecteezy.com/system/resources/previews/002/108/813/large_2x/coming-soon-banner-template-design-illustration-vector.jpg" alt="Project 2">
+      <div class="project-box">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/002/108/813/large_2x/coming-soon-banner-template-design-illustration-vector.jpg"
+          alt="Project 2">
         <h3>Machine Learning</h3>
         <p>"🤖 Coming soon: MY First ML model—no hype, just real learning, real predictions!"</p>
         <div class="project-links">
@@ -1325,7 +1409,7 @@
           <a href=><i class="fab fa-github"></i> Code</a>
         </div>
       </div>
-      
+
       <div class="project-box">
         <img src="Travally.png" alt="Project 1">
         <h3>TRAVALLY</h3>
@@ -1350,7 +1434,9 @@
         <h3>Addiction Dashboard</h3>
         <p>This Dashboard tells about Addiction!</p>
         <div class="project-links">
-          <a href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Student%20Addiction%20Data/Screenshot%202025-08-22%20121038.png?raw=true"><i class="fas fa-eye"></i> View</a>
+          <a
+            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Student%20Addiction%20Data/Screenshot%202025-08-22%20121038.png?raw=true"><i
+              class="fas fa-eye"></i> View</a>
 
           <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
         </div>
@@ -1361,7 +1447,9 @@
         <h3>Grocery Sales Dashboard</h3>
         <p>Tells about which store sells most and how?</p>
         <div class="project-links">
-          <a href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Gresorey/Screenshot%202025-08-29%20184810.png?raw=true"><i class="fas fa-eye"></i> View</a>
+          <a
+            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Gresorey/Screenshot%202025-08-29%20184810.png?raw=true"><i
+              class="fas fa-eye"></i> View</a>
           <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
         </div>
       </div>
@@ -1370,7 +1458,9 @@
         <h3>Tips Dashboard</h3>
         <p>Which gender gives most tips to know just see my work.</p>
         <div class="project-links">
-          <a href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Gresorey/Screenshot%202025-08-29%20184810.png?raw=true"><i class="fas fa-eye"></i> View</a>
+          <a
+            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Gresorey/Screenshot%202025-08-29%20184810.png?raw=true"><i
+              class="fas fa-eye"></i> View</a>
           <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
         </div>
       </div>
@@ -1379,7 +1469,9 @@
         <h3>Sales Dashboard</h3>
         <p>It show how sales going up and down.</p>
         <div class="project-links">
-          <a href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/E-commerce%20Analysis/Screenshot%202025-05-07%20180826.png?raw=true"><i class="fas fa-eye"></i> View</a>
+          <a
+            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/E-commerce%20Analysis/Screenshot%202025-05-07%20180826.png?raw=true"><i
+              class="fas fa-eye"></i> View</a>
           <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
         </div>
       </div>
@@ -1429,8 +1521,8 @@
         <p>Issued by:Outskill • 2025 </p>
       </div>
 
-       
-       <div class="certificate-box">
+
+      <div class="certificate-box">
         <div class="certificate-img">
           <img src="https://github.com/vicky-tec/PortFoilo/blob/main/p11.png?raw=true" alt="Power BI Certificate">
           <div class="certificate-overlay">
@@ -1562,113 +1654,160 @@
 
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.querySelector('nav');
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('active');
-      menuToggle.innerHTML = nav.classList.contains('active') ?
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-    });
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function() {
-        nav.classList.remove('active');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const nav = document.querySelector('nav');
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('active');
+        menuToggle.innerHTML = nav.classList.contains('active') ?
+          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
       });
-    });
-
-    // Header scroll effect
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Scroll indicator
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    window.addEventListener('scroll', () => {
-      scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
-    });
-
-    // Animate section titles on scroll
-    const animateOnScroll = () => {
-      document.querySelectorAll('.section-title').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.9) {
-          el.classList.add('animate');
-        }
-      });
-    };
-    animateOnScroll();
-    window.addEventListener('scroll', animateOnScroll);
-
-    // Video background play/pause control
-    const video = document.getElementById('myVideo');
-    try {
-      video.play().catch(error => {
-        console.log('Video autoplay was prevented:', error);
-      });
-    } catch (error) {
-      console.log('Video error:', error);
-    }
-    
-    // Mobile video fallback
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-      const videoBg = document.querySelector('.video-background');
-      videoBg.innerHTML = '<img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Background" style="width:100%;height:100%;object-fit:cover;">';
-    }
-
-    // Consolidated form submission script with SweetAlert2 (swal)
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
-    const contactForm = document.forms["submit-to-google-sheet"];
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      
-      // Disable button and show loading state
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      
-      const formData = new FormData(contactForm);
-      const ex = document.getElementById("ex").checked;
-      const age = document.getElementById("age").checked;
-
-      formData.append("age", age ? "Yes" : "No");
-      formData.append("ex", ex ? "Yes" : "No");
-
-      fetch(scriptURL, { method: "POST", body: formData })
-        .then((response) => {
-          swal("Done", "Submitted Successfully.", "success");
-          contactForm.reset();
-        })
-        .catch((error) => {
-          swal("Error", "Something went wrong. Please try again!", "error");
-        })
-        .finally(() => {
-          // Re-enable button and reset text
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Submit';
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function () {
+          nav.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
         });
+      });
+
+      // Header scroll effect
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // Scroll indicator
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      window.addEventListener('scroll', () => {
+        scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
+      });
+
+      // Animate section titles on scroll
+      const animateOnScroll = () => {
+        document.querySelectorAll('.section-title').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.9) {
+            el.classList.add('animate');
+          }
+        });
+      };
+      animateOnScroll();
+      window.addEventListener('scroll', animateOnScroll);
+
+      // Video background play/pause control
+      const video = document.getElementById('myVideo');
+      try {
+        video.play().catch(error => {
+          console.log('Video autoplay was prevented:', error);
+        });
+      } catch (error) {
+        console.log('Video error:', error);
+      }
+
+      // Mobile video fallback
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        const videoBg = document.querySelector('.video-background');
+        videoBg.innerHTML = '<img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Background" style="width:100%;height:100%;object-fit:cover;">';
+      }
+
+      // Consolidated form submission script with SweetAlert2 (swal)
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
+      const contactForm = document.forms["submit-to-google-sheet"];
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        const formData = new FormData(contactForm);
+        const ex = document.getElementById("ex").checked;
+        const age = document.getElementById("age").checked;
+
+        formData.append("age", age ? "Yes" : "No");
+        formData.append("ex", ex ? "Yes" : "No");
+
+        fetch(scriptURL, { method: "POST", body: formData })
+          .then((response) => {
+            swal("Done", "Submitted Successfully.", "success");
+            contactForm.reset();
+          })
+          .catch((error) => {
+            swal("Error", "Something went wrong. Please try again!", "error");
+          })
+          .finally(() => {
+            // Re-enable button and reset text
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Submit';
+          });
+      });
     });
-  });
-</script>
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const nav = document.querySelector('nav');
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('active');
+        menuToggle.innerHTML = nav.classList.contains('active') ?
+          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function () {
+          nav.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Header scroll effect
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // Scroll indicator
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      window.addEventListener('scroll', () => {
+        scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
+      });
+
+      // Animate section titles on scroll
+      const animateOnScroll = () => {
+        document.querySelectorAll('.section-title').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.9) {
+            el.classList.add('animate');
+          }
+        });
+      };
+      animateOnScroll();
+      window.addEventListener('scroll', animateOnScroll);
+
+      // ✅ Video autoplay attempt
+      const video = document.getElementById('myVideo');
+      try {
+        video.play().catch(error => {
+          console.log('Video autoplay was prevented:', error);
+        });
+      } catch (error) {
+        console.log('Video error:', error);
+      }
+
+      // ✅ PRELOADER HIDE AFTER PAGE LOAD
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        preloader.style.opacity = '0';
+        setTimeout(() => { preloader.style.display = 'none'; }, 500);
+      });
+
+      // (your contact form script unchanged...)
+    });
+  </script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
