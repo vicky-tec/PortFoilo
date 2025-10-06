@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm VICKY RAJ</h1>
-<h2>Welcome to my protfolio GitHub page.</h2>
+<h2 align="center">Welcome to my protfolio GitHub page.</h2>
 <h3 align="center">Currently polishing Skills</h3>
 
 - 🌱 I’m also learning **PYTHON**
