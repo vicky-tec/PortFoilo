@@ -1,13 +1,14 @@
 <h1 align="center">Hi 👋, I'm VICKY RAJ</h1>
+<h2>Welcome to my protfolio GitHub page.</h2>
 <h3 align="center">Currently polishing Skills</h3>
 
-- 🔭 These are my projects works [Travally: An Intelligent Travel Assistant for Bihar](https://vicky-tec.github.io/TRAVALLY_/)
-
 - 🌱 I’m also learning **PYTHON**
+- 
+- 🔭 These are my projects works [Data Analyst(Projects)](https://github.com/vicky-tec/Gigx-Analytics.git)
+- Capstone Project [Travally: An Intelligent Travel Assistant for Bihar](https://vicky-tec.github.io/TRAVALLY_/)
+- Webdev  [CitizenRight](https://github.com/vicky-tec/CitizenRight_)
 
-- My Projects [CitizenRight](https://github.com/vicky-tec/CitizenRight_)
 
-- My projects [Data Analyst(Projects)](https://github.com/vicky-tec/Gigx-Analytics.git)
 
 - 👨‍💻 All of my projects are available at [https://github.com/vicky-tec/](https://github.com/vicky-tec/)
 
