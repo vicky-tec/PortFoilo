@@ -3,7 +3,6 @@
 <h3 align="center">Currently polishing Skills</h3>
 
 - 🌱 I’m also learning **PYTHON**
-- 
 - 🔭 These are my projects works [Data Analyst(Projects)](https://github.com/vicky-tec/Gigx-Analytics.git)
 - Capstone Project [Travally: An Intelligent Travel Assistant for Bihar](https://vicky-tec.github.io/TRAVALLY_/)
 - Webdev  [CitizenRight](https://github.com/vicky-tec/CitizenRight_)
