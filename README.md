@@ -71,8 +71,35 @@ Explore all my repositories here → [**GitHub Profile**](https://github.com/vic
 
 ---
 
+### 🏆 GitHub Achievements & Stats
+
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=vicky-tec&show_icons=true&locale=en&layout=compact" alt="vicky-tec" />
+  <img src="https://github-profile-trophy.vercel.app/?username=vicky-tec&theme=onedark&no-frame=true&margin-w=10" alt="GitHub Trophies" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=vicky-tec&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=vicky-tec&theme=tokyonight" alt="GitHub Streak Stats" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vicky-tec&layout=compact&theme=tokyonight" alt="Top Languages" />
+</p>
+
+---
+
+### 💡 Top Skills
+
+<p align="center">
+  🧠 Data Analysis | 📊 Data Visualization | 🐍 Python (Pandas, NumPy, Seaborn, Matplotlib) | 💾 SQL | 📈 Power BI | 🧮 Excel | 🌐 Web Development
+</p>
+
+---
+
+### 👀 Visitors Count
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=vicky-tec&label=Profile%20Views&color=blueviolet&style=for-the-badge" alt="Profile Views" />
 </p>
 
 ---
