@@ -4,1812 +4,894 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VR Portfolio</title>
+  <title>Vicky Raj | Data Analyst & Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="icon" href="PortFoilo/picofme.png">
-  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Tailwind (for utility classes, customized via CSS below) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#0a0a0a',
+            card: '#161616',
+            accent: '#1bc4f8',
+            accentGlow: 'rgba(27, 196, 248, 0.3)'
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    /* Preloader Styles */
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      flex-direction: column;
-      color: #0cbdf3;
-      font-family: 'Protest Revolution', sans-serif;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-    }
-
-    .loader-text {
-      display: flex;
-      align-items: center;
-    }
-
-    .dots span {
-      font-size: 2.5rem;
-      color: #04bcf4;
-      margin-left: 4px;
-      animation: bounce 1.2s infinite;
-    }
-
-    .dots span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .dots span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      80%,
-      100% {
-        transform: translateY(0);
-      }
-
-      40% {
-        transform: translateY(-12px);
-      }
-    }
-
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      border: none;
-      outline: none;
-      font-family: 'Roboto', sans-serif;
-      cursor: pointer;
-    }
-
-    h2 {
-      font-family: 'Protest Revolution', sans-serif;
-    }
-
-    html {
-      font-size: 62.5%;
-      scroll-behavior: smooth;
+    /* Custom CSS Overrides & Animations */
+    :root {
+      --accent: #1bc4f8;
+      --bg: #050505;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.05);
     }
 
     body {
-      width: 100%;
-      min-height: 100vh;
+      background-color: var(--bg);
+      color: #e2e8f0;
       overflow-x: hidden;
-      background-color: #0a0a0a;
-      color: white;
-      /* background-image: url(elliott-engelmann-DjlKxYFJlTc-unsplash.jpg); */
-
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: 100% 100%;
-      background-position: center;
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.6rem;
-      line-height: 1.5;
-      transition: all 0.3s ease;
+      scroll-behavior: smooth;
     }
 
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
 
-    /* Custom Cursor */
-    .cursor {
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* Gradient Text */
+    .text-gradient {
+      background: linear-gradient(90deg, #fff, var(--accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Glassmorphism Card */
+    .glass-card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px -10px rgba(27, 196, 248, 0.2);
+    }
+
+    /* Navigation Active State */
+    .nav-link.active {
+      color: var(--accent);
+      position: relative;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* Hero Image Glow */
+    .profile-glow {
+      box-shadow: 0 0 40px -10px var(--accent);
+      animation: pulse-glow 3s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 40px -10px var(--accent);
+      }
+
+      50% {
+        box-shadow: 0 0 60px -5px var(--accent);
+      }
+
+      100% {
+        box-shadow: 0 0 40px -10px var(--accent);
+      }
+    }
+
+    /* Skill Tag */
+    .skill-tag {
+      background: rgba(27, 196, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(27, 196, 248, 0.2);
+    }
+
+    /* Timeline Line */
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    /* Cursor Effect (Optional simple dot) */
+    .cursor-dot {
+      width: 12px;
+      height: 12px;
+      background-color: var(--accent);
       position: fixed;
-      width: 20px;
-      height: 20px;
       border-radius: 50%;
-      background-color: rgb(37, 156, 183);
-      mix-blend-mode: difference;
       pointer-events: none;
       z-index: 9999;
       transform: translate(-50%, -50%);
-      transition: transform 0.1s ease;
+      transition: transform 0.1s;
+      mix-blend-mode: screen;
     }
 
-    /* Header Styles */
-    header {
-      margin-top: 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1rem 9%;
-      background: transparent;
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
-
-    header.scrolled {
-      margin-top: 0;
-      padding: 0.5rem 9%;
-      background-color: rgba(22, 22, 22, 0.95);
-    }
-
-    .logo {
-      font-size: 3rem;
-      color: #1bc4f8;
-      font-weight: 800;
-      cursor: pointer;
-      transition: 0.5s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.1);
-      text-shadow: 0 0 15px #1bc4f8;
-    }
-
-    nav a {
-      font-size: 1.8rem;
-      color: white;
-      margin-left: 4rem;
-      font-weight: 500;
-      transition: 0.3s ease;
-      border-bottom: 3px solid transparent;
-      position: relative;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: rgb(0, 255, 255);
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 3px;
-      background: #1bc4f8;
-      bottom: -3px;
-      left: 0;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
-    /* Sections */
-    section {
-      min-height: 100vh;
-      padding: 10rem 9% 5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Home Section */
-    .home {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8rem;
-    }
-
-    .home-content h1 {
-      font-size: 6rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 1rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideIn 0.8s forwards 0.3s;
-    }
-
-    span {
-      color: #1bc4f8;
-    }
-
-    .home-content h3 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .home-content p {
-      font-size: 1.6rem;
-      opacity: 0;
-      animation: fadeIn 1s forwards 0.8s;
-    }
-
-    .home-img {
-      border-radius: 50%;
-      position: relative;
-    }
-
-    .home-img::before {
-      content: '';
-      position: absolute;
-      width: 110%;
-      height: 110%;
-      border-radius: 50%;
-      border: 3px solid #1bc4f8;
-      top: -5%;
-      left: -5%;
-      animation: pulse 3s infinite;
-    }
-
-    .home-img img {
-      position: relative;
-      width: 32vw;
-      border-radius: 50%;
-      box-shadow: 0 0 25px #1bc4f8;
-      transition: 0.5s ease;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .home-img img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px #1bc4f8;
-    }
-
-    /* Skills Section */
-    .skills {
-      background-color: #111;
-      flex-direction: column;
-    }
-
-    .skills h2 {
-      font-size: 5rem;
-      margin-bottom: 5rem;
-      text-align: center;
-      color: #1bc4f8;
-    }
-
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      width: 100%;
-    }
-
-    .skill-box {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 2rem;
-      padding: 3rem;
-      text-align: center;
-      border: 0.2rem solid #1bc4f8;
-      transition: 0.5s ease;
-    }
-
-    .skill-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px #1bc4f8;
-    }
-
-    .skill-box i {
-      font-size: 5rem;
-      color: #1bc4f8;
-      margin-bottom: 1.5rem;
-    }
-
-    .skill-box h3 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .skill-box p {
-      font-size: 1.4rem;
-      color: #ccc;
-    }
-
-    /* Education Section */
-    .education {
-      flex-direction: column;
-    }
-
-    .education h2 {
-      font-size: 5rem;
-      margin-bottom: 5rem;
-      text-align: center;
-      color: #1bc4f8;
-    }
-
-    .timeline {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      background-color: #1bc4f8;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -3px;
-    }
-
-    .timeline-item {
-      padding: 10px 40px;
-      position: relative;
-      width: 50%;
-      box-sizing: border-box;
-    }
-
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      right: -17px;
-      background-color: #1bc4f8;
-      border: 4px solid #1bc4f8;
-      top: 15px;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .left {
-      left: 0;
-    }
-
-    .right {
-      left: 50%;
-    }
-
-    .right::after {
-      left: -16px;
-    }
-
-    .timeline-content {
-      padding: 20px 30px;
-      background-color: rgba(27, 196, 248, 0.1);
-      border-radius: 10px;
-      border: 1px solid #1bc4f8;
-    }
-
-    .timeline-content h3 {
-      font-size: 2.2rem;
-      color: #1bc4f8;
-      margin-bottom: 1rem;
-    }
-
-    .timeline-content h4 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-content p {
-      font-size: 1.4rem;
-      color: #ccc;
-    }
-
-    /* Projects Section */
-    .projects {
-      background-color: #111;
-      flex-direction: column;
-    }
-
-    .projects h2 {
-      font-size: 5rem;
-      margin-bottom: 5rem;
-      text-align: center;
-      color: #1bc4f8;
-    }
-
-    .projects-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      width: 100%;
-    }
-
-    .project-box {
-      background: rgba(27, 196, 248, 0.1);
-      border-radius: 2rem;
-      padding: 3rem;
-      text-align: center;
-      border: 0.2rem solid #1bc4f8;
-      transition: 0.5s ease;
-    }
-
-    .project-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px #1bc4f8;
-    }
-
-    .project-box img {
-      width: 100%;
-      border-radius: 1rem;
-      margin-bottom: 2rem;
-      transition: 0.5s ease;
-    }
-
-    .project-box:hover img {
-      transform: scale(1.05);
-    }
-
-    .project-box h3 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-box p {
-      font-size: 1.4rem;
-      color: #ccc;
-      margin-bottom: 2rem;
-    }
-
-    .project-links a {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: transparent;
-      border: 2px solid #1bc4f8;
-      color: #1bc4f8;
-      border-radius: 2rem;
-      font-size: 1.4rem;
-      margin: 0 0.5rem;
-      transition: 0.5s ease;
-    }
-
-    .project-links a:hover {
-      background: #1bc4f8;
-      color: #111;
-    }
-
-    /* Contact Section */
-    .contact {
-      flex-direction: column;
-    }
-
-    .contact h2 {
-      font-size: 5rem;
-      margin-bottom: 5rem;
-      text-align: center;
-      color: #1bc4f8;
-    }
-
-    .contact-form {
-      width: 100%;
-      max-width: 700px;
-    }
-
-    .input-box {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-
-    .input-box input,
-    .input-box textarea {
-      width: 100%;
-      padding: 1.5rem;
-      font-size: 1.6rem;
-      color: white;
-      background: rgba(27, 196, 248, 0.1);
-      border: 2px solid #1bc4f8;
-      border-radius: 1rem;
-      resize: none;
-    }
-
-    .input-box input:focus,
-    .input-box textarea:focus {
-      box-shadow: 0 0 15px #1bc4f8;
-    }
-
-    .contact-form .btn {
-      display: inline-block;
-      padding: 1.5rem 3rem;
-      background: #1bc4f8;
-      border-radius: 4rem;
-      font-size: 1.6rem;
-      color: #111;
-      letter-spacing: 0.3rem;
-      font-weight: 600;
-      border: 2px solid #1bc4f8;
-      transition: 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-form .btn:hover {
-      background: transparent;
-      color: rgba(27, 196, 248, 0.1);
-    }
-
-    /* Animations */
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 0.7;
-      }
-
-      50% {
-        transform: scale(1.05);
-        opacity: 0.4;
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 0.7;
-      }
-    }
-
-    /* Social Icons */
-    .social-icons a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 4rem;
-      height: 4rem;
-      background-color: transparent;
-      border: 0.2rem solid #1bc4f8;
-      font-size: 2rem;
-      border-radius: 50%;
-      margin: 3rem 1.5rem 3rem 0;
-      transition: 0.3s ease;
-      color: #1bc4f8;
-    }
-
-    .icon-scale:hover {
-      transform: scale(1.3) translateY(-5px);
-      background-color: #1bc4f8;
-      box-shadow: 0 0 25px #1bc4f8;
-      color: black;
-    }
-
-    /* Button Styles */
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.8rem;
-      background-color: black;
-      border-radius: 4rem;
-      font-size: 1.6rem;
-      color: #1bc4f8;
-      letter-spacing: 0.3rem;
-      font-weight: 600;
-      border: 2px solid #1bc4f8;
-      transition: 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 70%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(27, 196, 248, 0.4), transparent);
-      transition: 0.5s;
-    }
-
-    .btn:hover::before {
-      left: 100%;
-    }
-
-    .btn:hover {
-      background-color: #1bc4f8;
-      color: black;
-      box-shadow: 0 0 25px #1bc4f8;
-    }
-
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-
-    /* Typing Animation */
-    .typing-text {
-      font-size: 34px;
-      font-weight: 600;
-      min-width: 280px;
-    }
-
-    .typing-text span {
-      position: relative;
-    }
-
-    .typing-text span::before {
-      content: "VICKY RAJ";
-      color: #ADFF2F;
-      animation: words 20s infinite;
-    }
-
-    .typing-text span::after {
-      content: "";
-      position: absolute;
-      width: calc(100% + 8px);
-      height: 100%;
-      border-left: 3px solid;
-      right: -8;
-      animation: cursor 0.6s infinite;
-    }
-
-    @keyframes cursor {
-      to {
-        border-left: 3px solid #1bc4f8;
-      }
-    }
-
-    @keyframes words {
-
-      0%,
-      20% {
-        content: "Data Analysis ";
-      }
-
-      21%,
-      40% {
-        content: "Video Editor";
-      }
-
-      41%,
-      60% {
-        content: "Canva Designer";
-      }
-
-      61%,
-      80% {
-        content: "Gen-Frontend Developer ";
-      }
-
-      81%,
-      100% {
-        content: "Python Developer";
-      }
-    }
-
-    /* Footer Styles */
-    footer {
-      margin-top: 4rem;
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.4rem;
-      color: #ccc;
-      opacity: 0;
-      animation: fadeUp 1s forwards 1s;
-    }
-
-    .contact-bottom {
-      text-align: center;
-      margin-top: 6rem;
-      font-size: 1.6rem;
+    /* Form styling */
+    .form-input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: white;
     }
 
-    .contact-bottom h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1bc4f8;
-    }
-
-    .contact-bottom p {
-      margin: 0.5rem 0;
-      color: #ccc;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(-20px);
-      }
-    }
-
-    /* Video Background */
-    /* Video Background */
-    .video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .video-background video {
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-    }
-
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(10, 10, 10, 0.7);
-    }
-
-
-    /* Remove the background-image from body */
-    /* body {
-      background-image: none;
-      background-color: black;
-      color: white;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    } */
-
-    /* Mobile Menu Toggle */
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2.5rem;
-      cursor: pointer;
-      z-index: 101;
-      transition: transform 0.3s ease;
-    }
-
-    .hamburger:hover {
-      transform: rotate(90deg);
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 1200px) {
-      html {
-        font-size: 55%;
-      }
-
-      .skills-container,
-      .projects-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 991px) {
-      section {
-        padding: 10rem 4% 5rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: #161616;
-        flex-direction: column;
-        padding: 8rem 2rem;
-        transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-        z-index: 100;
-        border-left: 3px solid #1bc4f8;
-      }
-
-      nav.active {
-        right: 0;
-      }
-
-      nav a {
-        margin: 1.5rem 0;
-        font-size: 2rem;
-        padding: 1rem;
-        display: block;
-        text-align: center;
-      }
-
-      .home {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 12rem;
-        gap: 3rem;
-      }
-
-      .home-img img {
-        width: 70vw;
-        max-width: 300px;
-      }
-
-      .home-content h1 {
-        font-size: 4rem;
-      }
-
-      .home-content h3 {
-        font-size: 2.5rem;
-      }
-
-      .typing-text {
-        font-size: 2.4rem;
-      }
-
-      .skills-container,
-      .projects-container {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline::after {
-        left: 31px;
-      }
-
-      .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-      }
-
-      .timeline-item::after {
-        left: 18px;
-      }
-
-      .left::after,
-      .right::after {
-        left: 18px;
-      }
-
-      .right {
-        left: 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      html {
-        font-size: 50%;
-      }
-
-      .home-content h1 {
-        font-size: 3.5rem;
-      }
-
-      .typing-text {
-        min-width: 240px;
-      }
-    }
-
-    .fa-instagram {
-      font-size: 26px;
-      color: rgb(247, 62, 222);
-    }
-
-    .fa-github {
-      font-size: 26px;
-      color: rgb(46, 139, 245);
-    }
-
-    /* Theme Toggle */
-    .theme-toggle-container {
-      display: flex;
-      align-items: center;
-      margin-left: 2rem;
-    }
-
-    .theme-toggle {
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      padding: 0.5rem;
-    }
-
-    .theme-toggle:hover {
-      color: #1bc4f8;
-      transform: rotate(30deg);
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      z-index: 99;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .whatsapp-btn:hover {
-      transform: scale(1.1);
-      background-color: rgb(0, 255, 21);
-    }
-
-    /* Section Titles Animation */
-    .section-title {
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      bottom: -10px;
-      left: 0;
-      background-color: #1bc4f8;
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform 0.5s ease;
-    }
-
-    .section-title.animate::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: fixed;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      color: #1bc4f8;
-      font-size: 2rem;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateY(0) translateX(-50%);
-      }
-
-      40% {
-        transform: translateY(-20px) translateX(-50%);
-      }
-
-      60% {
-        transform: translateY(-10px) translateX(-50%);
-      }
-    }
-
-    /* Add this to your existing CSS */
-    .certificates {
-      background-color: #111;
-      flex-direction: column;
-    }
-
-    .certificates h2 {
-      font-size: 5rem;
-      margin-bottom: 5rem;
-      text-align: center;
-      color: #1bc4f8;
-    }
-
-    .certificates-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .certificate-box {
-      background: rgba(27, 196, 248, 0.1);
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 2px solid #1bc4f8;
-      transition: all 0.5s ease;
-      position: relative;
-    }
-
-    .certificate-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px #1bc4f8;
-    }
-
-    .certificate-img {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .certificate-img img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .certificate-box:hover .certificate-img img {
-      transform: scale(1.05);
-    }
-
-    .certificate-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .certificate-box:hover .certificate-overlay {
-      opacity: 1;
-    }
-
-    .certificate-btn {
-      padding: 0.8rem 1.5rem;
-      background: #1bc4f8;
-      color: #111;
-      border-radius: 0.5rem;
-      font-size: 1.4rem;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .certificate-btn:hover {
-      background: #111;
-      color: #1bc4f8;
-      box-shadow: 0 0 10px #1bc4f8;
-    }
-
-    .certificate-box h3 {
-      font-size: 2rem;
-      padding: 1.5rem;
-      color: white;
-    }
-
-    .certificate-box p {
-      font-size: 1.4rem;
-      padding: 0 1.5rem 1.5rem;
-      color: #ccc;
-    }
-
-    @media (max-width: 768px) {
-      .certificates-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Add this CSS */
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-left: auto;
-    }
-
-    .resume-btn {
-      padding: 0.8rem 1.5rem;
-      background: transparent;
-      color: white;
-      font-size: 1.6rem;
-      border: 2px solid #1bc4f8;
-      border-radius: 4rem;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .resume-btn:hover {
-      background: #1bc4f8;
-      color: black;
-      box-shadow: 0 0 15px #1bc4f8;
-    }
-
-    /* Adjust theme toggle position */
-    .theme-toggle-container {
-      margin-left: 0;
-    }
-
-    .theme-toggle {
-      font-size: 2.5rem;
-      color: white;
-      transition: color 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      color: #1bc4f8;
-    }
-
-    /* Gender Dropdown Styles */
-    .input-box {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-
-    .input-box label {
-      display: block;
-      color: white;
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .input-box select {
-      width: 100%;
-      padding: 1.5rem;
-      font-size: 1.6rem;
-      color: white;
-      background: rgba(27, 196, 248, 0.1);
-      border: 2px solid #1bc4f8;
-      border-radius: 1rem;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231bc4f8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); */
-      background-repeat: no-repeat;
-      background-position: right 1.5rem center;
-      background-size: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .input-box select:focus {
+    .form-input:focus {
+      border-color: var(--accent);
       outline: none;
-      box-shadow: 0 0 15px #1bc4f8;
-    }
-
-    .input-box select option {
-      background: #111;
-      color: white;
-      padding: 1rem;
-      font-size: 1.4rem;
-    }
-
-    .input-box select option[disabled][selected] {
-      color: #666;
+      box-shadow: 0 0 0 3px rgba(27, 196, 248, 0.1);
     }
   </style>
 </head>
 
-<body>
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <div class="loader-text">
-     Loading creativity… almost there!<span class="dots"><span>.</span><span>.</span><span>.</span></span>
-    </div>
-  </div>
-  <div class="video-background">
-    <!-- ✅ Fixed: added playsinline -->
-    <video autoplay muted loop playsinline id="myVideo">
-      <source src="matrix-digital-moewalls-com.mp4" type="video/mp4">
-      <!-- Fallback -->
-      <img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Fallback background">
-    </video>
-    <div class="video-overlay"></div>
-  </div>
+<body class="font-sans antialiased selection:bg-accent selection:text-black">
 
-  <div class="cursor"></div>
-  <button id="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></button>
-  <div class="video-background">
-    <video autoplay muted loop playsinline id="myVideo">
-      <source src="matrix-digital-moewalls-com.mp4" type="video/mp4">
-      <!-- Add fallback image if video doesn't load -->
-      <img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Fallback background">
-    </video>
-    <div class="video-overlay"></div>
-  </div>
+  <!-- Custom Cursor -->
+  <div id="cursor" class="cursor-dot hidden md:block"></div>
 
-  <header>
-    <a href="#home" class="logo">VR</a>
-    <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <!--Resume Button-->
-    <div class="resume-btn-container">
-      <a href="RESUME-2.pdf" download="VickyRaj-Resume.pdf" class="resume-btn">
-        <i class="fas fa-file-download"></i> Resume
+  <!-- Navigation -->
+  <nav id="navbar"
+    class="fixed w-full z-50 transition-all duration-300 py-4 bg-dark/80 backdrop-blur-md border-b border-white/5">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold font-mono tracking-tighter hover:text-accent transition-colors">
+        VR<span class="text-accent">.</span>
       </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="nav-link text-sm font-medium hover:text-accent transition-colors">Home</a>
+        <a href="#about" class="nav-link text-sm font-medium hover:text-accent transition-colors">About</a>
+        <a href="#skills" class="nav-link text-sm font-medium hover:text-accent transition-colors">Skills</a>
+        <a href="#projects" class="nav-link text-sm font-medium hover:text-accent transition-colors">Projects</a>
+        <a href="#certificates"
+          class="nav-link text-sm font-medium hover:text-accent transition-colors">Certificates</a>
+        <a href="#contact" class="nav-link text-sm font-medium hover:text-accent transition-colors">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
     </div>
 
-
-
-  </header>
-
-
-  <div class="scroll-indicator">
-    <i class="fas fa-chevron-down"></i>
-  </div>
-
-  <section class="home" id="home">
-    <div class="home-img">
-      <img src="picofme.png" alt="Vicky Raj" class="profile-img">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden absolute top-full left-0 w-full bg-card border-b border-white/10 py-4">
+      <div class="flex flex-col space-y-4 px-6">
+        <a href="#home" class="text-sm hover:text-accent">Home</a>
+        <a href="#about" class="text-sm hover:text-accent">About</a>
+        <a href="#skills" class="text-sm hover:text-accent">Skills</a>
+        <a href="#projects" class="text-sm hover:text-accent">Projects</a>
+        <a href="#certificates" class="text-sm hover:text-accent">Certificates</a>
+        <a href="#contact" class="text-sm hover:text-accent">Contact</a>
+      </div>
     </div>
-    <div class="home-content">
-      <h1 class="slide-in">Hi, It's <span>Vicky</span></h1>
-      <h3 class="typing-text">I'm <span></span></h3>
-      <br>
-      <h2>About Me</h2>
-      <p class="fade-in">Hi, I'm <strong>Vicky Raj</strong> — a passionate <strong>Data Analyst</strong>,
-        <strong>Frontend Developer</strong>, and <strong>AI Explorer</strong>, pursuing a B.Sc in Computer Science and
-        Data Analytics at <strong>IIT Patna</strong>.
-      </p>
+  </nav>
 
-      <p class="fade-in">I love transforming raw data into actionable insights. With skills in Python, SQL, and data
-        visualization, I enjoy uncovering patterns, solving analytical problems, and driving smarter decisions.</p>
-      <div class="about-content">
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-20 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl -z-10"></div>
 
-        <div class="about-content">
-          <p>I design responsive interfaces, analyze data with Python (Pandas, NumPy), and explore automation like email
-            workflows and AI-driven solutions to create smarter, impactful technology.</p>
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1 space-y-6">
+        <div
+          class="inline-flex items-center px-3 py-1 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-mono">
+          <span class="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
+          Available for Work
         </div>
 
-        <p>Beyond coding, I enjoy video editing and Canva design, blending technical and creative skills to craft
-          engaging digital experiences.</p>
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+          Hi, I'm <br>
+          <span class="text-gradient">Vicky Raj</span>
+        </h1>
 
-        <p>"So yeah, I'm just a normal person who uses AI as power who enjoys making complex things look simple. It's a
-          real blast, I swear."</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" class="icon-scale"><i
-              class="fab fa-linkedin"></i></a>
-          <a href="https://www.instagram.com/vr_razzz/" class="icon-scale"><i class="fab fa-instagram"></i></a>
-          <a href="https://github.com/vicky-tec" class="icon-scale"><i class="fab fa-github"></i></a>
+        <h2 class="text-xl md:text-2xl text-gray-400 h-8">
+          I am a <span id="typing-text" class="text-accent font-mono"></span><span class="animate-blink">|</span>
+        </h2>
+
+        <p class="text-gray-400 max-w-lg leading-relaxed">
+          I turn raw data into actionable insights and build intelligent automation solutions, combining data analytics,
+          AI tools, and modern web development to solve real-world problems.
+        </p>
+
+        <div class="flex gap-4 pt-4">
+          <a href="#projects"
+            class="px-8 py-3 bg-accent text-black font-bold rounded-full hover:bg-white transition-all shadow-[0_0_20px_rgba(27,196,248,0.4)]">
+            View Work
+          </a>
+          <a href="#contact" class="px-8 py-3 border border-white/20 rounded-full hover:bg-white/10 transition-all">
+            Contact Me
+          </a>
         </div>
-        <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" class="btn pulse">CLICK ME!</a>
-      </div>
-  </section>
 
-  <section class="skills" id="skills">
-    <h2 class="section-title">My Skills</h2>
-    <div class="skills-container">
-      <div class="skill-box">
-        <i class="fab fa-python"></i>
-        <h3>Python</h3>
-        <p>Data analysis, automation, scripting</p>
-      </div>
-      <div class="skill-box">
-        <i class="fas fa-chart-line"></i>
-        <h3>Data Analytics</h3>
-        <p>Python (Pandas, NumPy), data visualization (Matplotlib), EDA, insights generation</p>
-      </div>
-      <div class="skill-box">
-        <i class="fas fa-database"></i>
-        <h3>SQL</h3>
-        <p>Database queries, data extraction, joins, filtering, aggregation</p>
-      </div>
-      <div class="skill-box">
-        <i class="fas fa-laptop"></i>
-        <h3>Microsoft Tools</h3>
-        <p>Excel (data cleaning, pivot tables), PowerPoint (presentation), Word (documentation)</p>
-      </div>
-      <div class="skill-box">
-        <i class="fab fa-google"></i>
-        <h3>Google Tools</h3>
-        <p>Google Sheets (data handling, formulas), Google Docs
-          (documentation)</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="fas fa-chart-pie"></i>
-        <h3>Power BI</h3>
-        <p>Interactive dashboards, data modeling, DAX formulas, KPI tracking, business insights</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="fas fa-paint-brush"></i>
-        <h3>Canva</h3>
-        <p>Graphic design, social media visuals, posters, creative content</p>
-      </div>
-      <div class="skill-box">
-        <i class="fas fa-video"></i>
-        <h3>Video Editing</h3>
-        <p>Creating and editing videos using tools like CapCut and Clipchamp, with focus on storytelling and visual
-          appeal</p>
-      </div>
-      <div class="skill-box">
-        <i class="fab fa-html5"></i>
-        <h3>HTML5</h3>
-        <p>Semantic markup, accessibility</p>
-      </div>
-      <div class="skill-box">
-        <i class="fab fa-css3-alt"></i>
-        <h3>CSS3</h3>
-        <p>Responsive design, animations, Flexbox/Grid</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="fab fa-js"></i>
-        <h3>JavaScript</h3>
-        <p>Basic, API integration</p>
-      </div>
-
-
-    </div>
-  </section>
-
-  <section class="education" id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="timeline">
-      <div class="timeline-item left">
-        <div class="timeline-content">
-          <h3>2024 - Present</h3>
-          <h4>BS in Computer Science & Data Analytics</h4>
-          <p>Indian Institute of Technology Patna</p>
+        <div class="flex gap-6 pt-6 text-2xl text-gray-400">
+          <a href="https://github.com/vicky-tec" target="_blank"
+            class="hover:text-accent transition-transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
+            class="hover:text-accent transition-transform hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/vr_razzz/" target="_blank"
+            class="hover:text-accent transition-transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:vickyrazzz81@gmail.com" class="hover:text-accent transition-transform hover:-translate-y-1"><i
+              class="fas fa-envelope"></i></a>
         </div>
       </div>
-      <div class="timeline-item right">
-        <div class="timeline-content">
-          <h3>2022 - 2024</h3>
-          <h4>Higher Secondary Education</h4>
-          <p>Science Stream with Computer Science</p>
-        </div>
-      </div>
-      <div class="timeline-item left">
-        <div class="timeline-content">
-          <h3>2021 - 2022</h3>
-          <h4>Secondary Education</h4>
-          <p>CBSE Board with 78.5% aggregate</p>
+
+      <div class="order-1 md:order-2 flex justify-center relative">
+        <div class="relative w-64 h-64 md:w-96 md:h-96">
+          <div class="absolute inset-0 rounded-full border-2 border-accent/30 animate-[spin_10s_linear_infinite]"></div>
+          <img src="image.webp" onerror="this.src=''" alt="Vicky Raj"
+            class="w-full h-full object-cover rounded-full profile-glow border-4 border-dark relative z-10">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="projects" id="projects">
-    <h2 class="section-title">My Projects</h2>
-    <div class="projects-container">
-
-      <div class="project-box">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/002/108/813/large_2x/coming-soon-banner-template-design-illustration-vector.jpg"
-          alt="Project 2">
-        <h3>Machine Learning</h3>
-        <p>"🤖 Coming soon: MY First ML model—no hype, just real learning, real predictions!"</p>
-        <div class="project-links">
-          <a href=""><i class="fas fa-eye"></i> View</a>
-          <a href=><i class="fab fa-github"></i> Code</a>
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-dark/50">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12">
+        <h2 class="text-3xl font-bold mb-6 flex items-center">
+          <span class="text-accent mr-2">01.</span> About Me
+        </h2>
+        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+          <p>
+            Hi, I'm <strong class="text-white">Vicky Raj</strong> — a passionate <strong class="text-accent">Data
+              Analyst</strong>,
+            Frontend Developer fundamentals, and AI Explorer, currently pursuing a B.Sc in Computer Science and
+            Data Analytics at <strong class="text-white">IIT Patna</strong>.
+          </p>
+          <p>
+            I love transforming raw data into actionable insights. With skills in Python, SQL, and data
+            visualization, I enjoy uncovering patterns, solving analytical problems, and driving smarter decisions.
+          </p>
+          <p>
+            Beyond coding, I blend technical logic with creativity through video editing and design.
+            "I'm just a normal person who uses AI as a superpower to make complex things look simple."
+          </p>
         </div>
-      </div>
 
-      <div class="project-box">
-        <img src="Travally.png" alt="Project 1">
-        <h3>TRAVALLY</h3>
-        <p>A comprehensive Bihar tourism website with interactive features and chatbot</p>
-        <div class="project-links">
-          <a href="https://vicky-tec.github.io/TRAVALLY_/index.html"><i class="fas fa-eye"></i> View</a>
-          <a href="https://github.com/vicky-tec/TRAVALLY_.git"><i class="fab fa-github"></i> Code</a>
-        </div>
-      </div>
-      <div class="project-box">
-        <img src="dash.png" alt="Project 2">
-        <h3>Blinkit Dashboard</h3>
-        <p>Interactive dashboard for visualizing complex datasets</p>
-        <div class="project-links">
-          <a href="https://github.com/vicky-tec/gigx-Data-Analytics-"><i class="fas fa-eye"></i> View</a>
-          <a href="https://github.com/vicky-tec/gigx-Data-Analytics-"><i class="fab fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="project-box">
-        <img src="d2.png" alt="Project 3">
-        <h3>Addiction Dashboard</h3>
-        <p>This Dashboard tells about Addiction!</p>
-        <div class="project-links">
-          <a
-            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Student%20Addiction%20Data/Screenshot%202025-08-22%20121038.png?raw=true"><i
-              class="fas fa-eye"></i> View</a>
-
-          <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="project-box">
-        <img src="d3.png" alt="Project 3">
-        <h3>Grocery Sales Dashboard</h3>
-        <p>Tells about which store sells most and how?</p>
-        <div class="project-links">
-          <a
-            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Gresorey/Screenshot%202025-08-29%20184810.png?raw=true"><i
-              class="fas fa-eye"></i> View</a>
-          <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
-        </div>
-      </div>
-      <div class="project-box">
-        <img src="d4.png" alt="Project 3">
-        <h3>Tips Dashboard</h3>
-        <p>Which gender gives most tips to know just see my work.</p>
-        <div class="project-links">
-          <a
-            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/Gresorey/Screenshot%202025-08-29%20184810.png?raw=true"><i
-              class="fas fa-eye"></i> View</a>
-          <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
-        </div>
-      </div>
-      <div class="project-box">
-        <img src="d5.png" alt="Project 3">
-        <h3>Sales Dashboard</h3>
-        <p>It show how sales going up and down.</p>
-        <div class="project-links">
-          <a
-            href="https://github.com/vicky-tec/Gigx-Analytics/blob/main/E-commerce%20Analysis/Screenshot%202025-05-07%20180826.png?raw=true"><i
-              class="fas fa-eye"></i> View</a>
-          <a href="https://github.com/vicky-tec/Gigx-Analytics.git"><i class="fab fa-github"></i> Code</a>
-        </div>
-      </div>
-      <!-- <div class="project-box">
-        <img src="Anime.png" alt="Project 3">
-        <h3>Anime Pages</h3>
-        <p>A collection of anime-inspired web designs and animations</p>
-        <div class="project-links">
-          <a href="https://vicky-tec.github.io/anime-pages/"><i class="fas fa-eye"></i> View</a>
-          <a href="https://github.com/vicky-tec/anime-pages"><i class="fab fa-github"></i> Code</a>
-        </div>
-      </div> -->
-
-    </div>
-  </section>
-
-  <section class="certificates" id="certificates">
-    <h2 class="section-title">My Certificates</h2>
-    <div class="certificates-container">
-
-
-      <div class="certificate-box">
-        <div class="certificate-img">
-          <img src="Screenshot 2025-09-17 222409.png" alt="OCI  Foundation 2025 Certificate">
-          <div class="certificate-overlay">
-            <a href="https://drive.google.com/file/d/1vEfYjgnobtmgNA8UGCAeMyFRl3ygAdE1/view?usp=sharing"
-              class="certificate-btn"><i class="fas fa-eye"></i> View</a>
-            <!-- <a href="https://drive.google.com/file/d/1TpTd_IypFLsNjj61oqhwaobyRBMzeBZP/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-download"></i> Download</a> -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+            <i class="fas fa-graduation-cap text-2xl text-accent mb-2"></i>
+            <div class="font-bold text-white">IIT Patna</div>
+            <div class="text-xs text-gray-400">BS in CS & Data Analytics</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+            <i class="fas fa-code text-2xl text-accent mb-2"></i>
+            <div class="font-bold text-white">Frontend</div>
+            <div class="text-xs text-gray-400">Modern UI/UX</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+            <i class="fas fa-chart-line text-2xl text-accent mb-2"></i>
+            <div class="font-bold text-white">Analytics</div>
+            <div class="text-xs text-gray-400">Python & Power BI</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+            <i class="fas fa-robot text-2xl text-accent mb-2"></i>
+            <div class="font-bold text-white">AI/ML</div>
+            <div class="text-xs text-gray-400">Automation & Tools</div>
           </div>
         </div>
-        <h3> OCI Foundations Associate </h3>
-        <p>Issued by: Orecle • 2025 </p>
       </div>
+    </div>
+  </section>
 
-      <div class="certificate-box">
-        <div class="certificate-img">
-          <img src="Screenshot 2025-09-08 220331.png" alt="OCI  Foundation 2025 Certificate">
-          <div class="certificate-overlay">
-            <a href="https://drive.google.com/file/d/10iRIZHCVDplgpIPiVnhN81rabi7qA_1s/view?usp=sharing"
-              class="certificate-btn"><i class="fas fa-eye"></i> View</a>
-            <!-- <a href="https://drive.google.com/file/d/1TpTd_IypFLsNjj61oqhwaobyRBMzeBZP/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-download"></i> Download</a> -->
+  <!-- Skills Section -->
+  <section id="skills" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <span class="text-accent">02.</span> Technical Arsenal
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Skill Card -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fab fa-python text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">Python</h3>
+          <p class="text-xs text-gray-400 mt-2">EDA, Automation, API usage<br>and Many libraries</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fas fa-chart-pie text-4xl text-yellow-600 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">Power BI</h3>
+          <p class="text-xs text-gray-400 mt-2">Dashboards, DAX, KPI Tracking, Data modeling, Business-style reports</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fas fa-database text-4xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">SQL</h3>
+          <p class="text-xs text-gray-400 mt-2">Queries, Joins, Extraction, Used with Python & Power BI</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fab fa-js text-4xl text-yellow-300 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">JavaScript</h3>
+          <p class="text-xs text-gray-400 mt-2">Basic, API</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fab fa-html5 text-4xl text-orange-500 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">HTML5 & CSS3</h3>
+          <p class="text-xs text-gray-400 mt-2">Responsive Layouts, Grid/Flex</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fas fa-file-excel text-4xl text-green-500 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">Excel</h3>
+          <p class="text-xs text-gray-400 mt-2">Pivot Tables, Cleaning, Dashboards</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fas fa-palette text-4xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">Canva & Design</h3>
+          <p class="text-xs text-gray-400 mt-2">Graphic Design, Thumbnails, banners, Visuals</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fas fa-video text-4xl text-black-400 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">Video Editing</h3>
+          <p class="text-xs text-gray-400 mt-2">CapCut, Tech/demo videos</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fas fa-robot text-4xl text-grey-400 mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">n8n, Make</h3>
+          <p class="text-xs text-gray-400 mt-2">Workflow Automation, Automation Agents</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fas fa-robot text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-lg">Generative AI</h3>
+          <p class="text-xs text-gray-400 mt-2">Prompting, Tools</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-dark/50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <span class="text-accent">03.</span> Featured Projects
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Project 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="Travally.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'"
+              alt="Travally" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" target="_blank"
+                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/vicky-tec/TRAVALLY_.git" target="_blank"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"
+                title="Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">TRAVALLY</h3>
+            <p class="text-gray-400 text-sm mb-4">A comprehensive Bihar tourism website featuring interactive maps and
+              an AI-integrated chatbot for travelers.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">HTML/CSS</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">JS</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">AI API</span>
+            </div>
           </div>
         </div>
-        <h3> Gen-AI Mastermind </h3>
-        <p>Issued by:Outskill • 2025 </p>
+
+        <!-- Project 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="dash.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'"
+              alt="Blinkit Dashboard"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://github.com/vicky-tec/gigx-Data-Analytics-" target="_blank"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Blinkit Dashboard</h3>
+            <p class="text-gray-400 text-sm mb-4">Interactive PowerBI dashboard analyzing delivery times, customer
+              satisfaction, and inventory efficiency.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="d3.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Grocery+Sales'"
+              alt="Grocery Sales"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Grocery Sales Dashboard</h3>
+            <p class="text-gray-400 text-sm mb-4">Detailed analysis of store sales performance, identifying top-selling
+              categories and peak hours.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Excel</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Dashboard</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="glass-card rounded-2xl overflow-hidden group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="d2.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Addiction+Analytics'"
+              alt="Addiction Dashboard"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Student Addiction Analytics</h3>
+            <p class="text-gray-400 text-sm mb-4">Data-driven study on student habits and addiction patterns visualized
+              through interactive charts.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="glass-card rounded-2xl overflow-hidden group">
+          <div class="h-48 overflow-hidden relative">
+            <img src="d5.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Sales+Trends'"
+              alt="Sales Dashboard"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">E-Commerce Sales</h3>
+            <p class="text-gray-400 text-sm mb-4">Tracking sales trends, revenue growth, and market behavior over time.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Business Intel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: ML Placeholder -->
+        <div class="glass-card rounded-2xl overflow-hidden group border border-accent/20">
+          <div class="h-48 bg-gray-900 flex flex-col items-center justify-center relative">
+            <i class="fas fa-brain text-5xl text-gray-700"></i>
+            <span class="absolute top-4 right-4 bg-accent text-black text-xs font-bold px-2 py-1 rounded">COMING
+              SOON</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Machine Learning Model</h3>
+            <p class="text-gray-400 text-sm mb-4">My first deployment-ready ML model. No hype, just real predictions and
+              learning.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Scikit-Learn</span>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </section>
 
-
-      <div class="certificate-box">
-        <div class="certificate-img">
-          <img src="https://github.com/vicky-tec/PortFoilo/blob/main/p11.png?raw=true" alt="Power BI Certificate">
-          <div class="certificate-overlay">
+  <!-- Certificates Section -->
+  <section id="certificates" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <span class="text-accent">04.</span> Certifications
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cert 1 -->
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+          <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 flex-shrink-0">
+            <i class="fas fa-database"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white">OCI Foundations Associate</h4>
+            <p class="text-xs text-gray-400">Oracle • 2025</p>
+            <a href="https://drive.google.com/file/d/1vEfYjgnobtmgNA8UGCAeMyFRl3ygAdE1/view?usp=sharing" target="_blank"
+              class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+          </div>
+        </div>
+        <!-- Cert 2 -->
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+          <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 flex-shrink-0">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white">Gen-AI Mastermind</h4>
+            <p class="text-xs text-gray-400">Outskill • 2025</p>
+            <a href="https://drive.google.com/file/d/10iRIZHCVDplgpIPiVnhN81rabi7qA_1s/view?usp=sharing" target="_blank"
+              class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+          </div>
+        </div>
+        <!-- Cert 3 -->
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+          <div
+            class="w-12 h-12 bg-yellow-900/30 rounded-lg flex items-center justify-center text-yellow-400 flex-shrink-0">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white">Power BI Workshop</h4>
+            <p class="text-xs text-gray-400">Office Master • 2025</p>
             <a href="https://drive.google.com/file/d/1u3lbbn2_cKNcJnetnUOo8cfEVAdJA3rW/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-eye"></i> View</a>
-            <!-- <a href="https://drive.google.com/file/d/15BcspV58XWEITh68AOKqETB3v1zQYD5q/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-download"></i> Download</a> -->
+              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
           </div>
         </div>
-        <h3>Power BI Workshop </h3>
-        <p>Issued by: Office Master • 2025</p>
-      </div>
-
-      <div class="certificate-box">
-        <div class="certificate-img">
-          <img src="E1.png" alt="Excel Certificate">
-          <div class="certificate-overlay">
+        <!-- Cert 4 -->
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+          <div
+            class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 flex-shrink-0">
+            <i class="fas fa-table"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white">Excel Workshop</h4>
+            <p class="text-xs text-gray-400">Office Master • 2025</p>
             <a href="https://drive.google.com/file/d/15BcspV58XWEITh68AOKqETB3v1zQYD5q/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-eye"></i> View</a>
-            <!-- <a href="https://drive.google.com/file/d/15BcspV58XWEITh68AOKqETB3v1zQYD5q/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-download"></i> Download</a> -->
+              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
           </div>
         </div>
-        <h3>Excel Workshop </h3>
-        <p>Issued by: Office Master • 2025</p>
-      </div>
-
-      <div class="certificate-box">
-        <div class="certificate-img">
-          <img src="gen.png" alt="Genrative AI Certificate">
-          <div class="certificate-overlay">
-            <a href="https://drive.google.com/file/d/1TpTd_IypFLsNjj61oqhwaobyRBMzeBZP/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-eye"></i> View</a>
-            <!-- <a href="https://drive.google.com/file/d/1TpTd_IypFLsNjj61oqhwaobyRBMzeBZP/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-download"></i> Download</a> -->
+        <!-- Cert 5 -->
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+          <div
+            class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 flex-shrink-0">
+            <i class="fas fa-pen-nib"></i>
           </div>
-        </div>
-        <h3>Genrative AI Fundamentals</h3>
-        <p>Issued by: Simplilearn • 2025</p>
-      </div>
-
-      <div class="certificate-box">
-        <div class="certificate-img">
-          <img src="ben10x.png" alt="AI Tools Certificate">
-          <div class="certificate-overlay">
-            <a href="https://drive.google.com/file/d/1pmP0PuFiir-XxIlMYWohjAPDaYK145-A/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-eye"></i> View</a>
-            <!-- <a href="https://drive.google.com/file/d/1pmP0PuFiir-XxIlMYWohjAPDaYK145-A/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-download"></i> Download</a> -->
-          </div>
-        </div>
-        <h3>AI TOOLS</h3>
-        <p>Issued by: be10X • 2025</p>
-      </div>
-
-      <div class="certificate-box">
-        <div class="certificate-img">
-          <img src="UX.png" alt="UI/UX Certificate">
-          <div class="certificate-overlay">
+          <div>
+            <h4 class="font-bold text-white">UI/UX Design</h4>
+            <p class="text-xs text-gray-400">Great Learning • 2024</p>
             <a href="https://drive.google.com/file/d/1yNEBYxJ0L66x4DLZbGP8NoMF8b4bemi-/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-eye"></i> View</a>
-            <!-- <a href="https://drive.google.com/file/d/1yNEBYxJ0L66x4DLZbGP8NoMF8b4bemi-/view?usp=drive_link"
-              class="certificate-btn"><i class="fas fa-download"></i> Download</a> -->
+              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
           </div>
         </div>
-        <h3>UI/UX </h3>
-        <p>Issued by:GreatLearning • 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="py-20 bg-dark/50 border-y border-white/5">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+        Resume & <span class="text-accent">History</span>
+      </h2>
+      
+      <div class="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden shadow-2xl shadow-accent/10">
+        <!-- Resume Header -->
+        <div class="p-6 border-b border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 bg-white/5">
+          <div class="text-center md:text-left">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <i class="fas fa-file-alt text-accent"></i> Vicky Raj - CV
+            </h3>
+            <p class="text-gray-400 text-sm">Previewing latest version • 2025</p>
+          </div>
+          <div class="flex gap-3">
+             <a href="RESUME-2.pdf" download="VickyRaj-Resume.pdf"
+              class="px-6 py-2 bg-accent text-black rounded-full font-bold hover:bg-white transition-all transform hover:-translate-y-1 flex items-center gap-2 shadow-lg shadow-accent/20">
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Resume Viewer (Iframe) -->
+        <div class="w-full h-[500px] md:h-[600px] bg-gray-900 relative">
+          <!-- Loading Spinner (Visible while loading) -->
+          <div class="absolute inset-0 flex items-center justify-center text-accent/50 pointer-events-none">
+             <i class="fas fa-circle-notch fa-spin text-3xl"></i>
+          </div>
+          
+          <iframe src="RESUME-2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH" 
+                  class="w-full h-full relative z-10" 
+                  title="Resume Preview">
+            <div class="flex flex-col items-center justify-center h-full text-center p-10">
+               <p class="text-gray-400 mb-4">Your browser cannot display the PDF directly.</p>
+               <a href="RESUME-2.pdf" class="px-6 py-2 border border-accent text-accent rounded-full hover:bg-accent hover:text-black transition-colors">
+                 Download PDF to View
+               </a>
+            </div>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery / Life Section (Requested in Prompt) -->
+  <section class="py-20 overflow-hidden">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center"><span class="text-accent">05.</span> Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt="Coding Setup">
+          <div class="absolute inset-0 bg-black/40 flex items-end p-4">
+            <span class="text-xs font-mono text-accent">#LateNightCoding</span>
+          </div>
+        </div>
+        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group md:col-span-2">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt="Data Analytics">
+          <div class="absolute inset-0 bg-black/40 flex items-end p-4">
+            <span class="text-xs font-mono text-accent">#DataViz</span>
+          </div>
+        </div>
+        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            alt="Matrix Code">
+          <div class="absolute inset-0 bg-black/40 flex items-end p-4">
+            <span class="text-xs font-mono text-accent">#CyberSecurity</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="contact-form-container">
-      <form id="submit-to-google-sheet">
-        <div class="input-box">
-          <label for="name">Name:</label>
-          <input type="text" name="name" id="name" placeholder="Name" required />
-        </div>
-        <div class="input-box">
-          <label for="email">Email:</label>
-          <input type="email" name="email" id="email" placeholder="Email" required />
-        </div>
-        <div class="input-box">
-          <label for="contact_number">Contact Number:</label>
-          <input type="text" name="contact_number" id="contact_number" placeholder="Contact Number" required />
-        </div>
-        <div class="input-box">
-          <label for="gender">Gender:</label>
-          <select name="gender" id="gender" required>
-            <option value="" disabled selected hidden>Choose...</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </div>
-        <div class="input-box">
-          <label for="message">Message:</label>
-          <textarea name="message" id="message" placeholder="Message" required></textarea>
-        </div>
-        <div class="checkbox-group">
-          <input type="checkbox" id="age" />
-          <label for="age">Check if you are over 18 years old</label>
-        </div>
-        <div class="checkbox-group">
-          <input type="checkbox" id="ex" required />
-          <label for="ex">By checking this box I certify that I agree with the data terms and policies.</label>
-        </div>
-        <button type="submit" class="btn">Submit</button>
-      </form>
+  <section id="contact" class="py-20 bg-gradient-to-t from-black to-dark">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+        Let's Connect & <span class="text-accent">Collaborate</span> 💙
+      </h2>
+
+      <div class="glass-card rounded-3xl p-8 md:p-12">
+        <form id="contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-gray-400">Name</label>
+              <input type="text" name="name" required class="w-full p-4 rounded-xl form-input transition-all"
+                placeholder="John Doe">
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-gray-400">Email</label>
+              <input type="email" name="email" required class="w-full p-4 rounded-xl form-input transition-all"
+                placeholder="john@example.com">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-gray-400">Contact Number</label>
+              <input type="text" name="contact_number" class="w-full p-4 rounded-xl form-input transition-all"
+                placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-gray-400">Subject</label>
+              <input type="text" name="subject" class="w-full p-4 rounded-xl form-input transition-all"
+                placeholder="Project Inquiry">
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-gray-400">Message</label>
+            <textarea name="message" required rows="4" class="w-full p-4 rounded-xl form-input transition-all"
+              placeholder="Tell me about your project..."></textarea>
+          </div>
+
+          <button type="submit" id="submit-btn"
+            class="w-full py-4 bg-accent text-black font-bold text-lg rounded-xl hover:bg-white transition-all transform hover:-translate-y-1 shadow-lg shadow-accent/20">
+            Send Message <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+          <p id="form-message" class="text-center text-sm text-green-400 hidden">Message Sent Successfully!</p>
+        </form>
+      </div>
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="py-8 border-t border-white/5 text-center text-gray-500 text-sm">
+    <div class="container mx-auto px-6">
+      <p>&copy; 2025 Vicky Raj. Built with <i class="fas fa-heart text-accent"></i> and Data.</p>
+      <div class="flex justify-center space-x-6 mt-4 text-xl">
+        <a href="https://github.com/vicky-tec" class="hover:text-accent"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vicky-raj-090760282/" class="hover:text-accent"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="mailto:vickyrazzz81@gmail.com" class="hover:text-accent"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
 
-  <!--FOOTER SECTION-->
-  <a href="https://wa.me/919798981891" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919798981891" target="_blank"
+    class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-transform z-50">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <footer>
-    <div class="contact-bottom">
-      <h3>Get In Touch</h3>
-      <p><i class="fas fa-envelope"></i> vickyrazzz81@gmail.com</p>
-      <p><i class="fas fa-phone"></i> +91 9798981891</p>
-      <p><i class="fas fa-map-marker-alt"></i> Bihar, India</p>
-    </div>
-    <div class="copyright">&copy; 2025 VR Portfolio. All Rights Reserved.</div>
-  </footer>
-
-
+  <!-- Scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Mobile menu toggle
-      const menuToggle = document.getElementById('menu-toggle');
-      const nav = document.querySelector('nav');
-      menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('active');
-        menuToggle.innerHTML = nav.classList.contains('active') ?
-          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-      });
-      document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function () {
-          nav.classList.remove('active');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-      });
+    // Typing Effect
+    const roles = ["Data Analyst", "Frontend Dev (Fundamentals)", "AI Enthusiast", "Video Editor"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const erasingSpeed = 50;
+    const delayBetweenRoles = 2000;
+    const typingElement = document.getElementById("typing-text");
 
-      // Header scroll effect
-      const header = document.querySelector('header');
-      window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-      });
-
-      // Scroll indicator
-      const scrollIndicator = document.querySelector('.scroll-indicator');
-      window.addEventListener('scroll', () => {
-        scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
-      });
-
-      // Animate section titles on scroll
-      const animateOnScroll = () => {
-        document.querySelectorAll('.section-title').forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.9) {
-            el.classList.add('animate');
-          }
-        });
-      };
-      animateOnScroll();
-      window.addEventListener('scroll', animateOnScroll);
-
-      // Video background play/pause control
-      const video = document.getElementById('myVideo');
-      try {
-        video.play().catch(error => {
-          console.log('Video autoplay was prevented:', error);
-        });
-      } catch (error) {
-        console.log('Video error:', error);
+    function type() {
+      const currentRole = roles[roleIndex];
+      if (isDeleting) {
+        typingElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
       }
 
-      // Mobile video fallback
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        const videoBg = document.querySelector('.video-background');
-        videoBg.innerHTML = '<img src="elliott-engelmann-DjlKxYFJlTc-unsplash.jpg" alt="Background" style="width:100%;height:100%;object-fit:cover;">';
+      if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        setTimeout(type, delayBetweenRoles);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, isDeleting ? erasingSpeed : typingSpeed);
       }
+    }
+    document.addEventListener("DOMContentLoaded", type);
 
-      // Consolidated form submission script with SweetAlert2 (swal)
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
-      const contactForm = document.forms["submit-to-google-sheet"];
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
 
-      contactForm.addEventListener("submit", (e) => {
+    // Sticky Navbar
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-lg', 'bg-dark/95');
+        navbar.classList.remove('py-4');
+        navbar.classList.add('py-2');
+      } else {
+        navbar.classList.remove('shadow-lg', 'bg-dark/95');
+        navbar.classList.add('py-4');
+        navbar.classList.remove('py-2');
+      }
+    });
+
+    // Smooth Scroll for Anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-
-        // Disable button and show loading state
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-        const formData = new FormData(contactForm);
-        const ex = document.getElementById("ex").checked;
-        const age = document.getElementById("age").checked;
-
-        formData.append("age", age ? "Yes" : "No");
-        formData.append("ex", ex ? "Yes" : "No");
-
-        fetch(scriptURL, { method: "POST", body: formData })
-          .then((response) => {
-            swal("Done", "Submitted Successfully.", "success");
-            contactForm.reset();
-          })
-          .catch((error) => {
-            swal("Error", "Something went wrong. Please try again!", "error");
-          })
-          .finally(() => {
-            // Re-enable button and reset text
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Submit';
-          });
+        mobileMenu.classList.add('hidden'); // Close mobile menu on click
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
-  </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Mobile menu toggle
-      const menuToggle = document.getElementById('menu-toggle');
-      const nav = document.querySelector('nav');
-      menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('active');
-        menuToggle.innerHTML = nav.classList.contains('active') ?
-          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-      });
-      document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function () {
-          nav.classList.remove('active');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    // Form Handling (Simulated based on previous Google Sheet logic)
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const formMessage = document.getElementById('form-message');
+
+    // Re-using the original script URL from your file
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      const formData = new FormData(form);
+      // Add default values for checkboxes if they existed in UI but hidden here for cleaner look
+      formData.append("ex", "Yes");
+
+      fetch(scriptURL, { method: "POST", body: formData })
+        .then(response => {
+          formMessage.classList.remove('hidden');
+          form.reset();
+          setTimeout(() => formMessage.classList.add('hidden'), 5000);
+          submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane ml-2"></i>';
+          submitBtn.disabled = false;
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          submitBtn.innerHTML = 'Error! Try Again';
+          submitBtn.disabled = false;
         });
-      });
+    });
 
-      // Header scroll effect
-      const header = document.querySelector('header');
-      window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-      });
+    // Custom Cursor Movement
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
 
-      // Scroll indicator
-      const scrollIndicator = document.querySelector('.scroll-indicator');
-      window.addEventListener('scroll', () => {
-        scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
-      });
-
-      // Animate section titles on scroll
-      const animateOnScroll = () => {
-        document.querySelectorAll('.section-title').forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.9) {
-            el.classList.add('animate');
-          }
-        });
-      };
-      animateOnScroll();
-      window.addEventListener('scroll', animateOnScroll);
-
-      // ✅ Video autoplay attempt
-      const video = document.getElementById('myVideo');
-      try {
-        video.play().catch(error => {
-          console.log('Video autoplay was prevented:', error);
-        });
-      } catch (error) {
-        console.log('Video error:', error);
-      }
-
-      // ✅ PRELOADER HIDE AFTER PAGE LOAD
-      window.addEventListener('load', () => {
-        const preloader = document.getElementById('preloader');
-        preloader.style.opacity = '0';
-        setTimeout(() => { preloader.style.display = 'none'; }, 500);
-      });
-
-      // (your contact form script unchanged...)
+    // Hover effect for cursor
+    document.querySelectorAll('a, button, input, textarea').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(2)');
+      el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
     });
   </script>
-
 </body>
-
 </html>
-
-
