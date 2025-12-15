@@ -241,7 +241,7 @@
         </h1>
 
         <h2 class="text-xl md:text-2xl text-gray-400 h-8">
-          I am a <span id="typing-text" class="text-accent font-mono"></span><span class="animate-blink">|</span>
+          I'm <span id="typing-text" class="text-accent font-mono"></span><span class="animate-blink">|</span>
         </h2>
 
         <p class="text-gray-400 max-w-lg leading-relaxed">
@@ -290,17 +290,24 @@
         </h2>
         <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
           <p>
-            Hi, I'm <strong class="text-white">Vicky Raj</strong> — a passionate <strong class="text-accent">Data
-              Analyst</strong>,
-            Frontend Developer fundamentals, and AI Explorer, currently pursuing a B.Sc in Computer Science and
-            Data Analytics at <strong class="text-white">IIT Patna</strong>.
-          </p>
-          <p>
-            I love transforming raw data into actionable insights. With skills in Python, SQL, and data
-            visualization, I enjoy uncovering patterns, solving analytical problems, and driving smarter decisions.
-          </p>
-          <p>
-            Beyond coding, I blend technical logic with creativity through video editing and design.
+            Hi, I'm <strong class="text-white">Vicky Raj</strong> — a passionate 
+  <strong class="text-accent">Data Analyst</strong>, with a strong foundation in 
+  frontend web development and a growing interest in AI-driven solutions. 
+  I’m currently pursuing a B.Sc. in Computer Science and Data Analytics at 
+  <strong class="text-white">IIT Patna</strong>.
+         </p>
+
+         <p>
+  I enjoy transforming raw data into actionable insights using Python, SQL, 
+  and data visualization tools. I like exploring patterns, solving analytical 
+  problems, and turning complex data into clear, meaningful outcomes that 
+  support better decision-making.
+         </p>
+
+         <p>
+           Beyond analytics and coding, I combine technical logic with creativity through 
+           design and video editing. I see AI as a powerful assistant that helps me simplify 
+           complex ideas and build smarter, more efficient solutions.<br>
             "I'm just a normal person who uses AI as a superpower to make complex things look simple."
           </p>
         </div>
@@ -537,23 +544,49 @@
         </div>
 
         <!-- Project 6: ML Placeholder -->
-        <div class="glass-card rounded-2xl overflow-hidden group border border-accent/20">
-          <div class="h-48 bg-gray-900 flex flex-col items-center justify-center relative">
-            <i class="fas fa-brain text-5xl text-gray-700"></i>
-            <span class="absolute top-4 right-4 bg-accent text-black text-xs font-bold px-2 py-1 rounded">COMING
-              SOON</span>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Machine Learning Model</h3>
-            <p class="text-gray-400 text-sm mb-4">My first deployment-ready ML model. No hype, just real predictions and
-              learning.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Scikit-Learn</span>
-            </div>
-          </div>
-        </div>
+        <!-- Project 6: MAVI.ai -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+  <div class="h-48 overflow-hidden relative">
+    <img src="mavi.png"
+      onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'"
+      alt="MAVI AI Agent"
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
 
+    <!-- Hover Overlay -->
+    <div
+      class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+
+      <!-- GitHub (disabled / coming soon) -->
+      <a href="#"
+        class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-not-allowed opacity-70">
+        <i class="fab fa-github"></i>
+      </a>
+
+      <!-- Coming Soon Badge -->
+      <span class="absolute top-4 right-4 bg-accent text-black text-xs font-bold px-2 py-1 rounded">
+        COMING SOON
+      </span>
+    </div>
+  </div>
+
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-white mb-2">MAVI.ai</h3>
+
+    <p class="text-gray-400 text-sm mb-4">
+      MAVI is a local, hybrid AI agent powered by on-device LLMs, RAG, vision tools,
+      and automation for secure, intelligent workflows.
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+      <span class="skill-tag px-3 py-1 text-xs rounded-full">Local LLMs</span>
+      <span class="skill-tag px-3 py-1 text-xs rounded-full">RAG</span>
+      <span class="skill-tag px-3 py-1 text-xs rounded-full">Automation</span>
+      <span class="skill-tag px-3 py-1 text-xs rounded-full">Vision + OCR</span>
+      <span class="skill-tag px-3 py-1 text-xs rounded-full">Llama 3.2 · Gemini</span>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   </section>
@@ -636,15 +669,15 @@
   <section id="resume" class="py-20 bg-dark/50 border-y border-white/5">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-        Resume & <span class="text-accent">History</span>
+        Resume <span class="text-accent"></span>
       </h2>
       
       <div class="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden shadow-2xl shadow-accent/10">
         <!-- Resume Header -->
-        <div class="p-6 border-b border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 bg-white/5">
+        <div class="p-6 border-b border-white/10 flex flex-col.md:flex-row md:justify-between md:items-center gap-4">
           <div class="text-center md:text-left">
             <h3 class="text-xl font-bold text-white flex items-center gap-2">
-              <i class="fas fa-file-alt text-accent"></i> Vicky Raj - CV
+              <i class="fas fa-file-alt text-accent"></i> Vicky Raj - Resume
             </h3>
             <p class="text-gray-400 text-sm">Previewing latest version • 2025</p>
           </div>
@@ -765,7 +798,7 @@
   <!-- Footer -->
   <footer class="py-8 border-t border-white/5 text-center text-gray-500 text-sm">
     <div class="container mx-auto px-6">
-      <p>&copy; 2025 Vicky Raj. Built with <i class="fas fa-heart text-accent"></i> and Data.</p>
+      <p>&copy; 2025 Vicky Raj. Built with <i class="fas fa-heart text-accent"></i> and AI.</p>
       <div class="flex justify-center space-x-6 mt-4 text-xl">
         <a href="https://github.com/vicky-tec" class="hover:text-accent"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/vicky-raj-090760282/" class="hover:text-accent"><i
