@@ -174,6 +174,29 @@
       outline: none;
       box-shadow: 0 0 0 3px rgba(27, 196, 248, 0.1);
     }
+
+    /* NEW: Scroll Reveal Animation */
+    .reveal-text {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal-text.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* NEW: Hero Canvas Position */
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.4;
+    }
   </style>
 </head>
 
@@ -223,12 +246,15 @@
 
   <!-- Hero Section -->
   <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
-    <!-- Background Elements -->
-    <div class="absolute top-20 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
-    <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl -z-10"></div>
+    <!-- NEW: Animated Neural Network Background -->
+    <canvas id="hero-canvas"></canvas>
+    
+    <!-- Static Background Glows (Subtle) -->
+    <div class="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-600/5 rounded-full blur-3xl -z-10"></div>
 
     <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div class="order-2 md:order-1 space-y-6">
+      <div class="order-2 md:order-1 space-y-6 reveal-text">
         <div
           class="inline-flex items-center px-3 py-1 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-mono">
           <span class="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
@@ -237,7 +263,7 @@
 
         <h1 class="text-5xl md:text-7xl font-bold leading-tight">
           Hi, I'm <br>
-          <span class="text-gradient">Vicky Raj</span>
+          <span class="text-gradient drop-shadow-lg">Vicky Raj</span>
         </h1>
 
         <h2 class="text-xl md:text-2xl text-gray-400 h-8">
@@ -251,10 +277,10 @@
 
         <div class="flex gap-4 pt-4">
           <a href="#projects"
-            class="px-8 py-3 bg-accent text-black font-bold rounded-full hover:bg-white transition-all shadow-[0_0_20px_rgba(27,196,248,0.4)]">
+            class="px-8 py-3 bg-accent text-black font-bold rounded-full hover:bg-white transition-all shadow-[0_0_20px_rgba(27,196,248,0.4)] hover:shadow-[0_0_30px_rgba(27,196,248,0.6)]">
             View Work
           </a>
-          <a href="#contact" class="px-8 py-3 border border-white/20 rounded-full hover:bg-white/10 transition-all">
+          <a href="#contact" class="px-8 py-3 border border-white/20 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
             Contact Me
           </a>
         </div>
@@ -271,10 +297,11 @@
         </div>
       </div>
 
-      <div class="order-1 md:order-2 flex justify-center relative">
+      <div class="order-1 md:order-2 flex justify-center relative reveal-text" style="transition-delay: 200ms;">
         <div class="relative w-64 h-64 md:w-96 md:h-96">
           <div class="absolute inset-0 rounded-full border-2 border-accent/30 animate-[spin_10s_linear_infinite]"></div>
-          <img src="image.webp" onerror="this.src=''" alt="Vicky Raj"
+          <div class="absolute inset-0 rounded-full border border-accent/10 animate-[spin_15s_linear_infinite_reverse] scale-110"></div>
+          <img src="WhatsApp Image 2025-09-15 at 06.37.23_dce4345a.jpg" onerror="this.src=''" alt="Vicky Raj"
             class="w-full h-full object-cover rounded-full profile-glow border-4 border-dark relative z-10">
         </div>
       </div>
@@ -284,12 +311,12 @@
   <!-- About Section -->
   <section id="about" class="py-20 bg-dark/50">
     <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12">
+      <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12 reveal-text">
         <h2 class="text-3xl font-bold mb-6 flex items-center">
           <span class="text-accent mr-2">01.</span> About Me
         </h2>
         <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
-          <p>
+          <p class="reveal-text">
             Hi, I'm <strong class="text-white">Vicky Raj</strong> — a passionate 
   <strong class="text-accent">Data Analyst</strong>, with a strong foundation in 
   frontend web development and a growing interest in AI-driven solutions. 
@@ -297,14 +324,14 @@
   <strong class="text-white">IIT Patna</strong>.
          </p>
 
-         <p>
+         <p class="reveal-text">
   I enjoy transforming raw data into actionable insights using Python, SQL, 
   and data visualization tools. I like exploring patterns, solving analytical 
   problems, and turning complex data into clear, meaningful outcomes that 
   support better decision-making.
          </p>
 
-         <p>
+         <p class="reveal-text">
            Beyond analytics and coding, I combine technical logic with creativity through 
            design and video editing. I see AI as a powerful assistant that helps me simplify 
            complex ideas and build smarter, more efficient solutions.<br>
@@ -312,23 +339,23 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 reveal-text">
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
             <i class="fas fa-graduation-cap text-2xl text-accent mb-2"></i>
             <div class="font-bold text-white">IIT Patna</div>
             <div class="text-xs text-gray-400">BS in CS & Data Analytics</div>
           </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
             <i class="fas fa-code text-2xl text-accent mb-2"></i>
             <div class="font-bold text-white">Frontend</div>
             <div class="text-xs text-gray-400">Modern UI/UX</div>
           </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
             <i class="fas fa-chart-line text-2xl text-accent mb-2"></i>
             <div class="font-bold text-white">Analytics</div>
             <div class="text-xs text-gray-400">Python & Power BI</div>
           </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
             <i class="fas fa-robot text-2xl text-accent mb-2"></i>
             <div class="font-bold text-white">AI/ML</div>
             <div class="text-xs text-gray-400">Automation & Tools</div>
@@ -341,67 +368,67 @@
   <!-- Skills Section -->
   <section id="skills" class="py-20">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
         <span class="text-accent">02.</span> Technical Arsenal
       </h2>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <!-- Skill Card -->
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fab fa-python text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">Python</h3>
           <p class="text-xs text-gray-400 mt-2">EDA, Automation, API usage<br>and Many libraries</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fas fa-chart-pie text-4xl text-yellow-600 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">Power BI</h3>
           <p class="text-xs text-gray-400 mt-2">Dashboards, DAX, KPI Tracking, Data modeling, Business-style reports</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fas fa-database text-4xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">SQL</h3>
           <p class="text-xs text-gray-400 mt-2">Queries, Joins, Extraction, Used with Python & Power BI</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fab fa-js text-4xl text-yellow-300 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">JavaScript</h3>
           <p class="text-xs text-gray-400 mt-2">Basic, API</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fab fa-html5 text-4xl text-orange-500 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">HTML5 & CSS3</h3>
           <p class="text-xs text-gray-400 mt-2">Responsive Layouts, Grid/Flex</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fas fa-file-excel text-4xl text-green-500 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">Excel</h3>
           <p class="text-xs text-gray-400 mt-2">Pivot Tables, Cleaning, Dashboards</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fas fa-palette text-4xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">Canva & Design</h3>
           <p class="text-xs text-gray-400 mt-2">Graphic Design, Thumbnails, banners, Visuals</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fas fa-video text-4xl text-black-400 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">Video Editing</h3>
           <p class="text-xs text-gray-400 mt-2">CapCut, Tech/demo videos</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fas fa-robot text-4xl text-grey-400 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">n8n, Make</h3>
           <p class="text-xs text-gray-400 mt-2">Workflow Automation, Automation Agents</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fas fa-robot text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg">Generative AI</h3>
           <p class="text-xs text-gray-400 mt-2">Prompting, Tools</p>
@@ -413,14 +440,14 @@
   <!-- Projects Section -->
   <section id="projects" class="py-20 bg-dark/50">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
         <span class="text-accent">03.</span> Featured Projects
       </h2>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Project 1 -->
-        <div class="glass-card rounded-2xl overflow-hidden group">
+        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
             <img src="Travally.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'"
               alt="Travally" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -447,7 +474,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="glass-card rounded-2xl overflow-hidden group">
+        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
             <img src="dash.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'"
               alt="Blinkit Dashboard"
@@ -472,7 +499,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="glass-card rounded-2xl overflow-hidden group">
+        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
             <img src="d3.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Grocery+Sales'"
               alt="Grocery Sales"
@@ -496,7 +523,7 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="glass-card rounded-2xl overflow-hidden group">
+        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
             <img src="d2.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Addiction+Analytics'"
               alt="Addiction Dashboard"
@@ -520,7 +547,7 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="glass-card rounded-2xl overflow-hidden group">
+        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
             <img src="d5.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Sales+Trends'"
               alt="Sales Dashboard"
@@ -544,49 +571,44 @@
         </div>
 
         <!-- Project 6: ML Placeholder -->
-        <!-- Project 6: MAVI.ai -->
-<div class="glass-card rounded-2xl overflow-hidden group">
-  <div class="h-48 overflow-hidden relative">
-    <img src="mavi.png"
-      onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'"
-      alt="MAVI AI Agent"
-      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+          <div class="h-48 overflow-hidden relative">
+            <img src="mavi.png"
+              onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'"
+              alt="MAVI AI Agent"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
 
-    <!-- Hover Overlay -->
-    <div
-      class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+            <!-- Hover Overlay -->
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
 
-      <!-- GitHub (disabled / coming soon) -->
-      <a href="#"
-        class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-not-allowed opacity-70">
-        <i class="fab fa-github"></i>
-      </a>
+              <!-- GitHub (disabled / coming soon) -->
+              <a href="https://github.com/vicky-tec/MAVI-Local-AI-AGENT" target="_blank"
+                class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-allowed opacity-70">
+                <i class="fab fa-github"></i>
+              </a>
 
-      <!-- Coming Soon Badge -->
-      <span class="absolute top-4 right-4 bg-accent text-black text-xs font-bold px-2 py-1 rounded">
-        COMING SOON
-      </span>
-    </div>
-  </div>
+            </div>
+          </div>
 
-  <div class="p-6">
-    <h3 class="text-xl font-bold text-white mb-2">MAVI.ai</h3>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">MAVI.ai</h3>
 
-    <p class="text-gray-400 text-sm mb-4">
-      MAVI is a local, hybrid AI agent powered by on-device LLMs, RAG, vision tools,
-      and automation for secure, intelligent workflows.
-    </p>
+            <p class="text-gray-400 text-sm mb-4">
+              MAVI is a local, hybrid AI agent powered by on-device LLMs, RAG, vision tools,
+              and automation for secure, intelligent workflows.
+            </p>
 
-    <div class="flex flex-wrap gap-2">
-      <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-      <span class="skill-tag px-3 py-1 text-xs rounded-full">Local LLMs</span>
-      <span class="skill-tag px-3 py-1 text-xs rounded-full">RAG</span>
-      <span class="skill-tag px-3 py-1 text-xs rounded-full">Automation</span>
-      <span class="skill-tag px-3 py-1 text-xs rounded-full">Vision + OCR</span>
-      <span class="skill-tag px-3 py-1 text-xs rounded-full">Llama 3.2 · Gemini</span>
-    </div>
-  </div>
-</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Local LLMs</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">RAG</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Automation</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Vision + OCR</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Llama 3.2 · Gemini</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -594,12 +616,12 @@
   <!-- Certificates Section -->
   <section id="certificates" class="py-20">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
         <span class="text-accent">04.</span> Certifications
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Cert 1 -->
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 flex-shrink-0">
             <i class="fas fa-database"></i>
           </div>
@@ -611,7 +633,7 @@
           </div>
         </div>
         <!-- Cert 2 -->
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 flex-shrink-0">
             <i class="fas fa-brain"></i>
           </div>
@@ -623,7 +645,7 @@
           </div>
         </div>
         <!-- Cert 3 -->
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div
             class="w-12 h-12 bg-yellow-900/30 rounded-lg flex items-center justify-center text-yellow-400 flex-shrink-0">
             <i class="fas fa-chart-bar"></i>
@@ -636,7 +658,7 @@
           </div>
         </div>
         <!-- Cert 4 -->
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div
             class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 flex-shrink-0">
             <i class="fas fa-table"></i>
@@ -649,7 +671,7 @@
           </div>
         </div>
         <!-- Cert 5 -->
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4">
+        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div
             class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 flex-shrink-0">
             <i class="fas fa-pen-nib"></i>
@@ -668,13 +690,13 @@
   <!-- Resume Section -->
   <section id="resume" class="py-20 bg-dark/50 border-y border-white/5">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
         Resume <span class="text-accent"></span>
       </h2>
       
-      <div class="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden shadow-2xl shadow-accent/10">
+      <div class="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 reveal-text">
         <!-- Resume Header -->
-        <div class="p-6 border-b border-white/10 flex flex-col.md:flex-row md:justify-between md:items-center gap-4">
+        <div class="p-6 border-b border-white/10 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <div class="text-center md:text-left">
             <h3 class="text-xl font-bold text-white flex items-center gap-2">
               <i class="fas fa-file-alt text-accent"></i> Vicky Raj - Resume
@@ -714,9 +736,9 @@
   <!-- Gallery / Life Section (Requested in Prompt) -->
   <section class="py-20 overflow-hidden">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-12 text-center"><span class="text-accent">05.</span> Gallery</h2>
+      <h2 class="text-3xl font-bold mb-12 text-center reveal-text"><span class="text-accent">05.</span> Gallery</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group">
+        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group reveal-text">
           <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             alt="Coding Setup">
@@ -724,7 +746,7 @@
             <span class="text-xs font-mono text-accent">#LateNightCoding</span>
           </div>
         </div>
-        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group md:col-span-2">
+        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group md:col-span-2 reveal-text">
           <img src="Dashboard.jpg"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             alt="Data Analytics">
@@ -732,7 +754,7 @@
             <span class="text-xs font-mono text-accent">#DataViz</span>
           </div>
         </div>
-        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group">
+        <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group reveal-text">
           <img src="rear-view-programmer-working-all-night-long.jpg"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             alt="Matrix Code">
@@ -747,11 +769,31 @@
   <!-- Contact Section -->
   <section id="contact" class="py-20 bg-gradient-to-t from-black to-dark">
     <div class="container mx-auto px-6 max-w-4xl">
-      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center reveal-text">
         Let's Connect & <span class="text-accent">Collaborate</span> 💙
       </h2>
 
-      <div class="glass-card rounded-3xl p-8 md:p-12">
+      <!-- Social Links Row -->
+      <div class="flex justify-center gap-6 mb-10 reveal-text">
+        <a href="https://github.com/vicky-tec" target="_blank" 
+           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-accent hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-accent/5" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank" 
+           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-blue-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-blue-400/5" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/vr_razzz/" target="_blank" 
+           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-pink-500 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-pink-500/5" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:vickyrazzz81@gmail.com" 
+           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-red-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-red-400/5" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 md:p-12 reveal-text">
         <form id="contact-form" class="space-y-6">
           <div class="grid md:grid-cols-2 gap-6">
             <div class="space-y-2">
@@ -925,6 +967,111 @@
       el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(2)');
       el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
     });
+
+    // NEW: Scroll Reveal Animation Logic
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-text').forEach(el => {
+      observer.observe(el);
+    });
+
+    // NEW: Hero Neural Network Canvas Background
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let width, height;
+    let particles = [];
+    
+    // Resize function
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+    
+    // Particle class
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2 + 1;
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        // Bounce off edges
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      
+      draw() {
+        ctx.fillStyle = 'rgba(27, 196, 248, 0.5)'; // Accent color
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    // Initialize particles
+    function initParticles() {
+      particles = [];
+      const particleCount = Math.min(window.innerWidth / 10, 100); // Responsive count
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+    
+    initParticles();
+    
+    // Animation loop
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      
+      particles.forEach((p, index) => {
+        p.update();
+        p.draw();
+        
+        // Draw connections
+        for (let j = index + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 150) {
+            ctx.strokeStyle = `rgba(27, 196, 248, ${0.1 * (1 - distance / 150)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      });
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+
   </script>
 </body>
 </html>
