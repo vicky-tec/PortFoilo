@@ -323,7 +323,7 @@
   <div id="preloader">
     <div class="loader-content">
       <div class="loader-ring"></div>
-      <div class="loader-text">Loading Creativity</div>
+      <div class="loader-text">Creativity Loading...</div>
     </div>
   </div>
 
@@ -331,7 +331,7 @@
   <nav id="navbar"
     class="fixed w-full z-50 transition-all duration-300 py-4 bg-dark/80 backdrop-blur-md border-b border-white/5">
     <div class="container mx-auto px-6 flex justify-between items-center">
-      <a href="#home" class="text-2xl font-bold font-mono tracking-tighter hover:text-accent transition-colors">
+      <a href="#" class="text-2xl font-bold font-mono tracking-tighter hover:text-accent transition-colors">
         VR<span class="text-accent">.</span>
       </a>
 
@@ -389,7 +389,7 @@
         <!-- Status Badge -->
         <div class="inline-flex items-center px-3 py-1 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm text-accent text-xs font-mono tracking-wider">
           <span class="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
-          OPEN TO WORK
+          Available for Hire
         </div>
 
         <!-- Main Headline -->
@@ -408,7 +408,8 @@
               <span id="typing-text" class="font-mono border-r-4 border-accent pr-1"></span>
             </h2>
             <p class="text-gray-400 max-w-lg text-lg leading-relaxed border-l-2 border-accent/30 pl-4">
-            I analyze data to uncover insights hidden in the noise, and build intelligent automation systems with modern web interfaces that solve real business problems</p>
+              I analyze data to uncover insights hidden in the noise, and build intelligent automation systems with modern web interfaces that solve real business problems
+            </p>
         </div>
 
         <!-- Buttons -->
@@ -459,28 +460,28 @@
             </div>
 
             <!-- 1. Top-Left: Power BI (Orbit) -->
-            <div class="absolute -top-6 -left-2 md:-top-10 md:-left-12 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite] hidden md:flex">
+            <div class="absolute -top-2 -left-2 md:-top-10 md:-left-12 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite]">
                 <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
                     <i class="fas fa-chart-pie text-lg"></i>
                 </div>
-                <div>
+                <div class="hidden md:block">
                     <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tool</div>
                     <div class="font-bold text-white text-sm">Power BI</div>
                 </div>
             </div>
 
             <!-- 2. Top-Right: Python (Orbit) -->
-            <div class="absolute -top-8 -right-4 md:-top-12 md:-right-8 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_6s_ease-in-out_infinite_reverse]">
+            <div class="absolute -top-2 -right-2 md:-top-12 md:-right-8 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_6s_ease-in-out_infinite_reverse]">
                 <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
                     <i class="fab fa-python text-lg"></i>
                 </div>
-                <div>
+                <div class="hidden md:block">
                     <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Skill</div>
                     <div class="font-bold text-white text-sm">Python</div>
                 </div>
             </div>
 
-            <!-- 3. Mid-Left: Data Analytics (Orbit) -->
+            <!-- 3. Mid-Left: Data Analytics (Orbit) - Hidden on Mobile -->
             <div class="absolute top-1/2 -translate-y-1/2 -left-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_9s_ease-in-out_infinite] hidden md:flex">
                 <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 shadow-[0_0_10px_rgba(34,197,94,0.2)]">
                     <i class="fas fa-chart-line text-lg"></i>
@@ -492,17 +493,17 @@
             </div>
 
             <!-- 4. Mid-Right: AI / GenAI (Orbit) -->
-            <div class="absolute top-1/3 -right-24 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_8s_ease-in-out_infinite] hidden md:flex">
+            <div class="absolute top-1/3 -right-4 md:-right-24 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_8s_ease-in-out_infinite]">
                 <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.2)]">
                     <i class="fas fa-robot text-lg"></i>
                 </div>
-                <div>
+                <div class="hidden md:block">
                     <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tech</div>
                     <div class="font-bold text-white text-sm">GenAI</div>
                 </div>
             </div>
 
-            <!-- 5. Bottom-Right Side: Automation (Orbit) -->
+            <!-- 5. Bottom-Right Side: Automation (Orbit) - Hidden on Mobile -->
             <div class="absolute bottom-16 -right-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_10s_ease-in-out_infinite_reverse] hidden md:flex">
                 <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
                     <i class="fas fa-arrows-rotate text-lg"></i>
@@ -514,7 +515,7 @@
             </div>
 
             <!-- 6. Role Pill (Bottom-Left) -->
-            <div class="absolute bottom-4 -left-8 md:bottom-0 md:-left-16 glass-card px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-bold animate-[float_11s_ease-in-out_infinite] hidden md:flex items-center gap-2">
+            <div class="absolute bottom-0 -left-2 md:-left-16 glass-card px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-bold animate-[float_11s_ease-in-out_infinite] flex items-center gap-2">
                 <i class="fas fa-database"></i> Data Analyst
             </div>
 
@@ -524,7 +525,7 @@
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                Open to Work
+                Ready to collaborate
             </div>
 
         </div>
@@ -1296,4 +1297,3 @@
   </script>
 </body>
 </html>
-
