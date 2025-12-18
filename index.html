@@ -6,16 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vicky Raj | Data Analyst & Developer</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&family=Orbitron:wght@400;500;700&family=Protest+Revolution&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&family=Orbitron:wght@400;500;700&family=Protest+Revolution&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="icon" href="PortFoilo/picofme.png">
 
-  <!-- Tailwind (for utility classes, customized via CSS below) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
@@ -118,12 +117,14 @@
       bottom: 10px;
       border-radius: 50%;
       border: 2px solid transparent;
-      border-top-color: #a855f7; /* Purple accent */
+      border-top-color: #a855f7;
+      /* Purple accent */
       animation: spinRing 3s linear infinite reverse;
     }
 
     .loader-text {
-      margin-top: 240px; /* Push text below the ring */
+      margin-top: 240px;
+      /* Push text below the ring */
       font-family: 'Orbitron', sans-serif;
       font-size: 1.5rem;
       letter-spacing: 4px;
@@ -133,13 +134,25 @@
     }
 
     @keyframes spinRing {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     @keyframes pulseText {
-      0% { opacity: 0.5; text-shadow: 0 0 5px var(--accent); }
-      100% { opacity: 1; text-shadow: 0 0 20px var(--accent); }
+      0% {
+        opacity: 0.5;
+        text-shadow: 0 0 5px var(--accent);
+      }
+
+      100% {
+        opacity: 1;
+        text-shadow: 0 0 20px var(--accent);
+      }
     }
 
     /* Custom Scrollbar */
@@ -175,7 +188,7 @@
       border: 1px solid var(--glass-border);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+
     .glass-card:hover {
       border-color: var(--accent);
       transform: translateY(-5px);
@@ -222,7 +235,7 @@
     }
 
     .hero-blob:hover {
-        box-shadow: inset 0 0 30px rgba(27, 196, 248, 0.4), 0 0 50px rgba(27, 196, 248, 0.3);
+      box-shadow: inset 0 0 30px rgba(27, 196, 248, 0.4), 0 0 50px rgba(27, 196, 248, 0.3);
     }
 
     /* Second Layer for Depth */
@@ -245,9 +258,11 @@
       0% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
       }
+
       50% {
         border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
       }
+
       100% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
       }
@@ -295,31 +310,30 @@
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     /* Floating Bubbles */
     .floating-bubble {
-        position: absolute;
-        bottom: -100px;
-        background: radial-gradient(circle at 30% 30%, rgba(27, 196, 248, 0.1), transparent);
-        border: 1px solid rgba(27, 196, 248, 0.1);
-        border-radius: 50%;
-        color: rgba(255, 255, 255, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Space Grotesk', monospace;
-        font-size: 0.8rem;
-        pointer-events: none;
-        backdrop-filter: blur(2px);
-        animation: float linear infinite;
-        z-index: 0;
+      position: absolute;
+      bottom: -100px;
+      background: radial-gradient(circle at 30% 30%, rgba(27, 196, 248, 0.1), transparent);
+      border: 1px solid rgba(27, 196, 248, 0.1);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.8rem;
+      pointer-events: none;
+      backdrop-filter: blur(2px);
+      animation: float linear infinite;
+      z-index: 0;
     }
   </style>
 </head>
 
 <body class="font-sans antialiased selection:bg-accent selection:text-black">
 
-  <!-- PRELOADER -->
   <div id="preloader">
     <div class="loader-content">
       <div class="loader-ring"></div>
@@ -327,7 +341,6 @@
     </div>
   </div>
 
-  <!-- Navigation -->
   <nav id="navbar"
     class="fixed w-full z-50 transition-all duration-300 py-4 bg-dark/80 backdrop-blur-md border-b border-white/5">
     <div class="container mx-auto px-6 flex justify-between items-center">
@@ -335,7 +348,6 @@
         VR<span class="text-accent">.</span>
       </a>
 
-      <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-8">
         <a href="#home" class="nav-link text-sm font-medium hover:text-accent transition-colors">Home</a>
         <a href="#about" class="nav-link text-sm font-medium hover:text-accent transition-colors">About</a>
@@ -347,13 +359,11 @@
         <a href="#contact" class="nav-link text-sm font-medium hover:text-accent transition-colors">Contact</a>
       </div>
 
-      <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu"
       class="hidden md:hidden absolute top-full left-0 w-full bg-card border-b border-white/10 py-4">
       <div class="flex flex-col space-y-4 px-6">
@@ -368,172 +378,184 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
-    <!-- Modern Animated Background -->
     <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
-        <!-- Animated Blobs -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob"></div>
-        <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000"></div>
-        <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/30 rounded-full blur-[128px] animate-blob animation-delay-4000"></div>
-        
-        <!-- Grid Pattern -->
-        <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 50px 50px; opacity: 0.5;"></div>
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob"></div>
+      <div
+        class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000">
+      </div>
+      <div
+        class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/30 rounded-full blur-[128px] animate-blob animation-delay-4000">
+      </div>
+
+      <div class="absolute inset-0"
+        style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 50px 50px; opacity: 0.5;">
+      </div>
     </div>
 
     <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-      
-      <!-- Text Content -->
+
       <div class="order-2 lg:order-1 space-y-8 reveal-text">
-        
-        <!-- Status Badge -->
-        <div class="inline-flex items-center px-3 py-1 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm text-accent text-xs font-mono tracking-wider">
+
+        <div
+          class="inline-flex items-center px-3 py-1 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm text-accent text-xs font-mono tracking-wider">
           <span class="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
           Available for Hire
         </div>
 
-        <!-- Main Headline -->
         <div class="space-y-2">
-            <h2 class="text-xl md:text-2xl text-gray-400 font-light">Hello, I'm</h2>
-            <h1 class="text-6xl md:text-8xl font-bold leading-none tracking-tight">
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 drop-shadow-2xl">Vicky</span>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600 drop-shadow-[0_0_25px_rgba(27,196,248,0.4)]">Raj</span>
-            </h1>
+          <h2 class="text-xl md:text-2xl text-gray-400 font-light">Hello, I'm</h2>
+          <h1 class="text-6xl md:text-8xl font-bold leading-none tracking-tight">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 drop-shadow-2xl">Vicky</span>
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600 drop-shadow-[0_0_25px_rgba(27,196,248,0.4)]">Raj</span>
+          </h1>
         </div>
 
-        <!-- Typing & Bio -->
         <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl text-gray-300 flex items-center gap-2">
-              <span class="text-accent"><i class="fas fa-code"></i></span>
-              <span id="typing-text" class="font-mono border-r-4 border-accent pr-1"></span>
-            </h2>
-            <p class="text-gray-400 max-w-lg text-lg leading-relaxed border-l-2 border-accent/30 pl-4">
-              I analyze data to uncover insights hidden in the noise, and build intelligent automation systems with modern web interfaces that solve real business problems
-            </p>
+          <h2 class="text-2xl md:text-3xl text-gray-300 flex items-center gap-2">
+            <span class="text-accent"><i class="fas fa-code"></i></span>
+            <span id="typing-text" class="font-mono border-r-4 border-accent pr-1"></span>
+          </h2>
+          <p class="text-gray-400 max-w-lg text-lg leading-relaxed border-l-2 border-accent/30 pl-4">
+            I analyze data to uncover insights hidden in the noise, and build intelligent automation systems with modern
+            web interfaces that solve real business problems
+          </p>
         </div>
-
-        <!-- Buttons -->
         <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#projects" class="group relative px-8 py-4 bg-accent text-black font-bold rounded-full overflow-hidden shadow-[0_0_20px_rgba(27,196,248,0.4)] hover:shadow-[0_0_30px_rgba(27,196,248,0.6)] transition-all">
-            <div class="absolute inset-0 w-full h-full bg-white/30 group-hover:translate-x-full transition-transform duration-500 ease-out -translate-x-full skew-x-12"></div>
-            <span class="relative flex items-center gap-2">View Projects <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
+          <a href="#projects"
+            class="group relative px-8 py-4 bg-accent text-black font-bold rounded-full overflow-hidden shadow-[0_0_20px_rgba(27,196,248,0.4)] hover:shadow-[0_0_30px_rgba(27,196,248,0.6)] transition-all">
+            <div
+              class="absolute inset-0 w-full h-full bg-white/30 group-hover:translate-x-full transition-transform duration-500 ease-out -translate-x-full skew-x-12">
+            </div>
+            <span class="relative flex items-center gap-2">View Projects <i
+                class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
           </a>
-          <a href="#contact" class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/5 transition-all text-white flex items-center gap-2 group">
+          <a href="#contact"
+            class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/5 transition-all text-white flex items-center gap-2 group">
             Contact Me <i class="fas fa-envelope text-accent group-hover:rotate-12 transition-transform"></i>
           </a>
         </div>
 
-        <!-- Socials -->
         <div class="flex items-center gap-6 pt-4">
-            <a href="https://github.com/vicky-tec" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/vr_razzz/" target="_blank" class="text-gray-400 hover:text-pink-500 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i class="fab fa-instagram"></i></a>
-            <div class="h-px w-20 bg-white/10"></div>
-            <span class="text-xs text-gray-500 font-mono">FOLLOW ME</span>
+          <a href="https://github.com/vicky-tec" target="_blank"
+            class="text-gray-400 hover:text-white transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
+            class="text-gray-400 hover:text-blue-400 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/vr_razzz/" target="_blank"
+            class="text-gray-400 hover:text-pink-500 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
+              class="fab fa-instagram"></i></a>
+          <div class="h-px w-20 bg-white/10"></div>
+          <span class="text-xs text-gray-500 font-mono">FOLLOW ME</span>
         </div>
       </div>
 
-      <!-- Profile Image & Creative Elements -->
-      <div class="order-1 lg:order-2 flex justify-center items-center relative h-[500px] reveal-text" style="transition-delay: 200ms;">
-        
-        <!-- Rotating Text Ring -->
-        <div class="absolute w-[450px] h-[450px] animate-[spin_20s_linear_infinite] opacity-30 pointer-events-none hidden md:block">
-            <svg viewBox="0 0 100 100" width="100%" height="100%">
-              <defs>
-                <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
-              </defs>
-              <text font-size="10" fill="white" font-family="Space Grotesk" letter-spacing="3">
-                <textPath xlink:href="#circle">
-                  <!-- DATA ANALYST • AI ENGINEER • DEVELOPER •  -->
-                </textPath>
-              </text>
-            </svg>
+      <div class="order-1 lg:order-2 flex justify-center items-center relative h-[500px] reveal-text"
+        style="transition-delay: 200ms;">
+
+        <div
+          class="absolute w-[450px] h-[450px] animate-[spin_20s_linear_infinite] opacity-30 pointer-events-none hidden md:block">
+          <svg viewBox="0 0 100 100" width="100%" height="100%">
+            <defs>
+              <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+            </defs>
+            <text font-size="10" fill="white" font-family="Space Grotesk" letter-spacing="3">
+              <textPath xlink:href="#circle">
+              </textPath>
+            </text>
+          </svg>
         </div>
 
-        <!-- Main Image Container -->
         <div class="relative w-72 h-72 md:w-96 md:h-96 z-10 flex justify-center items-center">
-            
-            <!-- Morphing Fluid Wave Image -->
-            <div class="hero-blob">
-                <img src="WhatsApp Image 2025-09-15 at 06.37.23_dce4345a.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Vicky+Raj&background=0D8ABC&color=fff&size=512'" alt="Vicky Raj" 
-                class="w-full h-full object-cover">
-            </div>
 
-            <!-- 1. Top-Left: Power BI (Orbit) -->
-            <div class="absolute -top-2 -left-2 md:-top-10 md:-left-12 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite]">
-                <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-                    <i class="fas fa-chart-pie text-lg"></i>
-                </div>
-                <div class="hidden md:block">
-                    <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tool</div>
-                    <div class="font-bold text-white text-sm">Power BI</div>
-                </div>
-            </div>
+          <div class="hero-blob">
+            <img src="WhatsApp Image 2025-09-15 at 06.37.23_dce4345a.jpg"
+              onerror="this.src='https://ui-avatars.com/api/?name=Vicky+Raj&background=0D8ABC&color=fff&size=512'"
+              alt="Vicky Raj" class="w-full h-full object-cover">
+          </div>
 
-            <!-- 2. Top-Right: Python (Orbit) -->
-            <div class="absolute -top-2 -right-2 md:-top-12 md:-right-8 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_6s_ease-in-out_infinite_reverse]">
-                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
-                    <i class="fab fa-python text-lg"></i>
-                </div>
-                <div class="hidden md:block">
-                    <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Skill</div>
-                    <div class="font-bold text-white text-sm">Python</div>
-                </div>
+          <div
+            class="absolute -top-2 -left-2 md:-top-10 md:-left-12 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite]">
+            <div
+              class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+              <i class="fas fa-chart-pie text-lg"></i>
             </div>
+            <div class="hidden md:block">
+              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tool</div>
+              <div class="font-bold text-white text-sm">Power BI</div>
+            </div>
+          </div>
 
-            <!-- 3. Mid-Left: Data Analytics (Orbit) - Hidden on Mobile -->
-            <div class="absolute top-1/2 -translate-y-1/2 -left-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_9s_ease-in-out_infinite] hidden md:flex">
-                <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 shadow-[0_0_10px_rgba(34,197,94,0.2)]">
-                    <i class="fas fa-chart-line text-lg"></i>
-                </div>
-                <div>
-                    <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Focus</div>
-                    <div class="font-bold text-white text-sm">Analytics</div>
-                </div>
+          <div
+            class="absolute -top-2 -right-2 md:-top-12 md:-right-8 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_6s_ease-in-out_infinite_reverse]">
+            <div
+              class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+              <i class="fab fa-python text-lg"></i>
             </div>
+            <div class="hidden md:block">
+              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Skill</div>
+              <div class="font-bold text-white text-sm">Python</div>
+            </div>
+          </div>
 
-            <!-- 4. Mid-Right: AI / GenAI (Orbit) -->
-            <div class="absolute top-1/3 -right-4 md:-right-24 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_8s_ease-in-out_infinite]">
-                <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.2)]">
-                    <i class="fas fa-robot text-lg"></i>
-                </div>
-                <div class="hidden md:block">
-                    <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tech</div>
-                    <div class="font-bold text-white text-sm">GenAI</div>
-                </div>
+          <div
+            class="absolute top-1/2 -translate-y-1/2 -left-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_9s_ease-in-out_infinite] hidden md:flex">
+            <div
+              class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 shadow-[0_0_10px_rgba(34,197,94,0.2)]">
+              <i class="fas fa-chart-line text-lg"></i>
             </div>
+            <div>
+              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Focus</div>
+              <div class="font-bold text-white text-sm">Analytics</div>
+            </div>
+          </div>
 
-            <!-- 5. Bottom-Right Side: Automation (Orbit) - Hidden on Mobile -->
-            <div class="absolute bottom-16 -right-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_10s_ease-in-out_infinite_reverse] hidden md:flex">
-                <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
-                    <i class="fas fa-arrows-rotate text-lg"></i>
-                </div>
-                <div>
-                    <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Core</div>
-                    <div class="font-bold text-white text-sm">Automation</div>
-                </div>
+          <div
+            class="absolute top-1/3 -right-4 md:-right-24 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_8s_ease-in-out_infinite]">
+            <div
+              class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.2)]">
+              <i class="fas fa-robot text-lg"></i>
             </div>
+            <div class="hidden md:block">
+              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tech</div>
+              <div class="font-bold text-white text-sm">GenAI</div>
+            </div>
+          </div>
 
-            <!-- 6. Role Pill (Bottom-Left) -->
-            <div class="absolute bottom-0 -left-2 md:-left-16 glass-card px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-bold animate-[float_11s_ease-in-out_infinite] flex items-center gap-2">
-                <i class="fas fa-database"></i> Data Analyst
+          <div
+            class="absolute bottom-16 -right-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_10s_ease-in-out_infinite_reverse] hidden md:flex">
+            <div
+              class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+              <i class="fas fa-arrows-rotate text-lg"></i>
             </div>
+            <div>
+              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Core</div>
+              <div class="font-bold text-white text-sm">Automation</div>
+            </div>
+          </div>
 
-            <!-- 7. Availability Pill (Bottom-Right) -->
-            <div class="absolute -bottom-6 right-8 md:-bottom-8 md:-right-4 glass-card px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-bold animate-bounce shadow-[0_0_15px_rgba(34,197,94,0.3)] flex items-center gap-2">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                Ready to collaborate
-            </div>
+          <div
+            class="absolute bottom-0 -left-2 md:-left-16 glass-card px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-bold animate-[float_11s_ease-in-out_infinite] flex items-center gap-2">
+            <i class="fas fa-database"></i> Data Analyst
+          </div>
+
+          <div
+            class="absolute -bottom-6 right-8 md:-bottom-8 md:-right-4 glass-card px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-bold animate-bounce shadow-[0_0_15px_rgba(34,197,94,0.3)] flex items-center gap-2">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Ready to collaborate
+          </div>
 
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about" class="py-20 bg-dark/50">
     <div class="container mx-auto px-6">
       <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12 reveal-text">
@@ -542,30 +564,30 @@
         </h2>
         <div class="text-gray-300 leading-relaxed text-lg">
           <p class="text-gray-300 leading-relaxed text-lg reveal-text">
-            Hi, I’m <strong class="text-white">Vicky Raj</strong> — a 
-            <strong class="text-accent">Data Analyst</strong> with a strong foundation in 
-            <strong class="text-white">frontend web development</strong> and a growing focus on 
-            <strong class="text-accent">AI-driven solutions and automation</strong>. 
-            I’m currently pursuing a <strong class="text-white">B.Sc. in Computer Science & Data Analytics</strong> 
-            at <strong class="text-white">IIT Patna</strong>, where I continuously sharpen my analytical 
+            Hi, I’m <strong class="text-white">Vicky Raj</strong> — a
+            <strong class="text-accent">Data Analyst</strong> with a strong foundation in
+            <strong class="text-white">frontend web development</strong> and a growing focus on
+            <strong class="text-accent">AI-driven solutions and automation</strong>.
+            I’m currently pursuing a <strong class="text-white">B.Sc. in Computer Science & Data Analytics</strong>
+            at <strong class="text-white">IIT Patna</strong>, where I continuously sharpen my analytical
             and problem-solving skills.
           </p>
 
           <p class="text-gray-300 leading-relaxed text-lg mt-4 reveal-text">
-            I enjoy working with data from <span class="text-accent font-semibold">raw to ready</span> — 
-            cleaning, analyzing, and visualizing it to uncover insights that support 
-            <strong class="text-white">clear, data-backed decision-making</strong>. 
-            Using tools like <strong class="text-white">Python, SQL, Excel, and Power BI</strong>, 
-            I love exploring patterns, identifying trends, and translating complex datasets 
+            I enjoy working with data from <span class="text-accent font-semibold">raw to ready</span> —
+            cleaning, analyzing, and visualizing it to uncover insights that support
+            <strong class="text-white">clear, data-backed decision-making</strong>.
+            Using tools like <strong class="text-white">Python, SQL, Excel, and Power BI</strong>,
+            I love exploring patterns, identifying trends, and translating complex datasets
             into <span class="text-accent font-semibold">simple, meaningful stories</span>.
           </p>
 
           <p class="text-gray-300 leading-relaxed text-lg mt-4 reveal-text">
-            Beyond analytics, I bring a creative edge through 
-            <strong class="text-white">design and video editing</strong>, blending logic with creativity. 
-            I also actively build and experiment with 
-            <strong class="text-accent">automation workflows</strong> to eliminate repetitive tasks 
-            and improve efficiency. I see <strong class="text-accent">AI</strong> not as a shortcut, 
+            Beyond analytics, I bring a creative edge through
+            <strong class="text-white">design and video editing</strong>, blending logic with creativity.
+            I also actively build and experiment with
+            <strong class="text-accent">automation workflows</strong> to eliminate repetitive tasks
+            and improve efficiency. I see <strong class="text-accent">AI</strong> not as a shortcut,
             but as a powerful assistant — helping me think better, build faster, and solve smarter.
           </p>
 
@@ -592,7 +614,7 @@
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
             <i class="fas fa-robot text-2xl text-accent mb-2"></i>
-            <div class="font-bold text-white">AI/ML</div>
+            <div class="font-bold text-white">AI</div>
             <div class="text-xs text-gray-400">Automation & Tools</div>
           </div>
         </div>
@@ -600,96 +622,116 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience" class="py-20">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        <span class="text-accent">02.</span>  Experience
+        <span class="text-accent">02.</span> Experience
       </h2>
-      
-      <div class="max-w-4xl mx-auto space-y-8">
-        
-        <!-- Experience Card 1 -->
-        <div class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
-          <div class="absolute top-0 left-0 w-1 h-full bg-accent"></div>
-          
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-             <div>
-                <h3 class="text-xl font-bold text-white">Coding Junior Intern</h3>
-                <p class="text-accent font-mono text-sm mt-1">Virtual Internship • Library Science & Data</p>
-             </div>
-             <div class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs text-accent font-mono">
-                Remote
-             </div>
-          </div>
-          
-          <ul class="space-y-3 text-gray-400 text-sm leading-relaxed">
-             <li class="flex items-start">
-               <span class="text-accent mr-2 mt-1">▹</span>
-               Managed and organized academic content across multiple educational portals (JNU, GU, JQS, SSU), ensuring structural integrity of data.
-             </li>
-             <li class="flex items-start">
-               <span class="text-accent mr-2 mt-1">▹</span>
-               Handled data entry, cleaning, and organization using Google Sheets, developing a disciplined workflow for high-volume data handling.
-             </li>
-             <li class="flex items-start">
-               <span class="text-accent mr-2 mt-1">▹</span>
-               Uploaded and structured PPTs, documents, and datasets, optimizing the retrieval process for end-users.
-             </li>
-             <li class="flex items-start">
-               <span class="text-accent mr-2 mt-1">▹</span>
-               Gained early exposure to process optimization and automation thinking in a professional digital environment.
-             </li>
-          </ul>
-       </div>
 
-       <!-- Experience Card 2 -->
-       <div class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
-          <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
-          
+      <div class="max-w-4xl mx-auto space-y-8">
+
+        <div
+          class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
+          <div class="absolute top-0 left-0 w-1 h-full bg-accent"></div>
+
           <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-             <div>
-                <h3 class="text-xl font-bold text-white">GenAI-Powered Data Analytics Job Simulation</h3>
-                <p class="text-blue-400 font-mono text-sm mt-1">Forage • Virtual Internship</p>
-             </div>
-             <div class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs text-blue-400 font-mono">
-                Sep 2025 – Oct 2025
-             </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Coding Junior Intern</h3>
+              <p class="text-accent font-mono text-sm mt-1">Virtual Internship • Library Science & Data</p>
+            </div>
+            <div
+              class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs text-accent font-mono">
+              Remote
+            </div>
           </div>
-          
+
           <ul class="space-y-3 text-gray-400 text-sm leading-relaxed">
-             <li class="flex items-start">
-               <span class="text-blue-500 mr-2 mt-1">▹</span>
-               Completed an intensive simulation focused on real-world data analytics and GenAI use cases.
-             </li>
-             <li class="flex items-start">
-               <span class="text-blue-500 mr-2 mt-1">▹</span>
-               Conducted Exploratory Data Analysis (EDA) and risk profiling to predict customer delinquency patterns.
-             </li>
-             <li class="flex items-start">
-               <span class="text-blue-500 mr-2 mt-1">▹</span>
-               Implemented AI-driven strategies and created data storytelling reports to support collections strategy.
-             </li>
-             <li class="flex items-start">
-               <span class="text-blue-500 mr-2 mt-1">▹</span>
-               Developed a practical understanding of how analytics and AI directly support critical business decision-making.
-             </li>
+            <li class="flex items-start">
+              <span class="text-accent mr-2 mt-1">▹</span>
+              Managed and organized academic content across multiple educational portals (JNU, GU, JQS, SSU), ensuring
+              structural integrity of data.
+            </li>
+            <li class="flex items-start">
+              <span class="text-accent mr-2 mt-1">▹</span>
+              Handled data entry, cleaning, and organization using Google Sheets, developing a disciplined workflow for
+              high-volume data handling.
+            </li>
+            <li class="flex items-start">
+              <span class="text-accent mr-2 mt-1">▹</span>
+              Uploaded and structured PPTs, documents, and datasets, optimizing the retrieval process for end-users.
+            </li>
+            <li class="flex items-start">
+              <span class="text-accent mr-2 mt-1">▹</span>
+              Gained early exposure to process optimization and automation thinking in a professional digital
+              environment.
+            </li>
           </ul>
-       </div>
+
+          <!-- <div class="mt-6 pt-4 border-t border-white/10">
+            <a href="Screenshot 2025-12-18 214137.png" target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-xs font-bold text-accent hover:bg-accent hover:text-black transition-all">
+              <i class="fas fa-certificate"></i> View Certificate
+            </a>
+          </div> -->
+        </div>
+
+        <div
+          class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
+          <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+            <div>
+              <h3 class="text-xl font-bold text-white">GenAI-Powered Data Analytics Job Simulation</h3>
+              <p class="text-blue-400 font-mono text-sm mt-1">Forage • Virtual Internship</p>
+            </div>
+            <div
+              class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs text-blue-400 font-mono">
+              Sep 2025 – Oct 2025
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-gray-400 text-sm leading-relaxed">
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2 mt-1">▹</span>
+              Completed an intensive simulation focused on real-world data analytics and GenAI use cases.
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2 mt-1">▹</span>
+              Conducted Exploratory Data Analysis (EDA) and risk profiling to predict customer delinquency patterns.
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2 mt-1">▹</span>
+              Implemented AI-driven strategies and created data storytelling reports to support collections strategy.
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2 mt-1">▹</span>
+              Developed a practical understanding of how analytics and AI directly support critical business
+              decision-making.
+            </li>
+          </ul>
+
+          <div class="mt-6 pt-4 border-t border-white/10">
+            <a href="Screenshot 2025-12-18 214808.png" target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/5 text-xs font-bold text-blue-400 hover:bg-blue-500 hover:text-white transition-all">
+              <i class="fas fa-certificate"></i> View Certificate
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
   <section id="skills" class="py-20 bg-dark/50 relative overflow-hidden">
-    <!-- Floating Background Bubbles -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="floating-bubble w-20 h-20 left-[10%] animation-delay-2000" style="animation-duration: 15s;">Python</div>
-        <div class="floating-bubble w-24 h-24 left-[30%] animation-delay-4000" style="animation-duration: 18s;">SQL</div>
-        <div class="floating-bubble w-16 h-16 left-[50%] animation-delay-2000" style="animation-duration: 20s;">AI</div>
-        <div class="floating-bubble w-28 h-28 left-[70%] animation-delay-4000" style="animation-duration: 22s;">PowerBI</div>
-        <div class="floating-bubble w-20 h-20 left-[90%] animation-delay-2000" style="animation-duration: 17s;">GenAI</div>
+      <div class="floating-bubble w-20 h-20 left-[10%] animation-delay-2000" style="animation-duration: 15s;">Python
+      </div>
+      <div class="floating-bubble w-24 h-24 left-[30%] animation-delay-4000" style="animation-duration: 18s;">SQL</div>
+      <div class="floating-bubble w-16 h-16 left-[50%] animation-delay-2000" style="animation-duration: 20s;">AI</div>
+      <div class="floating-bubble w-28 h-28 left-[70%] animation-delay-4000" style="animation-duration: 22s;">PowerBI
+      </div>
+      <div class="floating-bubble w-20 h-20 left-[90%] animation-delay-2000" style="animation-duration: 17s;">GenAI
+      </div>
     </div>
 
     <div class="container mx-auto px-6 relative z-10">
@@ -698,7 +740,6 @@
       </h2>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Skill Card -->
         <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fab fa-python text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Python</h3>
@@ -762,7 +803,6 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects" class="py-20">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
@@ -771,7 +811,6 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Project 1 -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
             <img src="Travally.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'"
@@ -798,7 +837,36 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+          <div class="h-48 overflow-hidden relative">
+            <img src="d33.png" onerror="this.src=''" alt="Banking Analytics Dashboard"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://app.powerbi.com/links/KSu4AAge-6?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
+                target="_blank"
+                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Banking Analytics Dashboard</h3>
+            <p class="text-gray-400 text-sm mb-4">A detailed analysis of banking sales performance, highlighting total
+              deposits, loans, and identifying top customer segments through insightful visualizations.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Dashboard</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">DAX</span>
+            </div>
+          </div>
+        </div>
+
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
             <img src="dash.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'"
@@ -806,6 +874,10 @@
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             <div
               class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://drive.google.com/file/d/1-bJucRuisBEBt_DdrUN-9ds-eg8cWejw/view?usp=drive_link"
+                target="_blank"
+                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
               <a href="https://github.com/vicky-tec/gigx-Data-Analytics-" target="_blank"
                 class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
                   class="fab fa-github"></i></a>
@@ -816,98 +888,93 @@
             <p class="text-gray-400 text-sm mb-4">Interactive PowerBI dashboard analyzing delivery times, customer
               satisfaction, and inventory efficiency.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Excel</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
             </div>
           </div>
         </div>
 
-        <!-- Project 3 -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="d3.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Grocery+Sales'"
-              alt="Grocery Sales"
+            <img src="d2.png"
+              onerror="this.src='https://drive.google.com/file/d/1h-LKFanHseZZ4_GF-uZX_pqaBzJB8nCu/view?usp=drive_link'"
+              alt="Flipkart Dashboard"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             <div
               class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMDQxZGMzZGQtZmM4Yy00ODUwLTgxMTItMTQwZjNiMDUyZmE1IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9"
+                target="_blank"
+                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                title="View Analysis"><i class="fas fa-external-link-alt"></i></a>
               <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
                 class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
                   class="fab fa-github"></i></a>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Grocery Sales Dashboard</h3>
-            <p class="text-gray-400 text-sm mb-4">Detailed analysis of store sales performance, identifying top-selling
-              categories and peak hours.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Excel</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Dashboard</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-          <div class="h-48 overflow-hidden relative">
-            <img src="d2.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Addiction+Analytics'"
-              alt="Addiction Dashboard"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div
-              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
-                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                  class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Student Addiction Analytics</h3>
-            <p class="text-gray-400 text-sm mb-4">Data-driven study on student habits and addiction patterns visualized
-              through interactive charts.</p>
+            <h3 class="text-xl font-bold text-white mb-2">Big Billion Days Analysis</h3>
+            <p class="text-gray-400 text-sm mb-4">Sales performance analysis of Flipkart’s Big Billion Days,
+              highlighting
+              revenue trends, customer insights, and category-wise performance.</p>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">SQL</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
             </div>
           </div>
         </div>
 
-        <!-- Project 5 -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="d5.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Sales+Trends'"
-              alt="Sales Dashboard"
+            <img src="d7.png"
+              onerror="this.src='https://drive.google.com/file/d/1zCa8UuF0VqdcjCXrZ3kmao18irbmI4Fk/view?usp=drive_link'"
+              alt="E-Commerce Dashboard"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             <div
               class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+              <a href="https://app.powerbi.com/links/wJtZwRcMz8?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
+                target="_blank"
+                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
               <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
                 class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
                   class="fab fa-github"></i></a>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">E-Commerce Sales</h3>
-            <p class="text-gray-400 text-sm mb-4">Tracking sales trends, revenue growth, and market behavior over time.
+            <h3 class="text-xl font-bold text-white mb-2">Blinkit vs Zepto Revenue Comparison Dashboard</h3>
+            <p class="text-gray-400 text-sm mb-4">Comparative revenue analysis of Blinkit and Zepto, showcasing market
+              share, transaction volumes, and growth trends.
             </p>
             <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full">Business Intel</span>
             </div>
           </div>
         </div>
 
-        <!-- Project 6: ML Placeholder -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="mavi.png"
-              onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'"
+            <img src="mavi.png" onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'"
               alt="MAVI AI Agent"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
 
-            <!-- Hover Overlay -->
             <div
               class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-
-              <!-- GitHub (disabled / coming soon) -->
+              <a href="https://vicky-tec.github.io/MAVI-Local-AI-AGENT/" target="_blank"
+                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                title="Live Demo">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
               <a href="https://github.com/vicky-tec/MAVI-Local-AI-AGENT" target="_blank"
                 class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-allowed opacity-70">
                 <i class="fab fa-github"></i>
@@ -938,14 +1005,12 @@
     </div>
   </section>
 
-  <!-- Certificates Section -->
   <section id="certificates" class="py-20 bg-dark/50">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
         <span class="text-accent">05.</span> Certifications
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Cert 1 -->
         <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 flex-shrink-0">
             <i class="fas fa-database"></i>
@@ -957,7 +1022,6 @@
               class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
           </div>
         </div>
-        <!-- Cert 2 -->
         <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 flex-shrink-0">
             <i class="fas fa-brain"></i>
@@ -969,7 +1033,6 @@
               class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
           </div>
         </div>
-        <!-- Cert 3 -->
         <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div
             class="w-12 h-12 bg-yellow-900/30 rounded-lg flex items-center justify-center text-yellow-400 flex-shrink-0">
@@ -982,7 +1045,6 @@
               target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
           </div>
         </div>
-        <!-- Cert 4 -->
         <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div
             class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 flex-shrink-0">
@@ -995,7 +1057,6 @@
               target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
           </div>
         </div>
-        <!-- Cert 5 -->
         <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div
             class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 flex-shrink-0">
@@ -1012,15 +1073,13 @@
     </div>
   </section>
 
-  <!-- Resume Section -->
   <section id="resume" class="py-20 border-y border-white/5">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
         Resume <span class="text-accent"></span>
       </h2>
-      
+
       <div class="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 reveal-text">
-        <!-- Resume Header -->
         <div class="p-6 border-b border-white/10 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <div class="text-center md:text-left">
             <h3 class="text-xl font-bold text-white flex items-center gap-2">
@@ -1029,28 +1088,26 @@
             <p class="text-gray-400 text-sm">Previewing latest version • 2025</p>
           </div>
           <div class="flex gap-3">
-             <a href="RESUME-2.pdf" download="VickyRaj-Resume.pdf"
+            <a href="RESUME-2.pdf" download="VickyRaj-Resume.pdf"
               class="px-6 py-2 bg-accent text-black rounded-full font-bold hover:bg-white transition-all transform hover:-translate-y-1 flex items-center gap-2 shadow-lg shadow-accent/20">
               <i class="fas fa-download"></i> Download
             </a>
           </div>
         </div>
 
-        <!-- Visual Resume Viewer (Iframe) -->
         <div class="w-full h-[500px] md:h-[600px] bg-gray-900 relative">
-          <!-- Loading Spinner (Visible while loading) -->
           <div class="absolute inset-0 flex items-center justify-center text-accent/50 pointer-events-none">
-             <i class="fas fa-circle-notch fa-spin text-3xl"></i>
+            <i class="fas fa-circle-notch fa-spin text-3xl"></i>
           </div>
-          
-          <iframe src="RESUME-2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH" 
-                  class="w-full h-full relative z-10" 
-                  title="Resume Preview">
+
+          <iframe src="RESUME-2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH" class="w-full h-full relative z-10"
+            title="Resume Preview">
             <div class="flex flex-col items-center justify-center h-full text-center p-10">
-               <p class="text-gray-400 mb-4">Your browser cannot display the PDF directly.</p>
-               <a href="RESUME-2.pdf" class="px-6 py-2 border border-accent text-accent rounded-full hover:bg-accent hover:text-black transition-colors">
-                 Download PDF to View
-               </a>
+              <p class="text-gray-400 mb-4">Your browser cannot display the PDF directly.</p>
+              <a href="RESUME-2.pdf"
+                class="px-6 py-2 border border-accent text-accent rounded-full hover:bg-accent hover:text-black transition-colors">
+                Download PDF to View
+              </a>
             </div>
           </iframe>
         </div>
@@ -1058,7 +1115,6 @@
     </div>
   </section>
 
-  <!-- Gallery / Life Section (Requested in Prompt) -->
   <section class="py-20 overflow-hidden bg-dark/50">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold mb-12 text-center reveal-text"><span class="text-accent">06.</span> Gallery</h2>
@@ -1091,30 +1147,32 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="py-20 bg-gradient-to-t from-black to-dark">
     <div class="container mx-auto px-6 max-w-4xl">
       <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center reveal-text">
         Let's Connect & <span class="text-accent">Collaborate</span> 💙
       </h2>
 
-      <!-- Social Links Row -->
       <div class="flex justify-center gap-6 mb-10 reveal-text">
-        <a href="https://github.com/vicky-tec" target="_blank" 
-           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-accent hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-accent/5" title="GitHub">
-            <i class="fab fa-github"></i>
+        <a href="https://github.com/vicky-tec" target="_blank"
+          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-accent hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-accent/5"
+          title="GitHub">
+          <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank" 
-           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-blue-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-blue-400/5" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
+          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-blue-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-blue-400/5"
+          title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
         </a>
-        <a href="https://www.instagram.com/vr_razzz/" target="_blank" 
-           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-pink-500 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-pink-500/5" title="Instagram">
-            <i class="fab fa-instagram"></i>
+        <a href="https://www.instagram.com/vr_razzz/" target="_blank"
+          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-pink-500 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-pink-500/5"
+          title="Instagram">
+          <i class="fab fa-instagram"></i>
         </a>
-        <a href="mailto:vickyrazzz81@gmail.com" 
-           class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-red-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-red-400/5" title="Email">
-            <i class="fas fa-envelope"></i>
+        <a href="mailto:vickyrazzz81@gmail.com"
+          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-red-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-red-400/5"
+          title="Email">
+          <i class="fas fa-envelope"></i>
         </a>
       </div>
 
@@ -1162,7 +1220,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="py-8 border-t border-white/5 text-center text-gray-500 text-sm">
     <div class="container mx-auto px-6">
       <p>&copy; 2025 Vicky Raj. Built with <i class="fas fa-heart text-accent"></i> and AI.</p>
@@ -1175,21 +1232,19 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/919798981891" target="_blank"
     class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-transform z-50">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // PRELOADER HIDE
-      window.onload = function() {
+      window.onload = function () {
         const preloader = document.getElementById('preloader');
         setTimeout(() => {
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
+          preloader.style.opacity = '0';
+          preloader.style.visibility = 'hidden';
         }, 2500); // 2.5s display time for the cool animation
       };
 
@@ -1296,4 +1351,5 @@
     });
   </script>
 </body>
+
 </html>
