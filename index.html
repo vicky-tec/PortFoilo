@@ -57,40 +57,164 @@
   </script>
 
   <style>
-    /* Custom CSS Overrides & Animations */
+    /* ============================================
+       ANTI-GRAVITY FUTURISTIC PORTFOLIO CSS
+       Enhanced with 3D depth, glassmorphism, and smooth animations
+       ============================================ */
+
+    /* === ROOT VARIABLES (8px Grid System) === */
     :root {
-      --accent: #1bc4f8;
-      --bg: #050505;
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.05);
+      /* Primary Colors */
+      --color-bg-primary: #050505;
+      --color-bg-secondary: #0a0a0a;
+      --color-bg-dark: #000000;
+
+      /* Accent & Neon Colors */
+      --color-accent-cyan: #1bc4f8;
+      --color-accent-purple: #a855f7;
+      --color-accent-blue: #3b82f6;
+      --color-accent-green: #22c55e;
+      --color-accent-pink: #ec4899;
+      --color-accent-yellow: #facc15;
+
+      /* Accent Glows */
+      --glow-accent-cyan: rgba(27, 196, 248, 0.4);
+      --glow-accent-purple: rgba(168, 85, 247, 0.3);
+      --glow-accent-soft: rgba(27, 196, 248, 0.15);
+
+      /* Text Colors */
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #e2e8f0;
+      --color-text-muted: #94a3b8;
+      --color-text-dim: #64748b;
+
+      /* Glass Surfaces */
+      --glass-surface-01: rgba(255, 255, 255, 0.03);
+      --glass-surface-02: rgba(255, 255, 255, 0.05);
+      --glass-surface-03: rgba(255, 255, 255, 0.08);
+      --glass-border-subtle: rgba(255, 255, 255, 0.05);
+      --glass-border-medium: rgba(255, 255, 255, 0.1);
+      --glass-border-strong: rgba(255, 255, 255, 0.15);
+
+      /* Depth & Shadows */
+      --shadow-glow-cyan: 0 8px 32px rgba(27, 196, 248, 0.15);
+      --shadow-glow-purple: 0 8px 32px rgba(168, 85, 247, 0.15);
+      --shadow-ambient: 0 16px 48px rgba(0, 0, 0, 0.5);
+      --shadow-depth: 0 24px 64px rgba(0, 0, 0, 0.6);
+
+      /* Spacing (8px Grid) */
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 40px;
+      --space-6: 48px;
+      --space-8: 64px;
+      --space-10: 80px;
+      --space-12: 96px;
+
+      /* Transitions & Easing */
+      --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+      --ease-organic: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-fast: 200ms;
+      --transition-normal: 350ms;
+      --transition-slow: 600ms;
+
+      /* 3D Transform Settings */
+      --perspective-base: 1200px;
+      --rotate-subtle: 2deg;
+      --rotate-medium: 5deg;
+      --translate-z-float: 40px;
+      --translate-z-lift: 80px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    /* === BASE STYLES === */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
     }
 
     body {
-      background-color: var(--bg);
-      color: #e2e8f0;
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-secondary);
       overflow-x: hidden;
-      /* Ensure scroll behavior is respected */
       scroll-behavior: smooth;
+      /* perspective: var(--perspective-base); Removed to fix position: fixed context */
     }
 
-    /* --- PRELOADER --- */
+    /* === REDUCED MOTION SUPPORT === */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .glass-card:hover {
+        transform: none !important;
+      }
+
+      .hero-blob {
+        animation: none !important;
+      }
+
+      .floating-bubble {
+        animation: none !important;
+        opacity: 0 !important;
+      }
+    }
+
+    /* === ENHANCED PRELOADER === */
     #preloader {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: #050505;
+      width: 100vw;
+      /* Ensure full viewport width */
+      height: 100vh;
+      /* Ensure full viewport height */
+      background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 99999;
+      /* Increased z-index */
       flex-direction: column;
-      transition: opacity 0.5s ease-out, visibility 0.5s;
+      transition: opacity 0.8s var(--ease-smooth), visibility 0.8s;
+      overflow: hidden;
+    }
+
+    /* Animated background particles */
+    #preloader::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(2px 2px at 20% 30%, rgba(27, 196, 248, 0.3), transparent),
+        radial-gradient(2px 2px at 60% 70%, rgba(168, 85, 247, 0.3), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(59, 130, 246, 0.3), transparent),
+        radial-gradient(1px 1px at 80% 10%, rgba(27, 196, 248, 0.3), transparent),
+        radial-gradient(2px 2px at 90% 60%, rgba(168, 85, 247, 0.3), transparent);
+      background-size: 200% 200%;
+      animation: particleMove 20s ease-in-out infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes particleMove {
+
+      0%,
+      100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 100% 0%;
+      }
+
+      50% {
+        background-position: 100% 100%, 0% 0%, 80% 20%, 100% 0%, 0% 100%;
+      }
     }
 
     .loader-content {
@@ -98,118 +222,297 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+      margin-bottom: 50px;
     }
 
-    /* Glowing Ring */
+    /* Main rotating ring */
     .loader-ring {
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
+      max-width: 60vw;
+      max-height: 60vw;
       border-radius: 50%;
-      border: 2px solid transparent;
-      border-top-color: var(--accent);
-      border-right-color: var(--accent);
-      animation: spinRing 2s linear infinite;
-      box-shadow: 0 0 15px var(--accent);
+      border: 3px solid transparent;
+      border-top-color: var(--color-accent-cyan);
+      border-right-color: var(--color-accent-cyan);
+      animation: spinRing 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      box-shadow:
+        0 0 30px var(--glow-accent-cyan),
+        inset 0 0 20px rgba(27, 196, 248, 0.1);
+      transform-style: preserve-3d;
     }
 
+    /* Second ring (purple) */
     .loader-ring::before {
       content: "";
       position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
+      inset: 15px;
       border-radius: 50%;
-      border: 2px solid transparent;
-      border-top-color: #a855f7;
-      /* Purple accent */
-      animation: spinRing 3s linear infinite reverse;
+      border: 3px solid transparent;
+      border-top-color: var(--color-accent-purple);
+      border-left-color: var(--color-accent-purple);
+      animation: spinRing 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite reverse;
+      box-shadow:
+        0 0 25px var(--glow-accent-purple),
+        inset 0 0 15px rgba(168, 85, 247, 0.1);
     }
 
+    /* Third ring (blue) */
+    .loader-ring::after {
+      content: "";
+      position: absolute;
+      inset: 30px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: var(--color-accent-blue);
+      border-right-color: var(--color-accent-blue);
+      animation: spinRing 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      box-shadow:
+        0 0 20px rgba(59, 130, 246, 0.4),
+        inset 0 0 10px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Central glowing orb */
+    .loader-orb {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      max-width: 20vw;
+      max-height: 20vw;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%,
+          rgba(27, 196, 248, 0.8),
+          rgba(168, 85, 247, 0.6),
+          transparent);
+      box-shadow:
+        0 0 40px rgba(27, 196, 248, 0.6),
+        0 0 80px rgba(168, 85, 247, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+      animation: orbPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes orbPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+      }
+    }
+
+    /* Loading text */
     .loader-text {
-      margin-top: 240px;
-      /* Push text below the ring */
+      margin-top: 280px;
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 4px;
-      color: white;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: 6px;
+      color: var(--color-text-primary);
       text-transform: uppercase;
-      animation: pulseText 1.5s infinite alternate;
+      background: linear-gradient(90deg,
+          var(--color-accent-cyan) 0%,
+          var(--color-accent-purple) 50%,
+          var(--color-accent-cyan) 100%);
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShimmer 3s ease-in-out infinite, textGlow 2s ease-in-out infinite;
+      position: relative;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .loader-text::after {
+      content: '..';
+      animation: dotAnimation 1.5s steps(3, end) infinite;
+    }
+
+    @keyframes textShimmer {
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    @keyframes textGlow {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 10px var(--glow-accent-cyan));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 25px var(--glow-accent-cyan)) drop-shadow(0 0 40px var(--glow-accent-purple));
+      }
+    }
+
+    @keyframes dotAnimation {
+
+      0%,
+      100% {
+        content: '';
+      }
+
+      33% {
+        content: '.';
+      }
+
+      66% {
+        content: '..';
+      }
     }
 
     @keyframes spinRing {
       0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translateZ(0);
       }
 
       100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg) translateZ(20px);
       }
     }
 
-    @keyframes pulseText {
+    /* Progress bar */
+    .loader-progress {
+      position: absolute;
+      bottom: 80px;
+      width: 300px;
+      max-width: 80%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .loader-progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg,
+          var(--color-accent-cyan),
+          var(--color-accent-purple),
+          var(--color-accent-blue));
+      background-size: 200% 100%;
+      animation: progressFill 2.5s ease-out forwards, progressShimmer 1.5s linear infinite;
+      box-shadow:
+        0 0 15px var(--glow-accent-cyan),
+        0 0 30px var(--glow-accent-purple);
+    }
+
+    @keyframes progressFill {
       0% {
-        opacity: 0.5;
-        text-shadow: 0 0 5px var(--accent);
+        width: 0%;
       }
 
       100% {
-        opacity: 1;
-        text-shadow: 0 0 20px var(--accent);
+        width: 100%;
       }
     }
 
-    /* Custom Scrollbar */
+    @keyframes progressShimmer {
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+
+    /* === CUSTOM SCROLLBAR === */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: var(--space-1);
     }
 
     ::-webkit-scrollbar-track {
-      background: #0a0a0a;
+      background: var(--color-bg-secondary);
     }
 
     ::-webkit-scrollbar-thumb {
       background: #333;
       border-radius: 4px;
+      transition: background var(--transition-fast) var(--ease-smooth);
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent);
+      background: var(--color-accent-cyan);
+      box-shadow: 0 0 8px var(--glow-accent-cyan);
     }
 
-    /* Gradient Text */
+    /* === GRADIENT TEXT === */
     .text-gradient {
-      background: linear-gradient(90deg, #fff, var(--accent));
+      background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent-cyan));
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* Glassmorphism Card */
+    /* === GLASSMORPHISM CARD WITH 3D DEPTH === */
     .glass-card {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--glass-surface-01);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--glass-border-subtle);
+      transition: all var(--transition-normal) var(--ease-organic);
+      transform-style: preserve-3d;
+      position: relative;
+      box-shadow: var(--shadow-glow-soft);
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 50%,
+          rgba(27, 196, 248, 0.1) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity var(--transition-normal) var(--ease-smooth);
     }
 
     .glass-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px -10px rgba(27, 196, 248, 0.15);
+      border-color: var(--color-accent-cyan);
+      transform: translateY(-8px) translateZ(var(--translate-z-float));
+      box-shadow:
+        var(--shadow-glow-cyan),
+        0 0 32px rgba(27, 196, 248, 0.2),
+        inset 0 0 24px rgba(27, 196, 248, 0.05);
     }
 
-    /* Icon Pulse on Hover */
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
     .glass-card:hover i {
-      transform: scale(1.1);
-      text-shadow: 0 0 10px var(--accent);
-      transition: transform 0.3s ease;
+      transform: scale(1.15) translateZ(16px);
+      text-shadow: 0 0 16px var(--glow-accent-cyan);
+      transition: all var(--transition-normal) var(--ease-organic);
     }
 
-    /* Navigation Active State */
+    /* === NAVIGATION ACTIVE STATE === */
     .nav-link.active {
-      color: var(--accent);
+      color: var(--color-accent-cyan);
       position: relative;
     }
 
@@ -220,43 +523,79 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
+      background: linear-gradient(90deg,
+          transparent,
+          var(--color-accent-cyan),
+          transparent);
+      box-shadow: 0 0 12px var(--glow-accent-cyan);
+      animation: activeNavPulse 2s var(--ease-smooth) infinite;
     }
 
-    /* Hero Image Fluid Wave Effect */
+    @keyframes activeNavPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    /* === HERO BLOB WITH 3D MORPHING === */
     .hero-blob {
       position: relative;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(27, 196, 248, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+      background: linear-gradient(135deg,
+          rgba(27, 196, 248, 0.12) 0%,
+          rgba(168, 85, 247, 0.12) 100%);
       border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      animation: morphing 8s ease-in-out infinite;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      box-shadow: inset 0 0 20px rgba(27, 196, 248, 0.2), 0 0 30px rgba(27, 196, 248, 0.1);
+      animation: morphing 8s var(--ease-soft) infinite;
+      border: 2px solid var(--glass-border-medium);
+      box-shadow:
+        inset 0 0 32px rgba(27, 196, 248, 0.2),
+        0 0 48px rgba(27, 196, 248, 0.15),
+        0 16px 64px rgba(0, 0, 0, 0.3);
       z-index: 10;
       overflow: hidden;
-      transition: all 0.5s ease;
+      transition: all var(--transition-slow) var(--ease-organic);
+      transform-style: preserve-3d;
     }
 
     .hero-blob:hover {
-      box-shadow: inset 0 0 30px rgba(27, 196, 248, 0.4), 0 0 50px rgba(27, 196, 248, 0.3);
+      box-shadow:
+        inset 0 0 48px rgba(27, 196, 248, 0.35),
+        0 0 64px rgba(27, 196, 248, 0.25),
+        0 24px 80px rgba(0, 0, 0, 0.4);
+      transform: scale(1.02) translateZ(20px);
     }
 
-    /* Second Layer for Depth */
     .hero-blob::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
       border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
       background: transparent;
       border: 1px solid rgba(27, 196, 248, 0.3);
-      animation: morphing 8s ease-in-out infinite reverse;
+      animation: morphing 8s var(--ease-soft) infinite reverse;
       z-index: -1;
       transform: scale(1.05);
+    }
+
+    .hero-blob::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 60%);
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     @keyframes morphing {
@@ -273,57 +612,60 @@
       }
     }
 
-    /* Skill Tag */
+    /* === SKILL TAG === */
     .skill-tag {
-      background: rgba(27, 196, 248, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(27, 196, 248, 0.2);
+      background: rgba(27, 196, 248, 0.08);
+      color: var(--color-accent-cyan);
+      border: 1px solid rgba(27, 196, 248, 0.25);
+      transition: all var(--transition-fast) var(--ease-smooth);
+      box-shadow: 0 0 0 rgba(27, 196, 248, 0);
     }
 
-    /* Timeline Line */
-    .timeline-line::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
+    .skill-tag:hover {
+      background: rgba(27, 196, 248, 0.15);
+      border-color: var(--color-accent-cyan);
+      box-shadow: 0 0 12px rgba(27, 196, 248, 0.3);
+      transform: translateY(-2px);
     }
 
-    /* Form styling */
+    /* === FORM STYLING === */
     .form-input {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: white;
+      background: var(--glass-surface-02);
+      border: 1px solid var(--glass-border-subtle);
+      color: var(--color-text-primary);
+      transition: all var(--transition-normal) var(--ease-smooth);
+      backdrop-filter: blur(8px);
     }
 
     .form-input:focus {
-      border-color: var(--accent);
+      border-color: var(--color-accent-cyan);
       outline: none;
-      box-shadow: 0 0 0 3px rgba(27, 196, 248, 0.1);
+      box-shadow:
+        0 0 0 3px rgba(27, 196, 248, 0.15),
+        inset 0 0 16px rgba(27, 196, 248, 0.05);
+      background: var(--glass-surface-03);
     }
 
-    /* Scroll Reveal Animation - UPDATED FOR SMOOTHNESS */
+    /* === SCROLL REVEAL ANIMATION === */
     .reveal-text {
       opacity: 0;
-      transform: translateY(50px);
-      /* Increased distance for more drama */
-      /* Cubic-bezier for that "premium" feel */
-      transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateY(40px) translateZ(-20px);
+      transition: all var(--transition-slow) var(--ease-organic);
     }
 
     .reveal-text.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) translateZ(0);
     }
 
-    /* Floating Bubbles */
+    /* === FLOATING BUBBLES === */
     .floating-bubble {
       position: absolute;
       bottom: -100px;
-      background: radial-gradient(circle at 30% 30%, rgba(27, 196, 248, 0.1), transparent);
-      border: 1px solid rgba(27, 196, 248, 0.1);
+      background: radial-gradient(circle at 30% 30%,
+          rgba(27, 196, 248, 0.12),
+          transparent);
+      border: 1px solid rgba(27, 196, 248, 0.15);
       border-radius: 50%;
       color: rgba(255, 255, 255, 0.3);
       display: flex;
@@ -332,9 +674,110 @@
       font-family: 'Space Grotesk', monospace;
       font-size: 0.8rem;
       pointer-events: none;
-      backdrop-filter: blur(2px);
-      animation: float linear infinite;
+      backdrop-filter: blur(4px);
+      animation: floatUp linear infinite;
       z-index: 0;
+      box-shadow:
+        0 0 16px rgba(27, 196, 248, 0.1),
+        inset 0 0 8px rgba(27, 196, 248, 0.05);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) translateX(0px) rotateZ(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: translateY(50vh) translateX(20px) rotateZ(180deg);
+        opacity: 0.5;
+      }
+
+      90% {
+        opacity: 0.2;
+      }
+
+      100% {
+        transform: translateY(-10vh) translateX(-20px) rotateZ(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* === 3D CERTIFICATE CARD ENHANCEMENT === */
+    .certificate-featured {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    .certificate-featured img {
+      transition: all var(--transition-slow) var(--ease-organic);
+      filter: brightness(0.95) contrast(1.05);
+      box-shadow: var(--shadow-ambient);
+    }
+
+    .certificate-featured:hover img {
+      transform: rotateY(var(--rotate-subtle)) rotateX(calc(var(--rotate-subtle) * -1)) translateZ(var(--translate-z-float));
+      filter: brightness(1.05) contrast(1.1) drop-shadow(0 0 24px var(--glow-accent-cyan));
+      box-shadow: var(--shadow-depth);
+    }
+
+    /* === PARALLAX SECTIONS === */
+    .parallax-section {
+      transform-style: preserve-3d;
+      perspective: var(--perspective-base);
+    }
+
+    .parallax-layer {
+      transition: transform 0.3s var(--ease-smooth);
+    }
+
+    /* === MAGNETIC FLOAT EFFECT === */
+    @keyframes magneticFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) translateZ(0) rotateZ(0deg);
+      }
+
+      25% {
+        transform: translateY(-12px) translateZ(8px) rotateZ(2deg);
+      }
+
+      50% {
+        transform: translateY(-6px) translateZ(16px) rotateZ(0deg);
+      }
+
+      75% {
+        transform: translateY(-12px) translateZ(8px) rotateZ(-2deg);
+      }
+    }
+
+    /* === NEON EDGE GLOW === */
+    .neon-edge {
+      position: relative;
+    }
+
+    .neon-edge::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: linear-gradient(45deg,
+          var(--color-accent-cyan),
+          var(--color-accent-purple),
+          var(--color-accent-blue));
+      opacity: 0;
+      z-index: -1;
+      filter: blur(8px);
+      transition: opacity var(--transition-normal) var(--ease-smooth);
+    }
+
+    .neon-edge:hover::after {
+      opacity: 0.4;
     }
   </style>
 </head>
@@ -344,7 +787,11 @@
   <div id="preloader">
     <div class="loader-content">
       <div class="loader-ring"></div>
-      <div class="loader-text">Creativity Loading...</div>
+      <div class="loader-orb"></div>
+      <div class="loader-text">Loading Creativity</div>
+    </div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
     </div>
   </div>
 
@@ -385,14 +832,16 @@
     </div>
   </nav>
 
-  <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+  <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden parallax-section">
     <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob"></div>
       <div
-        class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000">
+        class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob parallax-layer">
       </div>
       <div
-        class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/30 rounded-full blur-[128px] animate-blob animation-delay-4000">
+        class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000 parallax-layer">
+      </div>
+      <div
+        class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/30 rounded-full blur-[128px] animate-blob animation-delay-4000 parallax-layer">
       </div>
 
       <div class="absolute inset-0"
@@ -402,7 +851,7 @@
 
     <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
-      <div class="order-2 lg:order-1 space-y-8 reveal-text">
+      <div class="order-2 lg:order-1 space-y-8 reveal-text parallax-layer">
 
         <div
           class="inline-flex items-center px-3 py-1 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm text-accent text-xs font-mono tracking-wider">
@@ -412,7 +861,7 @@
 
         <div class="space-y-2">
           <h2 class="text-xl md:text-2xl text-gray-400 font-light">Hello, I'm</h2>
-          <h1 class="text-6xl md:text-8xl font-bold leading-none tracking-tight">
+          <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold leading-none tracking-tight">
             <span
               class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 drop-shadow-2xl">Vicky</span>
             <span
@@ -460,7 +909,7 @@
         </div>
       </div>
 
-      <div class="order-1 lg:order-2 flex justify-center items-center relative h-[500px] reveal-text"
+      <div class="order-1 lg:order-2 flex justify-center items-center relative h-[500px] reveal-text parallax-layer"
         style="transition-delay: 200ms;">
 
         <div
@@ -673,6 +1122,13 @@
               environment.
             </li>
           </ul>
+
+          <!-- <div class="mt-6 pt-4 border-t border-white/10">
+            <a href="Screenshot 2025-12-18 214137.png" target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-xs font-bold text-accent hover:bg-accent hover:text-black transition-all">
+              <i class="fas fa-certificate"></i> View Certificate
+            </a>
+          </div> -->
         </div>
 
         <div
@@ -739,7 +1195,7 @@
         <span class="text-accent">03.</span> Technical Skills
       </h2>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 grid-container">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
           <i class="fab fa-python text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
           <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Python</h3>
@@ -809,13 +1265,12 @@
         <span class="text-accent">04.</span> Projects
       </h2>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 grid-container">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="Travally.png" loading="lazy"
-              onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'" alt="Travally"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <img src="Travally.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'"
+              alt="Travally" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             <div
               class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
               <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" target="_blank"
@@ -840,7 +1295,7 @@
 
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="d33.png" loading="lazy" onerror="this.src=''" alt="Banking Analytics Dashboard"
+            <img src="d33.png" onerror="this.src=''" alt="Banking Analytics Dashboard"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             <div
               class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -870,8 +1325,7 @@
 
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="dash.png" loading="lazy"
-              onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'"
+            <img src="dash.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'"
               alt="Blinkit Dashboard"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             <div
@@ -900,7 +1354,7 @@
 
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="d2.png" loading="lazy"
+            <img src="d2.png"
               onerror="this.src='https://drive.google.com/file/d/1h-LKFanHseZZ4_GF-uZX_pqaBzJB8nCu/view?usp=drive_link'"
               alt="Flipkart Dashboard"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -933,7 +1387,7 @@
 
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="d7.png" loading="lazy"
+            <img src="d7.png"
               onerror="this.src='https://drive.google.com/file/d/1zCa8UuF0VqdcjCXrZ3kmao18irbmI4Fk/view?usp=drive_link'"
               alt="E-Commerce Dashboard"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -966,8 +1420,8 @@
 
         <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
           <div class="h-48 overflow-hidden relative">
-            <img src="mavi.png" loading="lazy"
-              onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'" alt="MAVI AI Agent"
+            <img src="mavi.png" onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'"
+              alt="MAVI AI Agent"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
 
             <div
@@ -1012,7 +1466,44 @@
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
         <span class="text-accent">05.</span> Certifications
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-container">
+
+      <!-- Featured Certificate Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- DevFest Certificate -->
+        <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text">
+          <div class="p-4">
+            <img src="cert-devfest.png" alt="DevFest Motihari 2025 Certificate" class="w-full h-auto rounded-lg"
+              onerror="this.src='https://placehold.co/800x600/1a1a1a/1bc4f8?text=DevFest+Certificate'">
+          </div>
+          <div class="px-6 pb-6">
+            <h4 class="font-bold text-white text-lg mb-2">DevFest Motihari 2025</h4>
+            <p class="text-sm text-gray-400">Google Developer Group (GDG) Cloud Motihari • Nov 2025</p>
+            <div class="mt-3 flex items-center gap-2 text-xs">
+              <span class="skill-tag px-3 py-1 rounded-full">AI Impact Summit</span>
+              <span class="skill-tag px-3 py-1 rounded-full">Community</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Physics Wallah Certificate -->
+        <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text">
+          <div class="p-4">
+            <img src="cert-physics-wallah.png" alt="Generative AI for All Certificate" class="w-full h-auto rounded-lg"
+              onerror="this.src='https://placehold.co/800x600/1a1a1a/1bc4f8?text=GenAI+Certificate'">
+          </div>
+          <div class="px-6 pb-6">
+            <h4 class="font-bold text-white text-lg mb-2">Generative AI for All</h4>
+            <p class="text-sm text-gray-400">Physics Wallah × Microsoft • Dec 2025</p>
+            <div class="mt-3 flex items-center gap-2 text-xs">
+              <span class="skill-tag px-3 py-1 rounded-full">GenAI</span>
+              <span class="skill-tag px-3 py-1 rounded-full">Microsoft</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Certifications -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
           <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 flex-shrink-0">
             <i class="fas fa-database"></i>
@@ -1136,14 +1627,14 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group reveal-text">
           <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
-            loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             alt="Coding Setup">
           <div class="absolute inset-0 bg-black/40 flex items-end p-4">
             <span class="text-xs font-mono text-accent">#LateNightCoding</span>
           </div>
         </div>
         <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group md:col-span-2 reveal-text">
-          <img src="Dashboard.jpg" loading="lazy"
+          <img src="Dashboard.jpg"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             alt="Data Analytics">
           <div class="absolute inset-0 bg-black/40 flex items-end p-4">
@@ -1151,7 +1642,7 @@
           </div>
         </div>
         <div class="glass-card rounded-xl overflow-hidden h-48 md:h-64 relative group reveal-text">
-          <img src="rear-view-programmer-working-all-night-long.jpg" loading="lazy"
+          <img src="rear-view-programmer-working-all-night-long.jpg"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             alt="Matrix Code">
           <div class="absolute inset-0 bg-black/40 flex items-end p-4">
@@ -1251,18 +1742,28 @@
     class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-transform z-50">
     <i class="fab fa-whatsapp"></i>
   </a>
-
+  s
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // PRELOADER HIDE - Fast reveal
-      window.addEventListener('load', function () {
+      // PRELOADER HIDE
+      const hidePreloader = () => {
         const preloader = document.getElementById('preloader');
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-          preloader.style.visibility = 'hidden';
-          preloader.style.display = 'none';
-        }, 500);
-      });
+        if (preloader) {
+          setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+              preloader.style.visibility = 'hidden';
+              preloader.style.display = 'none'; // Ensure it's gone
+            }, 800);
+          }, 2500); // 2.5s display time for the amazing loading animation
+        }
+      };
+
+      if (document.readyState === 'complete') {
+        hidePreloader();
+      } else {
+        window.addEventListener('load', hidePreloader);
+      }
 
       // Typing Effect
       const roles = ["Data Analyst", "Frontend Dev (Fundamentals)", "AI Enthusiast", "Video Editor"];
@@ -1346,17 +1847,6 @@
           });
       });
 
-      // AUTO-STAGGER GRID ANIMATIONS
-      // This calculates delay indices for items in grids (Skills, Projects, Certs)
-      const gridContainers = document.querySelectorAll('.grid-container');
-      gridContainers.forEach(container => {
-        const items = container.querySelectorAll('.reveal-text');
-        items.forEach((item, index) => {
-          // Stagger by 100ms per item
-          item.style.transitionDelay = `${index * 100}ms`;
-        });
-      });
-
       // Scroll Reveal Animation Logic
       const observerOptions = {
         root: null,
@@ -1374,6 +1864,103 @@
 
       document.querySelectorAll('.reveal-text').forEach(el => {
         observer.observe(el);
+      });
+
+      // === PARALLAX MOUSE MOVEMENT FOR HERO SECTION ===
+      const heroSection = document.querySelector('#home');
+      const parallaxLayers = document.querySelectorAll('#home .parallax-layer, #home .glass-card');
+
+      if (heroSection && parallaxLayers.length > 0) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const { clientX, clientY } = e;
+          const { offsetWidth, offsetHeight } = heroSection;
+
+          const xPos = (clientX / offsetWidth - 0.5) * 2;
+          const yPos = (clientY / offsetHeight - 0.5) * 2;
+
+          parallaxLayers.forEach((layer, index) => {
+            const depth = (index + 1) * 10;
+            const moveX = xPos * depth;
+            const moveY = yPos * depth;
+
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              layer.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
+            }
+          });
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+          parallaxLayers.forEach(layer => {
+            layer.style.transform = 'translateX(0) translateY(0)';
+          });
+        });
+      }
+
+      // === 3D TILT EFFECT FOR CARDS ===
+      const cards3D = document.querySelectorAll('.glass-card, .certificate-featured');
+
+      cards3D.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = ((y - centerY) / centerY) * 5;
+          const rotateY = ((centerX - x) / centerX) * 5;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+      });
+
+      // === SMOOTH SCROLL WITH OFFSET ===
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === '#' || !href) return;
+
+          e.preventDefault();
+          const target = document.querySelector(href);
+
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // === ACTIVE NAV LINK ON SCROLL ===
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.pageYOffset >= sectionTop - 100) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
       });
     });
   </script>
