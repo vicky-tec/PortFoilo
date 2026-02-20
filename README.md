@@ -1,23 +1,112 @@
-<h1 align="center">Hi 👋, I'm VICKY RAJ</h1>
-<h3 align="center">Aspiring Data Analyst | ML Learner | Lifelong Learner | 🐍 Python Enthusiast | 🌐 Web Developer</h3>
+<h1 align="center">👋 Hi, I'm VICKY RAJ</h1>
+<h3 align="center">🎯 Aspiring Data Analyst | Python Enthusiast | Web Developer</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=vicky-tec&label=Profile%20views&color=0e75b6&style=flat" alt="vicky-tec" /> </p>
-
-- 🔭 I’m currently working on [A few amazing Data Analytics and ML-based projects that I will reveal soon!](https://github.com/vicky-tec)
-
-- 👨‍💻 All of my projects are available at [https://github.com/vicky-tec/](https://github.com/vicky-tec/)
-
-- 📫 How to reach me **vickyrazzz81@gmail.com**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/vicky-raj-090760282" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="vicky-raj-090760282" height="30" width="40" /></a>
-<a href="https://instagram.com/vr_razzz" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="vr_razzz" height="30" width="40" /></a>
+<p align="center">
+  <em>Welcome to my GitHub Portfolio — where I turn data into insights and ideas into code 🚀</em>
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mathworks.com/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="matlab" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://www.oracle.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> </a> <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> </a> <a href="https://seaborn.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="40" height="40"/> </a> </p>
+---
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=vicky-tec&show_icons=true&locale=en&layout=compact" alt="vicky-tec" /></p>
+### 🌱 Currently Polishing Skills In
+- 🐍 **Python** (Pandas, NumPy, Matplotlib, Seaborn)
+- 💾 **SQL & MySQL** for data querying and analysis  
+- 📊 **Power BI & Excel** for dashboards and visualization  
+- 🌐 **HTML, CSS, JavaScript** for web development  
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=vicky-tec&show_icons=true&locale=en" alt="vicky-tec" /></p>
+---
+
+### 💼 Featured Works
+
+- 🔍 **Data Analytics Projects:** [Gigx Analytics Portfolio](https://github.com/vicky-tec/Gigx-Analytics.git)  
+  Real-world datasets analyzed with Python, Excel, SQL, and visualization tools.
+
+- 🚀 **Capstone Project:** [Travally – An Intelligent Travel Assistant for Bihar](https://vicky-tec.github.io/TRAVALLY_/)  
+  A smart web-based travel assistant built with AI integration and interactive UI.
+
+- 💡 **Web Development Project:** [CitizenRight](https://github.com/vicky-tec/CitizenRight_)  
+  A civic awareness and rights information portal designed for accessibility.
+
+---
+
+### 👨‍💻 All My Projects
+Explore all my repositories here → [**GitHub Profile**](https://github.com/vicky-tec/)
+
+---
+
+### 📫 How to Reach Me
+- 📧 **Email:** [vickyrazzz81@gmail.com](mailto:vickyrazzz81@gmail.com)  
+- 💼 **LinkedIn:** [Vicky Raj](https://linkedin.com/in/vicky-raj-090760282)  
+- 🐦 **Twitter:** [@disturbgaming5](https://twitter.com/disturbgaming5)  
+- 📸 **Instagram:** [@vr_razzz](https://instagram.com/vr_razzz)
+
+---
+
+### 🤝 Connect With Me
+
+<p align="center">
+  <a href="https://twitter.com/disturbgaming5" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" height="35" /></a>
+  <a href="https://linkedin.com/in/vicky-raj-090760282" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" height="35" /></a>
+  <a href="https://instagram.com/vr_razzz" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" height="35" /></a>
+</p>
+
+---
+
+### 🧰 Languages and Tools
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" width="45" alt="HTML5"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" width="45" alt="CSS3"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="45" alt="JavaScript"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="45" alt="Python"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="45" alt="Pandas"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="45" alt="NumPy"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" width="45" alt="Matplotlib"/>
+  <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" width="45" alt="Seaborn"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="45" alt="Power BI"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="45" alt="MySQL"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" width="45" alt="Bootstrap"/>
+  <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" width="40" alt="Figma"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" width="45" alt="MATLAB"/>
+</p>
+
+---
+
+### 🏆 GitHub Achievements & Stats
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=vicky-tec&theme=onedark&no-frame=true&margin-w=10" alt="GitHub Trophies" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=vicky-tec&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=vicky-tec&theme=tokyonight" alt="GitHub Streak Stats" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vicky-tec&layout=compact&theme=tokyonight" alt="Top Languages" />
+</p>
+
+---
+
+### 💡 Top Skills
+
+<p align="center">
+  🧠 Data Analysis | 📊 Data Visualization | 🐍 Python (Pandas, NumPy, Seaborn, Matplotlib) | 💾 SQL | 📈 Power BI | 🧮 Excel | 🌐 Web Development
+</p>
+
+---
+
+### 👀 Visitors Count
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=vicky-tec&label=Profile%20Views&color=blueviolet&style=for-the-badge" alt="Profile Views" />
+</p>
+
+---
+
+<p align="center">
+  🌟 <b>“Building insights. Creating impact. One project at a time.”</b> 🌟
+</p>
+
+
+could you rewrite my Portfolio Readme and add up my new skills.
