@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vicky Raj | Data Analyst & Developer</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&family=Orbitron:wght@400;500;700&family=Protest+Revolution&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="icon" href="PortFoilo/picofme.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="icon" href="PortFoilo/picofme.png" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -22,15 +22,15 @@
       theme: {
         extend: {
           colors: {
-            dark: '#0a0a0a',
-            card: '#161616',
-            accent: '#1bc4f8',
-            accentGlow: 'rgba(27, 196, 248, 0.3)'
+            dark: "#0a0a0a",
+            card: "#161616",
+            accent: "#1bc4f8",
+            accentGlow: "rgba(27, 196, 248, 0.3)",
           },
           fontFamily: {
-            sans: ['Outfit', 'sans-serif'],
-            mono: ['Space Grotesk', 'monospace'],
-            tech: ['Orbitron', 'sans-serif'],
+            sans: ["Outfit", "sans-serif"],
+            mono: ["Space Grotesk", "monospace"],
+            tech: ["Orbitron", "sans-serif"],
           },
           animation: {
             blob: "blob 7s infinite",
@@ -44,16 +44,25 @@
               "100%": { transform: "translate(0px, 0px) scale(1)" },
             },
             float: {
-              "0%": { transform: "translateY(100vh) translateX(0px)", opacity: "0" },
+              "0%": {
+                transform: "translateY(100vh) translateX(0px)",
+                opacity: "0",
+              },
               "10%": { opacity: "0.2" },
-              "50%": { transform: "translateY(50vh) translateX(20px)", opacity: "0.4" },
+              "50%": {
+                transform: "translateY(50vh) translateX(20px)",
+                opacity: "0.4",
+              },
               "90%": { opacity: "0.2" },
-              "100%": { transform: "translateY(-10vh) translateX(-20px)", opacity: "0" },
-            }
+              "100%": {
+                transform: "translateY(-10vh) translateX(-20px)",
+                opacity: "0",
+              },
+            },
           },
-        }
-      }
-    }
+        },
+      },
+    };
   </script>
 
   <style>
@@ -113,7 +122,7 @@
       --space-12: 96px;
 
       /* Transitions & Easing */
-      --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
       --ease-organic: cubic-bezier(0.34, 1.56, 0.64, 1);
       --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
       --transition-fast: 200ms;
@@ -177,28 +186,42 @@
       /* Ensure full viewport width */
       height: 100vh;
       /* Ensure full viewport height */
-      background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+      background: radial-gradient(ellipse at center,
+          #0a0a0a 0%,
+          #000000 100%);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 99999;
       /* Increased z-index */
       flex-direction: column;
-      transition: opacity 0.8s var(--ease-smooth), visibility 0.8s;
+      transition:
+        opacity 0.5s var(--ease-smooth),
+        visibility 0.5s;
       overflow: hidden;
     }
 
     /* Animated background particles */
     #preloader::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(2px 2px at 20% 30%, rgba(27, 196, 248, 0.3), transparent),
-        radial-gradient(2px 2px at 60% 70%, rgba(168, 85, 247, 0.3), transparent),
-        radial-gradient(1px 1px at 50% 50%, rgba(59, 130, 246, 0.3), transparent),
-        radial-gradient(1px 1px at 80% 10%, rgba(27, 196, 248, 0.3), transparent),
-        radial-gradient(2px 2px at 90% 60%, rgba(168, 85, 247, 0.3), transparent);
+        radial-gradient(2px 2px at 20% 30%,
+          rgba(27, 196, 248, 0.3),
+          transparent),
+        radial-gradient(2px 2px at 60% 70%,
+          rgba(168, 85, 247, 0.3),
+          transparent),
+        radial-gradient(1px 1px at 50% 50%,
+          rgba(59, 130, 246, 0.3),
+          transparent),
+        radial-gradient(1px 1px at 80% 10%,
+          rgba(27, 196, 248, 0.3),
+          transparent),
+        radial-gradient(2px 2px at 90% 60%,
+          rgba(168, 85, 247, 0.3),
+          transparent);
       background-size: 200% 200%;
       animation: particleMove 20s ease-in-out infinite;
       opacity: 0.6;
@@ -208,11 +231,21 @@
 
       0%,
       100% {
-        background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 100% 0%;
+        background-position:
+          0% 0%,
+          100% 100%,
+          50% 50%,
+          0% 100%,
+          100% 0%;
       }
 
       50% {
-        background-position: 100% 100%, 0% 0%, 80% 20%, 100% 0%, 0% 100%;
+        background-position:
+          100% 100%,
+          0% 0%,
+          80% 20%,
+          100% 0%,
+          0% 100%;
       }
     }
 
@@ -309,8 +342,8 @@
 
     /* Loading text */
     .loader-text {
-      margin-top: 280px;
-      font-family: 'Orbitron', sans-serif;
+      margin-top: clamp(160px, 35vw, 250px);
+      font-family: "Orbitron", sans-serif;
       font-size: clamp(1.2rem, 4vw, 1.8rem);
       font-weight: 700;
       letter-spacing: 6px;
@@ -324,14 +357,16 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: textShimmer 3s ease-in-out infinite, textGlow 2s ease-in-out infinite;
+      animation:
+        textShimmer 3s ease-in-out infinite,
+        textGlow 2s ease-in-out infinite;
       position: relative;
       text-align: center;
       padding: 0 20px;
     }
 
     .loader-text::after {
-      content: '..';
+      content: "..";
       animation: dotAnimation 1.5s steps(3, end) infinite;
     }
 
@@ -361,15 +396,15 @@
 
       0%,
       100% {
-        content: '';
+        content: "";
       }
 
       33% {
-        content: '.';
+        content: ".";
       }
 
       66% {
-        content: '..';
+        content: "..";
       }
     }
 
@@ -404,7 +439,9 @@
           var(--color-accent-purple),
           var(--color-accent-blue));
       background-size: 200% 100%;
-      animation: progressFill 2.5s ease-out forwards, progressShimmer 1.5s linear infinite;
+      animation:
+        progressFill 0.8s ease-out forwards,
+        progressShimmer 1.5s linear infinite;
       box-shadow:
         0 0 15px var(--glow-accent-cyan),
         0 0 30px var(--glow-accent-purple);
@@ -430,7 +467,6 @@
       }
     }
 
-
     /* === CUSTOM SCROLLBAR === */
     ::-webkit-scrollbar {
       width: var(--space-1);
@@ -453,7 +489,9 @@
 
     /* === GRADIENT TEXT === */
     .text-gradient {
-      background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent-cyan));
+      background: linear-gradient(135deg,
+          var(--color-text-primary),
+          var(--color-accent-cyan));
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -472,7 +510,7 @@
     }
 
     .glass-card::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       border-radius: inherit;
@@ -481,9 +519,13 @@
           rgba(255, 255, 255, 0.1) 0%,
           transparent 50%,
           rgba(27, 196, 248, 0.1) 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
       mask-composite: exclude;
       pointer-events: none;
       opacity: 0;
@@ -516,7 +558,7 @@
     }
 
     .nav-link.active::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -5px;
       left: 0;
@@ -572,7 +614,7 @@
     }
 
     .hero-blob::before {
-      content: '';
+      content: "";
       position: absolute;
       top: -2px;
       left: -2px;
@@ -587,7 +629,7 @@
     }
 
     .hero-blob::after {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 30% 30%,
@@ -670,7 +712,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Space Grotesk', monospace;
+      font-family: "Space Grotesk", monospace;
       font-size: 0.8rem;
       pointer-events: none;
       backdrop-filter: blur(4px);
@@ -761,7 +803,7 @@
     }
 
     .neon-edge::after {
-      content: '';
+      content: "";
       position: absolute;
       inset: -2px;
       border-radius: inherit;
@@ -782,7 +824,6 @@
 </head>
 
 <body class="font-sans antialiased selection:bg-accent selection:text-black">
-
   <div id="preloader">
     <div class="loader-content">
       <div class="loader-ring"></div>
@@ -833,1106 +874,1257 @@
     </div>
   </nav>
 
-  <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden parallax-section">
-    <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
-      <div
-        class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob parallax-layer">
-      </div>
-      <div
-        class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000 parallax-layer">
-      </div>
-      <div
-        class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/30 rounded-full blur-[128px] animate-blob animation-delay-4000 parallax-layer">
-      </div>
-
-      <div class="absolute inset-0"
-        style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 50px 50px; opacity: 0.5;">
-      </div>
-    </div>
-
-    <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-
-      <div class="order-2 lg:order-1 space-y-8 reveal-text parallax-layer">
-
+  <main>
+    <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden parallax-section">
+      <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
         <div
-          class="inline-flex items-center px-3 py-1 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm text-accent text-xs font-mono tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
-          Available for Hire
+          class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob parallax-layer">
+        </div>
+        <div
+          class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000 parallax-layer">
+        </div>
+        <div
+          class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/30 rounded-full blur-[128px] animate-blob animation-delay-4000 parallax-layer">
         </div>
 
-        <div class="space-y-2">
-          <h2 class="text-xl md:text-2xl text-gray-400 font-light">Hello, I'm</h2>
-          <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold leading-none tracking-tight">
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 drop-shadow-2xl">Vicky</span>
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600 drop-shadow-[0_0_25px_rgba(27,196,248,0.4)]">Raj</span>
-          </h1>
+        <div class="absolute inset-0" style="
+              background-image: radial-gradient(
+                rgba(255, 255, 255, 0.1) 1px,
+                transparent 1px
+              );
+              background-size: 50px 50px;
+              opacity: 0.5;
+            "></div>
+      </div>
+
+      <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="order-2 lg:order-1 space-y-8 reveal-text parallax-layer">
+          <div
+            class="inline-flex items-center px-3 py-1 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm text-accent text-xs font-mono tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
+            Available for Hire
+          </div>
+
+          <div class="space-y-2">
+            <h2 class="text-xl md:text-2xl text-gray-400 font-light">
+              Hello, I'm
+            </h2>
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold leading-none tracking-tight">
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 drop-shadow-2xl">Vicky</span>
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600 drop-shadow-[0_0_25px_rgba(27,196,248,0.4)]">Raj</span>
+            </h1>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl text-gray-300 flex items-center gap-2">
+              <span class="text-accent"><i class="fas fa-code"></i></span>
+              <span id="typing-text" class="font-mono border-r-4 border-accent pr-1"></span>
+            </h2>
+            <p class="text-gray-400 max-w-lg text-lg leading-relaxed border-l-2 border-accent/30 pl-4">
+              I analyze data to uncover insights hidden in the noise, and
+              build intelligent automation systems with modern web interfaces
+              that solve real business problems
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#projects"
+              class="group relative px-8 py-4 bg-accent text-black font-bold rounded-full overflow-hidden shadow-[0_0_20px_rgba(27,196,248,0.4)] hover:shadow-[0_0_30px_rgba(27,196,248,0.6)] transition-all">
+              <div
+                class="absolute inset-0 w-full h-full bg-white/30 group-hover:translate-x-full transition-transform duration-500 ease-out -translate-x-full skew-x-12">
+              </div>
+              <span class="relative flex items-center gap-2">View Projects
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
+            </a>
+            <a href="#contact"
+              class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/5 transition-all text-white flex items-center gap-2 group">
+              Contact Me
+              <i class="fas fa-envelope text-accent group-hover:rotate-12 transition-transform"></i>
+            </a>
+          </div>
+
+          <div class="flex items-center gap-6 pt-4">
+            <a href="https://github.com/vicky-tec" target="_blank"
+              class="text-gray-400 hover:text-white transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
+              class="text-gray-400 hover:text-blue-400 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/vr_razzz/" target="_blank"
+              class="text-gray-400 hover:text-pink-500 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
+                class="fab fa-instagram"></i></a>
+            <div class="h-px w-20 bg-white/10"></div>
+            <span class="text-xs text-gray-500 font-mono">FOLLOW ME</span>
+          </div>
         </div>
 
-        <div class="space-y-4">
-          <h2 class="text-2xl md:text-3xl text-gray-300 flex items-center gap-2">
-            <span class="text-accent"><i class="fas fa-code"></i></span>
-            <span id="typing-text" class="font-mono border-r-4 border-accent pr-1"></span>
+        <div class="order-1 lg:order-2 flex justify-center items-center relative h-[500px] reveal-text parallax-layer"
+          style="transition-delay: 200ms">
+          <div
+            class="absolute w-[450px] h-[450px] animate-[spin_20s_linear_infinite] opacity-30 pointer-events-none hidden md:block">
+            <svg viewBox="0 0 100 100" width="100%" height="100%">
+              <defs>
+                <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+              </defs>
+              <text font-size="10" fill="white" font-family="Space Grotesk" letter-spacing="3">
+                <textPath xlink:href="#circle"></textPath>
+              </text>
+            </svg>
+          </div>
+
+          <div class="relative w-72 h-72 md:w-96 md:h-96 z-10 flex justify-center items-center">
+            <div class="hero-blob">
+              <img src="WhatsApp Image 2025-09-15 at 06.37.23_dce4345a.jpg" onerror="
+                    this.src =
+                      'https://ui-avatars.com/api/?name=Vicky+Raj&background=0D8ABC&color=fff&size=512'
+                  " alt="Vicky Raj" class="w-full h-full object-cover" />
+            </div>
+
+            <div
+              class="absolute -top-2 -left-2 md:-top-10 md:-left-12 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite]">
+              <div
+                class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+                <i class="fas fa-chart-pie text-lg"></i>
+              </div>
+              <div class="hidden md:block">
+                <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
+                  Tool
+                </div>
+                <div class="font-bold text-white text-sm">Power BI</div>
+              </div>
+            </div>
+
+            <div
+              class="absolute -top-2 -right-2 md:-top-10 md:-right-40 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite]">
+              <div
+                class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+                <i class="fas fa-chart-pie text-lg"></i>
+              </div>
+              <div class="hidden md:block">
+                <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
+                  Tool
+                </div>
+                <div class="font-bold text-white text-sm">Tableau</div>
+              </div>
+            </div>
+
+            <div
+              class="absolute -top-2 -right-2 md:-top-12 md:-right-8 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_6s_ease-in-out_infinite_reverse]">
+              <div
+                class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                <i class="fab fa-python text-lg"></i>
+              </div>
+              <div class="hidden md:block">
+                <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
+                  Skill
+                </div>
+                <div class="font-bold text-white text-sm">Python</div>
+              </div>
+            </div>
+
+            <div
+              class="absolute top-1/2 -translate-y-1/2 -left-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_9s_ease-in-out_infinite] hidden md:flex">
+              <div
+                class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 shadow-[0_0_10px_rgba(34,197,94,0.2)]">
+                <i class="fas fa-chart-line text-lg"></i>
+              </div>
+              <div>
+                <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
+                  Core
+                </div>
+                <div class="font-bold text-white text-sm">Analytics</div>
+              </div>
+            </div>
+
+            <div
+              class="absolute top-1/3 -right-4 md:-right-24 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_8s_ease-in-out_infinite]">
+              <div
+                class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.2)]">
+                <i class="fas fa-robot text-lg"></i>
+              </div>
+              <div class="hidden md:block">
+                <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
+                  Tech
+                </div>
+                <div class="font-bold text-white text-sm">GenAI</div>
+              </div>
+            </div>
+
+            <div
+              class="absolute bottom-16 -right-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_10s_ease-in-out_infinite_reverse] hidden md:flex">
+              <div
+                class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+                <i class="fas fa-arrows-rotate text-lg"></i>
+              </div>
+              <div>
+                <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
+                  Focus
+                </div>
+                <div class="font-bold text-white text-sm">Automation</div>
+              </div>
+            </div>
+
+            <div
+              class="absolute bottom-0 -left-2 md:-left-16 glass-card px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-bold animate-[float_11s_ease-in-out_infinite] flex items-center gap-2">
+              <div
+                class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+                <i class="fas fa-database text-lg"></i>
+              </div>
+              <div>
+                <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">
+                  DataBase
+                </div>
+                <div class="font-bold text-white text-sm">SQL</div>
+              </div>
+            </div>
+
+            <div
+              class="absolute -bottom-6 right-8 md:-bottom-8 md:-right-4 glass-card px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-bold animate-bounce shadow-[0_0_15px_rgba(34,197,94,0.3)] flex items-center gap-2">
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              Ready to collaborate
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-dark/50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12 reveal-text">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <span class="text-accent mr-2">01.</span> About Me
           </h2>
-          <p class="text-gray-400 max-w-lg text-lg leading-relaxed border-l-2 border-accent/30 pl-4">
-            I analyze data to uncover insights hidden in the noise, and build intelligent automation systems with modern
-            web interfaces that solve real business problems
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#projects"
-            class="group relative px-8 py-4 bg-accent text-black font-bold rounded-full overflow-hidden shadow-[0_0_20px_rgba(27,196,248,0.4)] hover:shadow-[0_0_30px_rgba(27,196,248,0.6)] transition-all">
+          <div class="text-gray-300 leading-relaxed text-lg">
+            <p class="text-gray-300 leading-relaxed text-lg reveal-text">
+              Hi, I’m <strong class="text-white">Vicky Raj</strong> — a
+              <strong class="text-accent">Data Analyst</strong> with a strong
+              foundation in
+              <strong class="text-white">frontend web development</strong> and
+              a growing focus on
+              <strong class="text-accent">AI-driven solutions and automation</strong>. I’m currently pursuing a
+              <strong class="text-white">B.Sc. in Computer Science & Data Analytics</strong>
+              at <strong class="text-white">IIT Patna</strong>, where I
+              continuously sharpen my analytical and problem-solving skills.
+            </p>
+
+            <p class="text-gray-300 leading-relaxed text-lg mt-4 reveal-text">
+              I enjoy working with data from
+              <span class="text-accent font-semibold">raw to ready</span> —
+              cleaning, analyzing, and visualizing it to uncover insights that
+              support
+              <strong class="text-white">clear, data-backed decision-making</strong>. Using tools like
+              <strong class="text-white">Python, SQL, Excel, and Power BI</strong>, I love exploring patterns,
+              identifying trends, and
+              translating complex datasets into
+              <span class="text-accent font-semibold">simple, meaningful stories</span>.
+            </p>
+
+            <p class="text-gray-300 leading-relaxed text-lg mt-4 reveal-text">
+              Beyond analytics, I bring a creative edge through
+              <strong class="text-white">design and video editing</strong>,
+              blending logic with creativity. I also actively build and
+              experiment with
+              <strong class="text-accent">automation workflows</strong> to
+              eliminate repetitive tasks and improve efficiency. I see
+              <strong class="text-accent">AI</strong> not as a shortcut, but
+              as a powerful assistant — helping me think better, build faster,
+              and solve smarter.
+            </p>
+
+            <p class="mt-6 text-sm italic text-gray-400 border-l-2 border-accent pl-4 reveal-text">
+              “I’m just a normal person who uses AI as a superpower to make
+              complex things look simple.”
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 reveal-text">
             <div
-              class="absolute inset-0 w-full h-full bg-white/30 group-hover:translate-x-full transition-transform duration-500 ease-out -translate-x-full skew-x-12">
+              class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
+              <i class="fas fa-graduation-cap text-2xl text-accent mb-2"></i>
+              <div class="font-bold text-white">IIT Patna</div>
+              <div class="text-xs text-gray-400">
+                BS in CS & Data Analytics
+              </div>
             </div>
-            <span class="relative flex items-center gap-2">View Projects <i
-                class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
-          </a>
-          <a href="#contact"
-            class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/5 transition-all text-white flex items-center gap-2 group">
-            Contact Me <i class="fas fa-envelope text-accent group-hover:rotate-12 transition-transform"></i>
-          </a>
-        </div>
-
-        <div class="flex items-center gap-6 pt-4">
-          <a href="https://github.com/vicky-tec" target="_blank"
-            class="text-gray-400 hover:text-white transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
-              class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
-            class="text-gray-400 hover:text-blue-400 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
-              class="fab fa-linkedin"></i></a>
-          <a href="https://www.instagram.com/vr_razzz/" target="_blank"
-            class="text-gray-400 hover:text-pink-500 transition-colors text-2xl hover:-translate-y-1 transform duration-300"><i
-              class="fab fa-instagram"></i></a>
-          <div class="h-px w-20 bg-white/10"></div>
-          <span class="text-xs text-gray-500 font-mono">FOLLOW ME</span>
-        </div>
-      </div>
-
-      <div class="order-1 lg:order-2 flex justify-center items-center relative h-[500px] reveal-text parallax-layer"
-        style="transition-delay: 200ms;">
-
-        <div
-          class="absolute w-[450px] h-[450px] animate-[spin_20s_linear_infinite] opacity-30 pointer-events-none hidden md:block">
-          <svg viewBox="0 0 100 100" width="100%" height="100%">
-            <defs>
-              <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
-            </defs>
-            <text font-size="10" fill="white" font-family="Space Grotesk" letter-spacing="3">
-              <textPath xlink:href="#circle">
-              </textPath>
-            </text>
-          </svg>
-        </div>
-
-        <div class="relative w-72 h-72 md:w-96 md:h-96 z-10 flex justify-center items-center">
-
-          <div class="hero-blob">
-            <img src="WhatsApp Image 2025-09-15 at 06.37.23_dce4345a.jpg"
-              onerror="this.src='https://ui-avatars.com/api/?name=Vicky+Raj&background=0D8ABC&color=fff&size=512'"
-              alt="Vicky Raj" class="w-full h-full object-cover">
-          </div>
-
-          <div
-            class="absolute -top-2 -left-2 md:-top-10 md:-left-12 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite]">
             <div
-              class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-              <i class="fas fa-chart-pie text-lg"></i>
+              class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
+              <i class="fas fa-cogs text-2xl text-accent mb-2"></i>
+              <div class="font-bold text-white">Automation</div>
+              <div class="text-xs text-gray-400">Workflows & Agents</div>
             </div>
-            <div class="hidden md:block">
-              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tool</div>
-              <div class="font-bold text-white text-sm">Power BI</div>
-            </div>
-          </div>
-
-          <div
-            class="absolute -top-2 -right-2 md:-top-10 md:-right-40 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_7s_ease-in-out_infinite]">
             <div
-              class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-              <i class="fas fa-chart-pie text-lg"></i>
+              class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
+              <i class="fas fa-chart-line text-2xl text-accent mb-2"></i>
+              <div class="font-bold text-white">Analytics</div>
+              <div class="text-xs text-gray-400">Python & Power BI</div>
             </div>
-            <div class="hidden md:block">
-              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tool</div>
-              <div class="font-bold text-white text-sm">Tableau</div>
-            </div>
-          </div>
-
-          <div
-            class="absolute -top-2 -right-2 md:-top-12 md:-right-8 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_6s_ease-in-out_infinite_reverse]">
             <div
-              class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
-              <i class="fab fa-python text-lg"></i>
-            </div>
-            <div class="hidden md:block">
-              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Skill</div>
-              <div class="font-bold text-white text-sm">Python</div>
+              class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
+              <i class="fas fa-robot text-2xl text-accent mb-2"></i>
+              <div class="font-bold text-white">AI</div>
+              <div class="text-xs text-gray-400">Automation & Tools</div>
             </div>
           </div>
-
-          <div
-            class="absolute top-1/2 -translate-y-1/2 -left-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_9s_ease-in-out_infinite] hidden md:flex">
-            <div
-              class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 shadow-[0_0_10px_rgba(34,197,94,0.2)]">
-              <i class="fas fa-chart-line text-lg"></i>
-            </div>
-            <div>
-              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Core</div>
-              <div class="font-bold text-white text-sm">Analytics</div>
-            </div>
-          </div>
-
-          <div
-            class="absolute top-1/3 -right-4 md:-right-24 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_8s_ease-in-out_infinite]">
-            <div
-              class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.2)]">
-              <i class="fas fa-robot text-lg"></i>
-            </div>
-            <div class="hidden md:block">
-              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Tech</div>
-              <div class="font-bold text-white text-sm">GenAI</div>
-            </div>
-          </div>
-
-          <div
-            class="absolute bottom-16 -right-20 glass-card p-3 rounded-2xl flex items-center gap-3 animate-[float_10s_ease-in-out_infinite_reverse] hidden md:flex">
-            <div
-              class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
-              <i class="fas fa-arrows-rotate text-lg"></i>
-            </div>
-            <div>
-              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">Focus</div>
-              <div class="font-bold text-white text-sm">Automation</div>
-            </div>
-          </div>
-
-          <div
-            class="absolute bottom-0 -left-2 md:-left-16 glass-card px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-bold animate-[float_11s_ease-in-out_infinite] flex items-center gap-2">
-            <div
-              class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
-              <i class="fas fa-database text-lg"></i>
-            </div>
-            <div>
-              <div class="text-[10px] text-gray-400 font-mono uppercase tracking-wider">DataBase</div>
-              <div class="font-bold text-white text-sm">SQL</div>
-            </div>
-          </div>
-
-          <div
-            class="absolute -bottom-6 right-8 md:-bottom-8 md:-right-4 glass-card px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-bold animate-bounce shadow-[0_0_15px_rgba(34,197,94,0.3)] flex items-center gap-2">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            Ready to collaborate
-          </div>
-
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="py-20 bg-dark/50">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12 reveal-text">
-        <h2 class="text-3xl font-bold mb-6 flex items-center">
-          <span class="text-accent mr-2">01.</span> About Me
+    <section id="experience" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+          <span class="text-accent">02.</span> Experience
         </h2>
-        <div class="text-gray-300 leading-relaxed text-lg">
-          <p class="text-gray-300 leading-relaxed text-lg reveal-text">
-            Hi, I’m <strong class="text-white">Vicky Raj</strong> — a
-            <strong class="text-accent">Data Analyst</strong> with a strong foundation in
-            <strong class="text-white">frontend web development</strong> and a growing focus on
-            <strong class="text-accent">AI-driven solutions and automation</strong>.
-            I’m currently pursuing a <strong class="text-white">B.Sc. in Computer Science & Data Analytics</strong>
-            at <strong class="text-white">IIT Patna</strong>, where I continuously sharpen my analytical
-            and problem-solving skills.
-          </p>
 
-          <p class="text-gray-300 leading-relaxed text-lg mt-4 reveal-text">
-            I enjoy working with data from <span class="text-accent font-semibold">raw to ready</span> —
-            cleaning, analyzing, and visualizing it to uncover insights that support
-            <strong class="text-white">clear, data-backed decision-making</strong>.
-            Using tools like <strong class="text-white">Python, SQL, Excel, and Power BI</strong>,
-            I love exploring patterns, identifying trends, and translating complex datasets
-            into <span class="text-accent font-semibold">simple, meaningful stories</span>.
-          </p>
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div
+            class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
+            <div class="absolute top-0 left-0 w-1 h-full bg-accent"></div>
 
-          <p class="text-gray-300 leading-relaxed text-lg mt-4 reveal-text">
-            Beyond analytics, I bring a creative edge through
-            <strong class="text-white">design and video editing</strong>, blending logic with creativity.
-            I also actively build and experiment with
-            <strong class="text-accent">automation workflows</strong> to eliminate repetitive tasks
-            and improve efficiency. I see <strong class="text-accent">AI</strong> not as a shortcut,
-            but as a powerful assistant — helping me think better, build faster, and solve smarter.
-          </p>
-
-          <p class="mt-6 text-sm italic text-gray-400 border-l-2 border-accent pl-4 reveal-text">
-            “I’m just a normal person who uses AI as a superpower to make complex things look simple.”
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 reveal-text">
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
-            <i class="fas fa-graduation-cap text-2xl text-accent mb-2"></i>
-            <div class="font-bold text-white">IIT Patna</div>
-            <div class="text-xs text-gray-400">BS in CS & Data Analytics</div>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
-            <i class="fas fa-cogs text-2xl text-accent mb-2"></i>
-            <div class="font-bold text-white">Automation</div>
-            <div class="text-xs text-gray-400">Workflows & Agents</div>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
-            <i class="fas fa-chart-line text-2xl text-accent mb-2"></i>
-            <div class="font-bold text-white">Analytics</div>
-            <div class="text-xs text-gray-400">Python & Power BI</div>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-colors">
-            <i class="fas fa-robot text-2xl text-accent mb-2"></i>
-            <div class="font-bold text-white">AI</div>
-            <div class="text-xs text-gray-400">Automation & Tools</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience" class="py-20">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        <span class="text-accent">02.</span> Experience
-      </h2>
-
-      <div class="max-w-4xl mx-auto space-y-8">
-
-        <div
-          class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
-          <div class="absolute top-0 left-0 w-1 h-full bg-accent"></div>
-
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-            <div>
-              <h3 class="text-xl font-bold text-white">Coding Junior Intern</h3>
-              <p class="text-accent font-mono text-sm mt-1">Virtual Internship • Library Science & Data</p>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+              <div>
+                <h3 class="text-xl font-bold text-white">
+                  Coding Junior Intern
+                </h3>
+                <p class="text-accent font-mono text-sm mt-1">
+                  Virtual Internship • Library Science & Data
+                </p>
+              </div>
+              <div
+                class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs text-accent font-mono">
+                Remote
+              </div>
             </div>
-            <div
-              class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs text-accent font-mono">
-              Remote
-            </div>
-          </div>
 
-          <ul class="space-y-3 text-gray-400 text-sm leading-relaxed">
-            <li class="flex items-start">
-              <span class="text-accent mr-2 mt-1">▹</span>
-              Managed and organized academic content across multiple educational portals (JNU, GU, JQS, SSU), ensuring
-              structural integrity of data.
-            </li>
-            <li class="flex items-start">
-              <span class="text-accent mr-2 mt-1">▹</span>
-              Handled data entry, cleaning, and organization using Google Sheets, developing a disciplined workflow for
-              high-volume data handling.
-            </li>
-            <li class="flex items-start">
-              <span class="text-accent mr-2 mt-1">▹</span>
-              Uploaded and structured PPTs, documents, and datasets, optimizing the retrieval process for end-users.
-            </li>
-            <li class="flex items-start">
-              <span class="text-accent mr-2 mt-1">▹</span>
-              Gained early exposure to process optimization and automation thinking in a professional digital
-              environment.
-            </li>
-          </ul>
+            <ul class="space-y-3 text-gray-400 text-sm leading-relaxed">
+              <li class="flex items-start">
+                <span class="text-accent mr-2 mt-1">▹</span>
+                Managed and organized academic content across multiple
+                educational portals (JNU, GU, JQS, SSU), ensuring structural
+                integrity of data.
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2 mt-1">▹</span>
+                Handled data entry, cleaning, and organization using Google
+                Sheets, developing a disciplined workflow for high-volume data
+                handling.
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2 mt-1">▹</span>
+                Uploaded and structured PPTs, documents, and datasets,
+                optimizing the retrieval process for end-users.
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2 mt-1">▹</span>
+                Gained early exposure to process optimization and automation
+                thinking in a professional digital environment.
+              </li>
+            </ul>
 
-          <!-- <div class="mt-6 pt-4 border-t border-white/10">
+            <!-- <div class="mt-6 pt-4 border-t border-white/10">
             <a href="Screenshot 2025-12-18 214137.png" target="_blank"
               class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/5 text-xs font-bold text-accent hover:bg-accent hover:text-black transition-all">
               <i class="fas fa-certificate"></i> View Certificate
             </a>
           </div> -->
-        </div>
-
-        <div
-          class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
-          <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
-
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-            <div>
-              <h3 class="text-xl font-bold text-white">GenAI-Powered Data Analytics Job Simulation</h3>
-              <p class="text-blue-400 font-mono text-sm mt-1">Forage • Virtual Internship</p>
-            </div>
-            <div
-              class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs text-blue-400 font-mono">
-              Sep 2025 – Oct 2025
-            </div>
           </div>
 
-          <ul class="space-y-3 text-gray-400 text-sm leading-relaxed">
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2 mt-1">▹</span>
-              Completed an intensive simulation focused on real-world data analytics and GenAI use cases.
-            </li>
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2 mt-1">▹</span>
-              Conducted Exploratory Data Analysis (EDA) and risk profiling to predict customer delinquency patterns.
-            </li>
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2 mt-1">▹</span>
-              Implemented AI-driven strategies and created data storytelling reports to support collections strategy.
-            </li>
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2 mt-1">▹</span>
-              Developed a practical understanding of how analytics and AI directly support critical business
-              decision-making.
-            </li>
-          </ul>
+          <div
+            class="glass-card p-8 rounded-2xl reveal-text relative overflow-hidden group hover:bg-white/5 transition-all">
+            <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
 
-          <div class="mt-6 pt-4 border-t border-white/10">
-            <a href="Screenshot 2025-12-18 214808.png" target="_blank"
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/5 text-xs font-bold text-blue-400 hover:bg-blue-500 hover:text-white transition-all">
-              <i class="fas fa-certificate"></i> View Certificate
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="py-20 bg-dark/50 relative overflow-hidden">
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="floating-bubble w-20 h-20 left-[10%] animation-delay-2000" style="animation-duration: 15s;">Python
-      </div>
-      <div class="floating-bubble w-24 h-24 left-[30%] animation-delay-4000" style="animation-duration: 18s;">SQL</div>
-      <div class="floating-bubble w-16 h-16 left-[50%] animation-delay-2000" style="animation-duration: 20s;">AI</div>
-      <div class="floating-bubble w-28 h-28 left-[70%] animation-delay-4000" style="animation-duration: 22s;">PowerBI
-      </div>
-      <div class="floating-bubble w-20 h-20 left-[90%] animation-delay-2000" style="animation-duration: 17s;">GenAI
-      </div>
-    </div>
-
-    <div class="container mx-auto px-6 relative z-10">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        <span class="text-accent">03.</span> Technical Skills
-      </h2>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fab fa-python text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Python</h3>
-          <p class="text-xs text-gray-400 mt-2">EDA, Automation, API usage<br>and Many libraries</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fas fa-chart-pie text-4xl text-yellow-600 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Power BI</h3>
-          <p class="text-xs text-gray-400 mt-2">Dashboards, DAX, KPI Tracking, Data modeling</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fas fa-database text-4xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">SQL</h3>
-          <p class="text-xs text-gray-400 mt-2">Queries, Joins, Extraction, Optimization</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fab fa-js text-4xl text-yellow-300 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">JavaScript</h3>
-          <p class="text-xs text-gray-400 mt-2">Basic, API, DOM</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fab fa-html5 text-4xl text-orange-500 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">HTML5 & CSS3</h3>
-          <p class="text-xs text-gray-400 mt-2">Responsive Layouts, Grid/Flex</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fas fa-file-excel text-4xl text-green-500 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Excel</h3>
-          <p class="text-xs text-gray-400 mt-2">Pivot Tables, Cleaning, Dashboards</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fas fa-palette text-4xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Canva & Design</h3>
-          <p class="text-xs text-gray-400 mt-2">Graphic Design, Thumbnails, Visuals</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fas fa-video text-4xl text-gray-300 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Video Editing</h3>
-          <p class="text-xs text-gray-400 mt-2">CapCut, Tech/demo videos</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fas fa-cogs text-4xl text-pink-500 mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">n8n, Make</h3>
-          <p class="text-xs text-gray-400 mt-2">Workflow Automation, Agents</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
-          <i class="fas fa-robot text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-lg group-hover:text-accent transition-colors">Generative AI</h3>
-          <p class="text-xs text-gray-400 mt-2">Prompting, LLMs, RAG</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="py-20">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        <span class="text-accent">04.</span> Projects
-      </h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-          <div class="h-48 overflow-hidden relative">
-            <img src="Travally.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'"
-              alt="Travally" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div
-              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-              <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" target="_blank"
-                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/vicky-tec/TRAVALLY_.git" target="_blank"
-                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"
-                title="Code"><i class="fab fa-github"></i></a>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+              <div>
+                <h3 class="text-xl font-bold text-white">
+                  GenAI-Powered Data Analytics Job Simulation
+                </h3>
+                <p class="text-blue-400 font-mono text-sm mt-1">
+                  Forage • Virtual Internship
+                </p>
+              </div>
+              <div
+                class="mt-2 md:mt-0 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs text-blue-400 font-mono">
+                Sep 2025 – Oct 2025
+              </div>
             </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">TRAVALLY</h3>
-            <p class="text-gray-400 text-sm mb-4">A comprehensive Bihar tourism website featuring interactive maps and
-              an AI-integrated chatbot for travelers.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">HTML/CSS</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">JS</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">AI API</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-          <div class="h-48 overflow-hidden relative">
-            <img src="d33.png" onerror="this.src=''" alt="Banking Analytics Dashboard"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div
-              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-              <a href="https://app.powerbi.com/links/KSu4AAge-6?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
-                target="_blank"
-                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
-                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                  class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Banking Analytics Dashboard</h3>
-            <p class="text-gray-400 text-sm mb-4">A detailed analysis of banking sales performance, highlighting total
-              deposits, loans, and identifying top customer segments through insightful visualizations.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Dashboard</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">DAX</span>
-            </div>
-          </div>
-        </div>
+            <ul class="space-y-3 text-gray-400 text-sm leading-relaxed">
+              <li class="flex items-start">
+                <span class="text-blue-500 mr-2 mt-1">▹</span>
+                Completed an intensive simulation focused on real-world data
+                analytics and GenAI use cases.
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-500 mr-2 mt-1">▹</span>
+                Conducted Exploratory Data Analysis (EDA) and risk profiling
+                to predict customer delinquency patterns.
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-500 mr-2 mt-1">▹</span>
+                Implemented AI-driven strategies and created data storytelling
+                reports to support collections strategy.
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-500 mr-2 mt-1">▹</span>
+                Developed a practical understanding of how analytics and AI
+                directly support critical business decision-making.
+              </li>
+            </ul>
 
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-          <div class="h-48 overflow-hidden relative">
-            <img src="dash.png" onerror="this.src='https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'"
-              alt="Blinkit Dashboard"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div
-              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-              <a href="https://drive.google.com/file/d/1-bJucRuisBEBt_DdrUN-9ds-eg8cWejw/view?usp=drive_link"
-                target="_blank"
-                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/vicky-tec/gigx-Data-Analytics-" target="_blank"
-                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                  class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Blinkit Dashboard</h3>
-            <p class="text-gray-400 text-sm mb-4">Interactive PowerBI dashboard analyzing delivery times, customer
-              satisfaction, and inventory efficiency.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Excel</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-          <div class="h-48 overflow-hidden relative">
-            <img src="d2.png"
-              onerror="this.src='https://drive.google.com/file/d/1h-LKFanHseZZ4_GF-uZX_pqaBzJB8nCu/view?usp=drive_link'"
-              alt="Flipkart Dashboard"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div
-              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiMDQxZGMzZGQtZmM4Yy00ODUwLTgxMTItMTQwZjNiMDUyZmE1IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9"
-                target="_blank"
-                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                title="View Analysis"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
-                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                  class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Big Billion Days Analysis</h3>
-            <p class="text-gray-400 text-sm mb-4">Sales performance analysis of Flipkart’s Big Billion Days,
-              highlighting
-              revenue trends, customer insights, and category-wise performance.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">SQL</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-          <div class="h-48 overflow-hidden relative">
-            <img src="d7.png"
-              onerror="this.src='https://drive.google.com/file/d/1zCa8UuF0VqdcjCXrZ3kmao18irbmI4Fk/view?usp=drive_link'"
-              alt="E-Commerce Dashboard"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div
-              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-              <a href="https://app.powerbi.com/links/wJtZwRcMz8?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
-                target="_blank"
-                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
-                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                  class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Blinkit vs Zepto Revenue Comparison Dashboard</h3>
-            <p class="text-gray-400 text-sm mb-4">Comparative revenue analysis of Blinkit and Zepto, showcasing market
-              share, transaction volumes, and growth trends.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Business Intel</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-          <div class="h-48 overflow-hidden relative">
-            <img src="mavi.png" onerror="this.src='https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'"
-              alt="MAVI AI Agent"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-
-            <div
-              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-              <a href="https://vicky-tec.github.io/MAVI-Local-AI-AGENT/" target="_blank"
-                class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                title="Live Demo">
-                <i class="fas fa-external-link-alt"></i>
+            <div class="mt-6 pt-4 border-t border-white/10">
+              <a href="Screenshot 2025-12-18 214808.png" target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/5 text-xs font-bold text-blue-400 hover:bg-blue-500 hover:text-white transition-all">
+                <i class="fas fa-certificate"></i> View Certificate
               </a>
-              <a href="https://github.com/vicky-tec/MAVI-Local-AI-AGENT" target="_blank"
-                class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-allowed opacity-70">
-                <i class="fab fa-github"></i>
-              </a>
-
-            </div>
-          </div>
-
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">MAVI.ai</h3>
-
-            <p class="text-gray-400 text-sm mb-4">
-              MAVI is a local, hybrid AI agent powered by on-device LLMs, RAG, vision tools,
-              and automation for secure, intelligent workflows.
-            </p>
-
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Local LLMs</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">RAG</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Automation</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Vision + OCR</span>
-              <span class="skill-tag px-3 py-1 text-xs rounded-full">Llama 3.2 · Gemini</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="certificates" class="py-20 bg-dark/50">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        <span class="text-accent">05.</span> Certifications
-      </h2>
-
-      <!-- Featured Certificate Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <!-- DevFest Certificate -->
-        <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text">
-          <div class="p-4">
-            <img src="https://raw.githubusercontent.com/vicky-tec/PortFoilo/main/Screenshot%202025-09-17%20222409.png"
-              alt="DevFest Motihari 2025 Certificate" class="w-full h-auto rounded-lg"
-              onerror="this.src='https://placehold.co/800x600/1a1a1a/1bc4f8?text=Certificate+Not+Found'">
-          </div>
-          <div class="px-6 pb-6">
-            <h4 class="font-bold text-white text-lg mb-2">OCI Foundations Associate</h4>
-            <p class="text-sm text-gray-400">Oracle • Sep 2025</p>
-            <div class="mt-3 flex items-center gap-2 text-xs">
-              <span class="skill-tag px-3 py-1 rounded-full">AI Foundation Associate</span>
-              <span class="skill-tag px-3 py-1 rounded-full">Community</span>
-            </div>
-          </div>
+    <section id="skills" class="py-20 bg-dark/50 relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="floating-bubble w-20 h-20 left-[10%] animation-delay-2000" style="animation-duration: 15s">
+          Python
         </div>
-
-        <!-- Physics Wallah Certificate -->
-        <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text">
-          <div class="p-4">
-            <img
-              src="https://raw.githubusercontent.com/vicky-tec/PortFoilo/main/Gemini_Generated_Image_1fhkod1fhkod1fhk.png"
-              alt="Generative AI for All Certificate" class="w-full h-auto rounded-lg"
-              onerror="this.src='https://placehold.co/800x600/1a1a1a/1bc4f8?text=Certificate+Not+Found'">
-          </div>
-          <div class="px-6 pb-6">
-            <h4 class="font-bold text-white text-lg mb-2">Generative AI for All</h4>
-            <p class="text-sm text-gray-400">Physics Wallah × Microsoft • Dec 2025</p>
-            <div class="mt-3 flex items-center gap-2 text-xs">
-              <span class="skill-tag px-3 py-1 rounded-full">GenAI</span>
-              <span class="skill-tag px-3 py-1 rounded-full">Microsoft</span>
-            </div>
-          </div>
+        <div class="floating-bubble w-24 h-24 left-[30%] animation-delay-4000" style="animation-duration: 18s">
+          SQL
+        </div>
+        <div class="floating-bubble w-16 h-16 left-[50%] animation-delay-2000" style="animation-duration: 20s">
+          AI
+        </div>
+        <div class="floating-bubble w-28 h-28 left-[70%] animation-delay-4000" style="animation-duration: 22s">
+          PowerBI
+        </div>
+        <div class="floating-bubble w-20 h-20 left-[90%] animation-delay-2000" style="animation-duration: 17s">
+          GenAI
         </div>
       </div>
 
-      <!-- Other Certifications -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
-          <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 flex-shrink-0">
-            <i class="fas fa-database"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-white">DevFest Motihari 2025</h4>
-            <p class="text-xs text-gray-400">Developer Group (GDG) Cloud Motihari • Nov 2025</p>
-            <a href="https://drive.google.com/file/d/1Z_pSpSdNrwjnXDUquOXARCG5U1wo3Mj1/view?usp=drive_link"
-              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
-          </div>
-        </div>
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
-          <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 flex-shrink-0">
-            <i class="fas fa-brain"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-white">Gen-AI Mastermind</h4>
-            <p class="text-xs text-gray-400">Outskill • 2025</p>
-            <a href="https://drive.google.com/file/d/10iRIZHCVDplgpIPiVnhN81rabi7qA_1s/view?usp=sharing" target="_blank"
-              class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
-          </div>
-        </div>
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
-          <div
-            class="w-12 h-12 bg-yellow-900/30 rounded-lg flex items-center justify-center text-yellow-400 flex-shrink-0">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-white">Power BI Workshop</h4>
-            <p class="text-xs text-gray-400">Office Master • 2025</p>
-            <a href="https://drive.google.com/file/d/1u3lbbn2_cKNcJnetnUOo8cfEVAdJA3rW/view?usp=drive_link"
-              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
-          </div>
-        </div>
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
-          <div
-            class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 flex-shrink-0">
-            <i class="fas fa-table"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-white">Excel Workshop</h4>
-            <p class="text-xs text-gray-400">Office Master • 2025</p>
-            <a href="https://drive.google.com/file/d/15BcspV58XWEITh68AOKqETB3v1zQYD5q/view?usp=drive_link"
-              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
-          </div>
-        </div>
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
-          <div
-            class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 flex-shrink-0">
-            <i class="fas fa-pen-nib"></i>
-          </div>
+      <div class="container mx-auto px-6 relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+          <span class="text-accent">03.</span> Technical Skills
+        </h2>
 
-          <div>
-            <h4 class="font-bold text-white">Genrative AI</h4>
-            <p class="text-xs text-gray-400">Simplilearn • 2025</p>
-            <a href="https://drive.google.com/file/d/1NZ21SsIq-keP1yHfirKy6HXlEgg71wU_/view?usp=drive_link"
-              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
-          </div>
-        </div>
-        <div class="glass-card p-4 rounded-xl flex items-start space-x-4
-          reveal-text">
-          <div class="w-12 h-12 bg-pink-900/30 rounded-lg flex items-center justify-center text-pink-400 flex-shrink-0">
-            <i class="fas fa-desktop"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-white">UI/UX Design</h4>
-            <p class="text-xs text-gray-400">Great Learning • 2024</p>
-            <a href="https://drive.google.com/file/d/1yNEBYxJ0L66x4DLZbGP8NoMF8b4bemi-/view?usp=drive_link"
-              target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="resume" class="py-20 border-y border-white/5">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        Resume <span class="text-accent"></span>
-      </h2>
-
-      <div class="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 reveal-text">
-        <div class="p-6 border-b border-white/10 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-          <div class="text-center md:text-left">
-            <h3 class="text-xl font-bold text-white flex items-center gap-2">
-              <i class="fas fa-file-alt text-accent"></i> Vicky Raj - Resume
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fab fa-python text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              Python
             </h3>
-            <p class="text-gray-400 text-sm">Previewing latest version • 2025</p>
+            <p class="text-xs text-gray-400 mt-2">
+              EDA, Automation, API usage<br />and Many libraries
+            </p>
           </div>
-          <div class="flex gap-3">
-            <a href="RESUME-2.pdf" download="VickyRaj-Resume.pdf"
-              class="px-6 py-2 bg-accent text-black rounded-full font-bold hover:bg-white transition-all transform hover:-translate-y-1 flex items-center gap-2 shadow-lg shadow-accent/20">
-              <i class="fas fa-download"></i> Download
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-chart-pie text-4xl text-yellow-600 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              Power BI
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">
+              Dashboards, DAX, KPI Tracking, Data modeling
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-database text-4xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              SQL
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">
+              Queries, Joins, Extraction, Optimization
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fab fa-js text-4xl text-yellow-300 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              JavaScript
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">Basic, API, DOM</p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fab fa-html5 text-4xl text-orange-500 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              HTML5 & CSS3
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">
+              Responsive Layouts, Grid/Flex
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-file-excel text-4xl text-green-500 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              Excel
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">
+              Pivot Tables, Cleaning, Dashboards
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-palette text-4xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              Canva & Design
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">
+              Graphic Design, Thumbnails, Visuals
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-video text-4xl text-gray-300 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              Video Editing
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">CapCut, Tech/demo videos</p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-cogs text-4xl text-pink-500 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              n8n, Make
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">
+              Workflow Automation, Agents
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-robot text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              Generative AI
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">Prompting, LLMs, RAG</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+          <span class="text-accent">04.</span> Projects
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+            <div class="h-48 overflow-hidden relative">
+              <img src="Travally.png" onerror="
+                    this.src =
+                      'https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'
+                  " alt="Travally"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" target="_blank"
+                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                  title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/vicky-tec/TRAVALLY_.git" target="_blank"
+                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"
+                  title="Code"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">TRAVALLY</h3>
+              <p class="text-gray-400 text-sm mb-4">
+                A comprehensive Bihar tourism website featuring interactive
+                maps and an AI-integrated chatbot for travelers.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">HTML/CSS</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">JS</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">AI API</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+            <div class="h-48 overflow-hidden relative">
+              <img src="d33.png" onerror="this.src = ''" alt="Banking Analytics Dashboard"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                <a href="https://app.powerbi.com/links/KSu4AAge-6?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
+                  target="_blank"
+                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                  title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
+                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                    class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Banking Analytics Dashboard
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                A detailed analysis of banking sales performance, highlighting
+                total deposits, loans, and identifying top customer segments
+                through insightful visualizations.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Dashboard</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">DAX</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+            <div class="h-48 overflow-hidden relative">
+              <img src="dash.png" onerror="
+                    this.src =
+                      'https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'
+                  " alt="Blinkit Dashboard"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                <a href="https://drive.google.com/file/d/1-bJucRuisBEBt_DdrUN-9ds-eg8cWejw/view?usp=drive_link"
+                  target="_blank"
+                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                  title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/vicky-tec/gigx-Data-Analytics-" target="_blank"
+                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                    class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Blinkit Dashboard
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Interactive PowerBI dashboard analyzing delivery times,
+                customer satisfaction, and inventory efficiency.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Excel</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+            <div class="h-48 overflow-hidden relative">
+              <img src="d2.png" onerror="
+                    this.src =
+                      'https://drive.google.com/file/d/1h-LKFanHseZZ4_GF-uZX_pqaBzJB8nCu/view?usp=drive_link'
+                  " alt="Flipkart Dashboard"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiMDQxZGMzZGQtZmM4Yy00ODUwLTgxMTItMTQwZjNiMDUyZmE1IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9"
+                  target="_blank"
+                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                  title="View Analysis"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
+                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                    class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Big Billion Days Analysis
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Sales performance analysis of Flipkart’s Big Billion Days,
+                highlighting revenue trends, customer insights, and
+                category-wise performance.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">SQL</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+            <div class="h-48 overflow-hidden relative">
+              <img src="d7.png" onerror="
+                    this.src =
+                      'https://drive.google.com/file/d/1zCa8UuF0VqdcjCXrZ3kmao18irbmI4Fk/view?usp=drive_link'
+                  " alt="E-Commerce Dashboard"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                <a href="https://app.powerbi.com/links/wJtZwRcMz8?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
+                  target="_blank"
+                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                  title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank"
+                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                    class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Blinkit vs Zepto Revenue Comparison Dashboard
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Comparative revenue analysis of Blinkit and Zepto, showcasing
+                market share, transaction volumes, and growth trends.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Business Intel</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
+            <div class="h-48 overflow-hidden relative">
+              <img src="mavi.png" onerror="
+                    this.src =
+                      'https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'
+                  " alt="MAVI AI Agent"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+
+              <div
+                class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                <a href="https://vicky-tec.github.io/MAVI-Local-AI-AGENT/" target="_blank"
+                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                  title="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="https://github.com/vicky-tec/MAVI-Local-AI-AGENT" target="_blank"
+                  class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-allowed opacity-70">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">MAVI.ai</h3>
+
+              <p class="text-gray-400 text-sm mb-4">
+                MAVI is a local, hybrid AI agent powered by on-device LLMs,
+                RAG, vision tools, and automation for secure, intelligent
+                workflows.
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Local LLMs</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">RAG</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Automation</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Vision + OCR</span>
+                <span class="skill-tag px-3 py-1 text-xs rounded-full">Llama 3.2 · Gemini</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="py-20 bg-dark/50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+          <span class="text-accent">05.</span> Certifications
+        </h2>
+
+        <!-- Featured Certificate Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <!-- DevFest Certificate -->
+          <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text">
+            <div class="p-4">
+              <img src="https://raw.githubusercontent.com/vicky-tec/PortFoilo/main/Screenshot%202025-09-17%20222409.png"
+                alt="DevFest Motihari 2025 Certificate" class="w-full h-auto rounded-lg" onerror="
+                    this.src =
+                      'https://placehold.co/800x600/1a1a1a/1bc4f8?text=Certificate+Not+Found'
+                  " />
+            </div>
+            <div class="px-6 pb-6">
+              <h4 class="font-bold text-white text-lg mb-2">
+                OCI Foundations Associate
+              </h4>
+              <p class="text-sm text-gray-400">Oracle • Sep 2025</p>
+              <div class="mt-3 flex items-center gap-2 text-xs">
+                <span class="skill-tag px-3 py-1 rounded-full">AI Foundation Associate</span>
+                <span class="skill-tag px-3 py-1 rounded-full">Community</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Physics Wallah Certificate -->
+          <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text">
+            <div class="p-4">
+              <img
+                src="https://raw.githubusercontent.com/vicky-tec/PortFoilo/main/Gemini_Generated_Image_1fhkod1fhkod1fhk.png"
+                alt="Generative AI for All Certificate" class="w-full h-auto rounded-lg" onerror="
+                    this.src =
+                      'https://placehold.co/800x600/1a1a1a/1bc4f8?text=Certificate+Not+Found'
+                  " />
+            </div>
+            <div class="px-6 pb-6">
+              <h4 class="font-bold text-white text-lg mb-2">
+                Generative AI for All
+              </h4>
+              <p class="text-sm text-gray-400">
+                Physics Wallah × Microsoft • Dec 2025
+              </p>
+              <div class="mt-3 flex items-center gap-2 text-xs">
+                <span class="skill-tag px-3 py-1 rounded-full">GenAI</span>
+                <span class="skill-tag px-3 py-1 rounded-full">Microsoft</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Certifications -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
+            <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 flex-shrink-0">
+              <i class="fas fa-database"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">DevFest Motihari 2025</h4>
+              <p class="text-xs text-gray-400">
+                Developer Group (GDG) Cloud Motihari • Nov 2025
+              </p>
+              <a href="https://drive.google.com/file/d/1Z_pSpSdNrwjnXDUquOXARCG5U1wo3Mj1/view?usp=drive_link"
+                target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+            </div>
+          </div>
+          <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
+            <div
+              class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 flex-shrink-0">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">Gen-AI Mastermind</h4>
+              <p class="text-xs text-gray-400">Outskill • 2025</p>
+              <a href="https://drive.google.com/file/d/10iRIZHCVDplgpIPiVnhN81rabi7qA_1s/view?usp=sharing"
+                target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+            </div>
+          </div>
+          <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
+            <div
+              class="w-12 h-12 bg-yellow-900/30 rounded-lg flex items-center justify-center text-yellow-400 flex-shrink-0">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">Power BI Workshop</h4>
+              <p class="text-xs text-gray-400">Office Master • 2025</p>
+              <a href="https://drive.google.com/file/d/1u3lbbn2_cKNcJnetnUOo8cfEVAdJA3rW/view?usp=drive_link"
+                target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+            </div>
+          </div>
+          <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
+            <div
+              class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 flex-shrink-0">
+              <i class="fas fa-table"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">Excel Workshop</h4>
+              <p class="text-xs text-gray-400">Office Master • 2025</p>
+              <a href="https://drive.google.com/file/d/15BcspV58XWEITh68AOKqETB3v1zQYD5q/view?usp=drive_link"
+                target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+            </div>
+          </div>
+          <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
+            <div
+              class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 flex-shrink-0">
+              <i class="fas fa-pen-nib"></i>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-white">Genrative AI</h4>
+              <p class="text-xs text-gray-400">Simplilearn • 2025</p>
+              <a href="https://drive.google.com/file/d/1NZ21SsIq-keP1yHfirKy6HXlEgg71wU_/view?usp=drive_link"
+                target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+            </div>
+          </div>
+          <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
+            <div
+              class="w-12 h-12 bg-pink-900/30 rounded-lg flex items-center justify-center text-pink-400 flex-shrink-0">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">UI/UX Design</h4>
+              <p class="text-xs text-gray-400">Great Learning • 2024</p>
+              <a href="https://drive.google.com/file/d/1yNEBYxJ0L66x4DLZbGP8NoMF8b4bemi-/view?usp=drive_link"
+                target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="py-20 border-y border-white/5">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+          Resume <span class="text-accent"></span>
+        </h2>
+
+        <div class="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 reveal-text">
+          <div class="p-6 border-b border-white/10 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+            <div class="text-center md:text-left">
+              <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                <i class="fas fa-file-alt text-accent"></i> Vicky Raj - Resume
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Previewing latest version • 2025
+              </p>
+            </div>
+            <div class="flex gap-3">
+              <a href="RESUME-2.pdf" download="VickyRaj-Resume.pdf"
+                class="px-6 py-2 bg-accent text-black rounded-full font-bold hover:bg-white transition-all transform hover:-translate-y-1 flex items-center gap-2 shadow-lg shadow-accent/20">
+                <i class="fas fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <div class="w-full h-[500px] md:h-[600px] bg-gray-900 relative">
+            <div class="absolute inset-0 flex items-center justify-center text-accent/50 pointer-events-none">
+              <i class="fas fa-circle-notch fa-spin text-3xl"></i>
+            </div>
+
+            <iframe src="RESUME-2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH" class="w-full h-full relative z-10"
+              title="Resume Preview">
+              <div class="flex flex-col items-center justify-center h-full text-center p-10">
+                <p class="text-gray-400 mb-4">
+                  Your browser cannot display the PDF directly.
+                </p>
+                <a href="RESUME-2.pdf"
+                  class="px-6 py-2 border border-accent text-accent rounded-full hover:bg-accent hover:text-black transition-colors">
+                  Download PDF to View
+                </a>
+              </div>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-dark/50 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+          <span class="text-accent">06.</span> Gallery
+        </h2>
+
+        <!-- Carousel Container -->
+        <div
+          class="relative max-w-5xl mx-auto h-[400px] md:h-[500px] glass-card rounded-2xl overflow-hidden group reveal-text">
+          <!-- Slides -->
+          <div id="carousel-track" class="flex h-full transition-transform duration-700 ease-in-out">
+            <!-- Slide 1: Coding Setup -->
+            <div class="min-w-full h-full relative group/slide">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                alt="Coding Setup" />
+              <div
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
+                <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Workspace</span>
+                <h3 class="text-2xl font-bold text-white">
+                  Late Night Coding
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">
+                  #CodingLife #Setup #Dev
+                </p>
+              </div>
+            </div>
+
+            <!-- Slide 2: Food (Rasmalai) -->
+            <div class="min-w-full h-full relative group/slide">
+              <img src="gallery_food.png"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                alt="Sweet Treats" />
+              <div
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
+                <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Foodie</span>
+                <h3 class="text-2xl font-bold text-white">Sweet Delights</h3>
+                <p class="text-gray-400 text-sm mt-1">
+                  #Rasmalai #DesiFood #Cravings
+                </p>
+              </div>
+            </div>
+
+            <!-- Slide 3: Peace Sign Code -->
+            <div class="min-w-full h-full relative group/slide">
+              <img src="gallery_code.png"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                alt="Coding Vibes" />
+              <div
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
+                <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Lifestyle</span>
+                <h3 class="text-2xl font-bold text-white">Code & Chill</h3>
+                <p class="text-gray-400 text-sm mt-1">
+                  #Peace #Developer #Vibes
+                </p>
+              </div>
+            </div>
+
+            <!-- Slide 4: Dashboard -->
+            <div class="min-w-full h-full relative group/slide">
+              <img src="Dashboard.jpg"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                alt="Data Analytics" />
+              <div
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
+                <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Work</span>
+                <h3 class="text-2xl font-bold text-white">
+                  Data Visualization
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">
+                  #DataViz #Analytics #PowerBI
+                </p>
+              </div>
+            </div>
+
+            <!-- Slide 5: Matrix -->
+            <div class="min-w-full h-full relative group/slide">
+              <img
+                src="https://github.com/vicky-tec/PortFoilo/blob/main/WhatsApp%20Image%202026-02-20%20at%207.42.03%20PM.jpeg?raw=true"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                alt="Deep Focus" />
+              <div
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
+                <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">SWEET DELIGHTS</span>
+                <h3 class="text-2xl font-bold text-white">Indulgence in a Cup — Cashew Choco Delight!</h3>
+                <p class="text-gray-400 text-sm mt-1">
+                  #CashewChocoDelight #SweetTreat #Foodie
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrows -->
+          <button id="prev-slide"
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 glass-card rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110">
+            <i class="fas fa-chevron-left text-xl"></i>
+          </button>
+          <button id="next-slide"
+            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 glass-card rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110">
+            <i class="fas fa-chevron-right text-xl"></i>
+          </button>
+
+          <!-- Indicators -->
+          <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator active"
+              data-index="0"></button>
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
+              data-index="1"></button>
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
+              data-index="2"></button>
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
+              data-index="3"></button>
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
+              data-index="4"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Git Contributions Section -->
+    <section id="contributions" class="py-20 relative overflow-hidden border-t border-white/5">
+      <div class="container mx-auto px-6 relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+          <span class="text-accent">07.</span> Git Contributions
+        </h2>
+
+        <div
+          class="glass-card p-6 md:p-10 rounded-3xl reveal-text relative group hover:shadow-[0_0_40px_rgba(27,196,248,0.15)] transition-all duration-500 max-w-5xl mx-auto">
+          <!-- Glow Effect -->
+          <div
+            class="absolute inset-0 bg-accent/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          </div>
+
+          <!-- GitHub Calendar Container -->
+          <div class="calendar relative z-10 w-full overflow-x-auto text-white">
+            <!-- Loading State -->
+            <div class="text-center text-gray-500 py-10 font-mono">
+              <i class="fas fa-circle-notch fa-spin mr-2"></i> Loading GitHub
+              Data...
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <a href="https://github.com/vicky-tec" target="_blank"
+              class="text-xs font-mono text-gray-400 hover:text-accent transition-colors">
+              @vicky-tec • Data Analyst & Developer
             </a>
           </div>
         </div>
-
-        <div class="w-full h-[500px] md:h-[600px] bg-gray-900 relative">
-          <div class="absolute inset-0 flex items-center justify-center text-accent/50 pointer-events-none">
-            <i class="fas fa-circle-notch fa-spin text-3xl"></i>
-          </div>
-
-          <iframe src="RESUME-2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH" class="w-full h-full relative z-10"
-            title="Resume Preview">
-            <div class="flex flex-col items-center justify-center h-full text-center p-10">
-              <p class="text-gray-400 mb-4">Your browser cannot display the PDF directly.</p>
-              <a href="RESUME-2.pdf"
-                class="px-6 py-2 border border-accent text-accent rounded-full hover:bg-accent hover:text-black transition-colors">
-                Download PDF to View
-              </a>
-            </div>
-          </iframe>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="gallery" class="py-20 bg-dark/50 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        <span class="text-accent">06.</span> Gallery
-      </h2>
+    <!-- GitHub Calendar Dependencies -->
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
 
-      <!-- Carousel Container -->
-      <div
-        class="relative max-w-5xl mx-auto h-[400px] md:h-[500px] glass-card rounded-2xl overflow-hidden group reveal-text">
+    <style>
+      /* Custom GitHub Calendar Theme */
+      .calendar {
+        font-family: "Space Grotesk", monospace;
+        border: none !important;
+        width: 100% !important;
+        min-height: 180px;
+      }
 
-        <!-- Slides -->
-        <div id="carousel-track" class="flex h-full transition-transform duration-700 ease-in-out">
-          <!-- Slide 1: Coding Setup -->
-          <div class="min-w-full h-full relative group/slide">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
-              alt="Coding Setup">
-            <div
-              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
-              <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Workspace</span>
-              <h3 class="text-2xl font-bold text-white">Late Night Coding</h3>
-              <p class="text-gray-400 text-sm mt-1">#CodingLife #Setup #Dev</p>
-            </div>
-          </div>
+      .calendar .width-full {
+        width: 100% !important;
+      }
 
-          <!-- Slide 2: Food (Rasmalai) -->
-          <div class="min-w-full h-full relative group/slide">
-            <img src="gallery_food.png"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
-              alt="Sweet Treats">
-            <div
-              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
-              <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Foodie</span>
-              <h3 class="text-2xl font-bold text-white">Sweet Delights</h3>
-              <p class="text-gray-400 text-sm mt-1">#Rasmalai #DesiFood #Cravings</p>
-            </div>
-          </div>
+      /* Hide boring header text if desired, or style it */
+      .calendar .contrib-number {
+        color: var(--color-accent-cyan) !important;
+        font-weight: bold;
+      }
 
-          <!-- Slide 3: Peace Sign Code -->
-          <div class="min-w-full h-full relative group/slide">
-            <img src="gallery_code.png"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
-              alt="Coding Vibes">
-            <div
-              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
-              <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Lifestyle</span>
-              <h3 class="text-2xl font-bold text-white">Code & Chill</h3>
-              <p class="text-gray-400 text-sm mt-1">#Peace #Developer #Vibes</p>
-            </div>
-          </div>
+      .calendar .text-muted {
+        color: #94a3b8 !important;
+      }
 
-          <!-- Slide 4: Dashboard -->
-          <div class="min-w-full h-full relative group/slide">
-            <img src="Dashboard.jpg"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
-              alt="Data Analytics">
-            <div
-              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
-              <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Work</span>
-              <h3 class="text-2xl font-bold text-white">Data Visualization</h3>
-              <p class="text-gray-400 text-sm mt-1">#DataViz #Analytics #PowerBI</p>
-            </div>
-          </div>
+      .calendar .contrib-footer,
+      .calendar .contrib-column,
+      .calendar .float-left {
+        display: none !important;
+      }
 
-          <!-- Slide 5: Matrix -->
-          <div class="min-w-full h-full relative group/slide">
-            <img src="rear-view-programmer-working-all-night-long.jpg"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
-              alt="Deep Focus">
-            <div
-              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 md:p-8 translate-y-2 group-hover/slide:translate-y-0 transition-transform">
-              <span class="text-accent font-mono text-sm tracking-wider uppercase mb-1 block">Focus</span>
-              <h3 class="text-2xl font-bold text-white">Deep Work</h3>
-              <p class="text-gray-400 text-sm mt-1">#Matrix #FlowState #Hacker</p>
-            </div>
-          </div>
-        </div>
+      /* Calendar Squares */
+      .calendar rect.ContributionCalendar-day[data-level="0"] {
+        fill: #1e293b !important;
+      }
 
-        <!-- Arrows -->
-        <button id="prev-slide"
-          class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 glass-card rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110">
-          <i class="fas fa-chevron-left text-xl"></i>
-        </button>
-        <button id="next-slide"
-          class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 glass-card rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110">
-          <i class="fas fa-chevron-right text-xl"></i>
-        </button>
+      /* Empty */
+      .calendar rect.ContributionCalendar-day[data-level="1"] {
+        fill: #0e4429 !important;
+      }
 
-        <!-- Indicators -->
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator active"
-            data-index="0"></button>
-          <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
-            data-index="1"></button>
-          <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
-            data-index="2"></button>
-          <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
-            data-index="3"></button>
-          <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all indicator"
-            data-index="4"></button>
-        </div>
+      .calendar rect.ContributionCalendar-day[data-level="2"] {
+        fill: #006d32 !important;
+      }
 
-      </div>
-    </div>
-  </section>
+      .calendar rect.ContributionCalendar-day[data-level="3"] {
+        fill: #26a641 !important;
+      }
 
-  <!-- Git Contributions Section -->
-  <section id="contributions" class="py-20 relative overflow-hidden border-t border-white/5">
-    <div class="container mx-auto px-6 relative z-10">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-        <span class="text-accent">07.</span> Git Contributions
-      </h2>
+      .calendar rect.ContributionCalendar-day[data-level="4"] {
+        fill: #39d353 !important;
+      }
 
-      <div
-        class="glass-card p-6 md:p-10 rounded-3xl reveal-text relative group hover:shadow-[0_0_40px_rgba(27,196,248,0.15)] transition-all duration-500 max-w-5xl mx-auto">
-        <!-- Glow Effect -->
-        <div
-          class="absolute inset-0 bg-accent/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-        </div>
+      /* Tooltip */
+      .svg-tip {
+        background: rgba(22, 22, 22, 0.9) !important;
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-accent-cyan);
+        color: white !important;
+        font-family: "Outfit", sans-serif;
+        padding: 8px 12px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 100;
+      }
 
-        <!-- GitHub Calendar Container -->
-        <div class="calendar relative z-10 w-full overflow-x-auto text-white">
-          <!-- Loading State -->
-          <div class="text-center text-gray-500 py-10 font-mono">
-            <i class="fas fa-circle-notch fa-spin mr-2"></i> Loading GitHub Data...
-          </div>
-        </div>
+      /* Month/Day labels */
+      .calendar text.ContributionCalendar-label {
+        fill: #94a3b8 !important;
+        font-size: 10px;
+      }
+    </style>
 
-        <div class="text-center mt-4">
+    <section id="contact" class="py-20 bg-gradient-to-t from-black to-dark">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center reveal-text">
+          Let's Connect & <span class="text-accent">Collaborate</span> 💙
+        </h2>
+
+        <div class="flex justify-center gap-6 mb-10 reveal-text">
           <a href="https://github.com/vicky-tec" target="_blank"
-            class="text-xs font-mono text-gray-400 hover:text-accent transition-colors">
-            @vicky-tec • Data Analyst & Developer
+            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-accent hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-accent/5"
+            title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
+            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-blue-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-blue-400/5"
+            title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/vr_razzz/" target="_blank"
+            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-pink-500 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-pink-500/5"
+            title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:vickyrazzz81@gmail.com"
+            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-red-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-red-400/5"
+            title="Email">
+            <i class="fas fa-envelope"></i>
           </a>
         </div>
+
+        <div class="glass-card rounded-3xl p-8 md:p-12 reveal-text">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-sm font-bold text-gray-400">Name</label>
+                <input type="text" name="name" required class="w-full p-4 rounded-xl form-input transition-all"
+                  placeholder="Bomber_VR" />
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-bold text-gray-400">Email</label>
+                <input type="email" name="email" required class="w-full p-4 rounded-xl form-input transition-all"
+                  placeholder="vicky@example.com" />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-sm font-bold text-gray-400">Contact Number</label>
+                <input type="text" name="contact_number" class="w-full p-4 rounded-xl form-input transition-all"
+                  placeholder="+91 XXXXX XXXXX" />
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-bold text-gray-400">Subject</label>
+                <input type="text" name="subject" class="w-full p-4 rounded-xl form-input transition-all"
+                  placeholder="Project Inquiry" />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-gray-400">Message</label>
+              <textarea name="message" required rows="4" class="w-full p-4 rounded-xl form-input transition-all"
+                placeholder="Tell me about your project..."></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn"
+              class="w-full py-4 bg-accent text-black font-bold text-lg rounded-xl hover:bg-white transition-all transform hover:-translate-y-1 shadow-lg shadow-accent/20">
+              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+            <p id="form-message" class="text-center text-sm text-green-400 hidden">
+              Message Sent Successfully!
+            </p>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- GitHub Calendar Dependencies -->
-  <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-
-  <style>
-    /* Custom GitHub Calendar Theme */
-    .calendar {
-      font-family: 'Space Grotesk', monospace;
-      border: none !important;
-      width: 100% !important;
-      min-height: 180px;
-    }
-
-    .calendar .width-full {
-      width: 100% !important;
-    }
-
-    /* Hide boring header text if desired, or style it */
-    .calendar .contrib-number {
-      color: var(--color-accent-cyan) !important;
-      font-weight: bold;
-    }
-
-    .calendar .text-muted {
-      color: #94a3b8 !important;
-    }
-
-    .calendar .contrib-footer,
-    .calendar .contrib-column,
-    .calendar .float-left {
-      display: none !important;
-    }
-
-    /* Calendar Squares */
-    .calendar rect.ContributionCalendar-day[data-level='0'] {
-      fill: #1e293b !important;
-    }
-
-    /* Empty */
-    .calendar rect.ContributionCalendar-day[data-level='1'] {
-      fill: #0e4429 !important;
-    }
-
-    .calendar rect.ContributionCalendar-day[data-level='2'] {
-      fill: #006d32 !important;
-    }
-
-    .calendar rect.ContributionCalendar-day[data-level='3'] {
-      fill: #26a641 !important;
-    }
-
-    .calendar rect.ContributionCalendar-day[data-level='4'] {
-      fill: #39d353 !important;
-    }
-
-    /* Tooltip */
-    .svg-tip {
-      background: rgba(22, 22, 22, 0.9) !important;
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--color-accent-cyan);
-      color: white !important;
-      font-family: 'Outfit', sans-serif;
-      padding: 8px 12px;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      z-index: 100;
-    }
-
-    /* Month/Day labels */
-    .calendar text.ContributionCalendar-label {
-      fill: #94a3b8 !important;
-      font-size: 10px;
-    }
-  </style>
-
-  <section id="contact" class="py-20 bg-gradient-to-t from-black to-dark">
-    <div class="container mx-auto px-6 max-w-4xl">
-      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center reveal-text">
-        Let's Connect & <span class="text-accent">Collaborate</span> 💙
-      </h2>
-
-      <div class="flex justify-center gap-6 mb-10 reveal-text">
-        <a href="https://github.com/vicky-tec" target="_blank"
-          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-accent hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-accent/5"
-          title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
-          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-blue-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-blue-400/5"
-          title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://www.instagram.com/vr_razzz/" target="_blank"
-          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-pink-500 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-pink-500/5"
-          title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="mailto:vickyrazzz81@gmail.com"
-          class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-red-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-red-400/5"
-          title="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </div>
-
-      <div class="glass-card rounded-3xl p-8 md:p-12 reveal-text">
-        <form id="contact-form" class="space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-gray-400">Name</label>
-              <input type="text" name="name" required class="w-full p-4 rounded-xl form-input transition-all"
-                placeholder="Bomber_VR">
-            </div>
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-gray-400">Email</label>
-              <input type="email" name="email" required class="w-full p-4 rounded-xl form-input transition-all"
-                placeholder="vicky@example.com">
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-gray-400">Contact Number</label>
-              <input type="text" name="contact_number" class="w-full p-4 rounded-xl form-input transition-all"
-                placeholder="+91 XXXXX XXXXX">
-            </div>
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-gray-400">Subject</label>
-              <input type="text" name="subject" class="w-full p-4 rounded-xl form-input transition-all"
-                placeholder="Project Inquiry">
-            </div>
-          </div>
-
-          <div class="space-y-2">
-            <label class="text-sm font-bold text-gray-400">Message</label>
-            <textarea name="message" required rows="4" class="w-full p-4 rounded-xl form-input transition-all"
-              placeholder="Tell me about your project..."></textarea>
-          </div>
-
-          <button type="submit" id="submit-btn"
-            class="w-full py-4 bg-accent text-black font-bold text-lg rounded-xl hover:bg-white transition-all transform hover:-translate-y-1 shadow-lg shadow-accent/20">
-            Send Message <i class="fas fa-paper-plane ml-2"></i>
-          </button>
-          <p id="form-message" class="text-center text-sm text-green-400 hidden">Message Sent Successfully!</p>
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="py-8 border-t border-white/5 text-center text-gray-500 text-sm">
     <div class="container mx-auto px-6">
-      <p>&copy; 2025 Vicky Raj. Built with <i class="fas fa-heart text-accent"></i> and AI.</p>
+      <p>
+        &copy; 2025 Vicky Raj. Built with
+        <i class="fas fa-heart text-accent"></i> and AI.
+      </p>
       <div class="flex justify-center space-x-6 mt-4 text-xl">
         <a href="https://github.com/vicky-tec" class="hover:text-accent"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/vicky-raj-090760282/" class="hover:text-accent"><i
@@ -1946,31 +2138,35 @@
     class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-transform z-50">
     <i class="fab fa-whatsapp"></i>
   </a>
-  s
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener("DOMContentLoaded", function () {
       // PRELOADER HIDE
       const hidePreloader = () => {
-        const preloader = document.getElementById('preloader');
+        const preloader = document.getElementById("preloader");
         if (preloader) {
           setTimeout(() => {
-            preloader.style.opacity = '0';
+            preloader.style.opacity = "0";
             setTimeout(() => {
-              preloader.style.visibility = 'hidden';
-              preloader.style.display = 'none'; // Ensure it's gone
-            }, 800);
-          }, 2500); // 2.5s display time for the amazing loading animation
+              preloader.style.visibility = "hidden";
+              preloader.style.display = "none"; // Ensure it's gone
+            }, 500);
+          }, 800); // 0.8s display time for the amazing loading animation
         }
       };
 
-      if (document.readyState === 'complete') {
+      if (document.readyState === "complete") {
         hidePreloader();
       } else {
-        window.addEventListener('load', hidePreloader);
+        window.addEventListener("load", hidePreloader);
       }
 
       // Typing Effect
-      const roles = ["Data Analyst", "Frontend Dev (Fundamentals)", "AI Enthusiast", "Video Editor"];
+      const roles = [
+        "Data Analyst",
+        "Frontend Dev (Fundamentals)",
+        "AI Enthusiast",
+        "Video Editor",
+      ];
       let roleIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
@@ -2003,50 +2199,53 @@
       type();
 
       // Mobile Menu Toggle
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
       });
 
       // Sticky Navbar
-      window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
         if (window.scrollY > 50) {
-          navbar.classList.add('shadow-lg', 'bg-dark/95');
-          navbar.classList.remove('py-4');
-          navbar.classList.add('py-2');
+          navbar.classList.add("shadow-lg", "bg-dark/95");
+          navbar.classList.remove("py-4");
+          navbar.classList.add("py-2");
         } else {
-          navbar.classList.remove('shadow-lg', 'bg-dark/95');
-          navbar.classList.add('py-4');
-          navbar.classList.remove('py-2');
+          navbar.classList.remove("shadow-lg", "bg-dark/95");
+          navbar.classList.add("py-4");
+          navbar.classList.remove("py-2");
         }
       });
 
       // Form Handling
-      const form = document.getElementById('contact-form');
-      const submitBtn = document.getElementById('submit-btn');
-      const formMessage = document.getElementById('form-message');
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
+      const form = document.getElementById("contact-form");
+      const submitBtn = document.getElementById("submit-btn");
+      const formMessage = document.getElementById("form-message");
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
 
-      form.addEventListener('submit', e => {
+      form.addEventListener("submit", (e) => {
         e.preventDefault();
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
         const formData = new FormData(form);
         formData.append("ex", "Yes");
 
         fetch(scriptURL, { method: "POST", body: formData })
-          .then(response => {
+          .then((response) => {
             swal("Success!", "Message Sent Successfully!", "success");
             form.reset();
-            submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane ml-2"></i>';
+            submitBtn.innerHTML =
+              'Send Message <i class="fas fa-paper-plane ml-2"></i>';
             submitBtn.disabled = false;
           })
-          .catch(error => {
+          .catch((error) => {
             swal("Error!", "Something went wrong.", "error");
-            submitBtn.innerHTML = 'Error! Try Again';
+            submitBtn.innerHTML = "Error! Try Again";
             submitBtn.disabled = false;
           });
       });
@@ -2054,28 +2253,30 @@
       // Scroll Reveal Animation Logic
       const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: "0px",
+        threshold: 0.1,
       };
 
       const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add("is-visible");
           }
         });
       }, observerOptions);
 
-      document.querySelectorAll('.reveal-text').forEach(el => {
+      document.querySelectorAll(".reveal-text").forEach((el) => {
         observer.observe(el);
       });
 
       // === PARALLAX MOUSE MOVEMENT FOR HERO SECTION ===
-      const heroSection = document.querySelector('#home');
-      const parallaxLayers = document.querySelectorAll('#home .parallax-layer, #home .glass-card');
+      const heroSection = document.querySelector("#home");
+      const parallaxLayers = document.querySelectorAll(
+        "#home .parallax-layer, #home .glass-card",
+      );
 
       if (heroSection && parallaxLayers.length > 0) {
-        heroSection.addEventListener('mousemove', (e) => {
+        heroSection.addEventListener("mousemove", (e) => {
           const { clientX, clientY } = e;
           const { offsetWidth, offsetHeight } = heroSection;
 
@@ -2087,25 +2288,30 @@
             const moveX = xPos * depth;
             const moveY = yPos * depth;
 
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            if (
+              !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ) {
               layer.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
             }
           });
         });
 
-        heroSection.addEventListener('mouseleave', () => {
-          parallaxLayers.forEach(layer => {
-            layer.style.transform = 'translateX(0) translateY(0)';
+        heroSection.addEventListener("mouseleave", () => {
+          parallaxLayers.forEach((layer) => {
+            layer.style.transform = "translateX(0) translateY(0)";
           });
         });
       }
 
       // === 3D TILT EFFECT FOR CARDS ===
-      const cards3D = document.querySelectorAll('.glass-card, .certificate-featured');
+      const cards3D = document.querySelectorAll(
+        ".glass-card, .certificate-featured",
+      );
 
-      cards3D.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      cards3D.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+            return;
 
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -2120,16 +2326,17 @@
           card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
         });
 
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        card.addEventListener("mouseleave", () => {
+          card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)";
         });
       });
 
       // === SMOOTH SCROLL WITH OFFSET ===
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href === '#' || !href) return;
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href === "#" || !href) return;
 
           e.preventDefault();
           const target = document.querySelector(href);
@@ -2138,42 +2345,42 @@
             const offsetTop = target.offsetTop - 80;
             window.scrollTo({
               top: offsetTop,
-              behavior: 'smooth'
+              behavior: "smooth",
             });
           }
         });
       });
 
       // === ACTIVE NAV LINK ON SCROLL ===
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
 
-      window.addEventListener('scroll', () => {
-        let current = '';
+      window.addEventListener("scroll", () => {
+        let current = "";
 
-        sections.forEach(section => {
+        sections.forEach((section) => {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.clientHeight;
           if (window.pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
+            current = section.getAttribute("id");
           }
         });
 
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
           }
         });
       });
 
       // === GALLERY SLIDESHOW ===
-      const track = document.getElementById('carousel-track');
+      const track = document.getElementById("carousel-track");
       if (track) {
         const slides = Array.from(track.children);
-        const nextButton = document.getElementById('next-slide');
-        const prevButton = document.getElementById('prev-slide');
-        const dots = document.querySelectorAll('#gallery .indicator');
+        const nextButton = document.getElementById("next-slide");
+        const prevButton = document.getElementById("prev-slide");
+        const dots = document.querySelectorAll("#gallery .indicator");
 
         let currentSlideIndex = 0;
         const totalSlides = slides.length;
@@ -2183,13 +2390,13 @@
           track.style.transform = `translateX(-${index * 100}%)`;
 
           // Update dots
-          dots.forEach(dot => {
-            dot.classList.remove('bg-white', 'scale-125');
-            dot.classList.add('bg-white/50');
+          dots.forEach((dot) => {
+            dot.classList.remove("bg-white", "scale-125");
+            dot.classList.add("bg-white/50");
           });
           if (dots[index]) {
-            dots[index].classList.remove('bg-white/50');
-            dots[index].classList.add('bg-white', 'scale-125');
+            dots[index].classList.remove("bg-white/50");
+            dots[index].classList.add("bg-white", "scale-125");
           }
         };
 
@@ -2199,23 +2406,26 @@
         };
 
         const moveToPrevSlide = () => {
-          currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+          currentSlideIndex =
+            (currentSlideIndex - 1 + totalSlides) % totalSlides;
           updateSlidePosition(currentSlideIndex);
         };
 
         // Event Listeners
-        if (nextButton) nextButton.addEventListener('click', () => {
-          moveToNextSlide();
-          resetAutoSlide();
-        });
+        if (nextButton)
+          nextButton.addEventListener("click", () => {
+            moveToNextSlide();
+            resetAutoSlide();
+          });
 
-        if (prevButton) prevButton.addEventListener('click', () => {
-          moveToPrevSlide();
-          resetAutoSlide();
-        });
+        if (prevButton)
+          prevButton.addEventListener("click", () => {
+            moveToPrevSlide();
+            resetAutoSlide();
+          });
 
         dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
+          dot.addEventListener("click", () => {
             currentSlideIndex = index;
             updateSlidePosition(currentSlideIndex);
             resetAutoSlide();
@@ -2242,8 +2452,8 @@
         // Pause on hover
         const carouselContainer = track.parentElement;
         if (carouselContainer) {
-          carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-          carouselContainer.addEventListener('mouseleave', startAutoSlide);
+          carouselContainer.addEventListener("mouseenter", stopAutoSlide);
+          carouselContainer.addEventListener("mouseleave", startAutoSlide);
         }
       }
 
