@@ -67,7 +67,7 @@
 
   <style>
     /* ============================================
-       Enhanced with 3D depth, glassmorphism, and smooth animations
+       Enhanced with 3D depth and smooth animations (AI )
        ============================================ */
 
     /* === ROOT VARIABLES (8px Grid System) === */
@@ -177,277 +177,276 @@
       }
     }
 
-    /* === ENHANCED PRELOADER === */
+    /*RETRO GENAI PRELOADER*/
+    
     #preloader {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100vw;
-      /* Ensure full viewport width */
       height: 100vh;
-      /* Ensure full viewport height */
-      background: radial-gradient(ellipse at center,
-          #0a0a0a 0%,
-          #000000 100%);
+      background: #000;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 99999;
-      /* Increased z-index */
-      flex-direction: column;
-      transition:
-        opacity 0.5s var(--ease-smooth),
-        visibility 0.5s;
       overflow: hidden;
+      font-family: 'Space Grotesk', monospace;
+      transition: opacity 0.35s ease, visibility 0.35s;
     }
 
-    /* Animated background particles */
+    /* CRT scanlines overlay */
     #preloader::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(2px 2px at 20% 30%,
-          rgba(27, 196, 248, 0.3),
-          transparent),
-        radial-gradient(2px 2px at 60% 70%,
-          rgba(168, 85, 247, 0.3),
-          transparent),
-        radial-gradient(1px 1px at 50% 50%,
-          rgba(59, 130, 246, 0.3),
-          transparent),
-        radial-gradient(1px 1px at 80% 10%,
-          rgba(27, 196, 248, 0.3),
-          transparent),
-        radial-gradient(2px 2px at 90% 60%,
-          rgba(168, 85, 247, 0.3),
-          transparent);
-      background-size: 200% 200%;
-      animation: particleMove 20s ease-in-out infinite;
-      opacity: 0.6;
+      background: repeating-linear-gradient(0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.18) 2px,
+          rgba(0, 0, 0, 0.18) 4px);
+      pointer-events: none;
+      z-index: 2;
+      animation: scanMove 8s linear infinite;
     }
 
-    @keyframes particleMove {
+    @keyframes scanMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 0 100px;
+      }
+    }
+
+    /* Corner vignette */
+    #preloader::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center,
+          transparent 55%,
+          rgba(0, 0, 0, 0.75) 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Grid bg */
+    .pl-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(27, 196, 248, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27, 196, 248, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+      animation: gridPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes gridPulse {
 
       0%,
       100% {
-        background-position:
-          0% 0%,
-          100% 100%,
-          50% 50%,
-          0% 100%,
-          100% 0%;
+        opacity: 0.6;
       }
 
       50% {
-        background-position:
-          100% 100%,
-          0% 0%,
-          80% 20%,
-          100% 0%,
-          0% 100%;
+        opacity: 1;
       }
     }
 
-    .loader-content {
+    /* Main panel */
+    .pl-panel {
       position: relative;
+      z-index: 5;
+      width: min(520px, 90vw);
+      padding: 32px 32px 24px;
+      border: 1px solid rgba(27, 196, 248, 0.25);
+      border-radius: 12px;
+      background: rgba(0, 12, 20, 0.92);
+      box-shadow:
+        0 0 0 1px rgba(27, 196, 248, 0.08),
+        0 0 40px rgba(27, 196, 248, 0.12),
+        inset 0 0 60px rgba(0, 0, 0, 0.8);
+      animation: panelAppear 0.3s ease forwards;
+    }
+
+    @keyframes panelAppear {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Top bar of terminal */
+    .pl-topbar {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      transform-style: preserve-3d;
-      margin-bottom: 50px;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(27, 196, 248, 0.12);
     }
 
-    /* Main rotating ring */
-    .loader-ring {
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      max-width: 60vw;
-      max-height: 60vw;
+    .pl-dot {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: var(--color-accent-cyan);
-      border-right-color: var(--color-accent-cyan);
-      animation: spinRing 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-      box-shadow:
-        0 0 30px var(--glow-accent-cyan),
-        inset 0 0 20px rgba(27, 196, 248, 0.1);
-      transform-style: preserve-3d;
     }
 
-    /* Second ring (purple) */
-    .loader-ring::before {
-      content: "";
-      position: absolute;
-      inset: 15px;
-      border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: var(--color-accent-purple);
-      border-left-color: var(--color-accent-purple);
-      animation: spinRing 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite reverse;
-      box-shadow:
-        0 0 25px var(--glow-accent-purple),
-        inset 0 0 15px rgba(168, 85, 247, 0.1);
+    .pl-dot-r {
+      background: #ff5f57;
+      box-shadow: 0 0 6px #ff5f57aa;
     }
 
-    /* Third ring (blue) */
-    .loader-ring::after {
-      content: "";
-      position: absolute;
-      inset: 30px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      border-top-color: var(--color-accent-blue);
-      border-right-color: var(--color-accent-blue);
-      animation: spinRing 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-      box-shadow:
-        0 0 20px rgba(59, 130, 246, 0.4),
-        inset 0 0 10px rgba(59, 130, 246, 0.1);
+    .pl-dot-y {
+      background: #febc2e;
+      box-shadow: 0 0 6px #febc2eaa;
     }
 
-    /* Central glowing orb */
-    .loader-orb {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      max-width: 20vw;
-      max-height: 20vw;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%,
-          rgba(27, 196, 248, 0.8),
-          rgba(168, 85, 247, 0.6),
-          transparent);
-      box-shadow:
-        0 0 40px rgba(27, 196, 248, 0.6),
-        0 0 80px rgba(168, 85, 247, 0.4),
-        inset 0 0 20px rgba(255, 255, 255, 0.3);
-      animation: orbPulse 2s ease-in-out infinite;
+    .pl-dot-g {
+      background: #28c840;
+      box-shadow: 0 0 6px #28c840aa;
     }
 
-    @keyframes orbPulse {
+    .pl-title {
+      margin-left: auto;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(27, 196, 248, 0.5);
+      text-transform: uppercase;
+    }
+
+    /* AI brain ASCII art */
+    .pl-ascii {
+      font-family: 'Space Grotesk', monospace;
+      font-size: clamp(9px, 2vw, 12px);
+      line-height: 1.3;
+      color: var(--color-accent-cyan);
+      text-align: center;
+      white-space: pre;
+      margin-bottom: 20px;
+      animation: asciiGlow 1s ease-in-out infinite alternate;
+      text-shadow: 0 0 8px rgba(27, 196, 248, 0.6);
+    }
+
+    @keyframes asciiGlow {
+      from {
+        opacity: 0.8;
+        text-shadow: 0 0 6px rgba(27, 196, 248, 0.4);
+      }
+
+      to {
+        opacity: 1.0;
+        text-shadow: 0 0 18px rgba(27, 196, 248, 0.9), 0 0 30px rgba(168, 85, 247, 0.3);
+      }
+    }
+
+    /* Terminal log lines */
+    .pl-log {
+      font-size: clamp(10px, 2vw, 12px);
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.45);
+      min-height: 110px;
+      margin-bottom: 18px;
+    }
+
+    .pl-log-line {
+      display: block;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pl-log-line.pl-show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .pl-log-line .pl-ok {
+      color: #28c840;
+    }
+
+    .pl-log-line .pl-warn {
+      color: #febc2e;
+    }
+
+    .pl-log-line .pl-info {
+      color: var(--color-accent-cyan);
+    }
+
+    .pl-log-line .pl-dim {
+      color: rgba(255, 255, 255, 0.28);
+    }
+
+    /* Prompt line */
+    .pl-prompt {
+      font-size: 12px;
+      color: rgba(27, 196, 248, 0.75);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .pl-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: var(--color-accent-cyan);
+      border-radius: 1px;
+      animation: cursorBlink 0.7s steps(1) infinite;
+      vertical-align: middle;
+      box-shadow: 0 0 8px rgba(27, 196, 248, 0.8);
+    }
+
+    @keyframes cursorBlink {
 
       0%,
       100% {
-        transform: scale(1);
         opacity: 1;
       }
 
       50% {
-        transform: scale(1.15);
-        opacity: 0.8;
-      }
-    }
-
-    /* Loading text */
-    .loader-text {
-      margin-top: clamp(160px, 35vw, 250px);
-      font-family: "Orbitron", sans-serif;
-      font-size: clamp(1.2rem, 4vw, 1.8rem);
-      font-weight: 700;
-      letter-spacing: 6px;
-      color: var(--color-text-primary);
-      text-transform: uppercase;
-      background: linear-gradient(90deg,
-          var(--color-accent-cyan) 0%,
-          var(--color-accent-purple) 50%,
-          var(--color-accent-cyan) 100%);
-      background-size: 200% auto;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation:
-        textShimmer 3s ease-in-out infinite,
-        textGlow 2s ease-in-out infinite;
-      position: relative;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .loader-text::after {
-      content: "..";
-      animation: dotAnimation 1.5s steps(3, end) infinite;
-    }
-
-    @keyframes textShimmer {
-      0% {
-        background-position: 0% center;
-      }
-
-      100% {
-        background-position: 200% center;
-      }
-    }
-
-    @keyframes textGlow {
-
-      0%,
-      100% {
-        filter: drop-shadow(0 0 10px var(--glow-accent-cyan));
-      }
-
-      50% {
-        filter: drop-shadow(0 0 25px var(--glow-accent-cyan)) drop-shadow(0 0 40px var(--glow-accent-purple));
-      }
-    }
-
-    @keyframes dotAnimation {
-
-      0%,
-      100% {
-        content: "";
-      }
-
-      33% {
-        content: ".";
-      }
-
-      66% {
-        content: "..";
-      }
-    }
-
-    @keyframes spinRing {
-      0% {
-        transform: rotate(0deg) translateZ(0);
-      }
-
-      100% {
-        transform: rotate(360deg) translateZ(20px);
+        opacity: 0;
       }
     }
 
     /* Progress bar */
-    .loader-progress {
-      position: absolute;
-      bottom: 80px;
-      width: 300px;
-      max-width: 80%;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 2px;
+    .pl-bar-wrap {
+      height: 3px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 9999px;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
-    .loader-progress-bar {
+    .pl-bar {
       height: 100%;
-      width: 0;
+      width: 0%;
+      border-radius: 9999px;
       background: linear-gradient(90deg,
-          var(--color-accent-cyan),
-          var(--color-accent-purple),
-          var(--color-accent-blue));
+          #1bc4f8 0%,
+          #a855f7 50%,
+          #1bc4f8 100%);
       background-size: 200% 100%;
       animation:
-        progressFill 0.8s ease-out forwards,
-        progressShimmer 1.5s linear infinite;
-      box-shadow:
-        0 0 15px var(--glow-accent-cyan),
-        0 0 30px var(--glow-accent-purple);
+        plFill 1.5s cubic-bezier(0.25, 0, 0.1, 1) forwards,
+        plShimmer 0.8s linear infinite;
+      box-shadow: 0 0 8px rgba(27, 196, 248, 0.7), 0 0 20px rgba(168, 85, 247, 0.35);
     }
 
-    @keyframes progressFill {
+    @keyframes plFill {
       0% {
         width: 0%;
       }
@@ -457,13 +456,79 @@
       }
     }
 
-    @keyframes progressShimmer {
+    @keyframes plShimmer {
       0% {
         background-position: 0% center;
       }
 
       100% {
         background-position: 200% center;
+      }
+    }
+
+    /* Status text below bar */
+    .pl-status {
+      font-size: 10px;
+      color: rgba(27, 196, 248, 0.45);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: right;
+      margin-top: 6px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Glitch exit animation applied by JS */
+    #preloader.pl-exit {
+      animation: plGlitchExit 0.35s ease forwards;
+    }
+
+    @keyframes plGlitchExit {
+      0% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+      }
+
+      20% {
+        clip-path: inset(10% 0 80% 0);
+        transform: translateX(-4px);
+      }
+
+      40% {
+        clip-path: inset(70% 0 5% 0);
+        transform: translateX(4px);
+      }
+
+      60% {
+        clip-path: inset(30% 0 40% 0);
+        transform: translateX(-2px);
+      }
+
+      80% {
+        clip-path: inset(0 0 0 0);
+        transform: translateX(0);
+        opacity: 0.3;
+      }
+
+      100% {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+        transform: scale(1.02);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      #preloader::before,
+      .pl-grid,
+      .pl-ascii,
+      .pl-bar,
+      .pl-cursor {
+        animation: none !important;
+      }
+
+      #preloader.pl-exit {
+        animation: none !important;
+        opacity: 0 !important;
       }
     }
 
@@ -820,62 +885,534 @@
     .neon-edge:hover::after {
       opacity: 0.4;
     }
+
+    /* ============================================
+       DYNAMIC ISLAND FLOATING NAV
+       ============================================ */
+
+    /* Island container – hidden by default, shown after preloader */
+    #dynamic-island-nav {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      z-index: 9000;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform 0s,
+        opacity 0s;
+    }
+
+    /* Entering animation triggered by .di-visible class */
+    #dynamic-island-nav.di-visible {
+      pointer-events: auto;
+      animation: diPopIn 0.6s var(--ease-organic) forwards;
+    }
+
+    @keyframes diPopIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.72);
+      }
+
+      60% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.04);
+      }
+
+      80% {
+        transform: translateX(-50%) scale(0.97);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+    }
+
+    /* The pill itself */
+    .di-pill {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding: 10px 16px;
+      border-radius: 9999px;
+      background: rgba(5, 5, 5, 0.75);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border: 1px solid rgba(27, 196, 248, 0.18);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 4px 24px rgba(0, 0, 0, 0.55),
+        0 0 32px rgba(27, 196, 248, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      transition:
+        padding var(--transition-normal) var(--ease-organic),
+        gap var(--transition-normal) var(--ease-organic),
+        border-color var(--transition-normal) var(--ease-smooth),
+        box-shadow var(--transition-normal) var(--ease-smooth);
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    /* Soft neon border glow on hover of entire pill */
+    .di-pill:hover {
+      border-color: rgba(27, 196, 248, 0.40);
+      box-shadow:
+        0 0 0 1px rgba(27, 196, 248, 0.12),
+        0 8px 32px rgba(0, 0, 0, 0.65),
+        0 0 48px rgba(27, 196, 248, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    /* Individual nav item */
+    .di-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 8px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.55);
+      background: transparent;
+      border: none;
+      transition:
+        color var(--transition-fast) var(--ease-smooth),
+        background var(--transition-fast) var(--ease-smooth),
+        transform var(--transition-normal) var(--ease-organic),
+        box-shadow var(--transition-normal) var(--ease-smooth);
+      position: relative;
+      outline: none;
+    }
+
+    .di-item:hover {
+      color: var(--color-accent-cyan);
+      background: rgba(27, 196, 248, 0.08);
+      transform: translateY(-3px) scale(1.08);
+      box-shadow: 0 0 16px rgba(27, 196, 248, 0.16);
+    }
+
+    /* Active state */
+    .di-item.di-active {
+      color: var(--color-accent-cyan);
+      background: rgba(27, 196, 248, 0.12);
+      box-shadow:
+        0 0 0 1px rgba(27, 196, 248, 0.25),
+        0 0 20px rgba(27, 196, 248, 0.2);
+    }
+
+    .di-item.di-active .di-icon {
+      filter: drop-shadow(0 0 6px rgba(27, 196, 248, 0.7));
+    }
+
+    /* Active dot indicator */
+    .di-item.di-active::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 9999px;
+      background: var(--color-accent-cyan);
+      box-shadow: 0 0 8px rgba(27, 196, 248, 0.9);
+    }
+
+    .di-icon {
+      font-size: 14px;
+      line-height: 1;
+      transition:
+        transform var(--transition-normal) var(--ease-organic),
+        filter var(--transition-normal) var(--ease-smooth);
+    }
+
+    .di-item:hover .di-icon {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 5px rgba(27, 196, 248, 0.5));
+    }
+
+    .di-label {
+      font-size: 9px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+      transition: color var(--transition-fast) var(--ease-smooth);
+    }
+
+    /* Thin separator between items */
+    .di-sep {
+      width: 1px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin: 0 2px;
+    }
+
+    /* Ambient glow behind the pill */
+    #dynamic-island-nav::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 9999px;
+      background: radial-gradient(ellipse at center,
+          rgba(27, 196, 248, 0.12) 0%,
+          transparent 70%);
+      filter: blur(16px);
+      pointer-events: none;
+      animation: diGlowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes diGlowPulse {
+
+      0%,
+      100% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Scrolled-down state: pill becomes slightly more compact */
+    #dynamic-island-nav.di-scrolled .di-pill {
+      padding: 8px 12px;
+      gap: 0;
+    }
+
+    #dynamic-island-nav.di-scrolled .di-label {
+      display: none;
+    }
+
+    #dynamic-island-nav.di-scrolled .di-item {
+      padding: 8px 10px;
+    }
+
+    #dynamic-island-nav.di-scrolled .di-sep {
+      height: 20px;
+    }
+
+    /* Mobile: tighter layout */
+    @media (max-width: 640px) {
+      #dynamic-island-nav {
+        bottom: 20px;
+        max-width: calc(100vw - 24px);
+      }
+
+      .di-pill {
+        padding: 6px 8px;
+        gap: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .di-pill::-webkit-scrollbar {
+        display: none;
+      }
+
+      .di-label {
+        display: none;
+      }
+
+      .di-item {
+        padding: 7px 8px;
+      }
+
+      .di-sep {
+        height: 18px;
+      }
+
+      .di-icon {
+        font-size: 13px;
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 360px) {
+      .di-item {
+        padding: 6px 7px;
+      }
+
+      .di-icon {
+        font-size: 12px;
+      }
+    }
+
+    /* Reduced-motion: skip pop-in animation */
+    @media (prefers-reduced-motion: reduce) {
+      #dynamic-island-nav.di-visible {
+        animation: none !important;
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+
+      .di-item:hover {
+        transform: none !important;
+      }
+    }
+
+    /* VR. CIRCULAR LOGO  */
+    #vr-logo {
+      position: fixed;
+      top: 20px;
+      left: 24px;
+      z-index: 9100;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      /* Shiny conic-gradient base */
+      background: conic-gradient(from 0deg,
+          #1bc4f8 0deg,
+          #a855f7 90deg,
+          #3b82f6 180deg,
+          #1bc4f8 360deg);
+      background-size: 100% 100%;
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.08),
+        0 0 16px rgba(27, 196, 248, 0.45),
+        0 0 32px rgba(168, 85, 247, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+      transition:
+        box-shadow 0.35s var(--ease-organic),
+        transform 0.35s var(--ease-organic),
+        background 0.5s var(--ease-smooth);
+      animation: vrShine 6s linear infinite;
+      cursor: pointer;
+      /* Appear after preloader */
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    #vr-logo.vr-visible {
+      animation:
+        vrPopIn 0.55s var(--ease-organic) forwards,
+        vrShine 6s linear 0.55s infinite;
+    }
+
+    @keyframes vrPopIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+
+      65% {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+
+      85% {
+        transform: scale(0.96);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes vrShine {
+      0% {
+        background: conic-gradient(from 0deg, #1bc4f8 0deg, #a855f7 90deg, #3b82f6 180deg, #ec4899 270deg, #1bc4f8 360deg);
+      }
+
+      25% {
+        background: conic-gradient(from 90deg, #1bc4f8 0deg, #a855f7 90deg, #3b82f6 180deg, #ec4899 270deg, #1bc4f8 360deg);
+      }
+
+      50% {
+        background: conic-gradient(from 180deg, #1bc4f8 0deg, #a855f7 90deg, #3b82f6 180deg, #ec4899 270deg, #1bc4f8 360deg);
+      }
+
+      75% {
+        background: conic-gradient(from 270deg, #1bc4f8 0deg, #a855f7 90deg, #3b82f6 180deg, #ec4899 270deg, #1bc4f8 360deg);
+      }
+
+      100% {
+        background: conic-gradient(from 360deg, #1bc4f8 0deg, #a855f7 90deg, #3b82f6 180deg, #ec4899 270deg, #1bc4f8 360deg);
+      }
+    }
+
+    #vr-logo:hover {
+      transform: scale(1.12) rotate(6deg);
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.18),
+        0 0 28px rgba(27, 196, 248, 0.7),
+        0 0 56px rgba(168, 85, 247, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Shiny specular overlay */
+    #vr-logo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%,
+          rgba(255, 255, 255, 0.45) 0%,
+          rgba(255, 255, 255, 0.10) 40%,
+          transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Mobile: slightly smaller logo */
+    @media (max-width: 640px) {
+      #vr-logo {
+        top: 14px;
+        left: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #vr-logo.vr-visible {
+        animation: none !important;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 
 <body class="font-sans antialiased selection:bg-accent selection:text-black">
-  <div id="preloader">
-    <div class="loader-content">
-      <div class="loader-ring"></div>
-      <div class="loader-orb"></div>
-      <div class="loader-text">Loading Creativity</div>
-    </div>
-    <div class="loader-progress">
-      <div class="loader-progress-bar"></div>
+  <div id="preloader" role="status" aria-label="Loading portfolio">
+    <div class="pl-grid"></div>
+    <div class="pl-panel">
+
+      <!-- Terminal top bar -->
+      <div class="pl-topbar">
+        <span class="pl-dot pl-dot-r"></span>
+        <span class="pl-dot pl-dot-y"></span>
+        <span class="pl-dot pl-dot-g"></span>
+        <span class="pl-title">VR_AI · BOOT SEQUENCE</span>
+      </div>
+
+      <!-- ASCII art logo Bahut time laga but worth it ha -->
+      <pre class="pl-ascii" aria-hidden="true">██╗   ██╗██████╗      █████╗ ██╗
+██║   ██║██╔══██╗    ██╔══██╗██║
+██║   ██║██████╔╝    ███████║██║
+╚██╗ ██╔╝██╔══██╗    ██╔══██║██║
+ ╚████╔╝ ██║  ██║    ██║  ██║██║</pre>
+
+      <!-- Terminal boot log -->
+      <div class="pl-log" id="pl-log" aria-live="polite">
+        <span class="pl-log-line" id="pl-l0"><span class="pl-dim">[0.00s]</span> <span class="pl-ok">✓</span> Neural
+          core initializing…</span>
+        <span class="pl-log-line" id="pl-l1"><span class="pl-dim">[0.25s]</span> <span class="pl-ok">✓</span> Loading
+          model weights &amp; embeddings</span>
+        <span class="pl-log-line" id="pl-l2"><span class="pl-dim">[0.55s]</span> <span class="pl-info">⚡</span>
+          Connecting to portfolio data stream</span>
+        <span class="pl-log-line" id="pl-l3"><span class="pl-dim">[0.85s]</span> <span class="pl-ok">✓</span> Rendering
+          experience &amp; project nodes</span>
+        <span class="pl-log-line" id="pl-l4"><span class="pl-dim">[1.15s]</span> <span class="pl-warn">◈</span>
+          Compiling GenAI &amp; analytics layers</span>
+        <span class="pl-log-line" id="pl-l5"><span class="pl-dim">[1.45s]</span> <span class="pl-ok">✓</span> <strong
+            style="color:#fff">System ready</strong> — Welcome, Human 🤖</span>
+      </div>
+
+      <!-- Blinking prompt -->
+      <div class="pl-prompt">
+        <span style="color:rgba(27,196,248,0.5)">vicky@ai-portfolio</span>
+        <span style="color:rgba(255,255,255,0.3)">:~$</span>
+        <span class="pl-cursor"></span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="pl-bar-wrap">
+        <div class="pl-bar"></div>
+      </div>
+      <div class="pl-status" id="pl-status">Booting…</div>
     </div>
   </div>
 
-  <nav id="navbar"
-    class="fixed w-full z-50 transition-all duration-300 py-4 bg-dark/80 backdrop-blur-md border-b border-white/5">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <a href="#resume" class="text-2xl font-bold font-mono tracking-tighter hover:text-accent transition-colors">
-        VR<span class="text-accent">.</span>
+  <!-- ===== VR. CIRCULAR LOGO ===== -->
+  <a id="vr-logo" href="#resume" aria-label="VR - Go to Resume section" role="button">
+    VR.
+  </a>
+
+  <!-- ===== DYNAMIC ISLAND FLOATING NAV ===== -->
+  <nav id="dynamic-island-nav" aria-label="Dynamic Island Navigation">
+    <div class="di-pill" role="menubar">
+
+      <!-- Home -->
+      <a href="#home" class="di-item di-active" role="menuitem" aria-label="Home">
+        <i class="di-icon fas fa-house"></i>
+        <span class="di-label">Home</span>
       </a>
 
-      <div class="hidden md:flex space-x-8">
-        <a href="#home" class="nav-link text-sm font-medium hover:text-accent transition-colors">Home</a>
-        <a href="#about" class="nav-link text-sm font-medium hover:text-accent transition-colors">About</a>
-        <a href="#experience" class="nav-link text-sm font-medium hover:text-accent transition-colors">Experience</a>
-        <a href="#skills" class="nav-link text-sm font-medium hover:text-accent transition-colors">Skills</a>
-        <a href="#projects" class="nav-link text-sm font-medium hover:text-accent transition-colors">Projects</a>
-        <a href="#certificates"
-          class="nav-link text-sm font-medium hover:text-accent transition-colors">Certificates</a>
-        <a href="#gallery" class="nav-link text-sm font-medium hover:text-accent transition-colors">Gallery</a>
-        <a href="#contact" class="nav-link text-sm font-medium hover:text-accent transition-colors">Contact</a>
-      </div>
+      <div class="di-sep" aria-hidden="true"></div>
 
-      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
-    </div>
+      <!-- About -->
+      <a href="#about" class="di-item" role="menuitem" aria-label="About">
+        <i class="di-icon fas fa-user"></i>
+        <span class="di-label">About</span>
+      </a>
 
-    <div id="mobile-menu"
-      class="hidden md:hidden absolute top-full left-0 w-full bg-card border-b border-white/10 py-4">
-      <div class="flex flex-col space-y-4 px-6">
-        <a href="#home" class="text-sm hover:text-accent">Home</a>
-        <a href="#about" class="text-sm hover:text-accent">About</a>
-        <a href="#experience" class="text-sm hover:text-accent">Experience</a>
-        <a href="#skills" class="text-sm hover:text-accent">Skills</a>
-        <a href="#projects" class="text-sm hover:text-accent">Projects</a>
-        <a href="#certificates" class="text-sm hover:text-accent">Certificates</a>
-        <a href="#gallery" class="text-sm hover:text-accent">Gallery</a>
-        <a href="#contact" class="text-sm hover:text-accent">Contact</a>
-      </div>
+      <!-- Experience -->
+      <a href="#experience" class="di-item" role="menuitem" aria-label="Experience">
+        <i class="di-icon fas fa-briefcase"></i>
+        <span class="di-label">Exp</span>
+      </a>
+
+      <!-- Skills -->
+      <a href="#skills" class="di-item" role="menuitem" aria-label="Skills">
+        <i class="di-icon fas fa-bolt"></i>
+        <span class="di-label">Skills</span>
+      </a>
+
+      <!-- Projects -->
+      <a href="#projects" class="di-item" role="menuitem" aria-label="Projects">
+        <i class="di-icon fas fa-folder-open"></i>
+        <span class="di-label">Projects</span>
+      </a>
+
+      <div class="di-sep" aria-hidden="true"></div>
+
+      <!-- Certificates -->
+      <a href="#certificates" class="di-item" role="menuitem" aria-label="Certificates">
+        <i class="di-icon fas fa-certificate"></i>
+        <span class="di-label">Certs</span>
+      </a>
+
+      <!-- Gallery -->
+      <a href="#gallery" class="di-item" role="menuitem" aria-label="Gallery">
+        <i class="di-icon fas fa-images"></i>
+        <span class="di-label">Gallery</span>
+      </a>
+
+      <!-- Contact -->
+      <a href="#contact" class="di-item" role="menuitem" aria-label="Contact">
+        <i class="di-icon fas fa-envelope"></i>
+        <span class="di-label">Contact</span>
+      </a>
+
     </div>
   </nav>
+  <!-- ===== / DYNAMIC ISLAND ===== -->
 
   <main>
-    <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden parallax-section">
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden parallax-section">
       <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
         <div
           class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob parallax-layer">
@@ -1342,6 +1879,16 @@
           </div>
 
           <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-chart-line text-4xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              MATLAB
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">
+              Simulation, Mathematical, Data Visualization
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
             <i class="fab fa-js text-4xl text-yellow-300 mb-4 group-hover:scale-110 transition-transform"></i>
             <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
               JavaScript
@@ -1402,7 +1949,15 @@
             <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
               Generative AI
             </h3>
-            <p class="text-xs text-gray-400 mt-2">Prompting, LLMs, RAG</p>
+            <p class="text-xs text-gray-400 mt-2">Prompting, GenAI Tools </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
+            <i class="fas fa-microchip text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
+            <h3 class="font-bold text-lg group-hover:text-accent transition-colors">
+              Ollama
+            </h3>
+            <p class="text-xs text-gray-400 mt-2">Local LLM Models, Agents</p>
           </div>
         </div>
       </div>
@@ -2140,25 +2695,45 @@
   </a>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // PRELOADER HIDE
-      const hidePreloader = () => {
-        const preloader = document.getElementById("preloader");
-        if (preloader) {
-          setTimeout(() => {
-            preloader.style.opacity = "0";
-            setTimeout(() => {
-              preloader.style.visibility = "hidden";
-              preloader.style.display = "none"; // Ensure it's gone
-            }, 500);
-          }, 800); // 0.8s display time for the amazing loading animation
-        }
-      };
+      // PRELOADER — Retro GenAI Boot (2 seconds total)
+      (function runPreloader() {
+        const preloader = document.getElementById('preloader');
+        const statusEl = document.getElementById('pl-status');
+        const logLines = [0, 1, 2, 3, 4, 5].map(i => document.getElementById('pl-l' + i));
 
-      if (document.readyState === "complete") {
-        hidePreloader();
-      } else {
-        window.addEventListener("load", hidePreloader);
-      }
+        // Stagger each log line appearance
+        const delays = [0, 220, 480, 750, 1020, 1300];
+        logLines.forEach((el, i) => {
+          if (!el) return;
+          setTimeout(() => el && el.classList.add('pl-show'), delays[i]);
+        });
+
+        // Update status label
+        const statuses = ['Booting…', 'Loading…', 'Streaming…', 'Building…', 'Compiling…', 'Ready!'];
+        statuses.forEach((txt, i) => {
+          setTimeout(() => { if (statusEl) statusEl.textContent = txt; }, delays[i]);
+        });
+
+        // Glitch exit then hide at 1.9s → completely gone by 2.25s
+        const hidePreloader = () => {
+          if (!preloader) return;
+          // Glitch exit
+          setTimeout(() => {
+            preloader.classList.add('pl-exit');
+            setTimeout(() => {
+              preloader.style.opacity = '0';
+              preloader.style.visibility = 'hidden';
+              preloader.style.display = 'none';
+            }, 350);
+          }, 1650);
+        };
+
+        if (document.readyState === 'complete') {
+          hidePreloader();
+        } else {
+          window.addEventListener('load', hidePreloader);
+        }
+      })();
 
       // Typing Effect
       const roles = [
@@ -2198,26 +2773,11 @@
       }
       type();
 
-      // Mobile Menu Toggle
-      const menuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // Sticky Navbar
-      window.addEventListener("scroll", () => {
-        const navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("shadow-lg", "bg-dark/95");
-          navbar.classList.remove("py-4");
-          navbar.classList.add("py-2");
-        } else {
-          navbar.classList.remove("shadow-lg", "bg-dark/95");
-          navbar.classList.add("py-4");
-          navbar.classList.remove("py-2");
-        }
-      });
+      // === VR LOGO POP-IN (matches new 2s preloader timing) ===
+      const vrLogo = document.getElementById('vr-logo');
+      if (vrLogo) {
+        setTimeout(() => vrLogo.classList.add('vr-visible'), 2150);
+      }
 
       // Form Handling
       const form = document.getElementById("contact-form");
@@ -2461,6 +3021,84 @@
       if (document.querySelector(".calendar")) {
         GitHubCalendar(".calendar", "vicky-tec", { responsive: true });
       }
+
+      // =========================================================
+      // === DYNAMIC ISLAND FLOATING NAV – Logic
+      // =========================================================
+      (function initDynamicIsland() {
+        const di = document.getElementById('dynamic-island-nav');
+        const diItems = di ? di.querySelectorAll('.di-item') : [];
+        const sections = document.querySelectorAll('section[id]');
+        if (!di) return;
+
+        // --- 1. Pop-in after preloader fades (new 2s preloader: 1650ms + 350ms + 200ms buffer) ---
+        const PRELOADER_DURATION = 2200; // ms total
+        setTimeout(() => {
+          di.classList.add('di-visible');
+        }, PRELOADER_DURATION);
+
+        // --- 2. Smooth scroll with navbar offset on click ---
+        diItems.forEach(item => {
+          item.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              const offsetTop = target.offsetTop - 80;
+              window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+          });
+        });
+
+        // --- 3. Active state + compact mode on scroll ---
+        const COMPACT_THRESHOLD = 80;   // px scrolled before compacting
+
+        function updateDIState() {
+          const scrollY = window.scrollY;
+
+          // Compact / expanded
+          if (scrollY > COMPACT_THRESHOLD) {
+            di.classList.add('di-scrolled');
+          } else {
+            di.classList.remove('di-scrolled');
+          }
+
+          // Active section highlight
+          let currentId = '';
+          sections.forEach(sec => {
+            if (scrollY >= sec.offsetTop - 120) {
+              currentId = sec.getAttribute('id');
+            }
+          });
+
+          diItems.forEach(item => {
+            const href = item.getAttribute('href');
+            if (href === '#' + currentId) {
+              item.classList.add('di-active');
+            } else {
+              item.classList.remove('di-active');
+            }
+          });
+        }
+
+        window.addEventListener('scroll', updateDIState, { passive: true });
+        updateDIState(); // run once on load
+
+        // --- 4. Subtle hover-lift on the pill itself ---
+        const pill = di.querySelector('.di-pill');
+        if (pill) {
+          pill.addEventListener('mouseenter', () => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            pill.style.transform = 'scale(1.025)';
+            pill.style.transition = `transform ${getComputedStyle(document.documentElement).getPropertyValue('--transition-normal')} var(--ease-organic)`;
+          });
+          pill.addEventListener('mouseleave', () => {
+            pill.style.transform = 'scale(1)';
+          });
+        }
+      })();
+      // =========================================================
     });
   </script>
 </body>
