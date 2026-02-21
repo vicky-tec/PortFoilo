@@ -67,7 +67,7 @@
 
   <style>
     /* ============================================
-       Enhanced with 3D depth and smooth animations (AI )
+       Enhanced with 3D depth, glassmorphism, and smooth animations
        ============================================ */
 
     /* === ROOT VARIABLES (8px Grid System) === */
@@ -177,8 +177,9 @@
       }
     }
 
-    /*RETRO GENAI PRELOADER*/
-    
+    /* ============================================
+       RETRO GENAI PRELOADER
+       ============================================ */
     #preloader {
       position: fixed;
       inset: 0;
@@ -1160,7 +1161,9 @@
       }
     }
 
-    /* VR. CIRCULAR LOGO  */
+    /* ============================================
+       VR. CIRCULAR LOGO
+       ============================================ */
     #vr-logo {
       position: fixed;
       top: 20px;
@@ -1308,7 +1311,7 @@
         <span class="pl-title">VR_AI · BOOT SEQUENCE</span>
       </div>
 
-      <!-- ASCII art logo Bahut time laga but worth it ha -->
+      <!-- ASCII art logo -->
       <pre class="pl-ascii" aria-hidden="true">██╗   ██╗██████╗      █████╗ ██╗
 ██║   ██║██╔══██╗    ██╔══██╗██║
 ██║   ██║██████╔╝    ███████║██║
@@ -1347,9 +1350,227 @@
   </div>
 
   <!-- ===== VR. CIRCULAR LOGO ===== -->
-  <a id="vr-logo" href="#resume" aria-label="VR - Go to Resume section" role="button">
+  <!-- Hidden audio for VR logo tap sound -->
+  <audio id="vr-sound" src="no-batidao-zxkai.mp3" preload="auto" aria-hidden="true"></audio>
+
+  <!-- Music beat overlay (pointer-events:none so page stays scrollable) -->
+  <div id="vr-overlay" aria-hidden="true" style="
+    position: fixed; inset: 0; z-index: 99999;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: radial-gradient(ellipse at center,
+      rgba(27,196,248,0.10) 0%,
+      rgba(168,85,247,0.08) 50%,
+      rgba(0,0,0,0.55) 100%);
+    backdrop-filter: blur(2px);
+  ">
+    <!-- Canvas for rings + particles -->
+    <canvas id="vr-canvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+
+    <!-- VR text pulse -->
+    <div id="vr-beat-text" style="
+      position: relative; z-index: 2;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3rem, 12vw, 8rem);
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      background: linear-gradient(135deg, #1bc4f8, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 40px rgba(27,196,248,0.9));
+      animation: vrBeatPulse 0.5s ease-in-out infinite alternate;
+    ">VR.</div>
+
+    <!-- Waveform bars -->
+    <div id="vr-bars" style="
+      position: relative; z-index: 2;
+      display: flex; align-items: flex-end; gap: 5px;
+      height: 64px; margin-top: 24px;
+    ">
+    </div>
+  </div>
+
+  <style>
+    @keyframes vrBeatPulse {
+      from {
+        transform: scale(1);
+        filter: drop-shadow(0 0 30px rgba(27, 196, 248, 0.7));
+      }
+
+      to {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 60px rgba(168, 85, 247, 1));
+      }
+    }
+
+    @keyframes vrBarBeat {
+
+      0%,
+      100% {
+        transform: scaleY(0.2);
+      }
+
+      50% {
+        transform: scaleY(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #vr-beat-text {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- VR logo: no navigation, just music + overlay -->
+  <a id="vr-logo" href="javascript:void(0)" aria-label="VR - Play music" role="button">
     VR.
   </a>
+
+  <script>
+    (function () {
+      var vrSound = document.getElementById('vr-sound');
+      var vrLogo = document.getElementById('vr-logo');
+      var overlay = document.getElementById('vr-overlay');
+      var canvas = document.getElementById('vr-canvas');
+      var barsWrap = document.getElementById('vr-bars');
+      var hideTimer = null;
+      var animFrame = null;
+      var isShowing = false;
+
+      /* ---- Build waveform bars ---- */
+      var BAR_COUNT = 28;
+      var bars = [];
+      for (var i = 0; i < BAR_COUNT; i++) {
+        var b = document.createElement('div');
+        var delay = (Math.random() * 0.6).toFixed(2);
+        var dur = (0.35 + Math.random() * 0.45).toFixed(2);
+        b.style.cssText = [
+          'width:6px', 'border-radius:3px', 'transform-origin:bottom center',
+          'background:linear-gradient(to top,#1bc4f8,#a855f7)',
+          'box-shadow:0 0 8px rgba(27,196,248,0.7)',
+          'height:' + Math.floor(20 + Math.random() * 44) + 'px',
+          'animation:vrBarBeat ' + dur + 's ' + delay + 's ease-in-out infinite'
+        ].join(';');
+        barsWrap.appendChild(b);
+        bars.push(b);
+      }
+
+      /* ---- Canvas rings + particles ---- */
+      var ctx, W, H;
+      var particles = [];
+      var rings = [];
+      var startTime = 0;
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function spawnRing() {
+        rings.push({ r: 0, maxR: Math.max(W, H) * 0.75, life: 0 });
+      }
+      function spawnParticles() {
+        for (var i = 0; i < 18; i++) {
+          var angle = Math.random() * Math.PI * 2;
+          var speed = 1.5 + Math.random() * 3.5;
+          particles.push({
+            x: W / 2, y: H / 2,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            r: 2 + Math.random() * 4,
+            life: 0, maxLife: 60 + Math.random() * 60,
+            hue: Math.random() > 0.5 ? '27,196,248' : '168,85,247'
+          });
+        }
+      }
+
+      function drawFrame(ts) {
+        if (!isShowing) return;
+        animFrame = requestAnimationFrame(drawFrame);
+        ctx.clearRect(0, 0, W, H);
+
+        var elapsed = (ts - startTime) / 1000;
+
+        /* Spawn beats roughly every 0.5s */
+        if (Math.floor(elapsed / 0.5) > Math.floor((elapsed - 0.016) / 0.5)) {
+          spawnRing();
+          spawnParticles();
+        }
+
+        /* Draw rings */
+        rings = rings.filter(function (ring) {
+          ring.r += 6;
+          ring.life = ring.r / ring.maxR;
+          if (ring.life >= 1) return false;
+          var alpha = 1 - ring.life;
+          ctx.beginPath();
+          ctx.arc(W / 2, H / 2, ring.r, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(27,196,248,' + (alpha * 0.7) + ')';
+          ctx.lineWidth = 2 + (1 - ring.life) * 4;
+          ctx.stroke();
+          return true;
+        });
+
+        /* Draw particles */
+        particles = particles.filter(function (p) {
+          p.x += p.vx; p.y += p.vy;
+          p.vx *= 0.97; p.vy *= 0.97;
+          p.life++;
+          if (p.life >= p.maxLife) return false;
+          var alpha = 1 - p.life / p.maxLife;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.hue + ',' + alpha + ')';
+          ctx.fill();
+          return true;
+        });
+      }
+
+      /* ---- Show / hide overlay ---- */
+      function showOverlay() {
+        ctx = canvas.getContext('2d');
+        resize();
+        rings = []; particles = [];
+        isShowing = true;
+        overlay.style.opacity = '1';
+        startTime = performance.now();
+        spawnRing(); spawnParticles();
+        animFrame = requestAnimationFrame(drawFrame);
+
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(hideOverlay, 3000);
+      }
+
+      function hideOverlay() {
+        overlay.style.opacity = '0';
+        /* Wait for fade-out then stop canvas loop */
+        setTimeout(function () {
+          isShowing = false;
+          cancelAnimationFrame(animFrame);
+          rings = []; particles = [];
+          if (ctx) ctx.clearRect(0, 0, W, H);
+        }, 450);
+      }
+
+      /* ---- Main trigger ---- */
+      function onVrTap(e) {
+        e.preventDefault();
+        vrSound.currentTime = 0;
+        vrSound.play().catch(function () { });
+        showOverlay();
+      }
+
+      vrLogo.addEventListener('click', onVrTap);
+      vrLogo.addEventListener('touchstart', onVrTap, { passive: false });
+    })();
+  </script>
 
   <!-- ===== DYNAMIC ISLAND FLOATING NAV ===== -->
   <nav id="dynamic-island-nav" aria-label="Dynamic Island Navigation">
