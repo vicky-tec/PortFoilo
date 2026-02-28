@@ -139,46 +139,6 @@ Status      : 🟢 Open to Collaborations & Internships
     </td>
   </tr>
 </table>
-
----
-
-<div align="center">
-
-## 🧠 MAVI — Memory-Augmented Virtual Intelligence
-
-> 🔐 **Local-first AI Agent** · Runs on Ollama · Privacy by Design · Built by Team Cosmic Shakti
-
-</div>
-
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                        MAVI ARCHITECTURE                            │
-├───────────────────────┬──────────────────────┬──────────────────────┤
-│  🧠 LLM Engine        │  👁️ Vision Engine    │  💾 Memory Engine   │
-│  Ollama (local)       │  Google Gemini API   │  SQLite Database     │
-│  llama3.2:3b          │  Image analysis      │  Chat + Doc Index    │
-│  qwen3-embedding:0.6b │  OCR (Tesseract)     │  Long-term context   │
-├───────────────────────┴──────────────────────┴──────────────────────┤
-│  🛠️ Slash Tools : /calc  /search  /news  /fetch  /organize          │
-│  📚 RAG Pipeline: Upload PDF → Extract → Embed → Ask questions      │
-│  💻 Frontend    : Streamlit UI on localhost:8501 (Midnight Dark UI) │
-└──────────────────────────────────────────────────────────────────────┘
-```
-
-<div align="center">
-
-| Feature | Details |
-|:--|:--|
-| 🧠 **Local LLM** | Runs on `llama3.2:3b` via Ollama — 100% offline, zero data leak |
-| 🔎 **RAG System** | Upload PDFs/images → MAVI answers questions from your own docs |
-| 👁️ **Vision** | Gemini Vision describes, interprets & analyzes images |
-| 🗂️ **File Organizer** | Auto-sorts folders into Images, Videos, Docs, Code categories |
-| 💾 **Long-Term Memory** | SQLite stores conversations & document indexes persistently |
-| 🛠️ **Slash Commands** | `/calc` `/search` `/news` `/fetch` for instant power tools |
-| 🌐 **Modern UI** | Midnight-dark Streamlit interface with clean chat experience |
-
-</div>
-
 ---
 
 <div align="center">
@@ -205,7 +165,7 @@ current_focus = {
 
 ## 📈 GitHub Stats & Achievements
 
-<img src="https://github-profile-trophy.vercel.app/?username=vicky-tec&theme=onestar&no-frame=true&margin-w=8&row=1&column=7" alt="GitHub Trophies"/>
+<!--img src="https://github-profile-trophy.vercel.app/?username=vicky-tec&theme=onestar&no-frame=true&margin-w=8&row=1&column=7" alt="GitHub Trophies"/-->
 
 <br/><br/>
 
@@ -215,11 +175,11 @@ current_focus = {
 
 <br/><br/>
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vicky-tec&layout=compact&theme=tokyonight&border_radius=12&langs_count=8" height="160"/>
+<!--img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vicky-tec&layout=compact&theme=tokyonight&border_radius=12&langs_count=8" height="160"/-->
 
 <br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=vicky-tec&theme=tokyo-night&hide_border=true&area=true" width="95%"/>
+<!--img src="https://github-readme-activity-graph.vercel.app/graph?username=vicky-tec&theme=tokyo-night&hide_border=true&area=true" width="95%"/-->
 
 </div>
 
@@ -249,6 +209,6 @@ current_focus = {
 
 **⭐ Star my repos if you find them useful — it motivates me to build more! 🚀**
 
-*Made with ❤️ by Vicky Raj | Team Cosmic Shakti*
+*Made with ❤️ by Vicky Raj *
 
 </div>
