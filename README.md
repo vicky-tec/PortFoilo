@@ -18,7 +18,7 @@
 
 <!-- TYPING ANIMATION -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&duration=3000&pause=1000&color=9B30FF&center=true&vCenter=true&width=650&lines=🔍+Turning+Data+Into+Insights;🤖+Building+Local+AI+Agents+(MAVI);🌐+Crafting+Beautiful+Web+Experiences;💡+Privacy-First+AI+%7C+RAG+%7C+OCR;🚀+One+Project+at+a+Time!" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&duration=3000&pause=1000&color=9B30FF&center=true&vCenter=true&width=650&lines=Turning+Data+Into+Insights+%F0%9F%94%8D;Building+Local+AI+Agents+MAVI+%F0%9F%A4%96;Crafting+Beautiful+Web+Experiences+%F0%9F%8C%90;Privacy-First+AI+%7C+RAG+%7C+OCR+%F0%9F%92%A1;One+Project+at+a+Time+%F0%9F%9A%80" alt="Typing SVG" />
 </a>
 
 </div>
@@ -151,11 +151,11 @@ Status      : 🟢 Open to Collaborations & Internships
 current_focus = {
     "📊 Data Science"     : ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Statistics"],
     "🤖 Machine Learning" : ["Supervised Learning", "Regression", "Classification"],
-    "💾 Databases"        : ["SQL", "MySQL", "Query Optimization", "Data Modeling"],
+    "💾 Databases"        : ["SQL", "MySQL", "Data Modeling"],
     "📈 BI Tools"         : ["Power BI Dashboards", "Excel Automation & Reporting"],
     "🌐 Web Dev"          : ["HTML", "CSS", "JavaScript", "Django (beginner)", "Streamlit"],
     "🧠 AI Integration"   : ["HuggingFace", "Ollama", "RAG Pipelines", "Gemini API"],
-    "🧮 Computation"      : ["MATLAB for Visualization & Scientific Computing"],
+    "🧮 Computation"      : ["MATLAB for Scientific Computing"],
 }
 ```
 
@@ -190,7 +190,6 @@ current_focus = {
 ## 📫 Connect With Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/vicky-raj-090760282)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/disturbgaming5)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/vr_razzz)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:vickyrazzz81@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/vicky-tec)
