@@ -9,26 +9,25 @@
 
 ## 🌱 Currently Polishing Skills In
 - 🐍 **Python** (Pandas, NumPy, Matplotlib, Seaborn)
-- 🤖 **Machine Learning** (Supervised Learning, Regression, Classification)
+- 🤖 **Machine Learning** (Regression, Classification)
 - 📚 **Statistics & Probability** for Data Science
-- 💾 **SQL & MySQL** (Query Optimization, Joins, Data Modeling)  
-- 📊 **Power BI & Excel** (Dashboards, Automation, Reporting)  
-- 🌐 **HTML, CSS, JavaScript** (Interactive UI & Web Apps)  
+- 💾 **SQL & MySQL** (Joins, Subqueries, Optimization)  
+- 📊 **Power BI & Excel** (Dashboards, Reporting)  
+- 🌐 **HTML, CSS, JavaScript** (Interactive UI)  
 - 🧱 **Frameworks:** Django (beginner), Streamlit  
 - 🧠 **AI Tools:** HuggingFace, Ollama, RAG basics  
-- 🧮 **MATLAB** for computation & visualization  
+- 🧮 **MATLAB** for computation  
 
 ---
 
 ## 💼 Featured Works
 
 - 🔍 **Data Analytics Projects**  
-  📁 *Gigx Analytics Portfolio*  
   Real-world datasets analyzed using Python, SQL, Excel & BI tools.  
-  👉 **https://github.com/vicky-tec/Gigx-Analytics.git**
+  👉 **https://github.com/vicky-tec/Gigx-Analytics**
 
-- 🚀 **Capstone Project: Travally – Intelligent Travel Assistant**  
-  AI-powered travel assistant with chatbot, smart UI, and Bihar tourism insights.  
+- 🚀 **Travally – Intelligent Travel Assistant**  
+  AI-powered travel assistant with chatbot and Bihar tourism insights.  
   👉 **https://vicky-tec.github.io/TRAVALLY_/**
 
 - 💡 **CitizenRight – Civic Awareness Platform**  
@@ -37,7 +36,7 @@
 
 ---
 
-## 👨‍💻 Explore All My Work  
+## 👨‍💻 Explore All My Projects  
 🔗 **GitHub Portfolio:** https://github.com/vicky-tec/
 
 ---
@@ -53,9 +52,9 @@
 ## 🤝 Connect With Me
 
 <p align="center">
-  <a href="https://twitter.com/disturbgaming5" target="_blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" height="35"/></a>
-  <a href="https://linkedin.com/in/vicky-raj-090760282" target="_blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" height="35"/></a>
-  <a href="https://instagram.com/vr_razzz" target="_blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" height="35"/></a>
+  <a href="https://twitter.com/disturbgaming5" target="_blank"><img src="https://skillicons.dev/icons?i=twitter" height="35"/></a>
+  <a href="https://linkedin.com/in/vicky-raj-090760282" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" height="35"/></a>
+  <a href="https://instagram.com/vr_razzz" target="_blank"><img src="https://skillicons.dev/icons?i=instagram" height="35"/></a>
 </p>
 
 ---
@@ -63,19 +62,17 @@
 ## 🧰 Languages & Tools
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" width="45"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" width="45"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="45"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="45"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="45"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="45"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" width="45"/>
-  <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" width="45"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="45"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="45"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" width="45"/>
-  <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" width="40"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" width="45"/>
+  <img src="https://skillicons.dev/icons?i=html" width="45"/>
+  <img src="https://skillicons.dev/icons?i=css" width="45"/>
+  <img src="https://skillicons.dev/icons?i=javascript" width="45"/>
+  <img src="https://skillicons.dev/icons?i=python" width="45"/>
+  <img src="https://cdn.simpleicons.org/pandas/150458" width="45"/>
+  <img src="https://cdn.simpleicons.org/numpy/013243" width="45"/>
+  <img src="https://cdn.simpleicons.org/mysql" width="45"/>
+  <img src="https://cdn.simpleicons.org/powerbi" width="45"/>
+  <img src="https://cdn.simpleicons.org/matlab/0076A8" width="45"/>
+  <img src="https://skillicons.dev/icons?i=bootstrap" width="45"/>
+  <img src="https://skillicons.dev/icons?i=figma" width="45"/>
   <img src="https://skillicons.dev/icons?i=django" width="45"/>
   <img src="https://skillicons.dev/icons?i=streamlit" width="45"/>
   <img src="https://cdn.simpleicons.org/huggingface" width="45"/>
@@ -104,7 +101,7 @@
 ## 💡 Top Skills
 
 <p align="center">
-  🧠 Data Analysis | 📊 Data Visualization | 🐍 Python (Pandas, NumPy, Seaborn, Matplotlib) |  
+  🧠 Data Analysis | 📊 Visualization | 🐍 Python (Pandas, NumPy, Seaborn, Matplotlib) |  
   💾 SQL & MySQL | 📈 Power BI | 🧮 Excel |  
   🤖 Machine Learning | 🌐 Web Development | ⚙ Django & Streamlit | 🧠 AI Model Integration
 </p>
