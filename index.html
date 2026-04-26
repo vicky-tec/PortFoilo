@@ -2964,9 +2964,83 @@
   </footer>
 
   <a href="https://wa.me/919798981891" target="_blank"
-    class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-transform z-50">
+    class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-lg hover:scale-110 transition-transform z-50 hover:shadow-green-500/50">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <!-- AI Chat Widget -->
+  <div id="ai-chat-widget"
+    class="fixed bottom-24 right-6 z-[9999] flex flex-col items-end pointer-events-none font-sans">
+
+    <!-- Chat Window -->
+    <div id="ai-chat-window"
+      class="pointer-events-auto hidden flex-col bg-[#111111]/90 backdrop-blur-xl border border-white/10 rounded-2xl w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-8rem)] mb-4 shadow-[0_0_40px_rgba(27,196,248,0.15)] overflow-hidden transform transition-all duration-300 origin-bottom-right scale-95 opacity-0">
+
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-gradient-to-r from-accent/20 to-transparent">
+        <div class="flex items-center gap-3">
+          <div
+            class="relative w-10 h-10 rounded-full bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-accent shadow-lg shadow-accent/20 overflow-hidden">
+            <div class="absolute inset-0 bg-accent/20 animate-pulse"></div>
+            <i class="fa-solid fa-robot relative z-10 text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-tech text-white tracking-wider">Vicky's AI Assistant</h3>
+            <p class="text-[10px] text-accent/80 font-mono flex items-center"><span
+                class="inline-block w-1.5 h-1.5 rounded-full bg-green-400 mr-1.5 animate-pulse"></span>Online & Ready
+            </p>
+          </div>
+        </div>
+        <button id="ai-chat-close"
+          class="text-white/50 hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Messages Area -->
+      <div id="ai-chat-messages" class="flex-1 overflow-y-auto p-5 flex flex-col gap-4 custom-scrollbar text-sm"
+        style="scrollbar-width: thin; scrollbar-color: rgba(27,196,248,0.3) transparent;">
+        <!-- Default Greeting -->
+        <div class="flex gap-3 mr-8">
+          <div
+            class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent flex-shrink-0 mt-1 border border-accent/30 shadow-sm shadow-accent/20">
+            <i class="fa-solid fa-robot text-xs"></i>
+          </div>
+          <div
+            class="bg-white/5 border border-white/10 rounded-2xl rounded-tl-sm px-4 py-3 text-gray-300 leading-relaxed shadow-md backdrop-blur-md">
+            Hi! I'm Vicky's AI Assistant. Ask me anything about his skills, projects, or experience! ✨
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="p-4 border-t border-white/10 bg-[#0a0a0a]/80 backdrop-blur-md">
+        <form id="ai-chat-form" class="relative flex items-center">
+          <input type="text" id="ai-chat-input" placeholder="Ask about Vicky..."
+            class="w-full bg-[#161616] border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all font-sans shadow-inner"
+            autocomplete="off">
+          <button type="submit" id="ai-chat-send"
+            class="absolute right-1.5 w-9 h-9 flex items-center justify-center text-accent bg-accent/10 hover:bg-accent hover:text-dark rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group">
+            <i class="fa-solid fa-paper-plane text-xs group-hover:scale-110 transition-transform"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Floating Toggle Button -->
+    <button id="ai-chat-toggle" aria-label="Open AI Assistant"
+      class="pointer-events-auto relative group flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#1bc4f8] to-[#005bb5] text-white shadow-[0_0_20px_rgba(27,196,248,0.4)] hover:shadow-[0_0_30px_rgba(27,196,248,0.6)] hover:-translate-y-1 transition-all duration-300 z-50 overflow-hidden border border-white/10">
+      <div
+        class="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 rounded-full transition-transform duration-300">
+      </div>
+      <i class="fa-solid fa-sparkles text-xl group-hover:animate-ping absolute opacity-0 group-hover:opacity-30"></i>
+      <i class="fa-solid fa-robot text-2xl relative z-10 transition-transform duration-300 group-hover:scale-110"></i>
+      <!-- notification dot -->
+      <span
+        class="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-dark animate-pulse"></span>
+    </button>
+  </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // PRELOADER — Retro GenAI Boot (2 seconds total)
@@ -3412,6 +3486,146 @@
           img.addEventListener('error', () => {
             sk.classList.add('sk-done'); // remove skeleton if image fails to load
           }, { once: true });
+        });
+      })();
+      // ==========================================================
+      // AI CHAT WIDGET INTEGRATION
+      // ==========================================================
+      (function runAIChat() {
+        const chatWidget = document.getElementById('ai-chat-widget');
+        const chatWindow = document.getElementById('ai-chat-window');
+        const chatToggle = document.getElementById('ai-chat-toggle');
+        const chatClose = document.getElementById('ai-chat-close');
+        const chatForm = document.getElementById('ai-chat-form');
+        const chatInput = document.getElementById('ai-chat-input');
+        const chatMessages = document.getElementById('ai-chat-messages');
+        const sendBtn = document.getElementById('ai-chat-send');
+
+        // Calling the secure backend Serverless Function instead of the raw API directly
+        const apiUrl = '/api/chat';
+
+        let isChatOpen = false;
+        let chatHistory = [];
+
+        function toggleChat() {
+          isChatOpen = !isChatOpen;
+          if (isChatOpen) {
+            chatWindow.classList.remove('hidden');
+            void chatWindow.offsetWidth; // trigger reflow
+            chatWindow.classList.remove('scale-95', 'opacity-0');
+            chatWindow.classList.add('scale-100', 'opacity-100');
+            chatInput.focus();
+
+            // Remove notification dot
+            const dot = chatToggle.querySelector('span.bg-red-500');
+            if (dot) dot.remove();
+          } else {
+            chatWindow.classList.remove('scale-100', 'opacity-100');
+            chatWindow.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+              if (!isChatOpen) chatWindow.classList.add('hidden');
+            }, 300);
+          }
+        }
+
+        chatToggle.addEventListener('click', toggleChat);
+        chatClose.addEventListener('click', toggleChat);
+
+        function appendMessage(text, isUser = false) {
+          const msgDiv = document.createElement('div');
+          msgDiv.className = `flex gap-3 ${isUser ? 'ml-8 flex-row-reverse' : 'mr-8'}`;
+
+          const avatarHTML = isUser
+            ? `<div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 flex-shrink-0 mt-1"><i class="fa-solid fa-user text-xs"></i></div>`
+            : `<div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent flex-shrink-0 mt-1 border border-accent/30 shadow-sm shadow-accent/20"><i class="fa-solid fa-robot text-xs"></i></div>`;
+
+          const bubbleClass = isUser
+            ? 'bg-accent/20 border border-accent/30 rounded-2xl rounded-tr-sm px-4 py-3 text-white leading-relaxed shadow-md backdrop-blur-md'
+            : 'bg-white/5 border border-white/10 rounded-2xl rounded-tl-sm px-4 py-3 text-gray-300 leading-relaxed shadow-md backdrop-blur-md';
+
+          // Basic markdown parsing for bold and line breaks
+          const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br/>');
+
+          msgDiv.innerHTML = `
+            ${avatarHTML}
+            <div class="${bubbleClass}">${formattedText}</div>
+          `;
+
+          chatMessages.appendChild(msgDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+          const msgDiv = document.createElement('div');
+          msgDiv.id = 'ai-typing-indicator';
+          msgDiv.className = 'flex gap-3 mr-8';
+          msgDiv.innerHTML = `
+            <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent flex-shrink-0 mt-1 border border-accent/30"><i class="fa-solid fa-robot text-xs"></i></div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl rounded-tl-sm px-4 py-3 shadow-md backdrop-blur-md flex items-center gap-1.5 h-[46px]">
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" style="animation-delay: 0ms"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" style="animation-delay: 150ms"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" style="animation-delay: 300ms"></div>
+            </div>
+          `;
+          chatMessages.appendChild(msgDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+          const indicator = document.getElementById('ai-typing-indicator');
+          if (indicator) indicator.remove();
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const text = chatInput.value.trim();
+          if (!text) return;
+
+          appendMessage(text, true);
+          chatInput.value = '';
+          chatInput.disabled = true;
+          sendBtn.disabled = true;
+
+          chatHistory.push({ role: 'user', parts: [{ text }] });
+
+          showTypingIndicator();
+
+          try {
+            const payload = {
+              history: chatHistory
+            };
+
+            const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error('API Error');
+
+            const data = await response.json();
+
+            let aiText = '';
+            if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
+              aiText = data.candidates[0].content.parts[0].text;
+            } else {
+              aiText = "Sorry, I couldn't process that right now.";
+            }
+
+            removeTypingIndicator();
+            appendMessage(aiText, false);
+            chatHistory.push({ role: 'model', parts: [{ text: aiText }] });
+
+          } catch (err) {
+            console.error('Chat Error:', err);
+            removeTypingIndicator();
+            appendMessage("Sorry, I'm having trouble connecting right now. Please check if the API key is valid or try again later.", false);
+            chatHistory.pop(); // remove failed user msg from history
+          } finally {
+            chatInput.disabled = false;
+            sendBtn.disabled = false;
+            chatInput.focus();
+          }
         });
       })();
       // ==========================================================
