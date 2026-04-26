@@ -33,7 +33,21 @@ Context about Vicky Raj:
 
 Skills:
 - Data & Analytics: Python, SQL, Excel, Power BI, Pandas, NumPy, Matplotlib, Seaborn, MySQL
-- Web Development: HTML, CSS, JavaScript, Django, Streamlit, Figma, Bootstrap`;
+- Web Development: HTML, CSS, JavaScript, Django, Streamlit, Figma, Bootstrap
+- AI & Tools: HuggingFace, MATLAB, Ollama, RAG Pipelines, Gemini API, Git, GitHub, VS Code
+
+Featured Projects:
+1. Gigx Analytics Portfolio: Real-world datasets analyzed using Python, SQL, Excel & Power BI. Covers EDA, dashboards, and actionable business insights.
+2. Travally - AI Travel Assistant: AI-powered travel assistant with chatbot, smart UI & Bihar tourism insights. Capstone project showcasing full-stack + AI integration.
+3. MAVI - Local AI Agent: Memory-Augmented Virtual Intelligence - Local-first AI agent with RAG, OCR, Gemini Vision, smart file organizer & SQLite long-term memory.
+
+Current Focus:
+- Data Science: Pandas, NumPy, Matplotlib, Seaborn, Statistics
+- Machine Learning: Supervised Learning, Regression, Classification
+- Databases: SQL, MySQL, Data Modeling
+- BI Tools: Power BI Dashboards, Excel Automation
+- Web Dev: HTML, CSS, JS, Django, Streamlit
+- AI: HuggingFace, Ollama, RAG Pipelines, Gemini API`;
 
   // Construct the payload for Gemini API
   const payload = {
