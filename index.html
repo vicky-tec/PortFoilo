@@ -328,8 +328,8 @@
 
     /* AI brain ASCII art */
     .pl-ascii {
-      font-family: 'Space Grotesk', monospace;
-      font-size: clamp(9px, 2vw, 12px);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(4px, 1.2vw, 10px);
       line-height: 1.3;
       color: var(--color-accent-cyan);
       text-align: center;
@@ -530,6 +530,57 @@
       #preloader.pl-exit {
         animation: none !important;
         opacity: 0 !important;
+      }
+    }
+
+    /* ============================================
+       SKELETON LOADER (ngx-skeleton-loader style)
+       ============================================ */
+    @keyframes skShimmer {
+      0% {
+        background-position: -600px 0;
+      }
+
+      100% {
+        background-position: 600px 0;
+      }
+    }
+
+    .sk-bone {
+      display: block;
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 0.04) 0px,
+          rgba(27, 196, 248, 0.10) 80px,
+          rgba(255, 255, 255, 0.04) 160px);
+      background-size: 600px;
+      animation: skShimmer 1.5s linear infinite;
+      will-change: background-position;
+    }
+
+    .sk-bone.sk-done {
+      display: none !important;
+    }
+
+    .sk-revealed {
+      animation: skFadeIn 0.35s ease forwards;
+    }
+
+    @keyframes skFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sk-bone {
+        animation: none !important;
+        background: rgba(255, 255, 255, 0.06) !important;
       }
     }
 
@@ -1308,35 +1359,37 @@
         <span class="pl-dot pl-dot-r"></span>
         <span class="pl-dot pl-dot-y"></span>
         <span class="pl-dot pl-dot-g"></span>
-        <span class="pl-title">VR_AI · BOOT SEQUENCE</span>
+        <span class="pl-title">VICKY_OS · BOOT SEQUENCE</span>
       </div>
 
       <!-- ASCII art logo -->
-      <pre class="pl-ascii" aria-hidden="true">██╗   ██╗██████╗      █████╗ ██╗
-██║   ██║██╔══██╗    ██╔══██╗██║
-██║   ██║██████╔╝    ███████║██║
-╚██╗ ██╔╝██╔══██╗    ██╔══██║██║
- ╚████╔╝ ██║  ██║    ██║  ██║██║</pre>
+      <pre class="pl-ascii" aria-hidden="true">
+██████╗   ██████╗  ██████╗  ████████╗ ███████╗   ██████╗  ██╗      ██╗  ██████╗ 
+██╔══██╗ ██╔═══██╗ ██╔══██╗ ╚══██╔══╝ ██╔════╝  ██╔═══██╗ ██║      ██║ ██╔═══██╗
+██████╔╝ ██║   ██║ ██████╔╝    ██║    █████╗    ██║   ██║ ██║      ██║ ██║   ██║
+██╔═══╝  ██║   ██║ ██╔══██╗    ██║    ██╔══╝    ██║   ██║ ██║      ██║ ██║   ██║
+██║      ╚██████╔╝ ██║  ██║    ██║    ██║       ╚██████╔╝ ███████╗ ██║ ╚██████╔╝</pre>
 
       <!-- Terminal boot log -->
       <div class="pl-log" id="pl-log" aria-live="polite">
-        <span class="pl-log-line" id="pl-l0"><span class="pl-dim">[0.00s]</span> <span class="pl-ok">✓</span> Neural
-          core initializing…</span>
+        <span class="pl-log-line" id="pl-l0"><span class="pl-dim">[0.00s]</span> <span class="pl-ok">✓</span>
+          Initializing
+          workspace environment…</span>
         <span class="pl-log-line" id="pl-l1"><span class="pl-dim">[0.25s]</span> <span class="pl-ok">✓</span> Loading
-          model weights &amp; embeddings</span>
+          core modules &amp; dependencies</span>
         <span class="pl-log-line" id="pl-l2"><span class="pl-dim">[0.55s]</span> <span class="pl-info">⚡</span>
-          Connecting to portfolio data stream</span>
-        <span class="pl-log-line" id="pl-l3"><span class="pl-dim">[0.85s]</span> <span class="pl-ok">✓</span> Rendering
-          experience &amp; project nodes</span>
+          Connecting to local database</span>
+        <span class="pl-log-line" id="pl-l3"><span class="pl-dim">[0.85s]</span> <span class="pl-ok">✓</span> Compiling
+          UI components &amp; stylesheets</span>
         <span class="pl-log-line" id="pl-l4"><span class="pl-dim">[1.15s]</span> <span class="pl-warn">◈</span>
-          Compiling GenAI &amp; analytics layers</span>
+          Assembling projects &amp; case studies</span>
         <span class="pl-log-line" id="pl-l5"><span class="pl-dim">[1.45s]</span> <span class="pl-ok">✓</span> <strong
-            style="color:#fff">System ready</strong> — Welcome, Human 🤖</span>
+            style="color:#fff">System ready</strong> — Welcome to my portfolio! 👋</span>
       </div>
 
       <!-- Blinking prompt -->
       <div class="pl-prompt">
-        <span style="color:rgba(27,196,248,0.5)">vicky@ai-portfolio</span>
+        <span style="color:rgba(27,196,248,0.5)">vicky@portfolio</span>
         <span style="color:rgba(255,255,255,0.3)">:~$</span>
         <span class="pl-cursor"></span>
       </div>
@@ -3320,6 +3373,48 @@
         }
       })();
       // =========================================================
+
+      // ==========================================================
+      // === AUTOMATED SKELETON LOADER (ngx-skeleton-loader style)
+      // ==========================================================
+      (function initModernSkeletons() {
+        document.querySelectorAll('img:not([loading])').forEach(img => {
+          img.setAttribute('loading', 'lazy');
+          img.setAttribute('decoding', 'async');
+        });
+
+        document.querySelectorAll('img').forEach(img => {
+          // If image is already cached/loaded, do not add skeleton
+          if (img.complete && img.naturalHeight !== 0) return;
+
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.4s ease';
+
+          // Create the shimmer skeleton placeholder
+          const sk = document.createElement('span');
+          sk.className = 'sk-bone absolute inset-0 z-[1] w-full h-full';
+
+          let parent = img.parentElement;
+          if (getComputedStyle(parent).position === 'static') {
+            parent.style.position = 'relative';
+          }
+          if (!parent.classList.contains('overflow-hidden')) {
+            parent.classList.add('overflow-hidden'); // clip the skeleton correctly
+          }
+          parent.insertBefore(sk, img);
+
+          img.addEventListener('load', () => {
+            img.style.opacity = '1';
+            sk.classList.add('sk-done'); // removes skeleton via CSS display: none
+            img.classList.add('sk-revealed');
+          }, { once: true });
+
+          img.addEventListener('error', () => {
+            sk.classList.add('sk-done'); // remove skeleton if image fails to load
+          }, { once: true });
+        });
+      })();
+      // ==========================================================
     });
   </script>
 </body>
