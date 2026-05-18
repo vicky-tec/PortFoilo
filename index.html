@@ -13,7 +13,7 @@
     rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="icon" href="PortFoilo/picofme.png" />
+  <link rel="icon" href="picofme.png" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -614,16 +614,18 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* === GLASSMORPHISM CARD WITH 3D DEPTH === */
+    /* === GLASSMORPHISM CARD === */
     .glass-card {
       background: var(--glass-surface-01);
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       border: 1px solid var(--glass-border-subtle);
-      transition: all var(--transition-normal) var(--ease-organic);
-      transform-style: preserve-3d;
+      /* Only transition specific properties – never 'all' to avoid scroll-triggered jank */
+      transition:
+        border-color var(--transition-normal) var(--ease-organic),
+        box-shadow var(--transition-normal) var(--ease-organic),
+        transform var(--transition-normal) var(--ease-organic);
       position: relative;
-      box-shadow: var(--shadow-glow-soft);
     }
 
     .glass-card::before {
@@ -649,23 +651,28 @@
       transition: opacity var(--transition-normal) var(--ease-smooth);
     }
 
-    .glass-card:hover {
-      border-color: var(--color-accent-cyan);
-      transform: translateY(-8px) translateZ(var(--translate-z-float));
-      box-shadow:
-        var(--shadow-glow-cyan),
-        0 0 32px rgba(27, 196, 248, 0.2),
-        inset 0 0 24px rgba(27, 196, 248, 0.05);
-    }
+    /* Only apply hover lift on non-touch (pointer:fine) devices */
+    @media (hover: hover) and (pointer: fine) {
+      .glass-card:hover {
+        border-color: var(--color-accent-cyan);
+        transform: translateY(-8px);
+        box-shadow:
+          var(--shadow-glow-cyan),
+          0 0 32px rgba(27, 196, 248, 0.2),
+          inset 0 0 24px rgba(27, 196, 248, 0.05);
+      }
 
-    .glass-card:hover::before {
-      opacity: 1;
-    }
+      .glass-card:hover::before {
+        opacity: 1;
+      }
 
-    .glass-card:hover i {
-      transform: scale(1.15) translateZ(16px);
-      text-shadow: 0 0 16px var(--glow-accent-cyan);
-      transition: all var(--transition-normal) var(--ease-organic);
+      .glass-card:hover i {
+        transform: scale(1.15);
+        text-shadow: 0 0 16px var(--glow-accent-cyan);
+        transition:
+          transform var(--transition-normal) var(--ease-organic),
+          text-shadow var(--transition-normal) var(--ease-organic);
+      }
     }
 
     /* === NAVIGATION ACTIVE STATE === */
@@ -865,32 +872,34 @@
       }
     }
 
-    /* === 3D CERTIFICATE CARD ENHANCEMENT === */
+    /* === CERTIFICATE CARD === */
     .certificate-featured {
-      perspective: 1000px;
-      transform-style: preserve-3d;
+      /* Flat rendering – no 3D context that repaints on scroll */
     }
 
     .certificate-featured img {
-      transition: all var(--transition-slow) var(--ease-organic);
+      transition:
+        filter var(--transition-slow) var(--ease-organic),
+        box-shadow var(--transition-slow) var(--ease-organic);
       filter: brightness(0.95) contrast(1.05);
       box-shadow: var(--shadow-ambient);
     }
 
-    .certificate-featured:hover img {
-      transform: rotateY(var(--rotate-subtle)) rotateX(calc(var(--rotate-subtle) * -1)) translateZ(var(--translate-z-float));
-      filter: brightness(1.05) contrast(1.1) drop-shadow(0 0 24px var(--glow-accent-cyan));
-      box-shadow: var(--shadow-depth);
+    @media (hover: hover) and (pointer: fine) {
+      .certificate-featured:hover img {
+        filter: brightness(1.05) contrast(1.1) drop-shadow(0 0 24px var(--glow-accent-cyan));
+        box-shadow: var(--shadow-depth);
+      }
     }
 
     /* === PARALLAX SECTIONS === */
+    /* parallax mouse-move removed – caused jank on scroll */
     .parallax-section {
-      transform-style: preserve-3d;
-      perspective: var(--perspective-base);
+      transform-style: flat;
     }
 
     .parallax-layer {
-      transition: transform 0.3s var(--ease-smooth);
+      /* No transform transition – prevents scroll-driven movement */
     }
 
     /* === MAGNETIC FLOAT EFFECT === */
@@ -2595,6 +2604,18 @@
                 target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
             </div>
           </div>
+          <div class="glass-card p-4 rounded-xl flex items-start space-x-4 reveal-text">
+            <div
+              class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 flex-shrink-0">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">SEBI Investor Awareness Test</h4>
+              <p class="text-xs text-gray-400">SEBI • Feb 2026</p>
+              <a href="https://drive.google.com/file/d/1UdDmq18FCbqyiJFCibg-lYFg9S8_5B92/view?usp=sharing"
+                target="_blank" class="text-accent text-xs mt-2 inline-block hover:underline">View Credential</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -3177,68 +3198,9 @@
         observer.observe(el);
       });
 
-      // === PARALLAX MOUSE MOVEMENT FOR HERO SECTION ===
-      const heroSection = document.querySelector("#home");
-      const parallaxLayers = document.querySelectorAll(
-        "#home .parallax-layer, #home .glass-card",
-      );
-
-      if (heroSection && parallaxLayers.length > 0) {
-        heroSection.addEventListener("mousemove", (e) => {
-          const { clientX, clientY } = e;
-          const { offsetWidth, offsetHeight } = heroSection;
-
-          const xPos = (clientX / offsetWidth - 0.5) * 2;
-          const yPos = (clientY / offsetHeight - 0.5) * 2;
-
-          parallaxLayers.forEach((layer, index) => {
-            const depth = (index + 1) * 10;
-            const moveX = xPos * depth;
-            const moveY = yPos * depth;
-
-            if (
-              !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-            ) {
-              layer.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
-            }
-          });
-        });
-
-        heroSection.addEventListener("mouseleave", () => {
-          parallaxLayers.forEach((layer) => {
-            layer.style.transform = "translateX(0) translateY(0)";
-          });
-        });
-      }
-
-      // === 3D TILT EFFECT FOR CARDS ===
-      const cards3D = document.querySelectorAll(
-        ".glass-card, .certificate-featured",
-      );
-
-      cards3D.forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-            return;
-
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          const rotateX = ((y - centerY) / centerY) * 5;
-          const rotateY = ((centerX - x) / centerX) * 5;
-
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-        });
-
-        card.addEventListener("mouseleave", () => {
-          card.style.transform =
-            "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)";
-        });
-      });
+      // === PARALLAX & 3D TILT REMOVED ===
+      // These effects caused elements to shift on scroll across all devices.
+      // Hover animations are handled purely via CSS for stable, GPU-composited transitions.
 
       // === SMOOTH SCROLL WITH OFFSET ===
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
