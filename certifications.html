@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vicky Raj | All Certifications</title>
+  <meta name="description" content="Complete list of certifications earned by Vicky Raj – Data Analyst & Developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="icon" href="picofme.png" />
+  <style>
+    :root {
+      --cyan: #1bc4f8;
+      --purple: #a855f7;
+      --blue: #3b82f6;
+      --bg: #050505;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --muted: #94a3b8;
+      --glow: rgba(27,196,248,0.2);
+      --t: 0.3s ease;
+    }
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:#fff;min-height:100vh;overflow-x:hidden;line-height:1.6}
+
+    /* ── BG BLOBS ── */
+    .blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.18;animation:bm 14s ease-in-out infinite alternate}
+    .b1{width:520px;height:520px;background:var(--purple);top:-120px;left:-120px;animation-delay:0s}
+    .b2{width:420px;height:420px;background:var(--cyan);top:35%;right:-100px;animation-delay:-5s}
+    .b3{width:320px;height:320px;background:var(--blue);bottom:8%;left:38%;animation-delay:-10s}
+    @keyframes bm{0%{transform:translate(0,0) scale(1)}100%{transform:translate(28px,18px) scale(1.1)}}
+
+    /* ── HEADER ── */
+    header{position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);background:rgba(5,5,5,.85);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--cyan);letter-spacing:2px;text-decoration:none}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:1px solid rgba(27,196,248,.3);border-radius:999px;color:var(--cyan);font-size:.875rem;font-weight:600;text-decoration:none;transition:background var(--t),color var(--t)}
+    .back-btn:hover{background:var(--cyan);color:#000}
+
+    /* ── MAIN ── */
+    main{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:72px 24px 96px}
+
+    /* ── HERO TITLE ── */
+    .hero{text-align:center;margin-bottom:72px}
+    .hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;line-height:1.15;letter-spacing:-1px}
+    .hero h1 .hl{background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{margin-top:14px;color:var(--muted);font-size:1rem;max-width:480px;margin-inline:auto}
+    .stats-row{display:flex;justify-content:center;gap:40px;margin-top:32px;flex-wrap:wrap}
+    .stat-item{text-align:center}
+    .stat-item .num{font-size:2rem;font-weight:700;color:var(--cyan);font-family:'Orbitron',sans-serif}
+    .stat-item .lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:2px}
+
+    /* ── SECTION LABEL ── */
+    .sec{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+    .sec h2{font-size:1rem;font-weight:600;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;white-space:nowrap;font-family:'Space Grotesk',monospace}
+    .sec::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(27,196,248,.25),transparent)}
+
+    /* ── GLASS BASE ── */
+    .gc{background:var(--surface);border:1px solid var(--border);border-radius:20px;backdrop-filter:blur(14px);transition:box-shadow var(--t),transform var(--t),border-color var(--t)}
+    .gc:hover{box-shadow:0 0 40px var(--glow);border-color:rgba(27,196,248,.3);transform:translateY(-5px)}
+
+    /* ── FEATURED LAYOUT ── */
+    /* Top row: 3 equal portrait cards */
+    .top-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
+    @media(max-width:900px){.top-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:580px){.top-row{grid-template-columns:1fr}}
+
+    .cert-card{display:flex;flex-direction:column;overflow:hidden}
+    .cert-card .img-wrap{overflow:hidden;background:rgba(255,255,255,.02);display:flex;align-items:center;justify-content:center;padding:16px;min-height:200px}
+    .cert-card .img-wrap img{width:100%;height:200px;object-fit:contain;border-radius:10px;transition:filter .4s ease,transform .5s ease;filter:brightness(.95)}
+    .cert-card:hover .img-wrap img{filter:brightness(1.08) saturate(1.1);transform:scale(1.03)}
+    .cert-card .body{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
+    .cert-card .body h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:3px}
+    .cert-card .body .iss{font-size:.72rem;color:var(--muted);margin-bottom:10px}
+    .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+    .tag{padding:3px 10px;border-radius:999px;font-size:.65rem;font-weight:500;background:rgba(27,196,248,.08);border:1px solid rgba(27,196,248,.2);color:var(--cyan)}
+    .tag.gold{background:rgba(250,204,21,.08);border-color:rgba(250,204,21,.25);color:#facc15}
+    .cert-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+    .btn-o{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border:1px solid rgba(27,196,248,.3);border-radius:999px;font-size:.75rem;font-weight:600;color:var(--cyan);text-decoration:none;cursor:pointer;background:transparent;font-family:inherit;transition:background var(--t),color var(--t)}
+    .btn-o:hover{background:var(--cyan);color:#000}
+    .btn-s{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;font-size:.75rem;font-weight:700;background:var(--cyan);color:#000;text-decoration:none;cursor:pointer;border:none;font-family:inherit;transition:opacity var(--t)}
+    .btn-s:hover{opacity:.85}
+
+    /* 3-col featured grid */
+    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:64px}
+    @media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+
+    /* ── COURSE CARDS (4-col) ── */
+    .course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    @media(max-width:1000px){.course-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:500px){.course-grid{grid-template-columns:1fr}}
+
+    .course-card{padding:20px;display:flex;flex-direction:column;gap:12px;border-radius:16px}
+    .course-card .ci{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .course-card h4{font-size:.9rem;font-weight:700;color:#fff;line-height:1.3}
+    .course-card .sub{font-size:.72rem;color:var(--muted)}
+    .course-card a{font-size:.72rem;color:var(--cyan);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
+    .course-card a:hover{text-decoration:underline}
+
+    /* ── LIGHTBOX ── */
+    .lb{display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.93);backdrop-filter:blur(14px);align-items:center;justify-content:center;padding:24px}
+    .lb.open{display:flex}
+    .lb-inner{position:relative;max-width:920px;width:100%}
+    .lb-close{position:absolute;top:-44px;right:0;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;transition:color var(--t)}
+    .lb-close:hover{color:#fff}
+    .lb-inner img{width:100%;height:auto;border-radius:16px;border:1px solid var(--border);box-shadow:0 0 60px var(--glow)}
+    .lb-cap{text-align:center;color:var(--muted);font-size:.72rem;margin-top:12px}
+
+    /* ── FOOTER ── */
+    footer{position:relative;z-index:1;text-align:center;padding:32px 24px;border-top:1px solid var(--border);color:var(--muted);font-size:.82rem}
+    footer a{color:var(--cyan);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    /* ── SCROLL REVEAL ── */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+  <header>
+    <a href="index.html" class="brand">VR.</a>
+    <a href="index.html#certificates" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <div class="hero reveal">
+      <h1>My <span class="hl">Certifications</span></h1>
+      <p>A complete record of professional certifications, courses & achievements.</p>
+      <div class="stats-row">
+        <div class="stat-item"><div class="num">11</div><div class="lbl">Total Certs</div></div>
+        <div class="stat-item"><div class="num">3</div><div class="lbl">Featured</div></div>
+        <div class="stat-item"><div class="num">2026</div><div class="lbl">Latest Year</div></div>
+      </div>
+    </div>
+
+    <!-- ─── FEATURED ─── -->
+    <div class="sec reveal"><h2><i class="fas fa-trophy"></i> Featured Achievements</h2></div>
+
+    <!-- Equal 3-column grid: OCI · Hack4Brahma · NISM -->
+    <div class="feat-grid">
+
+      <!-- OCI -->
+      <article class="gc cert-card reveal">
+        <div class="img-wrap">
+          <img src="https://raw.githubusercontent.com/vicky-tec/PortFoilo/main/Screenshot%202025-09-17%20222409.png"
+            alt="Oracle OCI AI Foundations Associate"
+            onerror="this.src='https://placehold.co/600x400/0a0a0a/1bc4f8?text=OCI'" />
+        </div>
+        <div class="body">
+          <h3>OCI Foundations Associate</h3>
+          <p class="iss">Oracle University &bull; Sep 2025</p>
+          <div class="tags">
+            <span class="tag">AI Foundation</span>
+            <span class="tag">Oracle Cloud</span>
+            <span class="tag">Community</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hack4Brahma -->
+      <article class="gc cert-card reveal">
+        <div class="img-wrap">
+          <img src="hack4brahma.jpg" alt="Hack Days Patna 2nd Runner-Up"
+            onerror="this.src='https://placehold.co/600x400/0a0a0a/1bc4f8?text=Hack4Brahma'" />
+        </div>
+        <div class="body">
+          <h3>Hack Days Patna by Hack4Brahma</h3>
+          <p class="iss">Hack4Brahma &bull; IIT Patna &bull; 2026</p>
+          <div class="tags">
+            <span class="tag">Hackathon</span>
+            <span class="tag">Gemini API</span>
+            <span class="tag">AI</span>
+            <span class="tag gold">2nd Runner-Up</span>
+          </div>
+          <div class="cert-actions">
+            <a href="https://drive.google.com/file/d/1CXJ2NT5SDNRHUFyUfnCQkkibHmWlKjTO/view?usp=sharing"
+              target="_blank" class="btn-s"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- NISM — equal 3rd card -->
+      <article class="gc cert-card reveal">
+        <div class="img-wrap">
+          <img src="Screenshot 2026-07-20 135641.png"
+            alt="NISM SEBI National Financial Literacy Quiz 2026"
+            onerror="this.src='https://placehold.co/600x400/0a0a0a/1bc4f8?text=NISM'" />
+        </div>
+        <div class="body">
+          <h3>National Financial Literacy Quiz 2026</h3>
+          <p class="iss">NISM &times; SEBI &bull; IIT Patna &bull; 2026</p>
+          <div class="tags">
+            <span class="tag">Finance</span>
+            <span class="tag">SEBI</span>
+            <span class="tag">IIT Patna</span>
+          </div>
+          <div class="cert-actions">
+            <button class="btn-o" onclick="openLb('Screenshot 2026-07-20 135641.png','NISM SEBI – National Financial Literacy Quiz 2026')">
+              <i class="fas fa-expand"></i> View Full Image &rarr;
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ─── COURSES & WORKSHOPS ─── -->
+    <div class="sec reveal" style="margin-top:64px;"><h2><i class="fas fa-graduation-cap"></i> Courses & Workshops</h2></div>
+
+    <div class="course-grid">
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(234,88,12,.15);color:#fb923c;"><i class="fas fa-robot"></i></div>
+        <div>
+          <h4>Generative AI for All</h4>
+          <p class="sub">Physics Wallah &times; Microsoft &bull; Dec 2025</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1NZE_8NH5bdlNblrwOQXJmD5ng5fEd0ka/view?usp=sharing" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(220,38,38,.15);color:#f87171;"><i class="fas fa-microchip"></i></div>
+        <div>
+          <h4>DevFest Motihari 2025</h4>
+          <p class="sub">GDG Cloud Motihari &bull; Nov 2025</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1Z_pSpSdNrwjnXDUquOXARCG5U1wo3Mj1/view?usp=drive_link" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(37,99,235,.15);color:#60a5fa;"><i class="fas fa-brain"></i></div>
+        <div>
+          <h4>Gen-AI Mastermind</h4>
+          <p class="sub">Outskill &bull; 2025</p>
+        </div>
+        <a href="https://drive.google.com/file/d/10iRIZHCVDplgpIPiVnhN81rabi7qA_1s/view?usp=sharing" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(161,98,7,.2);color:#fbbf24;"><i class="fas fa-chart-bar"></i></div>
+        <div>
+          <h4>Power BI Workshop</h4>
+          <p class="sub">Office Master &bull; 2025</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1u3lbbn2_cKNcJnetnUOo8cfEVAdJA3rW/view?usp=drive_link" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(21,128,61,.15);color:#4ade80;"><i class="fas fa-table"></i></div>
+        <div>
+          <h4>Excel Workshop</h4>
+          <p class="sub">Office Master &bull; 2025</p>
+        </div>
+        <a href="https://drive.google.com/file/d/15BcspV58XWEITh68AOKqETB3v1zQYD5q/view?usp=drive_link" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(126,34,206,.15);color:#c084fc;"><i class="fas fa-sparkles"></i></div>
+        <div>
+          <h4>Generative AI</h4>
+          <p class="sub">Simplilearn &bull; 2025</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1NZ21SsIq-keP1yHfirKy6HXlEgg71wU_/view?usp=drive_link" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(157,23,77,.15);color:#f472b6;"><i class="fas fa-desktop"></i></div>
+        <div>
+          <h4>UI/UX Design</h4>
+          <p class="sub">Great Learning &bull; 2024</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1yNEBYxJ0L66x4DLZbGP8NoMF8b4bemi-/view?usp=drive_link" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+      <article class="gc course-card reveal">
+        <div class="ci" style="background:rgba(21,128,61,.15);color:#4ade80;"><i class="fas fa-landmark"></i></div>
+        <div>
+          <h4>SEBI Investor Awareness Test</h4>
+          <p class="sub">SEBI &bull; Feb 2026</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1UdDmq18FCbqyiJFCibg-lYFg9S8_5B92/view?usp=sharing" target="_blank">
+          <i class="fas fa-external-link-alt fa-xs"></i> View Credential
+        </a>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lb" class="lb" role="dialog" aria-modal="true" aria-label="Certificate viewer" onclick="closeLb()">
+    <div class="lb-inner" onclick="event.stopPropagation()">
+      <button class="lb-close" onclick="closeLb()" aria-label="Close"><i class="fas fa-times"></i></button>
+      <img id="lb-img" src="" alt="Certificate" />
+      <p id="lb-cap" class="lb-cap">Click outside to close</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="yr"></span> Vicky Raj &mdash;
+      <a href="index.html">Back to Portfolio</a> &bull;
+      <a href="https://github.com/vicky-tec" target="_blank">GitHub</a> &bull;
+      <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    function openLb(src, cap) {
+      document.getElementById('lb-img').src = src;
+      document.getElementById('lb-cap').textContent = cap || 'Click outside to close';
+      document.getElementById('lb').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      document.getElementById('lb').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+    // Scroll reveal
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  </script>
+</body>
+</html>
