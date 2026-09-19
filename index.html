@@ -1560,6 +1560,66 @@
         opacity: 1;
       }
     }
+
+    /* ============================================
+       INFINITE TECH STACK MARQUEE
+       ============================================ */
+    .tech-marquee-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      padding: 1.25rem 0;
+      margin-bottom: 2.5rem;
+    }
+
+    .tech-marquee-track {
+      display: flex;
+      gap: 1.25rem;
+      width: max-content;
+      animation: techMarqueeScroll 28s linear infinite;
+    }
+
+    .tech-marquee-wrapper:hover .tech-marquee-track {
+      animation-play-state: paused;
+    }
+
+    .tech-marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      background: var(--glass-surface-02);
+      border: 1px solid var(--glass-border-medium);
+      backdrop-filter: blur(12px);
+      white-space: nowrap;
+      transition: all var(--transition-fast) var(--ease-organic);
+      cursor: pointer;
+    }
+
+    .tech-marquee-item:hover {
+      background: rgba(27, 196, 248, 0.12);
+      border-color: var(--color-accent-cyan);
+      box-shadow: 0 0 20px var(--glow-accent-cyan);
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    @keyframes techMarqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tech-marquee-track {
+        animation: none !important;
+      }
+    }
   </style>
 
 </head>
@@ -2482,9 +2542,42 @@
       </div>
 
       <div class="container mx-auto px-6 relative z-10">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center reveal-text">
           <span class="text-accent">03.</span> Technical Skills
         </h2>
+
+        <!-- Infinite Tech Stack Marquee (Motion Component) -->
+        <div class="tech-marquee-wrapper reveal-text" aria-label="Tech Stack Showcase">
+          <div class="tech-marquee-track">
+            <!-- Set 1 -->
+            <div class="tech-marquee-item"><i class="fab fa-python text-xl text-yellow-400"></i><span class="text-sm font-semibold text-white font-mono">Python</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-database text-xl text-blue-400"></i><span class="text-sm font-semibold text-white font-mono">SQL</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-chart-pie text-xl text-yellow-500"></i><span class="text-sm font-semibold text-white font-mono">Power BI</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-robot text-xl text-accent"></i><span class="text-sm font-semibold text-white font-mono">Generative AI</span></div>
+            <div class="tech-marquee-item"><i class="fab fa-js text-xl text-yellow-300"></i><span class="text-sm font-semibold text-white font-mono">JavaScript</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-brain text-xl text-purple-400"></i><span class="text-sm font-semibold text-white font-mono">Machine Learning</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-file-excel text-xl text-green-500"></i><span class="text-sm font-semibold text-white font-mono">Excel</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-cogs text-xl text-pink-500"></i><span class="text-sm font-semibold text-white font-mono">n8n &amp; Automation</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-microchip text-xl text-cyan-400"></i><span class="text-sm font-semibold text-white font-mono">Ollama &amp; Local LLMs</span></div>
+            <div class="tech-marquee-item"><i class="fab fa-html5 text-xl text-orange-500"></i><span class="text-sm font-semibold text-white font-mono">HTML5 &amp; CSS3</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-chart-line text-xl text-blue-400"></i><span class="text-sm font-semibold text-white font-mono">MATLAB</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-palette text-xl text-purple-300"></i><span class="text-sm font-semibold text-white font-mono">Canva Design</span></div>
+
+            <!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
+            <div class="tech-marquee-item"><i class="fab fa-python text-xl text-yellow-400"></i><span class="text-sm font-semibold text-white font-mono">Python</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-database text-xl text-blue-400"></i><span class="text-sm font-semibold text-white font-mono">SQL</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-chart-pie text-xl text-yellow-500"></i><span class="text-sm font-semibold text-white font-mono">Power BI</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-robot text-xl text-accent"></i><span class="text-sm font-semibold text-white font-mono">Generative AI</span></div>
+            <div class="tech-marquee-item"><i class="fab fa-js text-xl text-yellow-300"></i><span class="text-sm font-semibold text-white font-mono">JavaScript</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-brain text-xl text-purple-400"></i><span class="text-sm font-semibold text-white font-mono">Machine Learning</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-file-excel text-xl text-green-500"></i><span class="text-sm font-semibold text-white font-mono">Excel</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-cogs text-xl text-pink-500"></i><span class="text-sm font-semibold text-white font-mono">n8n &amp; Automation</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-microchip text-xl text-cyan-400"></i><span class="text-sm font-semibold text-white font-mono">Ollama &amp; Local LLMs</span></div>
+            <div class="tech-marquee-item"><i class="fab fa-html5 text-xl text-orange-500"></i><span class="text-sm font-semibold text-white font-mono">HTML5 &amp; CSS3</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-chart-line text-xl text-blue-400"></i><span class="text-sm font-semibold text-white font-mono">MATLAB</span></div>
+            <div class="tech-marquee-item"><i class="fas fa-palette text-xl text-purple-300"></i><span class="text-sm font-semibold text-white font-mono">Canva Design</span></div>
+          </div>
+        </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group reveal-text">
