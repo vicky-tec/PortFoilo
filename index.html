@@ -6,17 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vicky Raj | Data Analyst & Developer</title>
 
+  <!-- DNS prefetch for external origins -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&family=Orbitron:wght@400;500;700&family=Protest+Revolution&display=swap"
-    rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <!-- Favicon -->
   <link rel="icon" href="picofme.png" />
 
+  <!-- Google Fonts: non-blocking async load (no render-blocking) -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Space+Grotesk:wght@400;600&family=Orbitron:wght@400;700&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Space+Grotesk:wght@400;600&family=Orbitron:wght@400;700&display=swap" />
+  </noscript>
+
+  <!-- Font Awesome: non-blocking async load -->
+  <link rel="preload" as="style"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  </noscript>
+
+  <!-- Tailwind CDN (required for utility classes) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -1601,7 +1619,7 @@
 
   <!-- ===== VR. CIRCULAR LOGO ===== -->
   <!-- Hidden audio for VR logo tap sound -->
-  <audio id="vr-sound" src="no-batidao-zxkai.mp3" preload="auto" aria-hidden="true"></audio>
+  <audio id="vr-sound" src="no-batidao-zxkai.mp3" preload="none" aria-hidden="true"></audio>
 
   <!-- Music beat overlay (pointer-events:none so page stays scrollable) -->
   <div id="vr-overlay" aria-hidden="true" style="
@@ -1989,7 +2007,7 @@
 
           <div class="relative w-72 h-72 md:w-96 md:h-96 z-10 flex justify-center items-center">
             <div class="hero-blob watercolor-profile-wrap">
-              <img src="profile.jpg" onerror="
+              <img src="profile.jpg" loading="eager" decoding="async" onerror="
                     this.src = 'WhatsApp Image 2025-09-15 at 06.37.23_dce4345a.jpg'
                   " alt="Vicky Raj" class="w-full h-full object-cover watercolor-img" />
               <!-- Watercolor overlay: colour-splash shimmer -->
@@ -2603,7 +2621,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
             <div class="h-48 overflow-hidden relative">
-              <img src="Travally.png" onerror="
+              <img src="Travally.png" loading="lazy" decoding="async" onerror="
                     this.src =
                       'https://placehold.co/600x400/1a1a1a/1bc4f8?text=TRAVALLY'
                   " alt="Travally"
@@ -2634,7 +2652,7 @@
 
           <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
             <div class="h-48 overflow-hidden relative">
-              <img src="d33.png" onerror="this.src = ''" alt="Banking Analytics Dashboard"
+              <img src="d33.png" loading="lazy" decoding="async" onerror="this.src = ''" alt="Banking Analytics Dashboard"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               <div
                 class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -2669,7 +2687,7 @@
 
           <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
             <div class="h-48 overflow-hidden relative">
-              <img src="dash.png" onerror="
+              <img src="dash.png" loading="lazy" decoding="async" onerror="
                     this.src =
                       'https://placehold.co/600x400/1a1a1a/1bc4f8?text=Blinkit+Dashboard'
                   " alt="Blinkit Dashboard"
@@ -2704,7 +2722,7 @@
 
           <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
             <div class="h-48 overflow-hidden relative">
-              <img src="d2.png" onerror="
+              <img src="d2.png" loading="lazy" decoding="async" onerror="
                     this.src =
                       'https://drive.google.com/file/d/1h-LKFanHseZZ4_GF-uZX_pqaBzJB8nCu/view?usp=drive_link'
                   " alt="Flipkart Dashboard"
@@ -2742,7 +2760,7 @@
 
           <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
             <div class="h-48 overflow-hidden relative">
-              <img src="d7.png" onerror="
+              <img src="d7.png" loading="lazy" decoding="async" onerror="
                     this.src =
                       'https://drive.google.com/file/d/1zCa8UuF0VqdcjCXrZ3kmao18irbmI4Fk/view?usp=drive_link'
                   " alt="E-Commerce Dashboard"
@@ -2779,7 +2797,7 @@
 
           <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
             <div class="h-48 overflow-hidden relative">
-              <img src="mavi.png" onerror="
+              <img src="mavi.png" loading="lazy" decoding="async" onerror="
                     this.src =
                       'https://placehold.co/600x400/0f172a/22d3ee?text=MAVI.ai'
                   " alt="MAVI AI Agent"
@@ -2834,7 +2852,7 @@
           <!-- OCI Foundations Associate -->
           <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text flex flex-col">
             <div class="p-4 flex-1 flex items-center justify-center" style="min-height:220px;">
-              <img src="https://raw.githubusercontent.com/vicky-tec/PortFoilo/main/Screenshot%202025-09-17%20222409.png"
+              <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/vicky-tec/PortFoilo/main/Screenshot%202025-09-17%20222409.png"
                 alt="OCI Foundations Associate Certificate" class="w-full h-full object-contain rounded-lg"
                 style="max-height:220px;"
                 onerror="this.src='https://placehold.co/800x600/1a1a1a/1bc4f8?text=Certificate+Not+Found'" />
@@ -2852,7 +2870,7 @@
           <!-- Hack4Brahma Achievement -->
           <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text flex flex-col">
             <div class="p-4 flex-1 flex items-center justify-center" style="min-height:220px;">
-              <img src="hack4brahma.jpg" alt="Hack4Brahma Hack Days Patna – 2nd Runner-Up"
+              <img loading="lazy" decoding="async" src="hack4brahma.jpg" alt="Hack4Brahma Hack Days Patna – 2nd Runner-Up"
                 class="w-full h-full object-contain rounded-lg" style="max-height:220px;"
                 onerror="this.src='https://placehold.co/800x600/1a1a1a/1bc4f8?text=Certificate+Not+Found'" />
             </div>
@@ -2872,7 +2890,7 @@
           <!-- NISM / SEBI – fits as equal 3rd card -->
           <div class="certificate-featured glass-card rounded-2xl overflow-hidden neon-edge reveal-text flex flex-col">
             <div class="p-4 flex-1 flex items-center justify-center" style="min-height:220px;">
-              <img src="Screenshot 2026-07-20 135641.png" alt="NISM SEBI National Financial Literacy Quiz 2026"
+              <img loading="lazy" decoding="async" src="Screenshot 2026-07-20 135641.png" alt="NISM SEBI National Financial Literacy Quiz 2026"
                 class="w-full h-full object-contain rounded-lg" style="max-height:220px;"
                 onerror="this.src='https://placehold.co/800x600/1a1a1a/1bc4f8?text=NISM+Certificate'" />
             </div>
@@ -2904,7 +2922,7 @@
               aria-label="Close">
               <i class="fas fa-times"></i>
             </button>
-            <img src="Screenshot 2026-07-20 135641.png" alt="NISM SEBI Certificate Full View"
+            <img loading="lazy" decoding="async" src="Screenshot 2026-07-20 135641.png" alt="NISM SEBI Certificate Full View"
               class="w-full h-auto rounded-2xl shadow-2xl shadow-accent/20 border border-white/10" />
             <p class="text-center text-gray-400 text-xs mt-4">Click anywhere outside to close</p>
           </div>
@@ -2981,7 +2999,7 @@
           <div id="carousel-track" class="flex h-full transition-transform duration-700 ease-in-out">
             <!-- Slide 1: Coding Setup -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Coding Setup" />
               <div
@@ -2998,7 +3016,7 @@
 
             <!-- Slide 7: Gemini API Kit -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="photo_2026-06-09_10-04-19.jpg"
+              <img loading="lazy" decoding="async" src="photo_2026-06-09_10-04-19.jpg"
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Gemini API hackathon kit and stickers" />
               <div
@@ -3013,7 +3031,7 @@
 
             <!-- Slide 2: Food (Rasmalai) -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="gallery_food.png"
+              <img loading="lazy" decoding="async" src="gallery_food.png"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Sweet Treats" />
               <div
@@ -3028,7 +3046,7 @@
 
             <!-- Slide 3: Peace Sign Code -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="gallery_code.png"
+              <img loading="lazy" decoding="async" src="gallery_code.png"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Coding Vibes" />
               <div
@@ -3043,7 +3061,7 @@
 
             <!-- Slide 4: Dashboard -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="Dashboard.jpg"
+              <img loading="lazy" decoding="async" src="Dashboard.jpg"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Data Analytics" />
               <div
@@ -3060,7 +3078,7 @@
 
             <!-- Slide 5: Matrix -->
             <div class="min-w-full h-full relative group/slide">
-              <img
+              <img loading="lazy" decoding="async"
                 src="https://github.com/vicky-tec/PortFoilo/blob/main/WhatsApp%20Image%202026-02-20%20at%207.42.03%20PM.jpeg?raw=true"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Deep Focus" />
@@ -3076,7 +3094,7 @@
 
             <!-- Slide 6: IIT Patna Gate -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="Screenshot 2026-06-09 095024.png"
+              <img loading="lazy" decoding="async" src="Screenshot 2026-06-09 095024.png"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
                 alt="IIT Patna Campus Gate at Sunset" />
               <div
@@ -3093,7 +3111,7 @@
 
             <!-- Slide 8: Hack Mode ON -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="photo_2026-06-09_10-04-12.jpg"
+              <img loading="lazy" decoding="async" src="photo_2026-06-09_10-04-12.jpg"
                 class="w-full h-full object-cover object-center transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Hackathon fun — server all day" />
               <div
@@ -3108,7 +3126,7 @@
 
             <!-- Slide 9: Campus Night Walk -->
             <div class="min-w-full h-full relative group/slide">
-              <img src="photo_2026-06-09_10-04-29.jpg"
+              <img loading="lazy" decoding="async" src="photo_2026-06-09_10-04-29.jpg"
                 class="w-full h-full object-cover object-center transition-transform duration-700 group-hover/slide:scale-110"
                 alt="Night walk on IIT Patna campus road" />
               <div
@@ -3158,152 +3176,97 @@
     </section>
 
 
-    <section id="contact" class="py-20 bg-gradient-to-t from-black to-dark">
-      <div class="container mx-auto px-6 max-w-4xl">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center reveal-text">
-          Let's Connect & <span class="text-accent">Collaborate</span> 💙
-        </h2>
+    <section id="contact" class="py-24 relative overflow-hidden bg-gradient-to-b from-dark to-black">
 
-        <div class="flex justify-center gap-6 mb-10 reveal-text">
-          <a href="https://github.com/vicky-tec" target="_blank"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-accent hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-accent/5"
-            title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-blue-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-blue-400/5"
-            title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://www.instagram.com/vr_razzz/" target="_blank"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-pink-500 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-pink-500/5"
-            title="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="mailto:vickyrazzz81@gmail.com"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-red-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-red-400/5"
-            title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-        </div>
-
-        <div class="glass-card rounded-3xl p-8 md:p-12 reveal-text">
-          <form id="contact-form" class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Name</label>
-                <input type="text" name="name" required class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="Bomber_VR" />
-              </div>
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Email</label>
-                <input type="email" name="email" required class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="vicky@example.com" />
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Contact Number</label>
-                <input type="text" name="contact_number" class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="+91 XXXXX XXXXX" />
-              </div>
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Subject</label>
-                <input type="text" name="subject" class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="Project Inquiry" />
-              </div>
-            </div>
-
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-gray-400">Message</label>
-              <textarea name="message" required rows="4" class="w-full p-4 rounded-xl form-input transition-all"
-                placeholder="Tell me about your project..."></textarea>
-            </div>
-
-            <button type="submit" id="submit-btn"
-              class="w-full py-4 bg-accent text-black font-bold text-lg rounded-xl hover:bg-white transition-all transform hover:-translate-y-1 shadow-lg shadow-accent/20">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
-            </button>
-            <p id="form-message" class="text-center text-sm text-green-400 hidden">
-              Message Sent Successfully!
-            </p>
-          </form>
-        </div>
+      <!-- Ambient glow blobs -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/5 blur-[120px] pointer-events-none">
       </div>
-    </section>
-    <section id="contact" class="py-20 bg-gradient-to-t from-black to-dark">
-      <div class="container mx-auto px-6 max-w-4xl">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center reveal-text">
-          Let's Connect & <span class="text-accent">Collaborate</span> 💙
-        </h2>
+      <div class="absolute top-0 left-0 w-72 h-72 rounded-full bg-blue-500/5 blur-[100px] pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-pink-500/5 blur-[100px] pointer-events-none">
+      </div>
 
-        <div class="flex justify-center gap-6 mb-10 reveal-text">
-          <a href="https://github.com/vicky-tec" target="_blank"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-accent hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-accent/5"
-            title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-blue-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-blue-400/5"
-            title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://www.instagram.com/vr_razzz/" target="_blank"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-pink-500 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-pink-500/5"
-            title="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="mailto:vickyrazzz81@gmail.com"
-            class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-2xl text-white hover:text-red-400 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-red-400/5"
-            title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
+      <div class="container mx-auto px-6 max-w-3xl relative z-10">
+
+        <!-- Section heading -->
+        <div class="text-center mb-4 reveal-text">
+          <span class="inline-block text-accent font-mono text-sm tracking-widest uppercase mb-3">— Say Hello —</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            Let's <span class="text-accent">Connect</span> &amp; Collaborate 💙
+          </h2>
+          <p class="mt-4 text-gray-400 text-base max-w-md mx-auto">
+            Whether it's a project, collab, or just a chat, I'm always up for it. Pick your platform!
+          </p>
         </div>
 
-        <div class="glass-card rounded-3xl p-8 md:p-12 reveal-text">
-          <form id="contact-form" class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Name</label>
-                <input type="text" name="name" required class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="Bomber_VR" />
-              </div>
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Email</label>
-                <input type="email" name="email" required class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="vicky@example.com" />
-              </div>
+        <!-- Animated pulse ring + avatar centre -->
+        <div class="flex justify-center my-10 reveal-text">
+          <div class="relative w-24 h-24 flex items-center justify-center">
+            <span class="absolute inset-0 rounded-full border-2 border-accent/40 animate-ping"></span>
+            <span class="absolute inset-2 rounded-full border border-accent/20 animate-pulse"></span>
+            <div
+              class="relative w-16 h-16 glass-card rounded-full flex items-center justify-center text-2xl text-accent font-bold shadow-lg shadow-accent/20">
+              VR
             </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Contact Number</label>
-                <input type="text" name="contact_number" class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="+91 XXXXX XXXXX" />
-              </div>
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-gray-400">Subject</label>
-                <input type="text" name="subject" class="w-full p-4 rounded-xl form-input transition-all"
-                  placeholder="Project Inquiry" />
-              </div>
-            </div>
-
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-gray-400">Message</label>
-              <textarea name="message" required rows="4" class="w-full p-4 rounded-xl form-input transition-all"
-                placeholder="Tell me about your project..."></textarea>
-            </div>
-
-            <button type="submit" id="submit-btn"
-              class="w-full py-4 bg-accent text-black font-bold text-lg rounded-xl hover:bg-white transition-all transform hover:-translate-y-1 shadow-lg shadow-accent/20">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
-            </button>
-            <p id="form-message" class="text-center text-sm text-green-400 hidden">
-              Message Sent Successfully!
-            </p>
-          </form>
+          </div>
         </div>
+
+        <!-- Social icon cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 reveal-text" id="social-cards">
+
+          <!-- GitHub -->
+          <a href="https://github.com/vicky-tec" target="_blank" id="social-github"
+            class="social-card group flex flex-col items-center gap-3 p-6 glass-card rounded-2xl border border-white/5 hover:border-accent/40 hover:-translate-y-3 hover:shadow-xl hover:shadow-accent/15 transition-all duration-300 cursor-pointer">
+            <div
+              class="w-14 h-14 rounded-full bg-white/5 group-hover:bg-accent/10 flex items-center justify-center text-3xl text-white group-hover:text-accent transition-all duration-300 group-hover:scale-110">
+              <i class="fab fa-github"></i>
+            </div>
+            <span class="text-sm font-semibold text-gray-300 group-hover:text-accent transition-colors">GitHub</span>
+            <span class="text-xs text-gray-500 group-hover:text-gray-300 transition-colors">@vicky-tec</span>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank" id="social-linkedin"
+            class="social-card group flex flex-col items-center gap-3 p-6 glass-card rounded-2xl border border-white/5 hover:border-blue-400/40 hover:-translate-y-3 hover:shadow-xl hover:shadow-blue-400/15 transition-all duration-300 cursor-pointer">
+            <div
+              class="w-14 h-14 rounded-full bg-white/5 group-hover:bg-blue-400/10 flex items-center justify-center text-3xl text-white group-hover:text-blue-400 transition-all duration-300 group-hover:scale-110">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <span
+              class="text-sm font-semibold text-gray-300 group-hover:text-blue-400 transition-colors">LinkedIn</span>
+            <span class="text-xs text-gray-500 group-hover:text-gray-300 transition-colors">Vicky Raj</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/vr_razzz/" target="_blank" id="social-instagram"
+            class="social-card group flex flex-col items-center gap-3 p-6 glass-card rounded-2xl border border-white/5 hover:border-pink-500/40 hover:-translate-y-3 hover:shadow-xl hover:shadow-pink-500/15 transition-all duration-300 cursor-pointer">
+            <div
+              class="w-14 h-14 rounded-full bg-white/5 group-hover:bg-pink-500/10 flex items-center justify-center text-3xl text-white group-hover:text-pink-500 transition-all duration-300 group-hover:scale-110">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <span
+              class="text-sm font-semibold text-gray-300 group-hover:text-pink-500 transition-colors">Instagram</span>
+            <span class="text-xs text-gray-500 group-hover:text-gray-300 transition-colors">@vr_razzz</span>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:vickyrazzz81@gmail.com" id="social-email"
+            class="social-card group flex flex-col items-center gap-3 p-6 glass-card rounded-2xl border border-white/5 hover:border-red-400/40 hover:-translate-y-3 hover:shadow-xl hover:shadow-red-400/15 transition-all duration-300 cursor-pointer">
+            <div
+              class="w-14 h-14 rounded-full bg-white/5 group-hover:bg-red-400/10 flex items-center justify-center text-3xl text-white group-hover:text-red-400 transition-all duration-300 group-hover:scale-110">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <span class="text-sm font-semibold text-gray-300 group-hover:text-red-400 transition-colors">Email</span>
+            <span class="text-xs text-gray-500 group-hover:text-gray-300 transition-colors">Drop a mail</span>
+          </a>
+
+        </div>
+
+        <!-- Bottom tagline -->
+        <p class="text-center text-gray-600 text-xs mt-10 tracking-widest uppercase reveal-text">
+          Open to work · Freelance · Collabs · Just a chat 🚀
+        </p>
+
       </div>
     </section>
   </main>
@@ -3416,48 +3379,51 @@
         setTimeout(() => vrLogo.classList.add('vr-visible'), 2150);
       }
 
-      // Form Handling
+      // Form Handling (guarded — form may not be present in DOM)
       const form = document.getElementById("contact-form");
       const submitBtn = document.getElementById("submit-btn");
       const formMessage = document.getElementById("form-message");
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxaWe0ln2EGBizW9DjzoLaGrju1mANL4rLkN9Ctgzzxe2hVvZ1wCPC5gHbjrKMPvaqK/exec";
 
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        submitBtn.disabled = true;
-        submitBtn.innerHTML =
-          '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      if (form) {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-        const formData = new FormData(form);
-        formData.append("ex", "Yes");
+          const formData = new FormData(form);
+          formData.append("ex", "Yes");
 
-        fetch(scriptURL, { method: "POST", body: formData })
-          .then((response) => {
-            swal("Success!", "Message Sent Successfully!", "success");
-            form.reset();
-            submitBtn.innerHTML =
-              'Send Message <i class="fas fa-paper-plane ml-2"></i>';
-            submitBtn.disabled = false;
-          })
-          .catch((error) => {
-            swal("Error!", "Something went wrong.", "error");
-            submitBtn.innerHTML = "Error! Try Again";
-            submitBtn.disabled = false;
-          });
-      });
+          fetch(scriptURL, { method: "POST", body: formData })
+            .then((response) => {
+              swal("Success!", "Message Sent Successfully!", "success");
+              form.reset();
+              submitBtn.innerHTML =
+                'Send Message <i class="fas fa-paper-plane ml-2"></i>';
+              submitBtn.disabled = false;
+            })
+            .catch((error) => {
+              swal("Error!", "Something went wrong.", "error");
+              submitBtn.innerHTML = "Error! Try Again";
+              submitBtn.disabled = false;
+            });
+        });
+      }
 
       // Scroll Reveal Animation Logic
       const observerOptions = {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
+        rootMargin: "0px 0px 50px 0px",
+        threshold: 0,
       };
 
-      const observer = new IntersectionObserver((entries, observer) => {
+      const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
           }
         });
       }, observerOptions);
@@ -3465,6 +3431,19 @@
       document.querySelectorAll(".reveal-text").forEach((el) => {
         observer.observe(el);
       });
+
+      // Fallback: force-reveal any hidden elements when near bottom of page
+      function revealAllNearBottom() {
+        const scrollBottom = window.scrollY + window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+        if (scrollBottom >= docHeight - 100) {
+          document.querySelectorAll(".reveal-text:not(.is-visible)").forEach((el) => {
+            el.classList.add("is-visible");
+          });
+        }
+      }
+      window.addEventListener("scroll", revealAllNearBottom, { passive: true });
+      revealAllNearBottom();
 
       // === PARALLAX & 3D TILT REMOVED ===
       // These effects caused elements to shift on scroll across all devices.
@@ -3716,6 +3695,15 @@
 
     });
   </script>
+    <!-- SweetAlert: loaded async after page renders (non-blocking) -->
+    <script>
+      (function() {
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/sweetalert/dist/sweetalert.min.js';
+        s.async = true;
+        document.head.appendChild(s);
+      })();
+    </script>
 </body>
 
 </html>
