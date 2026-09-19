@@ -1619,6 +1619,39 @@
         animation: none !important;
       }
     }
+
+    /* ============================================
+       MORPHING SPOTLIGHT BORDER ON CARDS
+       ============================================ */
+    .spotlight-card {
+      position: relative;
+    }
+
+    .spotlight-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(27, 196, 248, 0.75),
+        rgba(168, 85, 247, 0.45) 40%,
+        transparent 80%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 20;
+    }
+
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
   </style>
 
 </head>
@@ -3670,6 +3703,29 @@
       })();
 
     });
+  </script>
+  <!-- Spotlight Border Motion Script -->
+  <script>
+    (function () {
+      function initSpotlight() {
+        var cards = document.querySelectorAll('.glass-card');
+        cards.forEach(function (card) {
+          card.classList.add('spotlight-card');
+          card.addEventListener('mousemove', function (e) {
+            var rect = card.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', x + 'px');
+            card.style.setProperty('--mouse-y', y + 'px');
+          });
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSpotlight);
+      } else {
+        initSpotlight();
+      }
+    })();
   </script>
   <!-- SweetAlert: loaded async after page renders (non-blocking) -->
   <script>
