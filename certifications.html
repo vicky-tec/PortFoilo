@@ -84,9 +84,9 @@
     .btn-s{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;font-size:.75rem;font-weight:700;background:var(--cyan);color:#000;text-decoration:none;cursor:pointer;border:none;font-family:inherit;transition:opacity var(--t)}
     .btn-s:hover{opacity:.85}
 
-    /* 3-col featured grid */
-    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:64px}
-    @media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+    /* 4-col featured grid */
+    .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:64px}
+    @media(max-width:1100px){.feat-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
 
     /* ── COURSE CARDS (4-col) ── */
@@ -134,8 +134,8 @@
       <h1>My <span class="hl">Certifications</span></h1>
       <p>A complete record of professional certifications, courses & achievements.</p>
       <div class="stats-row">
-        <div class="stat-item"><div class="num">11</div><div class="lbl">Total Certs</div></div>
-        <div class="stat-item"><div class="num">3</div><div class="lbl">Featured</div></div>
+        <div class="stat-item"><div class="num">12</div><div class="lbl">Total Certs</div></div>
+        <div class="stat-item"><div class="num">4</div><div class="lbl">Featured</div></div>
         <div class="stat-item"><div class="num">2026</div><div class="lbl">Latest Year</div></div>
       </div>
     </div>
@@ -143,8 +143,29 @@
     <!-- ─── FEATURED ─── -->
     <div class="sec reveal"><h2><i class="fas fa-trophy"></i> Featured Achievements</h2></div>
 
-    <!-- Equal 3-column grid: OCI · Hack4Brahma · NISM -->
+    <!-- Equal 4-column grid: Reliance · OCI · Hack4Brahma · NISM -->
     <div class="feat-grid">
+
+      <!-- Reliance Foundation Skilling Academy -->
+      <article class="gc cert-card reveal" style="border:1px solid rgba(27,196,248,0.35);">
+        <div class="img-wrap cursor-pointer" onclick="openLb('image copy.png','Reliance Foundation Skilling Academy - Computer Basics and Accounting')">
+          <img src="image copy.png" alt="Reliance Foundation Skilling Academy - Computer Basics and Accounting" />
+        </div>
+        <div class="body">
+          <h3>Computer Basics &amp; Accounting</h3>
+          <p class="iss">Reliance Foundation &bull; Skill India &bull; Sep 2026</p>
+          <div class="tags">
+            <span class="tag gold">Skill India</span>
+            <span class="tag">Reliance</span>
+            <span class="tag">90 Hours</span>
+          </div>
+          <div class="cert-actions">
+            <button class="btn-o" onclick="openLb('image copy.png','Reliance Foundation Skilling Academy - Computer Basics and Accounting')">
+              <i class="fas fa-expand"></i> View Full Image &rarr;
+            </button>
+          </div>
+        </div>
+      </article>
 
       <!-- OCI -->
       <article class="gc cert-card reveal">
@@ -186,7 +207,7 @@
         </div>
       </article>
 
-      <!-- NISM — equal 3rd card -->
+      <!-- NISM — equal 4th card -->
       <article class="gc cert-card reveal">
         <div class="img-wrap">
           <img src="Screenshot 2026-07-20 135641.png"
