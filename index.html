@@ -458,7 +458,7 @@
           #1bc4f8 100%);
       background-size: 200% 100%;
       animation:
-        plFill 1.5s cubic-bezier(0.25, 0, 0.1, 1) forwards,
+        plFill 0.8s cubic-bezier(0.25, 0, 0.1, 1) forwards,
         plShimmer 0.8s linear infinite;
       box-shadow: 0 0 8px rgba(27, 196, 248, 0.7), 0 0 20px rgba(168, 85, 247, 0.35);
     }
@@ -2037,8 +2037,11 @@
   <main>
     <section id="home" class="min-h-screen flex items-center relative overflow-hidden parallax-section">
       <!-- React Bits: Galaxy Interactive WebGL Canvas -->
-      <div id="hero-galaxy-bg" class="galaxy-container absolute inset-0 pointer-events-auto opacity-85 z-0" aria-hidden="true"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/30 to-[#050505] pointer-events-none z-[1]" aria-hidden="true"></div>
+      <div id="hero-galaxy-bg" class="galaxy-container absolute inset-0 pointer-events-auto opacity-85 z-0"
+        aria-hidden="true"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/30 to-[#050505] pointer-events-none z-[1]"
+        aria-hidden="true"></div>
 
       <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <div class="order-2 lg:order-1 space-y-8 reveal-text parallax-layer">
@@ -2253,8 +2256,7 @@
 
       <!-- Ambient background blobs & grid (transferred from Hero) -->
       <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505] pointer-events-none" aria-hidden="true">
-        <div
-          class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/25 rounded-full blur-[128px] animate-blob">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/25 rounded-full blur-[128px] animate-blob">
         </div>
         <div
           class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000">
@@ -2359,39 +2361,21 @@
               </p>
             </div>
 
-            <!-- Data + craft paragraph -->
+            <!-- Craft & Journey narrative -->
             <div class="glass-card rounded-2xl p-7 reveal-text spotlight-card" style="transition-delay:100ms">
               <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                I enjoy working with data from <span class="text-accent font-semibold">raw to ready</span> &mdash;
-                cleaning, analyzing, and visualizing it to uncover insights that support
-                <strong class="text-white">clear, data-backed decision-making</strong>.
-                I use <strong class="text-white">Python, Machine Learning, SQL, Excel, Power BI, AI
-                  Tools</strong>,
-                to explore patterns, identifying trends, and translating complex datasets into
-                <span class="text-accent font-semibold">simple, meaningful stories</span>.
+                I take data from <span class="text-accent font-semibold">raw to ready</span> &mdash; cleaning, modeling,
+                and transforming complex numbers into clear, decision-ready visual stories using <strong
+                  class="text-white">Python, SQL, Data Visualization, and Machine Learning</strong>.
               </p>
               <p class="text-gray-300 leading-relaxed text-base md:text-lg mt-4">
-                Beyond analytics, I bring a creative edge through
-                <strong class="text-white">design and video editing</strong>,
-                blending logic with creativity. I also actively build and experiment with
-                <strong class="text-accent">automation workflows</strong> to eliminate repetitive tasks
-                and improve efficiency.
+                Beyond analytics, I bring a creative edge with <strong class="text-white">design and video
+                  editing</strong>, while engineering <strong class="text-accent">smart automation workflows</strong>
+                that eliminate repetitive tasks and boost efficiency.
               </p>
-            </div>
-
-            <!-- Personal side paragraph -->
-            <div class="glass-card rounded-2xl p-7 reveal-text spotlight-card" style="transition-delay:150ms">
-              <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                Outside academics and technology, I'm a pretty simple person. I enjoy
-                <span class="text-accent font-semibold">anime, gaming, travelling</span>, spending time
-                with friends, and finding quiet moments to think or just look at the night sky.
-                I like discovering new things, whether it's a new place, a new idea, or something
-                I've never tried before.
-              </p>
-              <p class="text-gray-300 leading-relaxed text-base md:text-lg mt-4">
-                I'm still figuring out where this journey will take me, but that's part of what makes
-                it interesting. This portfolio is a small reflection of that journey &mdash; the things I've
-                tried, the things I've learned, and the person I'm becoming along the way.
+              <p class="text-gray-300 leading-relaxed text-base md:text-lg mt-4 text-gray-300/90">
+                This portfolio is an evolving reflection of that journey &mdash; the challenges I've tackled, the tools
+                I've explored, and the curious builder I'm becoming along the way.
               </p>
             </div>
 
@@ -2800,8 +2784,11 @@
 
     <section id="skills" class="py-20 bg-dark/50 relative overflow-hidden" aria-label="Technical Skills">
       <!-- React Bits: GradientASCII Interactive WebGL Canvas -->
-      <div id="skills-ascii-bg" class="gradient-ascii-container absolute inset-0 pointer-events-auto opacity-75 z-0" aria-hidden="true"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-[#0a0a0a]/90 pointer-events-none z-[1]" aria-hidden="true"></div>
+      <div id="skills-ascii-bg" class="gradient-ascii-container absolute inset-0 pointer-events-auto opacity-75 z-0"
+        aria-hidden="true"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-[#0a0a0a]/90 pointer-events-none z-[1]"
+        aria-hidden="true"></div>
 
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
         <div class="floating-bubble w-20 h-20 left-[10%] animation-delay-2000" style="animation-duration: 15s">
@@ -4305,15 +4292,14 @@
         checkVisibility();
       })();
 
-      // PERFORMANCE: keep the intro, but do not make it wait for every page asset.
-      // This code runs on DOMContentLoaded, so the content is already parsed.
+      // Fast preloader: don't wait for window.load or every image/background asset.
       (function runPreloader() {
         const preloader = document.getElementById('preloader');
-        const statusEl = document.getElementById('pl-status');
-        const logLines = [0, 1, 2, 3, 4, 5].map(i => document.getElementById('pl-l' + i));
         if (!preloader) return;
 
-        const delays = [0, 100, 200, 300, 400, 500];
+        const statusEl = document.getElementById('pl-status');
+        const logLines = [0, 1, 2, 3, 4, 5].map(i => document.getElementById('pl-l' + i));
+        const delays = [0, 80, 160, 240, 320, 400];
         logLines.forEach((el, i) => {
           if (el) setTimeout(() => el.classList.add('pl-show'), delays[i]);
         });
@@ -4323,8 +4309,6 @@
           setTimeout(() => { if (statusEl) statusEl.textContent = txt; }, delays[i]);
         });
 
-        // Start the exit after 550ms; the complete intro is now about 900ms,
-        // rather than waiting for window.load plus another ~2 seconds.
         setTimeout(() => {
           preloader.classList.add('pl-exit');
           setTimeout(() => {
@@ -4332,7 +4316,7 @@
             preloader.style.visibility = 'hidden';
             preloader.style.display = 'none';
           }, 350);
-        }, 550);
+        }, 450);
       })();
 
       // Typing Effect
@@ -4345,9 +4329,9 @@
       let roleIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
-      const typingSpeed = 55;
+      const typingSpeed = 60;
       const erasingSpeed = 30;
-      const delayBetweenRoles = 1100;
+      const delayBetweenRoles = 900;
       const typingElement = document.getElementById("typing-text");
 
       function type() {
@@ -4373,10 +4357,10 @@
       }
       type();
 
-      // === VR LOGO POP-IN (matches new 2s preloader timing) ===
+      // === VR LOGO POP-IN ===
       const vrLogo = document.getElementById('vr-logo');
       if (vrLogo) {
-        setTimeout(() => vrLogo.classList.add('vr-visible'), 2150);
+        setTimeout(() => vrLogo.classList.add('vr-visible'), 850);
       }
 
       // Form Handling (guarded — form may not be present in DOM)
@@ -4583,8 +4567,8 @@
         const sections = document.querySelectorAll('section[id]');
         if (!di) return;
 
-        // --- 1. Pop-in after preloader fades (new 2s preloader: 1650ms + 350ms + 200ms buffer) ---
-        const PRELOADER_DURATION = 2200; // ms total
+        // --- 1. Pop-in after the fast preloader fades ---
+        const PRELOADER_DURATION = 800; // ms total
         setTimeout(() => {
           di.classList.add('di-visible');
         }, PRELOADER_DURATION);
@@ -4727,14 +4711,13 @@
       document.head.appendChild(s);
     })();
   </script>
-  <!-- Galaxy is part of the hero, so keep it available at startup. -->
+  <!-- React Bits: Galaxy & GradientASCII Interactive WebGL Component Scripts -->
   <script src="galaxy.js" defer></script>
-
-  <!-- Lazy-load the below-the-fold WebGL effect only when Skills is nearby. -->
   <script>
     (function () {
       const skillsBg = document.getElementById('skills-ascii-bg');
       if (!skillsBg) return;
+
       let loaded = false;
       function loadGradientASCII() {
         if (loaded) return;
@@ -4744,6 +4727,7 @@
         script.async = true;
         document.body.appendChild(script);
       }
+
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
           if (entries.some((entry) => entry.isIntersecting)) {
