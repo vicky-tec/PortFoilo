@@ -600,6 +600,44 @@
       }
     }
 
+    /* ============================================
+       REACT BITS: GradientASCII Component Styles
+       ============================================ */
+    .gradient-ascii-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .gradient-ascii-canvas {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* ============================================
+       REACT BITS: Galaxy Component Styles
+       ============================================ */
+    .galaxy-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .galaxy-canvas {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
     /* === CUSTOM SCROLLBAR === */
     ::-webkit-scrollbar {
       width: var(--space-1);
@@ -1998,26 +2036,12 @@
 
   <main>
     <section id="home" class="min-h-screen flex items-center relative overflow-hidden parallax-section">
-      <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
-        <div
-          class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px] animate-blob parallax-layer">
-        </div>
-        <div
-          class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000 parallax-layer">
-        </div>
-        <div
-          class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/30 rounded-full blur-[128px] animate-blob animation-delay-4000 parallax-layer">
-        </div>
-
-        <div class="absolute inset-0" style="
-              background-image: radial-gradient(
-                rgba(255, 255, 255, 0.1) 1px,
-                transparent 1px
-              );
-              background-size: 50px 50px;
-              opacity: 0.5;
-            "></div>
-      </div>
+      <!-- React Bits: Galaxy Interactive WebGL Canvas -->
+      <div id="hero-galaxy-bg" class="galaxy-container absolute inset-0 pointer-events-auto opacity-85 z-0"
+        aria-hidden="true"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/30 to-[#050505] pointer-events-none z-[1]"
+        aria-hidden="true"></div>
 
       <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <div class="order-2 lg:order-1 space-y-8 reveal-text parallax-layer">
@@ -2230,10 +2254,25 @@
     <!-- ===== ABOUT SECTION ===== -->
     <section id="about" class="py-24 relative overflow-hidden" aria-label="About Vicky Raj">
 
-      <!-- Ambient background blobs -->
-      <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div class="absolute top-1/4 left-0 w-80 h-80 bg-accent/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-1/4 right-0 w-80 h-80 bg-purple-700/10 rounded-full blur-[120px]"></div>
+      <!-- Ambient background blobs & grid (transferred from Hero) -->
+      <div class="absolute inset-0 z-0 overflow-hidden bg-[#050505] pointer-events-none" aria-hidden="true">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/25 rounded-full blur-[128px] animate-blob">
+        </div>
+        <div
+          class="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000">
+        </div>
+        <div
+          class="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-900/25 rounded-full blur-[128px] animate-blob animation-delay-4000">
+        </div>
+
+        <div class="absolute inset-0" style="
+              background-image: radial-gradient(
+                rgba(255, 255, 255, 0.1) 1px,
+                transparent 1px
+              );
+              background-size: 50px 50px;
+              opacity: 0.5;
+            "></div>
       </div>
 
       <div class="container mx-auto px-6 relative z-10">
@@ -2322,39 +2361,21 @@
               </p>
             </div>
 
-            <!-- Data + craft paragraph -->
+            <!-- Craft & Journey narrative -->
             <div class="glass-card rounded-2xl p-7 reveal-text spotlight-card" style="transition-delay:100ms">
               <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                I enjoy working with data from <span class="text-accent font-semibold">raw to ready</span> &mdash;
-                cleaning, analyzing, and visualizing it to uncover insights that support
-                <strong class="text-white">clear, data-backed decision-making</strong>.
-                I use <strong class="text-white">Python, Machine Learning, SQL, Excel, Power BI, AI
-                  Tools</strong>,
-                to explore patterns, identifying trends, and translating complex datasets into
-                <span class="text-accent font-semibold">simple, meaningful stories</span>.
+                I take data from <span class="text-accent font-semibold">raw to ready</span> &mdash; cleaning, modeling,
+                and transforming complex numbers into clear, decision-ready visual stories using <strong
+                  class="text-white">Python, SQL, Data Visualization, and Machine Learning</strong>.
               </p>
               <p class="text-gray-300 leading-relaxed text-base md:text-lg mt-4">
-                Beyond analytics, I bring a creative edge through
-                <strong class="text-white">design and video editing</strong>,
-                blending logic with creativity. I also actively build and experiment with
-                <strong class="text-accent">automation workflows</strong> to eliminate repetitive tasks
-                and improve efficiency.
+                Beyond analytics, I bring a creative edge with <strong class="text-white">design and video
+                  editing</strong>, while engineering <strong class="text-accent">smart automation workflows</strong>
+                that eliminate repetitive tasks and boost efficiency.
               </p>
-            </div>
-
-            <!-- Personal side paragraph -->
-            <div class="glass-card rounded-2xl p-7 reveal-text spotlight-card" style="transition-delay:150ms">
-              <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                Outside academics and technology, I'm a pretty simple person. I enjoy
-                <span class="text-accent font-semibold">anime, gaming, travelling</span>, spending time
-                with friends, and finding quiet moments to think or just look at the night sky.
-                I like discovering new things, whether it's a new place, a new idea, or something
-                I've never tried before.
-              </p>
-              <p class="text-gray-300 leading-relaxed text-base md:text-lg mt-4">
-                I'm still figuring out where this journey will take me, but that's part of what makes
-                it interesting. This portfolio is a small reflection of that journey &mdash; the things I've
-                tried, the things I've learned, and the person I'm becoming along the way.
+              <p class="text-gray-300 leading-relaxed text-base md:text-lg mt-4 text-gray-300/90">
+                This portfolio is an evolving reflection of that journey &mdash; the challenges I've tackled, the tools
+                I've explored, and the curious builder I'm becoming along the way.
               </p>
             </div>
 
@@ -2761,8 +2782,15 @@
       </div>
     </section>
 
-    <section id="skills" class="py-20 bg-dark/50 relative overflow-hidden">
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <section id="skills" class="py-20 bg-dark/50 relative overflow-hidden" aria-label="Technical Skills">
+      <!-- React Bits: GradientASCII Interactive WebGL Canvas -->
+      <div id="skills-ascii-bg" class="gradient-ascii-container absolute inset-0 pointer-events-auto opacity-75 z-0"
+        aria-hidden="true"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-[#0a0a0a]/90 pointer-events-none z-[1]"
+        aria-hidden="true"></div>
+
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
         <div class="floating-bubble w-20 h-20 left-[10%] animation-delay-2000" style="animation-duration: 15s">
           Python
         </div>
@@ -4696,6 +4724,9 @@
       document.head.appendChild(s);
     })();
   </script>
+  <!-- React Bits: Galaxy & GradientASCII Interactive WebGL Component Scripts -->
+  <script src="galaxy.js" defer></script>
+  <script src="gradient-ascii.js" defer></script>
 </body>
 
 </html>
