@@ -195,9 +195,12 @@
 
     /* Keep mobile scrolling responsive by removing decorative GPU-heavy effects. */
     @media (max-width: 768px) {
-      #hero-galaxy-bg,
-      #skills-ascii-bg {
+      #hero-galaxy-bg {
         display: none !important;
+      }
+
+      #skills-ascii-bg {
+        display: block !important;
       }
 
       .glass-card,
@@ -4774,7 +4777,6 @@
     (function () {
       const skillsBg = document.getElementById('skills-ascii-bg');
       if (!skillsBg) return;
-      if (window.matchMedia('(max-width: 768px)').matches) return;
 
       let loaded = false;
       function loadGradientASCII() {
