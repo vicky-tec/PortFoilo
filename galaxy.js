@@ -557,6 +557,7 @@ void main() {
     const heroGalaxy = document.getElementById('hero-galaxy-bg') || document.getElementById('about-galaxy-bg');
     if (heroGalaxy) {
       const compact = window.matchMedia('(max-width: 768px)').matches;
+      if (compact) return;
 
       createGalaxy(heroGalaxy, {
         density: compact ? 0.58 : 0.78,

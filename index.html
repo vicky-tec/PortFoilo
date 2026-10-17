@@ -193,6 +193,37 @@
       }
     }
 
+    /* Keep mobile scrolling responsive by removing decorative GPU-heavy effects. */
+    @media (max-width: 768px) {
+      #hero-galaxy-bg,
+      #skills-ascii-bg {
+        display: none !important;
+      }
+
+      .glass-card,
+      [class*="backdrop-blur"] {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+      }
+
+      .hero-blob,
+      .floating-bubble,
+      .tech-marquee-track,
+      .animate-blob,
+      .animate-bounce,
+      .animate-ping,
+      .animate-pulse,
+      #vr-beat-text,
+      #vr-bars,
+      [class*="animate-[float_"] {
+        animation: none !important;
+      }
+
+      .floating-bubble {
+        display: none !important;
+      }
+    }
+
     /* ============================================
        RETRO GENAI PRELOADER
        ============================================ */
@@ -4717,6 +4748,7 @@
     (function () {
       const skillsBg = document.getElementById('skills-ascii-bg');
       if (!skillsBg) return;
+      if (window.matchMedia('(max-width: 768px)').matches) return;
 
       let loaded = false;
       function loadGradientASCII() {
