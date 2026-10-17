@@ -775,8 +775,8 @@ void main() {
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(container);
     const intersection = new IntersectionObserver(entries => {
-      visible = entries.some(entry => entry.isIntersecting);
-      if (visible) {
+      if (entries.some(entry => entry.isIntersecting)) {
+        visible = true;
         last = 0;
         wake();
       }
