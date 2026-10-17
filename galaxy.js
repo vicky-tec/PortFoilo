@@ -365,6 +365,9 @@ void main() {
     };
     let raf = 0;
     let last = 0;
+    let lastRender = 0;
+    // Mobile gets a steady 30 FPS background; desktop keeps native rAF cadence.
+    const frameInterval = window.innerWidth <= 768 ? 1000 / 30 : 0;
     let visible = true;
 
     const render = () => {
@@ -418,6 +421,13 @@ void main() {
     const frame = now => {
       raf = 0;
       if (!visible || document.hidden) return;
+
+      if (frameInterval > 0 && lastRender && now - lastRender < frameInterval) {
+        raf = requestAnimationFrame(frame);
+        return;
+      }
+      lastRender = now;
+
       const dt = last ? clamp((now - last) / 1000, 0.0005, 0.05) : 1 / 60;
       last = now;
       const motion = settings.disableAnimation || reduce ? 0 : 1;
@@ -546,17 +556,23 @@ void main() {
   function initGalaxy() {
     const heroGalaxy = document.getElementById('hero-galaxy-bg') || document.getElementById('about-galaxy-bg');
     if (heroGalaxy) {
+      const compact = window.matchMedia('(max-width: 768px)').matches;
+
       createGalaxy(heroGalaxy, {
-        density: 1.1,
-        glowIntensity: 0.38,
-        flareIntensity: 1.2,
-        starSpeed: 0.5,
-        mouseRepulsion: true,
-        repulsionStrength: 2.2,
-        clickWarp: true,
+        density: compact ? 0.58 : 0.78,
+        layers: compact ? 2 : 3,
+        dpr: compact ? 1 : Math.min(window.devicePixelRatio || 1, 1.25),
+        glowIntensity: 0.24,
+        flareIntensity: 0.75,
+        starSpeed: 0.38,
+        mouseInteraction: !compact,
+        mouseRepulsion: !compact,
+        repulsionStrength: 1.5,
+        clickWarp: false,
+        intro: false,
         starColors: ['#1bc4f8', '#a855f7', '#38bdf8', '#ffffff'],
         transparent: true,
-        opacity: 0.85
+        opacity: 0.82
       });
     }
   }
