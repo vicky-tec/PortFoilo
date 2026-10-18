@@ -527,6 +527,8 @@ void main() {
     let grainClock = 0;
     let raf = 0;
     let last = 0;
+    let lastRender = 0;
+    const frameInterval = window.innerWidth <= 768 ? 1000 / 30 : 0;
     let visible = true;
     let disposed = false;
 
@@ -708,6 +710,13 @@ void main() {
     const frame = now => {
       raf = 0;
       if (disposed || !visible || document.hidden) return;
+
+      if (frameInterval > 0 && lastRender && now - lastRender < frameInterval) {
+        raf = requestAnimationFrame(frame);
+        return;
+      }
+      lastRender = now;
+
       const dt = last ? clamp((now - last) / 1000, 0.001, 0.05) : 1 / 60;
       last = now;
       if (!reduce) {
