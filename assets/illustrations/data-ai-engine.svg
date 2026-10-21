@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
   <title id="title">Data-to-AI Engine</title>
-  <desc id="desc">An isometric machine showing data intake, cleaning, Python and machine learning processing, and an analytics dashboard.</desc>
+  <desc id="desc">A premium isometric machine showing raw data entering a processing line, a dominant AI core, and a connected analytics dashboard.</desc>
   <defs>
     <style>
       .flow-motion { display: none; }
@@ -8,99 +8,120 @@
         .flow-motion { display: inline; }
       }
     </style>
-    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#182235"/>
-      <stop offset="1" stop-color="#0b1020"/>
+    <linearGradient id="deck" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#14233a"/><stop offset="1" stop-color="#070d18"/>
     </linearGradient>
-    <linearGradient id="surface2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#263654"/>
-      <stop offset="1" stop-color="#11182a"/>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#304667"/><stop offset="1" stop-color="#17263e"/>
     </linearGradient>
-    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1bc4f8"/>
-      <stop offset="1" stop-color="#3b82f6"/>
+    <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#1b2d48"/><stop offset="1" stop-color="#0b1424"/>
     </linearGradient>
-    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#a855f7"/>
-      <stop offset="1" stop-color="#6366f1"/>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1a2941"/><stop offset="1" stop-color="#09111f"/>
+    </linearGradient>
+    <linearGradient id="coreTop" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6843a4"/><stop offset="1" stop-color="#29255c"/>
+    </linearGradient>
+    <linearGradient id="coreFront" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#35275d"/><stop offset="1" stop-color="#17152f"/>
     </linearGradient>
     <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d2032"/>
-      <stop offset="1" stop-color="#071019"/>
+      <stop stop-color="#102b43"/><stop offset="1" stop-color="#07121f"/>
     </linearGradient>
-    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#1bc4f8" stroke-opacity=".08"/>
+    <pattern id="deckGrid" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="skewY(-18)">
+      <path d="M28 0H0V28" fill="none" stroke="#53bde8" stroke-opacity=".09"/>
     </pattern>
   </defs>
 
-  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M102 390 420 270l666 74-320 128Z" fill="#07101d" stroke="#20304a" stroke-width="3"/>
-    <path d="m102 390 318-120v34L102 424Z" fill="#0c1727" stroke="#20304a" stroke-width="3"/>
-    <path d="m420 270 666 74v34l-666-74Z" fill="#111b2c" stroke="#20304a" stroke-width="3"/>
-    <path d="M150 374 420 274l600 68-270 103Z" fill="url(#grid)" opacity=".7"/>
+  <!-- grounded platform -->
+  <path d="m70 366 390-146 680 74-390 151Z" fill="#030811" stroke="#1b304b" stroke-width="3"/>
+  <path d="m70 366 390-146v26L70 394Z" fill="#0b1627" stroke="#1b304b" stroke-width="3"/>
+  <path d="m460 220 680 74v27l-680-75Z" fill="#101d31" stroke="#1b304b" stroke-width="3"/>
+  <path d="m118 359 342-128 616 67-346 128Z" fill="url(#deck)" stroke="#2b4667" stroke-width="2"/>
+  <path d="m118 359 342-128 616 67-346 128Z" fill="url(#deckGrid)"/>
+  <path d="m168 374 286-106 548 59" fill="none" stroke="#1bc4f8" stroke-opacity=".22" stroke-width="2"/>
 
-    <!-- Data intake module -->
-    <path d="m158 190 112-42 154 27-112 48Z" fill="#243754" stroke="#44648b" stroke-width="3"/>
-    <path d="m158 190v112l154 29V223Z" fill="url(#surface)" stroke="#44648b" stroke-width="3"/>
-    <path d="m312 223 112-48v114l-112 42Z" fill="url(#surface2)" stroke="#44648b" stroke-width="3"/>
-    <ellipse cx="270" cy="190" rx="112" ry="42" fill="#15233a" stroke="#5a7ea8" stroke-width="3"/>
-    <ellipse cx="270" cy="190" rx="78" ry="25" fill="#081422" stroke="#1bc4f8" stroke-opacity=".7" stroke-width="3"/>
-    <path d="M214 181h112M226 193h88M240 205h62" stroke="#1bc4f8" stroke-opacity=".7" stroke-width="5"/>
-    <path d="M184 258h92M184 276h68" stroke="#a7c6e8" stroke-opacity=".55" stroke-width="5"/>
-    <text x="192" y="334" fill="#cfe8ff" stroke="none" font-family="Space Grotesk,Arial,sans-serif" font-size="18" letter-spacing="2">RAW DATA</text>
+  <!-- raw data intake: compact cylinder and feeder -->
+  <g stroke-linejoin="round">
+    <path d="m150 204 92-34 115 20-92 38Z" fill="url(#top)" stroke="#486a91" stroke-width="3"/>
+    <path d="m150 204v83l115 23v-82Z" fill="url(#front)" stroke="#486a91" stroke-width="3"/>
+    <path d="m265 228 92-38v83l-92 37Z" fill="url(#side)" stroke="#486a91" stroke-width="3"/>
+    <ellipse cx="242" cy="204" rx="92" ry="34" fill="#172841" stroke="#6c91bb" stroke-width="3"/>
+    <ellipse cx="242" cy="204" rx="61" ry="20" fill="#071422" stroke="#1bc4f8" stroke-width="3"/>
+    <path d="M202 201h80M213 211h58" stroke="#b9efff" stroke-opacity=".8" stroke-width="4"/>
+    <path d="M174 253h65M174 270h47" stroke="#9db9d6" stroke-opacity=".65" stroke-width="5"/>
+    <path d="m357 226 76-21 52 7-76 24Z" fill="#27466a" stroke="#5a83aa" stroke-width="3"/>
+    <path d="m409 236 76-24v23l-76 25Z" fill="#13243a" stroke="#4d739b" stroke-width="3"/>
+  </g>
 
-    <!-- Cleaning module -->
-    <path d="m382 214 130-46 160 30-130 51Z" fill="#233957" stroke="#44648b" stroke-width="3"/>
-    <path d="m382 214v108l160 28V249Z" fill="url(#surface)" stroke="#44648b" stroke-width="3"/>
-    <path d="m542 249 130-51v113l-130 39Z" fill="url(#surface2)" stroke="#44648b" stroke-width="3"/>
-    <path d="m416 241 74-22 86 15-75 24Z" fill="#0b1a2b" stroke="#1bc4f8" stroke-opacity=".6" stroke-width="2"/>
-    <path d="M432 257h92M432 275h62M432 293h78" stroke="#b8d5ef" stroke-opacity=".55" stroke-width="5"/>
-    <path d="m608 231 27-10v16l-27 10ZM608 258l27-10v16l-27 10ZM608 285l27-10v16l-27 10Z" fill="#1bc4f8" stroke="none"/>
-    <text x="420" y="369" fill="#cfe8ff" stroke="none" font-family="Space Grotesk,Arial,sans-serif" font-size="17" letter-spacing="1.6">CLEAN / SHAPE</text>
+  <!-- processing station -->
+  <g stroke-linejoin="round">
+    <path d="m387 182 111-42 147 25-112 45Z" fill="url(#top)" stroke="#507194" stroke-width="3"/>
+    <path d="m387 182v87l146 27v-86Z" fill="url(#front)" stroke="#507194" stroke-width="3"/>
+    <path d="m533 213 112-48v87l-112 44Z" fill="url(#side)" stroke="#507194" stroke-width="3"/>
+    <path d="m421 204 72-27 87 15-73 29Z" fill="#081525" stroke="#1bc4f8" stroke-opacity=".7" stroke-width="3"/>
+    <path d="M441 201h35M441 214h61M441 227h43" stroke="#bbdff7" stroke-opacity=".75" stroke-width="4"/>
+    <path d="m597 201 25-10v15l-25 10ZM597 226l25-10v15l-25 10ZM597 251l25-10v15l-25 10Z" fill="#1bc4f8"/>
+  </g>
 
-    <!-- Python / ML / AI core -->
-    <path d="m585 150 130-48 185 34-132 55Z" fill="#29365d" stroke="#5b6ca9" stroke-width="3"/>
-    <path d="m585 150v141l183 35V191Z" fill="url(#surface)" stroke="#5b6ca9" stroke-width="3"/>
-    <path d="m768 191 132-55v142l-132 48Z" fill="url(#surface2)" stroke="#5b6ca9" stroke-width="3"/>
-    <path d="m622 174 77-28 102 19-79 29Z" fill="#0a1422" stroke="#a855f7" stroke-opacity=".85" stroke-width="3"/>
-    <path d="M641 171h45M641 184h28M714 166h57" stroke="#d9c3ff" stroke-width="4"/>
-    <path d="M627 222h92M627 242h116M627 262h74" stroke="#8bcfff" stroke-opacity=".65" stroke-width="5"/>
-    <circle cx="837" cy="196" r="10" fill="#1bc4f8" stroke="none"/>
-    <circle cx="837" cy="231" r="10" fill="#a855f7" stroke="none"/>
-    <circle cx="837" cy="266" r="10" fill="#3b82f6" stroke="none"/>
-    <path d="M837 206v15M837 241v15" stroke="#d5e8ff" stroke-width="3"/>
-    <text x="633" y="326" fill="#ffffff" stroke="none" font-family="Space Grotesk,Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="1.6">PYTHON / ML / AI</text>
+  <!-- dominant AI core -->
+  <g stroke-linejoin="round">
+    <path d="m586 113 150-57 208 39-152 62Z" fill="url(#coreTop)" stroke="#a47be5" stroke-width="4"/>
+    <path d="m586 113v164l206 39V157Z" fill="url(#coreFront)" stroke="#8b65c9" stroke-width="4"/>
+    <path d="m792 157 152-62v163l-152 58Z" fill="#1f1942" stroke="#7256ad" stroke-width="4"/>
+    <path d="m635 137 102-38 128 24-103 41Z" fill="#0a1020" stroke="#d4b6ff" stroke-opacity=".75" stroke-width="3"/>
+    <path d="M666 135h40M666 149h67M770 125h51" stroke="#eadcff" stroke-width="5"/>
+    <rect x="642" y="184" width="112" height="58" rx="8" fill="#11132d" stroke="#a855f7" stroke-opacity=".75" stroke-width="3"/>
+    <path d="M658 203h79M658 219h51" stroke="#c6a6ff" stroke-width="5"/>
+    <circle cx="836" cy="193" r="11" fill="#1bc4f8"/>
+    <circle cx="836" cy="229" r="11" fill="#a855f7"/>
+    <circle cx="836" cy="265" r="11" fill="#3b82f6"/>
+    <path d="M836 204v14M836 240v14" stroke="#e5d7ff" stroke-width="3"/>
+    <path d="M618 269h78M618 286h111" stroke="#8d6bc1" stroke-width="5"/>
+  </g>
 
-    <!-- Analytics monitor -->
-    <path d="m858 165 156-59 172 35-157 64Z" fill="#263a58" stroke="#5b759d" stroke-width="3"/>
-    <path d="m858 165v135l171 33V205Z" fill="#101b2d" stroke="#5b759d" stroke-width="3"/>
-    <path d="m1029 205 157-64v137l-157 55Z" fill="#17253b" stroke="#5b759d" stroke-width="3"/>
-    <path d="m889 180 126-29 127 27-126 37Z" fill="url(#screen)" stroke="#1bc4f8" stroke-opacity=".65" stroke-width="2"/>
-    <path d="M910 221v50M938 210v61M966 218v53M994 199v72M1022 211v60" stroke="#1bc4f8" stroke-opacity=".55" stroke-width="10"/>
-    <path d="m1080 217 48-20M1080 244l72-30M1080 271l50-20" stroke="#a855f7" stroke-width="6"/>
-    <path d="m915 281 65-22 48 8 61-28" stroke="#ffffff" stroke-opacity=".75" stroke-width="3"/>
-    <path d="m969 344 43 8v42l-43-8ZM1012 352l45-17v43l-45 16Z" fill="#18263b" stroke="#5b759d" stroke-width="3"/>
-    <path d="m950 388 62 12 72-27" stroke="#5b759d" stroke-width="5"/>
-    <text x="884" y="424" fill="#cfe8ff" stroke="none" font-family="Space Grotesk,Arial,sans-serif" font-size="17" letter-spacing="1.5">INSIGHT DASHBOARD</text>
+  <!-- enlarged analytics monitor -->
+  <g stroke-linejoin="round">
+    <path d="m885 145 142-54 152 28-143 60Z" fill="#2c4567" stroke="#6686ae" stroke-width="3"/>
+    <path d="m885 145v128l151 30V179Z" fill="url(#front)" stroke="#6686ae" stroke-width="3"/>
+    <path d="m1036 179 143-60v129l-143 55Z" fill="url(#side)" stroke="#6686ae" stroke-width="3"/>
+    <path d="m912 161 111-25 103 20-111 30Z" fill="url(#screen)" stroke="#1bc4f8" stroke-opacity=".7" stroke-width="3"/>
+    <path d="M934 201v48M958 193v56M982 201v48M1006 186v63" stroke="#1bc4f8" stroke-opacity=".72" stroke-width="11"/>
+    <path d="m1063 198 66-25M1063 225l85-34M1063 252l55-22" stroke="#a855f7" stroke-width="7"/>
+    <path d="m933 261 49-18 38 8 52-27" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+    <path d="m1000 303 42 8v36l-42-8ZM1042 311l45-17v37l-45 16Z" fill="#1a2a43" stroke="#6686ae" stroke-width="3"/>
+    <path d="m967 342 75 15 65-25" fill="none" stroke="#6686ae" stroke-width="5"/>
+  </g>
 
-    <!-- Data-flow channels -->
-    <path id="flow-clean" d="M386 211c34-23 48-26 78-22 30 4 39-9 54-25" stroke="#1bc4f8" stroke-width="8"/>
-    <path id="flow-model" d="M672 184c38-21 56-20 88-8 30 12 51 9 76-11" stroke="#a855f7" stroke-width="8"/>
-    <path id="flow-insight" d="M900 191c38-7 54-4 77 12 29 20 49 19 77 3" stroke="#3b82f6" stroke-width="8"/>
-    <path d="M386 211c34-23 48-26 78-22 30 4 39-9 54-25M672 184c38-21 56-20 88-8 30 12 51 9 76-11M900 191c38-7 54-4 77 12 29 20 49 19 77 3" stroke="#d8f7ff" stroke-opacity=".55" stroke-width="2"/>
+  <!-- connected pipelines -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M356 224c35-25 45-25 78-21 28 4 43-11 60-26" stroke="#0a1626" stroke-width="16"/>
+    <path d="M356 224c35-25 45-25 78-21 28 4 43-11 60-26" stroke="#1bc4f8" stroke-width="7"/>
+    <path d="M650 183c34-23 52-24 84-10 29 13 49 10 76-10" stroke="#0a1626" stroke-width="17"/>
+    <path d="M650 183c34-23 52-24 84-10 29 13 49 10 76-10" stroke="#a855f7" stroke-width="7"/>
+    <path d="M941 173c29-7 50-4 71 12 28 21 46 21 73 7" stroke="#0a1626" stroke-width="17"/>
+    <path d="M941 173c29-7 50-4 71 12 28 21 46 21 73 7" stroke="#3b82f6" stroke-width="7"/>
+    <path d="M356 224c35-25 45-25 78-21 28 4 43-11 60-26M650 183c34-23 52-24 84-10 29 13 49 10 76-10M941 173c29-7 50-4 71 12 28 21 46 21 73 7" stroke="#e3faff" stroke-opacity=".58" stroke-width="2"/>
     <g class="flow-motion" aria-hidden="true">
-      <circle r="6" fill="#ffffff">
-        <animateMotion dur="2.4s" repeatCount="indefinite" path="M386 211c34-23 48-26 78-22 30 4 39-9 54-25"/>
+      <circle r="6" fill="#fff">
+        <animateMotion dur="2.6s" repeatCount="indefinite" path="M356 224c35-25 45-25 78-21 28 4 43-11 60-26"/>
       </circle>
-      <circle r="6" fill="#ffffff">
-        <animateMotion dur="2.8s" begin=".8s" repeatCount="indefinite" path="M672 184c38-21 56-20 88-8 30 12 51 9 76-11"/>
+      <circle r="6" fill="#fff">
+        <animateMotion dur="2.9s" begin=".7s" repeatCount="indefinite" path="M650 183c34-23 52-24 84-10 29 13 49 10 76-10"/>
       </circle>
-      <circle r="6" fill="#ffffff">
-        <animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M900 191c38-7 54-4 77 12 29 20 49 19 77 3"/>
+      <circle r="6" fill="#fff">
+        <animateMotion dur="3.1s" begin="1.3s" repeatCount="indefinite" path="M941 173c29-7 50-4 71 12 28 21 46 21 73 7"/>
       </circle>
     </g>
-    <circle cx="420" cy="196" r="8" fill="#1bc4f8" stroke="none"/>
-    <circle cx="716" cy="175" r="8" fill="#a855f7" stroke="none"/>
-    <circle cx="946" cy="198" r="8" fill="#3b82f6" stroke="none"/>
   </g>
+
+  <!-- restrained floating nodes and grounding accents -->
+  <g stroke="#a9eaff" stroke-width="2">
+    <circle cx="452" cy="120" r="7" fill="#1bc4f8"/>
+    <circle cx="474" cy="104" r="5" fill="#3b82f6"/>
+    <circle cx="1012" cy="75" r="6" fill="#a855f7"/>
+    <path d="M452 120 500 86M1012 75l46 30" fill="none" stroke-opacity=".55"/>
+  </g>
+  <path d="m548 412 106 12 116-28" fill="none" stroke="#1bc4f8" stroke-opacity=".18" stroke-width="5"/>
 </svg>
