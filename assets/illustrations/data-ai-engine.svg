@@ -2,6 +2,12 @@
   <title id="title">Data-to-AI Engine</title>
   <desc id="desc">An isometric machine showing data intake, cleaning, Python and machine learning processing, and an analytics dashboard.</desc>
   <defs>
+    <style>
+      .flow-motion { display: none; }
+      @media (prefers-reduced-motion: no-preference) {
+        .flow-motion { display: inline; }
+      }
+    </style>
     <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#182235"/>
       <stop offset="1" stop-color="#0b1020"/>
@@ -78,10 +84,21 @@
     <text x="884" y="424" fill="#cfe8ff" stroke="none" font-family="Space Grotesk,Arial,sans-serif" font-size="17" letter-spacing="1.5">INSIGHT DASHBOARD</text>
 
     <!-- Data-flow channels -->
-    <path d="M386 211c34-23 48-26 78-22 30 4 39-9 54-25" stroke="#1bc4f8" stroke-width="8"/>
-    <path d="M672 184c38-21 56-20 88-8 30 12 51 9 76-11" stroke="#a855f7" stroke-width="8"/>
-    <path d="M900 191c38-7 54-4 77 12 29 20 49 19 77 3" stroke="#3b82f6" stroke-width="8"/>
+    <path id="flow-clean" d="M386 211c34-23 48-26 78-22 30 4 39-9 54-25" stroke="#1bc4f8" stroke-width="8"/>
+    <path id="flow-model" d="M672 184c38-21 56-20 88-8 30 12 51 9 76-11" stroke="#a855f7" stroke-width="8"/>
+    <path id="flow-insight" d="M900 191c38-7 54-4 77 12 29 20 49 19 77 3" stroke="#3b82f6" stroke-width="8"/>
     <path d="M386 211c34-23 48-26 78-22 30 4 39-9 54-25M672 184c38-21 56-20 88-8 30 12 51 9 76-11M900 191c38-7 54-4 77 12 29 20 49 19 77 3" stroke="#d8f7ff" stroke-opacity=".55" stroke-width="2"/>
+    <g class="flow-motion" aria-hidden="true">
+      <circle r="6" fill="#ffffff">
+        <animateMotion dur="2.4s" repeatCount="indefinite" path="M386 211c34-23 48-26 78-22 30 4 39-9 54-25"/>
+      </circle>
+      <circle r="6" fill="#ffffff">
+        <animateMotion dur="2.8s" begin=".8s" repeatCount="indefinite" path="M672 184c38-21 56-20 88-8 30 12 51 9 76-11"/>
+      </circle>
+      <circle r="6" fill="#ffffff">
+        <animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M900 191c38-7 54-4 77 12 29 20 49 19 77 3"/>
+      </circle>
+    </g>
     <circle cx="420" cy="196" r="8" fill="#1bc4f8" stroke="none"/>
     <circle cx="716" cy="175" r="8" fill="#a855f7" stroke="none"/>
     <circle cx="946" cy="198" r="8" fill="#3b82f6" stroke="none"/>
