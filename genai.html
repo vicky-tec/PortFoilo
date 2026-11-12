@@ -1,0 +1,1813 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vicky Raj | Generative AI Studio & Creative Lab</title>
+  <meta name="description" content="Explore Vicky Raj's Generative AI creative portfolio: AI video generation, FlowMusic synthetic audio playlist, visual synthesis, and structured prompt engineering." />
+  
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vicky Raj Portfolio" />
+  <meta property="og:title" content="Vicky Raj | Generative AI Studio & Creative Lab" />
+  <meta property="og:description" content="Explore Vicky Raj's Generative AI creative portfolio: AI video generation, FlowMusic synthetic audio playlist, visual synthesis, and structured prompt engineering." />
+  <meta property="og:image" content="https://vickyrajiit.vercel.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Preconnect & DNS Prefetch for Fast Smooth Loading -->
+  <link rel="dns-prefetch" href="https://drive.google.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;600;700&family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="icon" href="picofme.png" />
+
+  <style>
+    :root {
+      /* Core Palette (8px Grid & Semantic Colors) */
+      --color-bg-primary: #050505;
+      --color-bg-secondary: #0a0a0a;
+      --color-bg-card: rgba(255, 255, 255, 0.035);
+      --color-bg-card-hover: rgba(255, 255, 255, 0.06);
+      
+      --color-accent-cyan: #1bc4f8;
+      --color-accent-purple: #a855f7;
+      --color-accent-blue: #3b82f6;
+      --color-accent-pink: #ec4899;
+      --color-accent-yellow: #facc15;
+      --color-accent-green: #22c55e;
+
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #e2e8f0;
+      --color-text-muted: #94a3b8;
+      --color-border-subtle: rgba(255, 255, 255, 0.08);
+      --color-border-accent: rgba(27, 196, 248, 0.3);
+
+      --glow-cyan: rgba(27, 196, 248, 0.3);
+      --glow-purple: rgba(168, 85, 247, 0.25);
+
+      /* 8px Spacing System */
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 40px;
+      --space-6: 48px;
+      --space-8: 64px;
+      --space-10: 80px;
+      --space-12: 96px;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Accessibility: Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal-elem {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .glow-blob {
+        animation: none !important;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-secondary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-overflow-scrolling: touch;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ── AMBIENT BACKGROUND GLOW BLOBS ── */
+    .ambient-glows {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.16;
+      animation: ambientFloat 16s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    .blob-1 {
+      width: 540px;
+      height: 540px;
+      background: var(--color-accent-purple);
+      top: -100px;
+      left: -120px;
+    }
+    .blob-2 {
+      width: 480px;
+      height: 480px;
+      background: var(--color-accent-cyan);
+      top: 35%;
+      right: -100px;
+      animation-delay: -6s;
+    }
+    .blob-3 {
+      width: 380px;
+      height: 380px;
+      background: var(--color-accent-pink);
+      bottom: 5%;
+      left: 30%;
+      animation-delay: -10s;
+    }
+    @keyframes ambientFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(32px, 24px) scale(1.08); }
+    }
+
+    /* ── MOBILE SCROLL & PERFORMANCE OPTIMIZATION ── */
+    @media (max-width: 768px) {
+      .ambient-glows {
+        display: none !important; /* Disable GPU heavy blur compositing on mobile for smooth 60fps/120fps scrolling */
+      }
+      .glass-card {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        background: rgba(14, 14, 18, 0.95) !important;
+      }
+      header {
+        padding: 12px 16px !important;
+      }
+      main {
+        padding: var(--space-4) 14px var(--space-8) !important;
+      }
+      .hero {
+        margin-bottom: var(--space-5) !important;
+      }
+      .hero h1 {
+        font-size: clamp(1.85rem, 6.5vw, 2.8rem) !important;
+      }
+      .stats-strip {
+        gap: var(--space-2) !important;
+      }
+      .stat-box {
+        padding: 6px 10px !important;
+        min-width: 120px;
+      }
+      .filter-nav {
+        gap: 6px !important;
+        margin-bottom: var(--space-5) !important;
+      }
+      .filter-btn {
+        padding: 8px 14px !important;
+        font-size: 0.8rem !important;
+        min-height: 40px;
+      }
+      .playlist-card {
+        padding: var(--space-3) !important;
+        grid-template-columns: 1fr !important;
+      }
+      .playlist-cover-art {
+        max-width: 200px;
+        margin: 0 auto var(--space-2);
+      }
+      .video-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3) !important;
+      }
+      .btn-primary, .btn-outline {
+        min-height: 40px;
+        touch-action: manipulation;
+      }
+    }
+
+    /* ── STICKY HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(5, 5, 5, 0.85);
+      border-bottom: 1px solid var(--color-border-subtle);
+      padding: var(--space-2) var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-link {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-accent-cyan);
+      letter-spacing: 2px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .brand-badge {
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: var(--color-accent-purple);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 8px 20px;
+      border: 1px solid var(--color-border-accent);
+      border-radius: var(--radius-full);
+      color: var(--color-accent-cyan);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition-smooth);
+      background: rgba(27, 196, 248, 0.05);
+    }
+    .back-btn:hover {
+      background: var(--color-accent-cyan);
+      color: #000;
+      box-shadow: 0 0 20px var(--glow-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* ── MAIN CONTAINER ── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-3) var(--space-12);
+    }
+
+    /* ── HERO BANNER ── */
+    .hero {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(27, 196, 248, 0.08);
+      border: 1px solid rgba(27, 196, 248, 0.25);
+      color: var(--color-accent-cyan);
+      font-size: 0.8rem;
+      font-family: 'Space Grotesk', monospace;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--color-accent-cyan) 10%, var(--color-accent-purple) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto var(--space-4);
+    }
+
+    .stats-strip {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+    .stat-box {
+      text-align: center;
+      padding: var(--space-1) var(--space-3);
+    }
+    .stat-number {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-accent-cyan);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── CATEGORY FILTER TABS ── */
+    .filter-nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-1);
+      margin-bottom: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border-subtle);
+      background: var(--color-bg-card);
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-family: inherit;
+    }
+    .filter-btn:hover {
+      border-color: rgba(27, 196, 248, 0.4);
+      color: var(--color-text-primary);
+      background: var(--color-bg-card-hover);
+    }
+    .filter-btn.active {
+      background: linear-gradient(135deg, rgba(27, 196, 248, 0.18), rgba(168, 85, 247, 0.18));
+      border-color: var(--color-accent-cyan);
+      color: var(--color-accent-cyan);
+      box-shadow: 0 0 24px rgba(27, 196, 248, 0.2);
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .section-header h2 {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .section-header .section-count {
+      color: var(--color-accent-purple);
+      font-size: 0.9rem;
+      margin-left: auto;
+      font-family: 'Orbitron', monospace;
+    }
+
+    /* ── CARDS & GLASSMORPHISM ── */
+    .glass-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all var(--transition-smooth);
+      position: relative;
+    }
+    .glass-card:hover {
+      border-color: rgba(27, 196, 248, 0.35);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 30px var(--glow-cyan);
+      transform: translateY(-4px);
+    }
+
+    /* ── TAGS ── */
+    .skill-tag {
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: rgba(27, 196, 248, 0.08);
+      border: 1px solid rgba(27, 196, 248, 0.22);
+      color: var(--color-accent-cyan);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .skill-tag.purple {
+      background: rgba(168, 85, 247, 0.08);
+      border-color: rgba(168, 85, 247, 0.25);
+      color: var(--color-accent-purple);
+    }
+    .skill-tag.gold {
+      background: rgba(250, 204, 21, 0.08);
+      border-color: rgba(250, 204, 21, 0.25);
+      color: var(--color-accent-yellow);
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-purple));
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-smooth);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.15);
+      box-shadow: 0 0 24px var(--glow-cyan);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border-accent);
+      background: transparent;
+      color: var(--color-accent-cyan);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all var(--transition-smooth);
+      font-family: inherit;
+    }
+    .btn-outline:hover {
+      background: var(--color-accent-cyan);
+      color: #000;
+    }
+
+    /* ── ACCORDION PROMPT DRAWER ── */
+    .prompt-drawer {
+      display: none;
+      margin-top: var(--space-2);
+      padding: var(--space-2);
+      border-radius: var(--radius-sm);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--color-border-subtle);
+      font-size: 0.78rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .prompt-drawer.open {
+      display: block;
+      animation: drawerOpen 0.25s ease-out;
+    }
+    @keyframes drawerOpen {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-1);
+      color: var(--color-accent-cyan);
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .prompt-text {
+      font-family: 'Space Grotesk', monospace;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.03);
+      padding: var(--space-1);
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: var(--space-1);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* ── MUSIC SHOWCASE ── */
+    .music-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .playlist-card {
+      padding: var(--space-4);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-4);
+      align-items: center;
+      background: radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.12), transparent 45%),
+                  radial-gradient(circle at 90% 80%, rgba(27, 196, 248, 0.12), transparent 45%),
+                  var(--color-bg-card);
+      border-radius: var(--radius-lg);
+    }
+    @media (max-width: 860px) {
+      .playlist-card {
+        grid-template-columns: 1fr;
+      }
+    }
+    .playlist-cover-art {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #0d0d0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .playlist-cover-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .track-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+    .track-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all var(--transition-smooth);
+    }
+    .track-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(27, 196, 248, 0.3);
+    }
+    .track-info {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .track-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(27, 196, 248, 0.15);
+      color: var(--color-accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+    .track-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .track-meta {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ── VIDEO SHOWCASE GRID ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    @media (max-width: 860px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .video-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .video-container-16-9 {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background: #000;
+      overflow: hidden;
+    }
+    .video-container-16-9 video,
+    .video-container-16-9 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-poster-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(27, 196, 248, 0.15), rgba(168, 85, 247, 0.2)), #0d0d0d;
+      color: #fff;
+      cursor: pointer;
+      transition: all var(--transition-smooth);
+    }
+    .video-poster-placeholder:hover {
+      background: linear-gradient(135deg, rgba(27, 196, 248, 0.25), rgba(168, 85, 247, 0.35)), #0d0d0d;
+    }
+    .play-btn-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(27, 196, 248, 0.9);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: var(--space-1);
+      box-shadow: 0 0 30px var(--glow-cyan);
+      transition: transform var(--transition-smooth);
+    }
+    .video-poster-placeholder:hover .play-btn-circle {
+      transform: scale(1.15);
+    }
+    .video-card-body {
+      padding: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .video-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .video-desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+      line-height: 1.5;
+    }
+
+    /* ── VISUALS & PROMPT GALLERY ── */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    @media (max-width: 960px) {
+      .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .image-card {
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .image-thumb-wrap {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      background: #090909;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-thumb-wrap img,
+    .image-thumb-wrap svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--transition-smooth), filter 0.4s ease;
+    }
+    .image-card:hover .image-thumb-wrap img,
+    .image-card:hover .image-thumb-wrap svg {
+      transform: scale(1.08);
+      filter: brightness(1.1);
+    }
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      opacity: 0;
+      transition: opacity var(--transition-smooth);
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-2);
+    }
+    .image-card:hover .image-overlay {
+      opacity: 1;
+    }
+    .image-overlay-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--color-accent-cyan);
+      font-weight: 600;
+    }
+    .image-card-body {
+      padding: var(--space-2);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .image-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .image-card-model {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-1);
+    }
+
+    /* ── LIGHTBOX MODAL (Matching #certificates #reliance-lightbox) ── */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3);
+    }
+    .lightbox-modal.open {
+      display: flex;
+      animation: fadeInModal 0.25s ease-out;
+    }
+    @keyframes fadeInModal {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .lightbox-inner {
+      position: relative;
+      max-width: 1040px;
+      width: 100%;
+      background: #0c0c0c;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 40px var(--glow-cyan);
+      max-height: 90vh;
+    }
+    @media (max-width: 860px) {
+      .lightbox-inner {
+        grid-template-columns: 1fr;
+        max-height: 94vh;
+        overflow-y: auto;
+      }
+    }
+    .lightbox-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-smooth);
+      z-index: 30;
+    }
+    .lightbox-close-btn:hover {
+      background: var(--color-accent-cyan);
+      color: #000;
+      transform: rotate(90deg);
+    }
+    .lightbox-preview-wrap {
+      background: #050505;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-2);
+      border-right: 1px solid var(--color-border-subtle);
+      overflow: hidden;
+    }
+    .lightbox-preview-wrap img,
+    .lightbox-preview-wrap svg {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+    .lightbox-details {
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .lightbox-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: var(--space-1);
+    }
+    .lightbox-model-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--color-accent-cyan);
+      font-family: 'Space Grotesk', monospace;
+      margin-bottom: var(--space-2);
+    }
+    .lightbox-section-label {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      font-family: 'Space Grotesk', monospace;
+    }
+    .lightbox-prompt-box {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.8rem;
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-sm);
+      padding: var(--space-2);
+      line-height: 1.5;
+      margin-bottom: var(--space-2);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .lightbox-params-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-1);
+      margin-bottom: var(--space-3);
+    }
+    .param-item {
+      font-size: 0.72rem;
+      padding: 6px 10px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--color-text-muted);
+    }
+    .param-item strong {
+      color: #fff;
+    }
+
+    /* ── TOAST NOTIFICATION ── */
+    .copy-toast {
+      position: fixed;
+      bottom: var(--space-4);
+      right: var(--space-4);
+      background: rgba(10, 10, 10, 0.95);
+      border: 1px solid var(--color-accent-cyan);
+      color: var(--color-text-primary);
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 32px var(--glow-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      z-index: 100000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-smooth);
+      pointer-events: none;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-4) var(--space-3);
+      border-top: 1px solid var(--color-border-subtle);
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--color-accent-cyan);
+      text-decoration: none;
+      transition: color var(--transition-smooth);
+    }
+    footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal-elem {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
+    }
+    .reveal-elem.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient floating glow blobs -->
+  <div class="ambient-glows" aria-hidden="true">
+    <div class="glow-blob blob-1"></div>
+    <div class="glow-blob blob-2"></div>
+    <div class="glow-blob blob-3"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header role="banner">
+    <a href="index.html" class="brand-link" aria-label="Back to Vicky Raj Portfolio Home">
+      VR. <span class="brand-badge">GenAI Lab</span>
+    </a>
+    <a href="index.html#genai-studio" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero reveal-elem" aria-labelledby="genai-page-title">
+      <div class="hero-eyebrow">
+        <i class="fas fa-wand-magic-sparkles"></i> Multimodal Generative AI Studio
+      </div>
+      <h1 id="genai-page-title">
+        Creative AI &amp; <span class="gradient-text">Prompt Engineering</span>
+      </h1>
+      <p>
+        Exploring algorithmic music production, generative video storytelling, and structured latent-space imagery &mdash; bridging technical data architecture with state-of-the-art creative intelligence.
+      </p>
+
+      <div class="stats-strip" role="region" aria-label="Lab metrics">
+        <div class="stat-box">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Modalities</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">FlowMusic</div>
+          <div class="stat-label">AI Audio Suite</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Custom Prompts</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">Multi-Model</div>
+          <div class="stat-label">Sora · Runway · Gemini</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY FILTER TABS -->
+    <nav class="filter-nav reveal-elem" aria-label="Category Filters">
+      <button class="filter-btn active" data-filter="all" onclick="filterCategory('all', this)">
+        <i class="fas fa-layer-group"></i> All Showcase
+      </button>
+      <button class="filter-btn" data-filter="music" onclick="filterCategory('music', this)">
+        <i class="fas fa-headphones"></i> AI Music &amp; Audio
+      </button>
+      <button class="filter-btn" data-filter="video" onclick="filterCategory('video', this)">
+        <i class="fas fa-film"></i> AI Videos
+      </button>
+      <button class="filter-btn" data-filter="visuals" onclick="filterCategory('visuals', this)">
+        <i class="fas fa-image"></i> AI Visuals &amp; Prompts
+      </button>
+    </nav>
+
+    <!-- ==============================================
+         SECTION 1: AI MUSIC & AUDIO PRODUCTION
+         ============================================== -->
+    <section id="music-section" class="category-section reveal-elem" data-category="music" aria-labelledby="heading-music">
+      <div class="section-header">
+        <h2 id="heading-music">
+          <i class="fas fa-headphones text-accent"></i> 01. AI Music &amp; Audio Production
+        </h2>
+        <span class="section-count">FlowMusic Curated</span>
+      </div>
+
+      <div class="music-container">
+        <!-- Main Featured Playlist Card -->
+        <article class="glass-card playlist-card">
+          <!-- Playlist Artwork -->
+          <div class="playlist-cover-art">
+            <svg class="playlist-cover-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cyberpunk algorithmic soundscape cover art">
+              <rect width="300" height="300" fill="#07070a"/>
+              <circle cx="150" cy="150" r="110" stroke="rgba(27,196,248,0.3)" stroke-width="2"/>
+              <circle cx="150" cy="150" r="85" stroke="rgba(168,85,247,0.3)" stroke-width="2"/>
+              <circle cx="150" cy="150" r="60" fill="rgba(27,196,248,0.1)" stroke="#1bc4f8" stroke-width="2"/>
+              <!-- Stylized sound bars -->
+              <rect x="75" y="130" width="8" height="40" rx="4" fill="#1bc4f8"/>
+              <rect x="95" y="110" width="8" height="80" rx="4" fill="#a855f7"/>
+              <rect x="115" y="90" width="8" height="120" rx="4" fill="#1bc4f8"/>
+              <rect x="135" y="120" width="8" height="60" rx="4" fill="#ec4899"/>
+              <rect x="155" y="80" width="8" height="140" rx="4" fill="#1bc4f8"/>
+              <rect x="175" y="105" width="8" height="90" rx="4" fill="#a855f7"/>
+              <rect x="195" y="125" width="8" height="50" rx="4" fill="#1bc4f8"/>
+              <rect x="215" y="140" width="8" height="20" rx="4" fill="#a855f7"/>
+              <text x="150" y="270" text-anchor="middle" fill="#94a3b8" font-family="'Space Grotesk', monospace" font-size="11" letter-spacing="3">FLOWMUSIC AI CURATION</text>
+            </svg>
+          </div>
+
+          <!-- Playlist Details -->
+          <div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+              <span class="skill-tag">FlowMusic Engine</span>
+              <span class="skill-tag purple">Neural Synthwave</span>
+              <span class="skill-tag gold">Hi-Fi Stems</span>
+            </div>
+
+            <h3 style="font-size:1.6rem; font-weight:800; color:#fff; margin-bottom:8px;">
+              Vicky Raj &bull; FlowMusic AI Synthetics
+            </h3>
+            <p style="color:var(--color-text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:16px;">
+              A curated suite of algorithmic audio compositions and synthetic melodies engineered with text-to-music prompts, custom chord progression seeds, and multi-track stem post-processing on FlowMusic.
+            </p>
+
+            <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+              <a href="https://www.flowmusic.app/playlist/ac5a7288-b99e-40a8-9d00-2914d56b8f50" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <i class="fas fa-play"></i> Listen on FlowMusic <i class="fas fa-external-link-alt" style="font-size:10px;"></i>
+              </a>
+              <button class="btn-outline" onclick="toggleDrawer('music-drawer-1')">
+                <i class="fas fa-terminal"></i> View Prompt &amp; Style Notes
+              </button>
+            </div>
+
+            <!-- Track Previews List -->
+            <div class="track-list">
+              <div class="track-item">
+                <div class="track-info">
+                  <div class="track-icon"><i class="fas fa-volume-high"></i></div>
+                  <div>
+                    <div class="track-title">Cybernetic Latent Drift</div>
+                    <div class="track-meta">Darksynth &bull; 128 BPM &bull; Analog Moog Bass &bull; Arpeggiated leads</div>
+                  </div>
+                </div>
+                <span class="skill-tag" style="font-size:0.65rem;">Track 01</span>
+              </div>
+
+              <div class="track-item">
+                <div class="track-info">
+                  <div class="track-icon"><i class="fas fa-music"></i></div>
+                  <div>
+                    <div class="track-title">Neural Solitude (Deep Focus)</div>
+                    <div class="track-meta">Ambient Lo-Fi &bull; 85 BPM &bull; Tape Saturation &bull; Vinyl Crackle</div>
+                  </div>
+                </div>
+                <span class="skill-tag purple" style="font-size:0.65rem;">Track 02</span>
+              </div>
+            </div>
+
+            <!-- Collapsible Prompt & Style Drawer -->
+            <div id="music-drawer-1" class="prompt-drawer">
+              <div class="prompt-header">
+                <span><i class="fas fa-sliders"></i> Master Style Prompt</span>
+                <button class="btn-outline" style="padding:2px 10px; font-size:0.7rem;" onclick="copyToClipboard(`Instrumental synthwave, cinematic dark cyberpunk, punchy 808 sidechain kick, analog Prophet-5 chords, rolling 16th-note arp bassline in D minor, nostalgic tape warmth, 128 BPM, mastered stereo depth`, this)">
+                  <i class="fas fa-copy"></i> Copy Prompt
+                </button>
+              </div>
+              <div class="prompt-text">Instrumental synthwave, cinematic dark cyberpunk, punchy 808 sidechain kick, analog Prophet-5 chords, rolling 16th-note arp bassline in D minor, nostalgic tape warmth, 128 BPM, mastered stereo depth</div>
+              <p style="font-size:0.75rem; color:var(--color-text-muted);">
+                <strong>Engineering Notes:</strong> Generated via FlowMusic multi-pass rendering. Tuned prompt with negative constraints against harsh high frequencies and vocal artifacts to maintain pure instrumental coding focus.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         SECTION 2: AI VIDEO GENERATION
+         ============================================== -->
+    <section id="video-section" class="category-section reveal-elem" data-category="video" aria-labelledby="heading-video">
+      <div class="section-header">
+        <h2 id="heading-video">
+          <i class="fas fa-film text-accent"></i> 02. AI Video Generation (Showcase)
+        </h2>
+        <span class="section-count">4 Curated AI Reels</span>
+      </div>
+
+      <div class="video-grid">
+        <!-- Video Card 1 (Video 1: The Future of Desktop AI) -->
+        <article class="glass-card video-card">
+          <div class="video-container-16-9">
+            <iframe src="https://drive.google.com/file/d/1FNx1VtRWmVQxiRpUyh8eanBdtRCFjs6q/preview"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowfullscreen
+              loading="lazy"
+              title="The Future of Desktop AI: Hear. See. Understand. Act.">
+            </iframe>
+          </div>
+
+          <div class="video-card-body">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                <span class="skill-tag">Multimodal AI</span>
+                <span class="skill-tag purple">Google Veo</span>
+                <span class="skill-tag gold">AI Avatar</span>
+                <span class="skill-tag">Hinglish Tech</span>
+              </div>
+              <a href="https://drive.google.com/file/d/1FNx1VtRWmVQxiRpUyh8eanBdtRCFjs6q/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding:4px 10px; font-size:0.7rem;" title="Open in Google Drive">
+                <i class="fab fa-google-drive"></i> Drive <i class="fas fa-external-link-alt" style="font-size:9px;"></i>
+              </a>
+            </div>
+
+            <h3 class="video-title">The Future of Desktop AI: Hear. See. Understand. Act.</h3>
+            
+            <div class="video-desc" style="display:flex; flex-direction:column; gap:6px; margin-bottom:16px;">
+              <p style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> A futuristic Hinglish tech explainer set in a holographic workstation generated with Google Veo.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Introduces a multimodal desktop assistant capable of hearing voice commands, seeing surroundings, and triggering real-world hardware actions.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Visualizes an end-to-end pipeline connecting WebRTC VAD noise filtering, Gemini speech recognition, computer vision, and Bluetooth control.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Displays HUD research benchmarks&mdash;96.5% NLP processing, 94% computer vision, and 92% voice recognition&mdash;alongside real-world limitations.
+              </p>
+            </div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto; pt:8px;">
+              <button class="btn-outline" onclick="toggleDrawer('video-drawer-1')">
+                <i class="fas fa-code"></i> View Prompt &amp; Notes
+              </button>
+              <button class="btn-outline" onclick="copyToClipboard('Google Veo multimodal environment, holographic UI overlays, futuristic desktop workstation, AI talking avatar presenter, interactive HUD data visualizations, Hinglish narrative pacing', this)">
+                <i class="fas fa-copy"></i> Copy Prompt
+              </button>
+            </div>
+
+            <div id="video-drawer-1" class="prompt-drawer">
+              <div class="prompt-header"><span>Production &amp; Architecture Notes</span></div>
+              <div class="prompt-text">Google Veo multimodal environment, holographic UI overlays, futuristic desktop workstation, AI talking avatar presenter, interactive HUD data visualizations, Hinglish narrative pacing</div>
+              <p style="font-size:0.72rem; color:var(--color-text-muted);"><strong>Architecture:</strong> WebRTC VAD &bull; Gemini Speech Recognition &bull; CV spatial tracking &bull; Benchmarks: 96.5% NLP, 94% CV, 92% Speech.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video Card 2 (Video 2: Don't Turn Around) -->
+        <article class="glass-card video-card">
+          <div class="video-container-16-9">
+            <iframe src="https://drive.google.com/file/d/11IBghyU8y0CThHTxrbCwAeV1f9sj0sDy/preview"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowfullscreen
+              loading="lazy"
+              title="&quot;Don't Turn Around&quot; — AI Psychological Horror Short">
+            </iframe>
+          </div>
+
+          <div class="video-card-body">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <div style="display:flex; flex-wrap:gap:4px;">
+                <span class="skill-tag">Google Veo</span>
+                <span class="skill-tag purple">AI Cinematography</span>
+                <span class="skill-tag gold">Hindi Narration</span>
+                <span class="skill-tag">Horror Short</span>
+              </div>
+              <a href="https://drive.google.com/file/d/11IBghyU8y0CThHTxrbCwAeV1f9sj0sDy/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding:4px 10px; font-size:0.7rem;" title="Open in Google Drive">
+                <i class="fab fa-google-drive"></i> Drive <i class="fas fa-external-link-alt" style="font-size:9px;"></i>
+              </a>
+            </div>
+
+            <h3 class="video-title">&ldquo;Don't Turn Around&rdquo; &mdash; AI Psychological Horror Short</h3>
+            
+            <div class="video-desc" style="display:flex; flex-direction:column; gap:6px; margin-bottom:16px;">
+              <p style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> A moody, suspense-driven short film generated with Google Veo and paired with dramatic Hindi voiceover narration.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Follows a late-night developer at 2:00 AM whose laptop flashes an ominous warning: "DON'T TURN AROUND."
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Blends flickering room lighting, glitching screen effects, and expressive 3D-stylized close-ups to build tension.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Culminates in a chilling webcam reveal where a shadowy entity sits in his chair and slowly turns toward him.
+              </p>
+            </div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto;">
+              <button class="btn-outline" onclick="toggleDrawer('video-drawer-2')">
+                <i class="fas fa-code"></i> View Prompt &amp; Notes
+              </button>
+              <button class="btn-outline" onclick="copyToClipboard('Google Veo text-to-video generation, cinematic low-key lighting, eerie blue monitor glow, CRT glitch artifacts, psychological thriller atmosphere, dramatic Hindi voiceover, slow creeping zoom', this)">
+                <i class="fas fa-copy"></i> Copy Prompt
+              </button>
+            </div>
+
+            <div id="video-drawer-2" class="prompt-drawer">
+              <div class="prompt-header"><span>Production &amp; Prompt Architecture</span></div>
+              <div class="prompt-text">Google Veo text-to-video generation, cinematic low-key lighting, eerie blue monitor glow, CRT glitch artifacts, psychological thriller atmosphere, dramatic Hindi voiceover, slow creeping zoom</div>
+              <p style="font-size:0.72rem; color:var(--color-text-muted);"><strong>Model:</strong> Google Veo &bull; Camera tracking: slow creeping dolly, atmospheric lighting changes, high tension sound design.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video Card 3 (Video 3: Year in Review) -->
+        <article class="glass-card video-card">
+          <div class="video-container-16-9">
+            <iframe src="https://drive.google.com/file/d/11AaBuRqScx5vo8JygNLx4HYeYOG6_lJ9/preview"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowfullscreen
+              loading="lazy"
+              title="Year in Review: Hackathons, Internships & Building AI Systems">
+            </iframe>
+          </div>
+
+          <div class="video-card-body">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                <span class="skill-tag">Motion Graphics</span>
+                <span class="skill-tag purple">AI Voiceover</span>
+                <span class="skill-tag gold">Kinetic Typography</span>
+                <span class="skill-tag">Storytelling</span>
+              </div>
+              <a href="https://drive.google.com/file/d/11AaBuRqScx5vo8JygNLx4HYeYOG6_lJ9/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding:4px 10px; font-size:0.7rem;" title="Open in Google Drive">
+                <i class="fab fa-google-drive"></i> Drive <i class="fas fa-external-link-alt" style="font-size:9px;"></i>
+              </a>
+            </div>
+
+            <h3 class="video-title">Year in Review: Hackathons, Internships &amp; Building AI Systems</h3>
+            
+            <div class="video-desc" style="display:flex; flex-direction:column; gap:6px; margin-bottom:16px;">
+              <p style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> A visual year-in-review story crafted with hyperspace motion graphics, vector iconography, and synchronized kinetic captions.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Chronicles competing in three hackathons and stepping into a Coding Jr internship managing live portal operations and data.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Highlights hands-on growth in prompt engineering, automation, and building a local AI agent using RAG, LLMs, Ollama, and Docker.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Concludes with a personal tribute to the friends, mentors, and family behind the journey into 2026 and beyond.
+              </p>
+            </div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto;">
+              <button class="btn-outline" onclick="toggleDrawer('video-drawer-3')">
+                <i class="fas fa-code"></i> View Prompt &amp; Notes
+              </button>
+              <button class="btn-outline" onclick="copyToClipboard('Kinetic typography, hyperspace vector motion graphics, synchronized dynamic captions, curated timeline highlights, AI voiceover narration, smooth camera transitions, 4K 60fps story reel', this)">
+                <i class="fas fa-copy"></i> Copy Prompt
+              </button>
+            </div>
+
+            <div id="video-drawer-3" class="prompt-drawer">
+              <div class="prompt-header"><span>Production &amp; Prompt Architecture</span></div>
+              <div class="prompt-text">Kinetic typography, hyperspace vector motion graphics, synchronized dynamic captions, curated timeline highlights, AI voiceover narration, smooth camera transitions, 4K 60fps story reel</div>
+              <p style="font-size:0.72rem; color:var(--color-text-muted);"><strong>Workflow:</strong> Vector animation, synchronized timeline editing, AI-synthesized voiceover, and custom typographic timing.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video Card 4 (Video 4: Creator Guide) -->
+        <article class="glass-card video-card">
+          <div class="video-container-16-9">
+            <iframe src="https://drive.google.com/file/d/1AKnOEfj0Mt3zkc3diLHsVMVzIV_KfkEp/preview"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowfullscreen
+              loading="lazy"
+              title="Google Gemini Pro, Veo 3 & Nano Banana — Creator Guide">
+            </iframe>
+          </div>
+
+          <div class="video-card-body">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                <span class="skill-tag">AI Avatar</span>
+                <span class="skill-tag purple">Veo 3</span>
+                <span class="skill-tag gold">Nano Banana</span>
+                <span class="skill-tag">Tech Explainer</span>
+              </div>
+              <a href="https://drive.google.com/file/d/1AKnOEfj0Mt3zkc3diLHsVMVzIV_KfkEp/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding:4px 10px; font-size:0.7rem;" title="Open in Google Drive">
+                <i class="fab fa-google-drive"></i> Drive <i class="fas fa-external-link-alt" style="font-size:9px;"></i>
+              </a>
+            </div>
+
+            <h3 class="video-title">Google Gemini Pro, Veo 3 &amp; Nano Banana &mdash; Creator Guide</h3>
+            
+            <div class="video-desc" style="display:flex; flex-direction:column; gap:6px; margin-bottom:16px;">
+              <p style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> A fast-paced vertical tech reel combining a talking AI avatar presenter with neon 3D motion-graphic callouts.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Walks students through claiming free access to Google Gemini Pro's creative AI suite.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Showcases text-to-video generation with Veo 3 and AI image editing workflows using Nano Banana.
+              </p>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); line-height:1.5;">
+                <span style="color:var(--color-accent-cyan); font-weight:700; margin-right:4px;">▹</span> Demonstrates how structured prompting unlocks high-impact visual content in seconds.
+              </p>
+            </div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto;">
+              <button class="btn-outline" onclick="toggleDrawer('video-drawer-4')">
+                <i class="fas fa-code"></i> View Prompt &amp; Notes
+              </button>
+              <button class="btn-outline" onclick="copyToClipboard('Talking AI presenter, neon 3D callouts, vertical 9:16 mobile framing adapted to 16:9 cinematic presentation, structured prompt workflow breakdown, Gemini Pro and Veo 3 feature reel', this)">
+                <i class="fas fa-copy"></i> Copy Prompt
+              </button>
+            </div>
+
+            <div id="video-drawer-4" class="prompt-drawer">
+              <div class="prompt-header"><span>Production &amp; Prompt Architecture</span></div>
+              <div class="prompt-text">Talking AI presenter, neon 3D callouts, vertical 9:16 mobile framing adapted to 16:9 cinematic presentation, structured prompt workflow breakdown, Gemini Pro and Veo 3 feature reel</div>
+              <p style="font-size:0.72rem; color:var(--color-text-muted);"><strong>Tools Demonstrated:</strong> Google Gemini Pro &bull; Google Veo 3 &bull; Nano Banana AI image manipulation &bull; Structured prompt engineering.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         SECTION 3: AI VISUALS & PROMPT GALLERY
+         ============================================== -->
+    <section id="visuals-section" class="category-section reveal-elem" data-category="visuals" aria-labelledby="heading-visuals">
+      <div class="section-header">
+        <h2 id="heading-visuals">
+          <i class="fas fa-image text-accent"></i> 03. AI Visuals &amp; Prompt Engineering Gallery
+        </h2>
+        <span class="section-count">Click card for Lightbox &amp; Full Prompts</span>
+      </div>
+
+      <div class="image-grid">
+        <!-- Visual 1 -->
+        <article class="glass-card image-card" onclick="openImageLightbox(
+          'Isometric Data-Core Sanctum',
+          'Midjourney v6.1',
+          'art-svg-1',
+          'isometric high-tech data core sanctuary, floating transparent glass server racks illuminated with glowing cyan fiber optic cabling, central glowing holographic AI core orb pulsing with deep purple light, clean dark titanium architecture, cinematic lighting, 8k resolution, raytracing --ar 16:9 --style raw --v 6.1',
+          'blurry, low quality, noisy, distorted, cartoonish, lowres, watermark',
+          'Resolution: 3840x2160 • Seed: 849204 • Aspect: 16:9'
+        )">
+          <div class="image-thumb-wrap" id="art-svg-1">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="240" fill="#08080c"/>
+              <path d="M200 40 L340 120 L200 200 L60 120 Z" fill="rgba(27,196,248,0.06)" stroke="rgba(27,196,248,0.4)" stroke-width="1.5"/>
+              <circle cx="200" cy="120" r="35" fill="rgba(168,85,247,0.2)" stroke="#1bc4f8" stroke-width="2"/>
+              <line x1="60" y1="120" x2="200" y2="40" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="340" y1="120" x2="200" y2="200" stroke="#1bc4f8" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <circle cx="200" cy="120" r="16" fill="#1bc4f8"/>
+              <text x="200" y="225" text-anchor="middle" fill="#94a3b8" font-family="'Space Grotesk'" font-size="10" letter-spacing="2">DATA-CORE SANCTUM</text>
+            </svg>
+            <div class="image-overlay">
+              <span class="image-overlay-action"><i class="fas fa-expand"></i> Inspect Prompt &amp; Settings</span>
+            </div>
+          </div>
+          <div class="image-card-body">
+            <h3 class="image-card-title">Isometric Data-Core Sanctum</h3>
+            <span class="image-card-model">Midjourney v6.1 &bull; Stylized Architecture</span>
+            <div style="display:flex; gap:4px; margin-top:4px;">
+              <span class="skill-tag">Isometric</span>
+              <span class="skill-tag purple">Prompt Raw</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Visual 2 -->
+        <article class="glass-card image-card" onclick="openImageLightbox(
+          'Neon Latent Rain Cyberpunk',
+          'FLUX.1 Dev',
+          'art-svg-2',
+          'cinematic close portrait of an android engineer standing under illuminated umbrella in rainy neon cyberpunk alley, subtle synthetic circuitry along cheekbone, hyperrealistic skin pore textures, glowing cyan rain drops, anamorphic 85mm f/1.4 lens bokeh, filmic grading',
+          '3d render, CGI plastic skin, poorly drawn hands, duplicate, watermark',
+          'Steps: 28 • CFG: 3.5 • Sampler: Euler • Seed: 921034'
+        )">
+          <div class="image-thumb-wrap" id="art-svg-2">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="240" fill="#090812"/>
+              <circle cx="200" cy="100" r="50" fill="rgba(236,72,153,0.15)" stroke="#ec4899" stroke-width="2"/>
+              <circle cx="200" cy="85" r="28" fill="#1e1b4b" stroke="#1bc4f8" stroke-width="1.5"/>
+              <!-- Rain lines -->
+              <line x1="50" y1="20" x2="30" y2="220" stroke="rgba(27,196,248,0.2)" stroke-width="1"/>
+              <line x1="120" y1="10" x2="100" y2="230" stroke="rgba(27,196,248,0.3)" stroke-width="1"/>
+              <line x1="280" y1="30" x2="260" y2="210" stroke="rgba(168,85,247,0.3)" stroke-width="1"/>
+              <line x1="360" y1="10" x2="340" y2="230" stroke="rgba(27,196,248,0.25)" stroke-width="1"/>
+              <text x="200" y="225" text-anchor="middle" fill="#ec4899" font-family="'Space Grotesk'" font-size="10" letter-spacing="2">NEON LATENT RAIN</text>
+            </svg>
+            <div class="image-overlay">
+              <span class="image-overlay-action"><i class="fas fa-expand"></i> Inspect Prompt &amp; Settings</span>
+            </div>
+          </div>
+          <div class="image-card-body">
+            <h3 class="image-card-title">Neon Latent Rain Cyberpunk</h3>
+            <span class="image-card-model">FLUX.1 Dev &bull; Photoreal Portraiture</span>
+            <div style="display:flex; gap:4px; margin-top:4px;">
+              <span class="skill-tag purple">FLUX.1</span>
+              <span class="skill-tag gold">Bokeh 85mm</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Visual 3 -->
+        <article class="glass-card image-card" onclick="openImageLightbox(
+          'Glassmorphism AI Processor Core',
+          'Stable Diffusion XL (SDXL)',
+          'art-svg-3',
+          'macro photo of modern quantum processor chip, transparent frosted glass substrate with gold quantum tracing circuits, micro light pulses traveling along crystalline bus lines, volumetric light spill, studio dark backdrop, Hasselblad H6D-100c medium format',
+          'ugly, deformed, noise, artifacts, lowres, text, signature',
+          'Steps: 40 • DPM++ 2M Karras • CFG: 7.0 • Res: 1024x1024'
+        )">
+          <div class="image-thumb-wrap" id="art-svg-3">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="240" fill="#06090e"/>
+              <rect x="120" y="50" width="160" height="140" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(27,196,248,0.5)" stroke-width="2"/>
+              <rect x="140" y="70" width="120" height="100" rx="8" fill="rgba(168,85,247,0.12)" stroke="#a855f7" stroke-width="1.5"/>
+              <circle cx="200" cy="120" r="22" fill="#1bc4f8" opacity="0.8"/>
+              <line x1="80" y1="120" x2="120" y2="120" stroke="#facc15" stroke-width="2"/>
+              <line x1="280" y1="120" x2="320" y2="120" stroke="#facc15" stroke-width="2"/>
+              <text x="200" y="225" text-anchor="middle" fill="#facc15" font-family="'Space Grotesk'" font-size="10" letter-spacing="2">GLASSMORPHISM CORE</text>
+            </svg>
+            <div class="image-overlay">
+              <span class="image-overlay-action"><i class="fas fa-expand"></i> Inspect Prompt &amp; Settings</span>
+            </div>
+          </div>
+          <div class="image-card-body">
+            <h3 class="image-card-title">Glassmorphism AI Processor Core</h3>
+            <span class="image-card-model">SDXL 1.0 &bull; Hardware Visualization</span>
+            <div style="display:flex; gap:4px; margin-top:4px;">
+              <span class="skill-tag">SDXL</span>
+              <span class="skill-tag gold">Medium Format</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Visual 4 -->
+        <article class="glass-card image-card" onclick="openImageLightbox(
+          'Solarpunk Algorithmic Biome',
+          'Midjourney v6.0',
+          'art-svg-4',
+          'panoramic architectural concept of solarpunk sky-gardens integrated into futuristic white modular skyscrapers, lush hanging vines, crystalline solar leaves absorbing morning sunlight, clean blue sky with subtle geometric cloud patterns, organic architecture --ar 16:9 --v 6.0',
+          'dystopian, smog, dark, gloomy, industrial pollution, blur, low quality',
+          'Aspect: 16:9 • Chaos: 12 • Stylize: 250 • v 6.0'
+        )">
+          <div class="image-thumb-wrap" id="art-svg-4">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="240" fill="#040b08"/>
+              <path d="M100 200 L140 80 L180 200 Z" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1.5"/>
+              <path d="M220 200 L260 50 L300 200 Z" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1.5"/>
+              <circle cx="320" cy="60" r="28" fill="rgba(250,204,21,0.2)" stroke="#facc15" stroke-width="1.5"/>
+              <path d="M50 200 Q200 160 350 200" stroke="#1bc4f8" stroke-width="2"/>
+              <text x="200" y="225" text-anchor="middle" fill="#22c55e" font-family="'Space Grotesk'" font-size="10" letter-spacing="2">SOLARPUNK BIOME</text>
+            </svg>
+            <div class="image-overlay">
+              <span class="image-overlay-action"><i class="fas fa-expand"></i> Inspect Prompt &amp; Settings</span>
+            </div>
+          </div>
+          <div class="image-card-body">
+            <h3 class="image-card-title">Solarpunk Algorithmic Biome</h3>
+            <span class="image-card-model">Midjourney v6.0 &bull; Eco-Futurism</span>
+            <div style="display:flex; gap:4px; margin-top:4px;">
+              <span class="skill-tag" style="color:#22c55e; border-color:rgba(34,197,94,0.3);">Solarpunk</span>
+              <span class="skill-tag gold">Architecture</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Visual 5 -->
+        <article class="glass-card image-card" onclick="openImageLightbox(
+          'Neural Holographic Manifold',
+          'FLUX.1 Schnell + LoRA',
+          'art-svg-5',
+          'abstract 4D hypercube tesseract unfolding in deep space, glowing electric cyan and magenta nodes connected by fiber optic light beams, particle cloud dispersion, high depth of field, mathematical visualization, sci-fi render, 8k ultra realistic',
+          'pixelated, grainy, poorly rendered geometry, clipping',
+          'LoRA: HoloManifold 0.75 • Steps: 12 • Guidance: 3.0'
+        )">
+          <div class="image-thumb-wrap" id="art-svg-5">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="240" fill="#080511"/>
+              <!-- Tesseract-like geometry -->
+              <rect x="150" y="70" width="100" height="100" stroke="#a855f7" stroke-width="1.5" fill="none"/>
+              <rect x="170" y="90" width="60" height="60" stroke="#1bc4f8" stroke-width="1.5" fill="rgba(27,196,248,0.1)"/>
+              <line x1="150" y1="70" x2="170" y2="90" stroke="#ec4899" stroke-width="1.5"/>
+              <line x1="250" y1="70" x2="230" y2="90" stroke="#ec4899" stroke-width="1.5"/>
+              <line x1="150" y1="170" x2="170" y2="150" stroke="#ec4899" stroke-width="1.5"/>
+              <line x1="250" y1="170" x2="230" y2="150" stroke="#ec4899" stroke-width="1.5"/>
+              <text x="200" y="225" text-anchor="middle" fill="#a855f7" font-family="'Space Grotesk'" font-size="10" letter-spacing="2">NEURAL MANIFOLD</text>
+            </svg>
+            <div class="image-overlay">
+              <span class="image-overlay-action"><i class="fas fa-expand"></i> Inspect Prompt &amp; Settings</span>
+            </div>
+          </div>
+          <div class="image-card-body">
+            <h3 class="image-card-title">Neural Holographic Manifold</h3>
+            <span class="image-card-model">FLUX.1 Schnell &bull; Mathematics &amp; Physics</span>
+            <div style="display:flex; gap:4px; margin-top:4px;">
+              <span class="skill-tag purple">Tesseract</span>
+              <span class="skill-tag">Holo-Node</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Visual 6 -->
+        <article class="glass-card image-card" onclick="openImageLightbox(
+          'Monolith in Latent Nebula',
+          'Stable Diffusion 3.5 Large',
+          'art-svg-6',
+          'gigantic black obsidian monolith floating motionless inside glowing purple cosmic emission nebula, starry background, intricate gold alien glyphs etched into surface casting soft ambient glow, epic scale, 70mm IMAX cinematography',
+          'flat, blurry, oversaturated cartoon, watermark, border',
+          'Steps: 35 • CFG: 4.5 • Resolution: 1536x864 • Seed: 310928'
+        )">
+          <div class="image-thumb-wrap" id="art-svg-6">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="240" fill="#07040a"/>
+              <ellipse cx="200" cy="120" rx="140" ry="80" fill="rgba(168,85,247,0.18)" filter="blur(20px)"/>
+              <rect x="175" y="45" width="50" height="150" rx="3" fill="#0a0a0f" stroke="#facc15" stroke-width="1.5"/>
+              <circle cx="200" cy="75" r="4" fill="#1bc4f8"/>
+              <circle cx="200" cy="105" r="4" fill="#ec4899"/>
+              <circle cx="200" cy="135" r="4" fill="#facc15"/>
+              <text x="200" y="225" text-anchor="middle" fill="#94a3b8" font-family="'Space Grotesk'" font-size="10" letter-spacing="2">MONOLITH IN NEBULA</text>
+            </svg>
+            <div class="image-overlay">
+              <span class="image-overlay-action"><i class="fas fa-expand"></i> Inspect Prompt &amp; Settings</span>
+            </div>
+          </div>
+          <div class="image-card-body">
+            <h3 class="image-card-title">Monolith in Latent Nebula</h3>
+            <span class="image-card-model">SD 3.5 Large &bull; Cosmic Concept Art</span>
+            <div style="display:flex; gap:4px; margin-top:4px;">
+              <span class="skill-tag gold">IMAX 70mm</span>
+              <span class="skill-tag purple">Cosmic Scale</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==============================================
+       LIGHTBOX MODAL (Full Screen Image + Exact Prompts)
+       ============================================== -->
+  <div id="image-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image prompt inspector" onclick="closeImageLightbox()">
+    <div class="lightbox-inner" onclick="event.stopPropagation()">
+      <button class="lightbox-close-btn" onclick="closeImageLightbox()" aria-label="Close modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- Left: Visual Preview Container -->
+      <div class="lightbox-preview-wrap" id="lb-preview-slot">
+        <!-- Injected via openImageLightbox -->
+      </div>
+
+      <!-- Right: Prompt Engineering Details -->
+      <div class="lightbox-details">
+        <h3 class="lightbox-title" id="lb-title">Artwork Title</h3>
+        <span class="lightbox-model-badge" id="lb-model">Model Specs</span>
+
+        <!-- Generation Parameters Strip -->
+        <div class="lightbox-section-label"><i class="fas fa-sliders"></i> Generation Parameters</div>
+        <div class="lightbox-params-grid">
+          <div class="param-item" id="lb-params">Params</div>
+        </div>
+
+        <!-- Positive Prompt -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <div class="lightbox-section-label" style="margin-bottom:0;"><i class="fas fa-terminal"></i> Positive Prompt</div>
+          <button class="btn-outline" style="padding:4px 12px; font-size:0.75rem;" id="lb-copy-pos-btn">
+            <i class="fas fa-copy"></i> Copy Prompt
+          </button>
+        </div>
+        <div class="lightbox-prompt-box" id="lb-prompt">Prompt text...</div>
+
+        <!-- Negative Constraints -->
+        <div class="lightbox-section-label"><i class="fas fa-ban"></i> Negative Constraints</div>
+        <div class="lightbox-prompt-box" style="color:#94a3b8; font-size:0.75rem;" id="lb-neg-prompt">Negative constraints...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="copy-toast" class="copy-toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle" style="color:var(--color-accent-cyan);"></i>
+    <span id="toast-message">Prompt copied to clipboard!</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <p>&copy; <span id="year-slot"></span> Vicky Raj &bull;
+      <a href="index.html">Portfolio Home</a> &bull;
+      <a href="certifications.html">Certifications</a> &bull;
+      <a href="https://github.com/vicky-tec" target="_blank" rel="noopener noreferrer">GitHub</a> &bull;
+      <a href="https://www.linkedin.com/in/vicky-raj-090760282/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
+  </footer>
+
+  <!-- SELF-CONTAINED JAVASCRIPT LOGIC -->
+  <script>
+    // 1. Current Year
+    document.getElementById('year-slot').textContent = new Date().getFullYear();
+
+    // 2. Category Tab Filter
+    function filterCategory(category, buttonEl) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      if (buttonEl) buttonEl.classList.add('active');
+
+      const sections = document.querySelectorAll('.category-section');
+      sections.forEach(sec => {
+        const secCat = sec.getAttribute('data-category');
+        if (category === 'all' || secCat === category) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
+    // 3. Prompt Drawer Accordion Toggle
+    function toggleDrawer(drawerId) {
+      const drawer = document.getElementById(drawerId);
+      if (!drawer) return;
+      drawer.classList.toggle('open');
+    }
+
+    // 4. Clipboard Copy with Toast Feedback
+    function copyToClipboard(text, btnElement) {
+      if (!navigator.clipboard) {
+        // Fallback for older environments
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+        } catch (err) {}
+        document.body.removeChild(textArea);
+      } else {
+        navigator.clipboard.writeText(text).catch(err => {
+          console.error('Could not copy text: ', err);
+        });
+      }
+
+      // Visual button feedback
+      if (btnElement) {
+        const originalHtml = btnElement.innerHTML;
+        btnElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        btnElement.style.borderColor = 'var(--color-accent-cyan)';
+        setTimeout(() => {
+          btnElement.innerHTML = originalHtml;
+          btnElement.style.borderColor = '';
+        }, 1800);
+      }
+
+      // Toast feedback
+      const toast = document.getElementById('copy-toast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // 5. Lightbox Modal Logic
+    let currentPositivePrompt = '';
+
+    function openImageLightbox(title, model, svgContainerId, positivePrompt, negativePrompt, params) {
+      document.getElementById('lb-title').textContent = title;
+      document.getElementById('lb-model').textContent = model;
+      document.getElementById('lb-params').innerHTML = params.split('•').map(p => `<strong>${p.trim()}</strong>`).join(' &bull; ');
+      document.getElementById('lb-prompt').textContent = positivePrompt;
+      document.getElementById('lb-neg-prompt').textContent = negativePrompt || 'None specified';
+      currentPositivePrompt = positivePrompt;
+
+      // Copy source visual into preview slot
+      const sourceContainer = document.getElementById(svgContainerId);
+      const previewSlot = document.getElementById('lb-preview-slot');
+      previewSlot.innerHTML = '';
+      if (sourceContainer) {
+        const clone = sourceContainer.querySelector('svg, img').cloneNode(true);
+        previewSlot.appendChild(clone);
+      }
+
+      // Wire up modal copy button
+      const copyBtn = document.getElementById('lb-copy-pos-btn');
+      copyBtn.onclick = function() {
+        copyToClipboard(currentPositivePrompt, copyBtn);
+      };
+
+      document.getElementById('image-lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageLightbox() {
+      document.getElementById('image-lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeImageLightbox();
+    });
+
+    // 6. Video Preview Modal Trigger (Directly opens full prompt info)
+    function openVideoModal(title, model, prompt) {
+      openImageLightbox(
+        title,
+        model,
+        'art-svg-1',
+        prompt,
+        'low framerate, jerky motion, artifacts, morphed faces, jitter',
+        'Model: ' + model + ' • Aspect: 16:9 • Framerate: 24-60 FPS'
+      );
+    }
+
+    // 7. Scroll Reveal Observer with Fallback
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+
+      document.querySelectorAll('.reveal-elem').forEach(el => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll('.reveal-elem').forEach(el => el.classList.add('visible'));
+    }
+
+    // Safety fallback: Reveal elements on scroll near bottom
+    function checkRevealNearBottom() {
+      if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 150)) {
+        document.querySelectorAll('.reveal-elem:not(.visible)').forEach(el => el.classList.add('visible'));
+      }
+    }
+    window.addEventListener('scroll', checkRevealNearBottom, { passive: true });
+  </script>
+</body>
+</html>
+
