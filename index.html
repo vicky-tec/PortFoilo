@@ -755,6 +755,38 @@
       box-shadow: 0 0 8px var(--glow-accent-cyan);
     }
 
+    /* === PROJECTS HORIZONTAL TRACK === */
+    #projects-carousel-track {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(27, 196, 248, 0.3) transparent;
+    }
+
+    #projects-carousel-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    #projects-carousel-track::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 9999px;
+    }
+
+    #projects-carousel-track::-webkit-scrollbar-thumb {
+      background: rgba(27, 196, 248, 0.25);
+      border-radius: 9999px;
+    }
+
+    #projects-carousel-track::-webkit-scrollbar-thumb:hover {
+      background: var(--color-accent-cyan);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #projects-carousel-track {
+        scroll-behavior: auto !important;
+      }
+    }
+
     /* === GRADIENT TEXT === */
     .text-gradient {
       background: linear-gradient(135deg,
@@ -2104,16 +2136,16 @@
         <span class="di-label">Projects</span>
       </a>
 
-      <!-- Writing -->
-      <a href="#writing" class="di-item" role="menuitem" aria-label="Writing &amp; Insights">
-        <i class="di-icon fas fa-pen-nib"></i>
-        <span class="di-label">Writing</span>
-      </a>
-
       <!-- GenAI Studio -->
       <a href="#genai-studio" class="di-item" role="menuitem" aria-label="GenAI Studio">
         <i class="di-icon fas fa-wand-magic-sparkles"></i>
         <span class="di-label">GenAI</span>
+      </a>
+
+      <!-- Writing -->
+      <a href="#writing" class="di-item" role="menuitem" aria-label="Writing &amp; Insights">
+        <i class="di-icon fas fa-pen-nib"></i>
+        <span class="di-label">Writing</span>
       </a>
 
       <div class="di-sep" aria-hidden="true"></div>
@@ -2218,7 +2250,7 @@
               <span
                 class="px-2 py-0.5 rounded-full bg-accent/20 text-accent text-[10px] font-bold uppercase tracking-wider">Latest
                 Article</span>
-              <span class="truncate max-w-[260px] sm:max-w-none">From Data Analytics to Machine Learning &rarr;</span>
+              <span class="truncate max-w-[260px] sm:max-w-none">My First 10 Months in the Corporate World &rarr;</span>
             </a>
           </div>
 
@@ -2994,11 +3026,32 @@
       </div>
     </section>
 
-    <section id="projects" class="py-20">
+    <section id="projects" class="py-20 relative">
       <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal-text">
-          <span class="text-accent">04.</span> Projects
-        </h2>
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 reveal-text">
+          <div>
+            <p class="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-2">Portfolio</p>
+            <h2 class="text-3xl md:text-4xl font-bold">
+              <span class="text-accent">04.</span> Projects
+            </h2>
+          </div>
+          <!-- Arrow Navigation Controls -->
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-gray-400 hidden sm:inline-block"><i class="fas fa-arrows-left-right text-accent mr-1.5"></i>Swipe or click arrows</span>
+            <div class="flex items-center gap-2">
+              <button id="projects-prev-btn"
+                class="w-10 h-10 rounded-full glass-card border border-white/10 hover:border-accent/60 text-white hover:text-accent flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-md"
+                aria-label="Scroll to previous project">
+                <i class="fas fa-chevron-left text-xs"></i>
+              </button>
+              <button id="projects-next-btn"
+                class="w-10 h-10 rounded-full glass-card border border-white/10 hover:border-accent/60 text-white hover:text-accent flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-md"
+                aria-label="Scroll to next project">
+                <i class="fas fa-chevron-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
 
         <figure class="glass-card rounded-2xl border border-accent/25 overflow-hidden mb-10 reveal-text relative"
           aria-labelledby="data-ai-engine-title">
@@ -3034,220 +3087,253 @@
           </div>
         </figure>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-            <div class="h-48 overflow-hidden relative">
-              <img src="Travally.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
-                alt="Travally travel planning project preview"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                  title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                <a href="https://github.com/vicky-tec/TRAVALLY_.git" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"
-                  title="Code"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-2">TRAVALLY</h3>
-              <p class="text-gray-400 text-sm mb-4">
-                A comprehensive Bihar tourism website featuring interactive
-                maps and an AI-integrated chatbot for travelers.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">HTML/CSS</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">JS</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">AI API</span>
-              </div>
-            </div>
-          </div>
+        <!-- Horizontal Scrollable Projects Carousel -->
+        <div class="relative group/proj">
+          <!-- Floating desktop arrows -->
+          <button id="proj-float-prev"
+            class="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-card border border-accent/40 bg-black/80 text-white hover:text-accent hover:border-accent items-center justify-center transition-all z-20 hover:scale-110 shadow-lg backdrop-blur-md opacity-0 group-hover/proj:opacity-100"
+            aria-label="Scroll projects left">
+            <i class="fas fa-chevron-left text-sm"></i>
+          </button>
+          <button id="proj-float-next"
+            class="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-card border border-accent/40 bg-black/80 text-white hover:text-accent hover:border-accent items-center justify-center transition-all z-20 hover:scale-110 shadow-lg backdrop-blur-md opacity-0 group-hover/proj:opacity-100"
+            aria-label="Scroll projects right">
+            <i class="fas fa-chevron-right text-sm"></i>
+          </button>
 
-          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-            <div class="h-48 overflow-hidden relative">
-              <img src="d33.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
-                alt="Banking analytics dashboard showing deposits, loans, and customer segments"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                <a href="https://app.powerbi.com/links/KSu4AAge-6?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
-                  target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                  title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
-                <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                    class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Banking Analytics Dashboard
-              </h3>
-              <p class="text-gray-400 text-sm mb-4">
-                A detailed analysis of banking sales performance, highlighting
-                total deposits, loans, and identifying top customer segments
-                through insightful visualizations.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Dashboard</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">DAX</span>
-              </div>
-            </div>
-          </div>
+          <div id="projects-carousel-track"
+            class="flex gap-6 overflow-x-auto pb-6 pt-2 scroll-smooth snap-x snap-mandatory focus:outline-none"
+            tabindex="0"
+            role="region"
+            aria-label="Interactive projects showcase">
 
-          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-            <div class="h-48 overflow-hidden relative">
-              <img src="dash.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
-                alt="Blinkit sales and delivery analytics dashboard"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                <a href="https://drive.google.com/file/d/1-bJucRuisBEBt_DdrUN-9ds-eg8cWejw/view?usp=drive_link"
-                  target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                  title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
-                <a href="https://github.com/vicky-tec/gigx-Data-Analytics-" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                    class="fab fa-github"></i></a>
+            <div class="glass-card rounded-2xl overflow-hidden group reveal-text flex-none w-[300px] sm:w-[350px] md:w-[380px] snap-start flex flex-col justify-between border border-white/5 hover:border-accent/40 transition-all">
+              <div class="h-48 overflow-hidden relative">
+                <img src="Travally.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
+                  alt="Travally travel planning project preview"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  <a href="https://vicky-tec.github.io/TRAVALLY_/index.html" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                    title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="https://github.com/vicky-tec/TRAVALLY_.git" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"
+                    title="Code"><i class="fab fa-github"></i></a>
+                </div>
+              </div>
+              <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-2">TRAVALLY</h3>
+                  <p class="text-gray-400 text-sm mb-4">
+                    A comprehensive Bihar tourism website featuring interactive
+                    maps and an AI-integrated chatbot for travelers.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">HTML/CSS</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">JS</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">AI API</span>
+                </div>
               </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Blinkit Dashboard
-              </h3>
-              <p class="text-gray-400 text-sm mb-4">
-                Interactive PowerBI dashboard analyzing delivery times,
-                customer satisfaction, and inventory efficiency.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Excel</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-            <div class="h-48 overflow-hidden relative">
-              <img src="d2.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
-                alt="Flipkart e-commerce sales analysis dashboard"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiMDQxZGMzZGQtZmM4Yy00ODUwLTgxMTItMTQwZjNiMDUyZmE1IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9"
-                  target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                  title="View Analysis"><i class="fas fa-external-link-alt"></i></a>
-                <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                    class="fab fa-github"></i></a>
+            <div class="glass-card rounded-2xl overflow-hidden group reveal-text flex-none w-[300px] sm:w-[350px] md:w-[380px] snap-start flex flex-col justify-between border border-white/5 hover:border-accent/40 transition-all">
+              <div class="h-48 overflow-hidden relative">
+                <img src="d33.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
+                  alt="Banking analytics dashboard showing deposits, loans, and customer segments"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  <a href="https://app.powerbi.com/links/KSu4AAge-6?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
+                    target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                    title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                      class="fab fa-github"></i></a>
+                </div>
+              </div>
+              <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    Banking Analytics Dashboard
+                  </h3>
+                  <p class="text-gray-400 text-sm mb-4">
+                    A detailed analysis of banking sales performance, highlighting
+                    total deposits, loans, and identifying top customer segments
+                    through insightful visualizations.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Dashboard</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">DAX</span>
+                </div>
               </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Big Billion Days Analysis
-              </h3>
-              <p class="text-gray-400 text-sm mb-4">
-                Sales performance analysis of Flipkart’s Big Billion Days,
-                highlighting revenue trends, customer insights, and
-                category-wise performance.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">SQL</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-            <div class="h-48 overflow-hidden relative">
-              <img src="d7.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
-                alt="E-commerce performance analytics dashboard"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                <a href="https://app.powerbi.com/links/wJtZwRcMz8?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
-                  target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                  title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
-                <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
-                    class="fab fa-github"></i></a>
+            <div class="glass-card rounded-2xl overflow-hidden group reveal-text flex-none w-[300px] sm:w-[350px] md:w-[380px] snap-start flex flex-col justify-between border border-white/5 hover:border-accent/40 transition-all">
+              <div class="h-48 overflow-hidden relative">
+                <img src="dash.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
+                  alt="Blinkit sales and delivery analytics dashboard"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  <a href="https://drive.google.com/file/d/1-bJucRuisBEBt_DdrUN-9ds-eg8cWejw/view?usp=drive_link"
+                    target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                    title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="https://github.com/vicky-tec/gigx-Data-Analytics-" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                      class="fab fa-github"></i></a>
+                </div>
+              </div>
+              <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    Blinkit Dashboard
+                  </h3>
+                  <p class="text-gray-400 text-sm mb-4">
+                    Interactive PowerBI dashboard analyzing delivery times,
+                    customer satisfaction, and inventory efficiency.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Excel</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+                </div>
               </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Blinkit vs Zepto Revenue Comparison Dashboard
-              </h3>
-              <p class="text-gray-400 text-sm mb-4">
-                Comparative revenue analysis of Blinkit and Zepto, showcasing
-                market share, transaction volumes, and growth trends.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Business Intel</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="glass-card rounded-2xl overflow-hidden group reveal-text">
-            <div
-              class="h-48 relative overflow-hidden bg-gradient-to-br from-[#07111f] via-[#111827] to-[#172554] flex items-center justify-center">
-              <div class="absolute inset-0 opacity-30"
-                style="background-image: radial-gradient(circle at 20% 20%, rgba(27,196,248,.55) 0 1px, transparent 1px); background-size: 18px 18px;">
+            <div class="glass-card rounded-2xl overflow-hidden group reveal-text flex-none w-[300px] sm:w-[350px] md:w-[380px] snap-start flex flex-col justify-between border border-white/5 hover:border-accent/40 transition-all">
+              <div class="h-48 overflow-hidden relative">
+                <img src="d2.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
+                  alt="Flipkart e-commerce sales analysis dashboard"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  <a href="https://app.powerbi.com/view?r=eyJrIjoiMDQxZGMzZGQtZmM4Yy00ODUwLTgxMTItMTQwZjNiMDUyZmE1IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9"
+                    target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                    title="View Analysis"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                      class="fab fa-github"></i></a>
+                </div>
               </div>
-              <div class="relative text-center">
-                <div class="text-4xl font-bold tracking-tight text-white">MAVI<span class="text-accent">.ai</span></div>
-                <div class="mt-2 text-xs font-mono uppercase tracking-[0.25em] text-cyan-200/70">Local Hybrid Agent
+              <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    Big Billion Days Analysis
+                  </h3>
+                  <p class="text-gray-400 text-sm mb-4">
+                    Sales performance analysis of Flipkart’s Big Billion Days,
+                    highlighting revenue trends, customer insights, and
+                    category-wise performance.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">SQL</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl overflow-hidden group reveal-text flex-none w-[300px] sm:w-[350px] md:w-[380px] snap-start flex flex-col justify-between border border-white/5 hover:border-accent/40 transition-all">
+              <div class="h-48 overflow-hidden relative">
+                <img src="d7.png" loading="lazy" decoding="async" onerror="this.src='image.png'"
+                  alt="E-commerce performance analytics dashboard"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  <a href="https://app.powerbi.com/links/wJtZwRcMz8?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare"
+                    target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                    title="View Dashboard"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="https://github.com/vicky-tec/Gigx-Analytics.git" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-accent transition-colors"><i
+                      class="fab fa-github"></i></a>
+                </div>
+              </div>
+              <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    Blinkit vs Zepto Revenue Comparison Dashboard
+                  </h3>
+                  <p class="text-gray-400 text-sm mb-4">
+                    Comparative revenue analysis of Blinkit and Zepto, showcasing
+                    market share, transaction volumes, and growth trends.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">EDA</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Power BI</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Data Viz</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Analytics</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Business Intel</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl overflow-hidden group reveal-text flex-none w-[300px] sm:w-[350px] md:w-[380px] snap-start flex flex-col justify-between border border-white/5 hover:border-accent/40 transition-all">
+              <div
+                class="h-48 relative overflow-hidden bg-gradient-to-br from-[#07111f] via-[#111827] to-[#172554] flex items-center justify-center">
+                <div class="absolute inset-0 opacity-30"
+                  style="background-image: radial-gradient(circle at 20% 20%, rgba(27,196,248,.55) 0 1px, transparent 1px); background-size: 18px 18px;">
+                </div>
+                <div class="relative text-center">
+                  <div class="text-4xl font-bold tracking-tight text-white">MAVI<span class="text-accent">.ai</span></div>
+                  <div class="mt-2 text-xs font-mono uppercase tracking-[0.25em] text-cyan-200/70">Local Hybrid Agent
+                  </div>
+                </div>
+
+                <div
+                  class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  <a href="https://vicky-tec.github.io/MAVI-Local-AI-AGENT/" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
+                    title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a href="https://github.com/vicky-tec/MAVI-Local-AI-AGENT" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-allowed opacity-70">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
               </div>
 
-              <div
-                class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                <a href="https://vicky-tec.github.io/MAVI-Local-AI-AGENT/" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black hover:bg-white transition-colors"
-                  title="Live Demo">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <a href="https://github.com/vicky-tec/MAVI-Local-AI-AGENT" target="_blank" rel="noopener noreferrer"
-                  class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-black cursor-allowed opacity-70">
-                  <i class="fab fa-github"></i>
-                </a>
+              <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <h3 class="text-xl font-bold text-white mb-2">MAVI.ai</h3>
+
+                  <p class="text-gray-400 text-sm mb-4">
+                    MAVI is a local, hybrid AI agent powered by on-device LLMs,
+                    RAG, vision tools, and automation for secure, intelligent
+                    workflows.
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Local LLMs</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">RAG</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Automation</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Vision + OCR</span>
+                  <span class="skill-tag px-3 py-1 text-xs rounded-full">Llama 3.2 · Gemini</span>
+                </div>
               </div>
             </div>
 
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-2">MAVI.ai</h3>
-
-              <p class="text-gray-400 text-sm mb-4">
-                MAVI is a local, hybrid AI agent powered by on-device LLMs,
-                RAG, vision tools, and automation for secure, intelligent
-                workflows.
-              </p>
-
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Python</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Local LLMs</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">RAG</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Automation</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Vision + OCR</span>
-                <span class="skill-tag px-3 py-1 text-xs rounded-full">Llama 3.2 · Gemini</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -3337,7 +3423,7 @@
     </section>
 
     <!-- ===== WRITING & INSIGHTS SECTION ===== -->
-    <section id="writing" class="py-24 relative overflow-hidden" aria-label="Writing and Technical Insights">
+    <section id="writing" class="py-20 relative overflow-hidden" aria-label="Writing and Technical Insights">
       <!-- Ambient background glow -->
       <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[140px]"></div>
@@ -3346,206 +3432,146 @@
 
       <div class="container mx-auto px-6 relative z-10">
         <!-- Section Header -->
-        <header class="text-center mb-16 reveal-text">
-          <p class="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-3">Thinking &amp; Notes</p>
-          <h2 class="text-4xl md:text-5xl font-bold">
+        <header class="text-center mb-12 reveal-text">
+          <p class="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-2">Thinking &amp; Notes</p>
+          <h2 class="text-3xl md:text-5xl font-bold">
             <span class="text-accent">06.</span> Writing &amp; Insights
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base mt-4">
-            Things I've learned, built, and thought about &mdash; documenting my evolving journey through data
-            analytics, machine learning algorithms, and intelligent systems.
+          <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base mt-3">
+            Real lessons from building machine learning algorithms and navigating early enterprise corporate workflows.
           </p>
         </header>
 
-        <div class="max-w-5xl mx-auto space-y-10">
-
-          <!-- FEATURED ARTICLE CARD -->
-          <article
-            class="glass-card rounded-3xl p-8 md:p-10 border border-accent/30 relative overflow-hidden spotlight-card reveal-text group hover:border-accent/60 transition-all">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"
-              aria-hidden="true"></div>
-
-            <!-- Card Header Metadata -->
-            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-white/10">
-              <div class="flex flex-wrap items-center gap-2">
-                <span
-                  class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-accent/15 border border-accent/30 text-accent uppercase tracking-wider">
-                  Featured Article
-                </span>
-                <span class="px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-gray-300">
-                  Machine Learning
-                </span>
-                <span class="px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-gray-300">
-                  Data Analytics
-                </span>
-              </div>
-              <div class="flex items-center gap-3 text-xs font-mono text-gray-400">
-                <span><i class="far fa-calendar-alt text-accent/70 mr-1.5"></i>Oct 02, 2026</span>
-                <span>&bull;</span>
-                <span><i class="far fa-clock text-accent/70 mr-1.5"></i>8 min read</span>
-              </div>
-            </div>
-
-            <!-- Article Title & Hook -->
-            <div class="space-y-4 mb-6">
-              <h3
-                class="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight group-hover:text-accent transition-colors">
-                From Data Analytics to Machine Learning: My Learning Journey
-              </h3>
-
-              <!-- Hook Quote -->
-              <blockquote
-                class="p-4 rounded-xl bg-white/[0.03] border-l-4 border-accent text-gray-200 italic text-base md:text-lg">
-                &ldquo;I didn't start with a perfect roadmap. I started with one question: <span
-                  class="text-accent font-semibold not-italic">'How does a machine actually learn?'</span>&rdquo;
-              </blockquote>
-
-              <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                A personal account of transitioning from analytics fundamentals into core machine learning. Navigating
-                the learning curves, discovering essential resources, overcoming consistency plateaus, and moving toward
-                deep learning and LLM applications.
-              </p>
-            </div>
-
-            <!-- Journey Path Strip -->
-            <div class="mb-8 p-4 rounded-2xl bg-black/40 border border-white/5">
-              <p class="text-[11px] font-mono uppercase tracking-widest text-accent mb-3 font-semibold">
-                <i class="fas fa-route mr-1.5"></i>Learning Arc &amp; Milestones
-              </p>
-              <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-gray-300">
-                <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10">1. Data Analytics</span>
-                <span class="text-accent">&rarr;</span>
-                <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10">2. Math &amp; EDA</span>
-                <span class="text-accent">&rarr;</span>
-                <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10">3. Classical ML</span>
-                <span class="text-accent">&rarr;</span>
-                <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10">4. Deep Learning</span>
-                <span class="text-accent">&rarr;</span>
-                <span class="px-3 py-1 rounded-lg bg-accent/15 border border-accent/30 text-accent font-bold">5. LLMs
-                  &amp; LangChain</span>
-              </div>
-            </div>
-
-            <!-- Key Lessons Grid -->
-            <div class="mb-8">
-              <h4 class="text-xs font-mono uppercase tracking-widest text-gray-400 mb-4 font-semibold">
-                <i class="fas fa-lightbulb text-yellow-400 mr-1.5"></i>Key Takeaways from the Journey
-              </h4>
-              <div class="grid sm:grid-cols-2 gap-3 text-xs md:text-sm text-gray-300">
-                <div class="p-3.5 rounded-xl bg-white/5 border border-white/5 flex items-start gap-2.5">
-                  <span class="text-accent font-mono font-bold">01</span>
-                  <span><strong>Start before perfection:</strong> Roadmaps are guides, but building reveals what you
-                    really need to learn.</span>
-                </div>
-                <div class="p-3.5 rounded-xl bg-white/5 border border-white/5 flex items-start gap-2.5">
-                  <span class="text-accent font-mono font-bold">02</span>
-                  <span><strong>Math builds intuition:</strong> Understanding linear algebra and calculus makes
-                    algorithms demystified.</span>
-                </div>
-                <div class="p-3.5 rounded-xl bg-white/5 border border-white/5 flex items-start gap-2.5">
-                  <span class="text-accent font-mono font-bold">03</span>
-                  <span><strong>Consistency over speed:</strong> Steady iteration over 150+ days matters more than quick
-                    sprints.</span>
-                </div>
-                <div class="p-3.5 rounded-xl bg-white/5 border border-white/5 flex items-start gap-2.5">
-                  <span class="text-accent font-mono font-bold">04</span>
-                  <span><strong>Projects bridge the gap:</strong> Hands-on debugging exposes blind spots that video
-                    tutorials hide.</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom CTA and Reference Strip -->
-            <div
-              class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div class="flex flex-wrap items-center gap-2 text-xs text-gray-400">
-                <span class="font-mono text-gray-500">Resources:</span>
-                <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300">CampusX</span>
-                <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300">Hands-On ML</span>
-                <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300">Ryan &amp; Matt</span>
-              </div>
-
-              <a href="https://www.linkedin.com/pulse/from-data-analytics-machine-learning-my-journey-vicky-raj-cngpf?trk=public_post_feed-article-content"
-                target="_blank" rel="noopener noreferrer"
-                class="inline-flex items-center gap-2.5 px-6 py-3 bg-accent text-black rounded-full font-bold text-sm hover:shadow-[0_0_20px_rgba(27,196,248,0.5)] transition-all transform hover:-translate-y-0.5">
-                <span>Read Full Article on LinkedIn</span>
-                <i class="fas fa-external-link-alt text-xs"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- UPCOMING NOTES GRID -->
-          <div class="grid md:grid-cols-3 gap-6">
-
-            <!-- Card 1: MAVI.ai Architecture -->
-            <div
-              class="glass-card rounded-2xl p-6 border border-white/5 hover:border-accent/30 transition-all reveal-text flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-3 text-xs font-mono text-gray-400">
-                  <span class="text-accent">AI &middot; Systems</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 text-[10px]">Coming Soon</span>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-2">
-                  Building MAVI.ai: Local Hybrid Agents with Ollama &amp; RAG
-                </h4>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                  Architectural breakdown of combining local open-source LLMs, vector search, vision OCR, and autonomous
-                  task execution.
-                </p>
-              </div>
-              <div class="text-xs font-mono text-accent/80 flex items-center gap-1">
-                <span>Project Breakdown</span>
-                <i class="fas fa-arrow-right text-[10px]"></i>
-              </div>
-            </div>
-
-            <!-- Card 2: Power BI Case Study -->
-            <div
-              class="glass-card rounded-2xl p-6 border border-white/5 hover:border-cyan-400/30 transition-all reveal-text flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-3 text-xs font-mono text-gray-400">
-                  <span class="text-cyan-400">Data &middot; Analytics</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 text-[10px]">Coming Soon</span>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-2">
-                  From Raw Messy Datasets to Executive Power BI Dashboards
-                </h4>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                  A practical guide to data cleaning in Python/SQL, Star Schema modeling, and designing DAX metrics that
-                  decision-makers understand.
-                </p>
-              </div>
-              <div class="text-xs font-mono text-cyan-400/80 flex items-center gap-1">
-                <span>Technical Guide</span>
-                <i class="fas fa-arrow-right text-[10px]"></i>
-              </div>
-            </div>
-
-            <!-- Card 3: Internship Learnings -->
-            <div
-              class="glass-card rounded-2xl p-6 border border-white/5 hover:border-purple-400/30 transition-all reveal-text flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-3 text-xs font-mono text-gray-400">
-                  <span class="text-purple-400">Career &middot; Growth</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 text-[10px]">Coming Soon</span>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-2">
-                  Lessons from My First Industry Internships: Agile, KPIs &amp; Grit
-                </h4>
-                <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                  What real-world workflows taught me about sprint communication, documentation, stakeholder management,
-                  and iterative shipping.
-                </p>
-              </div>
-              <div class="text-xs font-mono text-purple-400/80 flex items-center gap-1">
-                <span>Career Notes</span>
-                <i class="fas fa-arrow-right text-[10px]"></i>
-              </div>
-            </div>
-
+        <!-- Published Articles Grid (Compact, Horizontal Card Layout) -->
+        <div class="max-w-6xl mx-auto space-y-6 mb-10">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-accent font-semibold flex items-center gap-2">
+              <i class="fab fa-linkedin text-sm"></i> Published Articles
+            </span>
+            <span class="text-xs font-mono text-gray-400">2 Published &bull; Click to read full post</span>
           </div>
 
+          <div class="grid lg:grid-cols-2 gap-6">
+
+            <!-- Published Article 1: Machine Learning Journey -->
+            <article class="glass-card rounded-2xl p-6 border border-accent/25 hover:border-accent/60 transition-all spotlight-card reveal-text flex flex-col justify-between group">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/5 text-xs font-mono">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="px-2.5 py-0.5 rounded-full bg-accent/15 border border-accent/30 text-accent font-semibold text-[11px]">
+                      ML &amp; Data
+                    </span>
+                    <span class="text-gray-400 text-[11px]">Oct 02, 2026</span>
+                  </div>
+                  <span class="text-gray-400 text-[11px]"><i class="far fa-clock text-accent/70 mr-1"></i>8 min read</span>
+                </div>
+
+                <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-accent transition-colors leading-snug mb-3">
+                  From Data Analytics to Machine Learning: My Learning Journey
+                </h3>
+
+                <p class="text-gray-300 text-xs md:text-sm leading-relaxed mb-4">
+                  A personal account of transitioning from analytics fundamentals to core ML algorithms, uncovering linear algebra intuition, consistent 150+ day iteration, and scaling into LLM applications.
+                </p>
+
+                <!-- Milestone pills -->
+                <div class="flex flex-wrap gap-1.5 mb-5" aria-label="Topics">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Math &amp; EDA</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Classical ML</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Deep Learning</span>
+                  <span class="px-2 py-0.5 rounded bg-accent/10 text-accent text-[11px] font-mono font-medium">LLMs &amp; RAG</span>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between gap-3">
+                <span class="text-[11px] font-mono text-gray-400">CampusX &bull; Hands-On ML</span>
+                <a href="https://www.linkedin.com/pulse/from-data-analytics-machine-learning-my-journey-vicky-raj-cngpf?trk=public_post_feed-article-content"
+                  target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-white transition-colors group/btn">
+                  <span>Read Article</span>
+                  <i class="fas fa-external-link-alt text-[10px] transform group-hover/btn:translate-x-0.5 transition-transform"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Published Article 2: Corporate World Lessons (NEW!) -->
+            <article class="glass-card rounded-2xl p-6 border border-purple-500/25 hover:border-purple-500/60 transition-all spotlight-card reveal-text flex flex-col justify-between group">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/5 text-xs font-mono">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="px-2.5 py-0.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 font-semibold text-[11px]">
+                      Career &amp; Growth
+                    </span>
+                    <span class="text-gray-400 text-[11px]">Nov 2026</span>
+                  </div>
+                  <span class="text-gray-400 text-[11px]"><i class="far fa-clock text-purple-400 mr-1"></i>6 min read</span>
+                </div>
+
+                <h3 class="text-lg md:text-xl font-bold text-white group-hover:text-purple-300 transition-colors leading-snug mb-3">
+                  My First 10 Months in the Corporate World: Lessons I Didn't Learn in College
+                </h3>
+
+                <p class="text-gray-300 text-xs md:text-sm leading-relaxed mb-4">
+                  Honest reflections on the bridge between campus coursework and enterprise delivery: taking full ownership beyond assigned tickets, proactive cross-team communication, navigating ambiguity, and developing sprint resilience.
+                </p>
+
+                <!-- Milestone pills -->
+                <div class="flex flex-wrap gap-1.5 mb-5" aria-label="Key Lessons">
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Ownership &gt; Tasks</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Cross-Team Alignment</span>
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Proactive Comm</span>
+                  <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-[11px] font-mono font-medium">Sprint Resilience</span>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between gap-3">
+                <span class="text-[11px] font-mono text-gray-400">Industry Experience</span>
+                <a href="https://www.linkedin.com/pulse/my-first-10-months-corporate-world-lessons-i-didnt-learn-vicky-raj-4jopf/"
+                  target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-300 hover:text-white transition-colors group/btn">
+                  <span>Read Article</span>
+                  <i class="fas fa-external-link-alt text-[10px] transform group-hover/btn:translate-x-0.5 transition-transform"></i>
+                </a>
+              </div>
+            </article>
+
+          </div>
         </div>
+
+        <!-- Compact Upcoming Engineering Notes -->
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-gray-400 font-semibold flex items-center gap-2">
+              <i class="fas fa-terminal text-xs text-accent"></i> Upcoming Engineering Notes
+            </span>
+            <span class="text-[11px] font-mono text-gray-500">In Progress</span>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <!-- Note 1: MAVI.ai Architecture -->
+            <div class="glass-card rounded-xl p-4 border border-white/5 hover:border-accent/30 transition-all flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center text-sm shrink-0 mt-0.5">
+                <i class="fas fa-microchip"></i>
+              </div>
+              <div class="min-w-0">
+                <h4 class="text-sm font-bold text-white mb-1 truncate">Building MAVI.ai: Local Hybrid Agents with Ollama &amp; RAG</h4>
+                <p class="text-gray-400 text-xs line-clamp-2">Combining on-device open LLMs, ChromaDB vector indexing, and automated desktop execution.</p>
+              </div>
+            </div>
+
+            <!-- Note 2: Power BI Star Schema -->
+            <div class="glass-card rounded-xl p-4 border border-white/5 hover:border-cyan-400/30 transition-all flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-cyan-400/10 text-cyan-400 flex items-center justify-center text-sm shrink-0 mt-0.5">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <div class="min-w-0">
+                <h4 class="text-sm font-bold text-white mb-1 truncate">From Messy Datasets to Executive Power BI Dashboards</h4>
+                <p class="text-gray-400 text-xs line-clamp-2">Practical guide on data cleaning in Python/SQL, Star Schema modeling, and high-impact DAX metrics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -4792,6 +4818,48 @@
           carouselContainer.addEventListener("mouseleave", startAutoSlide);
         }
       }
+
+      // =========================================================
+      // === PROJECTS HORIZONTAL CAROUSEL – Controls & Scrolling
+      // =========================================================
+      (function initProjectsCarousel() {
+        const track = document.getElementById('projects-carousel-track');
+        if (!track) return;
+
+        const prevBtns = [
+          document.getElementById('projects-prev-btn'),
+          document.getElementById('proj-float-prev')
+        ].filter(Boolean);
+
+        const nextBtns = [
+          document.getElementById('projects-next-btn'),
+          document.getElementById('proj-float-next')
+        ].filter(Boolean);
+
+        function getScrollStep() {
+          const firstCard = track.querySelector('.glass-card');
+          if (firstCard) {
+            return firstCard.offsetWidth + 24; // card width + gap
+          }
+          return 360;
+        }
+
+        prevBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            track.scrollBy({ left: -getScrollStep(), behavior: prefersReduced ? 'auto' : 'smooth' });
+          });
+        });
+
+        nextBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            track.scrollBy({ left: getScrollStep(), behavior: prefersReduced ? 'auto' : 'smooth' });
+          });
+        });
+      })();
 
       // =========================================================
       // === DYNAMIC ISLAND FLOATING NAV – Logic
